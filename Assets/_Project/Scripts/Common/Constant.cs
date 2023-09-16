@@ -18,6 +18,7 @@ public class Constant
     // Scene
     public const string LOADING_SCENE = "LoadingScene";
     public const string GAMEPLAY_SCENE = "GamePlayScene";
+    public const string HOME_SCENE = "HomeScene";
 
     // Playfab
     public const string PLAYFAB_LOGIN_ID = "PLAYFAB_LOGIN_ID";

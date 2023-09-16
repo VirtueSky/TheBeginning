@@ -1,19 +1,20 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using VirtueSky.Core;
 
-public class LoadingController : MonoBehaviour
+public class LoadingManager : BaseMono
 {
     [Header("Components")] public Image progressBar;
     public TextMeshProUGUI loadingText;
 
     [FormerlySerializedAs("TimeLoading")] [Header("Attributes")] [Range(0.1f, 10f)]
     public float timeLoading = 5f;
+
     private bool _flagDoneProgress;
     private AsyncOperation _operation;
     private bool firebaseIsInitialized = false;
@@ -24,7 +25,9 @@ public class LoadingController : MonoBehaviour
         _operation.allowSceneActivation = false;
 
         progressBar.fillAmount = 0;
-        progressBar.DOFillAmount(5, timeLoading).OnUpdate(() => loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%").OnComplete(() => _flagDoneProgress = true);
+        progressBar.DOFillAmount(5, timeLoading)
+            .OnUpdate(() => loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%")
+            .OnComplete(() => _flagDoneProgress = true);
         WaitProcess();
     }
 

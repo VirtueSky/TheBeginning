@@ -28,12 +28,12 @@ public class UIPopup : MonoBehaviour
             {
                 case ShowAnimationType.OutBack:
                     DOTween.Sequence().OnStart(() => Container.transform.localScale = Vector3.one * .9f)
-                        .Append(Container.transform.DOScale(Vector3.one, ConfigController.Game.DurationPopup)
+                        .Append(Container.transform.DOScale(Vector3.one, Config.Game.DurationPopup)
                             .SetEase(Ease.OutBack).OnComplete(() => { OnAfterShow(); }));
                     break;
                 case ShowAnimationType.Flip:
                     DOTween.Sequence().OnStart(() => Container.transform.localEulerAngles = new Vector3(0, 180, 0))
-                        .Append(Container.transform.DORotate(Vector3.zero, ConfigController.Game.DurationPopup))
+                        .Append(Container.transform.DORotate(Vector3.zero, Config.Game.DurationPopup))
                         .SetEase(Ease.Linear).OnComplete(() => { OnAfterShow(); });
                     break;
             }
@@ -53,7 +53,7 @@ public class UIPopup : MonoBehaviour
             {
                 case HideAnimationType.InBack:
                     DOTween.Sequence().Append(Container.transform
-                        .DOScale(Vector3.one * .7f, ConfigController.Game.DurationPopup).SetEase(Ease.InBack)
+                        .DOScale(Vector3.one * .7f, Config.Game.DurationPopup).SetEase(Ease.InBack)
                         .OnComplete(() =>
                         {
                             gameObject.SetActive(false);
@@ -61,7 +61,7 @@ public class UIPopup : MonoBehaviour
                         }));
                     break;
                 case HideAnimationType.Fade:
-                    canvasGroup.DOFade(0, ConfigController.Game.DurationPopup).OnComplete(() =>
+                    canvasGroup.DOFade(0, Config.Game.DurationPopup).OnComplete(() =>
                     {
                         canvasGroup.alpha = 1;
                         gameObject.SetActive(false);

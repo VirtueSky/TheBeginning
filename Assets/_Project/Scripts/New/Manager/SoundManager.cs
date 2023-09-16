@@ -1,30 +1,24 @@
 using System;
 using UnityEngine;
+using VirtueSky.Core;
 
-public class SoundController : MonoBehaviour
+public class SoundManager : BaseMono
 {
     public AudioSource backgroundAudio;
     public AudioSource fxAudio;
-    public SoundConfig SoundConfig => ConfigController.Sound;
+    public SoundConfig SoundConfig => Config.Sound;
 
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void Start()
+    public override void Initialize()
     {
+        base.Initialize();
         Setup();
-
         Observer.MusicChanged += OnMusicChanged;
         Observer.SoundChanged += OnSoundChanged;
-
-        // Observer.WinLevel += WinLevel;
-        // Observer.LoseLevel += LoseLevel;
-        // Observer.StartLevel += StartLevel;
-        // Observer.ClickButton += ClickButton;
-        // Observer.CoinMove += CoinMove;
-        // Observer.PurchaseSucceed += PurchaseSucceed;
     }
 
     private void OnMusicChanged()

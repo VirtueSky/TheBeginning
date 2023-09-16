@@ -40,8 +40,8 @@ public class DailyRewardItem : MonoBehaviour
     {
         // Setup data
         dailyRewardData = Data.IsStartLoopingDailyReward
-            ? ConfigController.DailyRewardConfig.DailyRewardDatasLoop[dayIndex - 1]
-            : ConfigController.DailyRewardConfig.DailyRewardDatas[dayIndex - 1];
+            ? Config.DailyRewardConfig.DailyRewardDatasLoop[dayIndex - 1]
+            : Config.DailyRewardConfig.DailyRewardDatas[dayIndex - 1];
 
         coinValue = dailyRewardData.Value;
         // Setup states

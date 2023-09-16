@@ -46,7 +46,7 @@ public class PopupDebug : UIPopup
 
     public void OnClickUnlockAllSkin()
     {
-        ConfigController.ItemConfig.UnlockAllSkins();
+        Config.ItemConfig.UnlockAllSkins();
         Observer.PurchaseSucceed?.Invoke();
     }
 

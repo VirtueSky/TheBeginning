@@ -1,8 +1,8 @@
-
 using Sirenix.OdinInspector;
 using UnityEngine;
+using VirtueSky.Core;
 
-public class ConfigController : MonoBehaviour
+public class Config : BaseMono
 {
     [SerializeField] private GameConfig gameConfig;
     [SerializeField] private SoundConfig soundConfig;
@@ -26,10 +26,12 @@ public class ConfigController : MonoBehaviour
         ItemConfig = itemConfig;
     }
 
-    public void Initialize()
+    public override void Initialize()
     {
+        base.Initialize();
         ItemConfig.Initialize();
     }
+
 #if UNITY_EDITOR
     [Button]
     private void Load()

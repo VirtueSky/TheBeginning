@@ -14,7 +14,7 @@ public class PopupWin : UIPopup
     public TextMeshProUGUI TextPercentGift;
     private float percent = 0;
     private Sequence sequence;
-    public int MoneyWin => ConfigController.Game.WinLevelMoney;
+    public int MoneyWin => Config.Game.WinLevelMoney;
 
 
     public float Percent
@@ -46,7 +46,7 @@ public class PopupWin : UIPopup
     private void SetupProgressBar()
     {
         ProcessBar.fillAmount = (float)Data.PercentWinGift / 100;
-        Data.PercentWinGift += ConfigController.Game.PercentWinGiftPerLevel;
+        Data.PercentWinGift += Config.Game.PercentWinGiftPerLevel;
         Percent = (float)Data.PercentWinGift;
         if (Data.PercentWinGift == 100)
         {

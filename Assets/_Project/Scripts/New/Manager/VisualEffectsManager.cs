@@ -4,10 +4,11 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using VirtueSky.Core;
 using Random = UnityEngine.Random;
 
 
-public class VisualEffectsController : MonoBehaviour
+public class VisualEffectsManager : BaseMono
 {
     public List<VisualEffectData> visualEffectDatas;
 

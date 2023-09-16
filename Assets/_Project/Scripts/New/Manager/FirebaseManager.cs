@@ -7,20 +7,20 @@ using Firebase.Extensions;
 using Firebase.RemoteConfig;
 using UnityEngine;
 using UnityEngine.Serialization;
+using VirtueSky.Core;
 
-public class FirebaseController : MonoBehaviour
+public class FirebaseManager : BaseMono
 {
     public DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
 
     protected void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        Initialize();
     }
 
     #region FirebaseInitGetRemoteConfig
 
-    public void Initialize()
+    public override void Initialize()
     {
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
@@ -124,8 +124,6 @@ public class FirebaseController : MonoBehaviour
             {
                 Debug.Log("Fetching data did not completed!");
             }
-
-           
         });
     }
 
