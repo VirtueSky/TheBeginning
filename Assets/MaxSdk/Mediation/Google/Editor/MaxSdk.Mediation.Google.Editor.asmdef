@@ -1,0 +1,8 @@
+{
+    "name": "MaxSdk.Mediation.Google.Editor",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

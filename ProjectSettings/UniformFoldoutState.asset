@@ -1,0 +1,48 @@
+{
+    "uniformFoldouts": [
+        {
+            "key": "AUTO_INITIALIZE_FOLDOUT_KEY",
+            "state": true
+        },
+        {
+            "key": "AUTO_AD_LOADING_CONFIG_FOLDOUT_KEY",
+            "state": false
+        },
+        {
+            "key": "ADMOB_MODULE",
+            "state": true
+        },
+        {
+            "key": "MAX_MODULE",
+            "state": true
+        },
+        {
+            "key": "IRONSOURCE_MODULE",
+            "state": false
+        },
+        {
+            "key": "APPLOVIN_MODULE_MEDIATION",
+            "state": true
+        },
+        {
+            "key": "LEVEL_EDITOR_DROP_AREA",
+            "state": true
+        },
+        {
+            "key": "LEVEL_EDITOR_CONFIG",
+            "state": true
+        },
+        {
+            "key": "LEVEL_EDITOR_PICKUP_AREA",
+            "state": true
+        },
+        {
+            "key": "LEVEL_EDITOR_PICKUP_AREA_CHILD__GAMEPLAY",
+            "state": true
+        },
+        {
+            "key": "UIBUTTON_SETTING",
+            "state": true
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "whitelistPaths": [
+        "Assets/_Project/Prefabs/_GamePlay"
+    ],
+    "blacklistPaths": []
+}

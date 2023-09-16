@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 91c204b831b394f9e8639dcc4f11403a
+labels:
+- al_max
+- al_max_export_path-MaxSdk/Mediation/Google/Editor/MaxSdk.Mediation.Google.Editor.asmdef
+- al_max_export_path-MaxSdk\Mediation\Google\Editor\MaxSdk.Mediation.Google.Editor.asmdef
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

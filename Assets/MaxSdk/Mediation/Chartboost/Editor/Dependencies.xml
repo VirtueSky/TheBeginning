@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+    <androidPackages>
+        <androidPackage spec="com.applovin.mediation:chartboost-adapter:9.1.1.1" />
+        <androidPackage spec="com.google.android.gms:play-services-base:16.1.0" />
+    </androidPackages>
+    <iosPods>
+        <iosPod name="AppLovinMediationChartboostAdapter" version="9.1.0.0" />
+    </iosPods>
+</dependencies>
