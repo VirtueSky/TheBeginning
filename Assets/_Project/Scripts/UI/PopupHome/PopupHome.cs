@@ -1,7 +1,7 @@
 using System.Reflection;
 
 
-public class PopupHome : Popup
+public class PopupHome : UIPopup
 {
  
 

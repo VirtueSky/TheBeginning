@@ -3,10 +3,9 @@ using UnityEngine;
 using System;
 using System.Linq;
 using DG.Tweening;
-
 using Sirenix.OdinInspector;
 
-public class PopupDailyReward : Popup
+public class PopupDailyReward : UIPopup
 {
     public GameObject BtnWatchVideo;
     public GameObject BtnClaim;

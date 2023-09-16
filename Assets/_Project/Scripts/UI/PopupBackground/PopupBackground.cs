@@ -1,3 +1,3 @@
-public class PopupBackground : Popup
+public class PopupBackground : UIPopup
 {
 }

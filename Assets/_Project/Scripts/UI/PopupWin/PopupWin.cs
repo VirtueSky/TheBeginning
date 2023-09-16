@@ -1,11 +1,10 @@
 using DG.Tweening;
-
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PopupWin : Popup
+public class PopupWin : UIPopup
 {
     public BonusArrowHandler BonusArrowHandler;
     public GameObject BtnRewardAds;
@@ -25,7 +24,10 @@ public class PopupWin : Popup
         {
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
-            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%"; })).OnComplete((() =>
+            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() =>
+            {
+                TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%";
+            })).OnComplete((() =>
             {
                 if (percent >= 100)
                 {

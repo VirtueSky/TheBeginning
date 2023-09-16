@@ -1,6 +1,6 @@
 using System.Reflection;
 
-public class PopupLose : Popup
+public class PopupLose : UIPopup
 {
     protected override void OnBeforeShow()
     {

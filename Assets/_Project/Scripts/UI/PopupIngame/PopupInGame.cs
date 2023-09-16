@@ -6,7 +6,7 @@ using System.Reflection;
 using TMPro;
 using UnityEngine;
 
-public class PopupInGame : Popup
+public class PopupInGame : UIPopup
 {
     [Header("Components")] public TextMeshProUGUI LevelText;
     public TextMeshProUGUI LevelTypeText;

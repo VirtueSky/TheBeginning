@@ -1,5 +1,5 @@
 
 
-public class PopupIAP : Popup
+public class PopupIAP : UIPopup
 {
 }

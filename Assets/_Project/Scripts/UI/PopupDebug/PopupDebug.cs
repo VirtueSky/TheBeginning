@@ -1,8 +1,7 @@
-
 using TMPro;
 using UnityEngine.UI;
 
-public class PopupDebug : Popup
+public class PopupDebug : UIPopup
 {
     public TMP_InputField SetLevel;
     public TMP_InputField SetCoin;

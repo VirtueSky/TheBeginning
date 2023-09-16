@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PopupUI : Popup
+public class PopupUI : UIPopup
 {
     public void Debugging()
     {
