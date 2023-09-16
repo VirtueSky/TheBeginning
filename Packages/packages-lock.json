@@ -239,13 +239,6 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "com.virtuesky.animancer": {
-      "version": "https://github.com/VirtueSky/animancer-unity.git#1.0.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "3491568c86af544f6d7d1e12b100949a76c8c152"
-    },
     "com.virtuesky.collection-pk": {
       "version": "https://github.com/VirtueSky/collection-pk.git#1.0.1",
       "depth": 0,
