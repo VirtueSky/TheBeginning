@@ -1,7 +1,7 @@
-
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using VirtueSky.Misc;
 
 public class Level : MonoBehaviour
 {
@@ -12,12 +12,12 @@ public class Level : MonoBehaviour
     [Button]
     private void StartLevel()
     {
-        Data.CurrentLevel = Utility.GetNumberInAString(gameObject.name);
+        Data.CurrentLevel = Common.GetNumberInAString(gameObject.name);
 
         EditorApplication.isPlaying = true;
     }
 #endif
-    
+
     private void Start()
     {
         Observer.WinLevel += OnWin;
