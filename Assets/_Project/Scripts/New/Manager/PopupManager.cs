@@ -32,6 +32,7 @@ public class PopupManager : MonoBehaviour
             if (popupPrefab != null)
             {
                 var popupInstance = Instantiate(popupPrefab, parentContainer);
+                HideAll();
                 popupInstance.Show();
                 _container.Add(popupInstance.GetType(), popupInstance);
             }
@@ -44,6 +45,7 @@ public class PopupManager : MonoBehaviour
         {
             if (!popup.isActiveAndEnabled)
             {
+                HideAll();
                 popup.Show();
             }
         }

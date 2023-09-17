@@ -17,13 +17,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //PrepareLevel();
+        PlayCurrentLevel();
         Observer.StartLevel += UpdateScore;
     }
 
     public void PlayCurrentLevel()
     {
         PrepareLevel();
+        popupVariable?.Value.HideAll();
         StartGame();
     }
 
