@@ -27,17 +27,18 @@ public class VisualEffectsManager : BaseMono
         return visualEffectDatas.Find(item => item.visualEffectType == visualEffectType);
     }
 
-    public void SpawnEffect()
+    public void SpawnEffect(SpawnEffectData data)
     {
-        // VisualEffectData visualEffectData = GetVisualEffectDataByType(data.visualEffectType);
-        // if (visualEffectData != null)
-        // {
-        //     GameObject randomEffect = visualEffectData.GetRandomEffect();
-        //     GameObject effect = Instantiate(randomEffect, data.parent, false);
-        //     effect.transform.position = data.position;
-        //     effect.transform.localScale = data.localScale;
-        //     if (data.isDestroyedOnEnd) Destroy(effect, data.timeDestroy);
-        // }
+        VisualEffectData visualEffectData = GetVisualEffectDataByType(data.visualEffectType);
+        if (visualEffectData != null)
+        {
+            GameObject randomEffect = visualEffectData.GetRandomEffect();
+            GameObject effect = pools.Spawn(randomEffect, data.parent, false);
+            effect.transform.position = data.position;
+            effect.transform.localScale = (data.localScale == default) ? Vector3.one : data.localScale;
+
+            if (data.isDestroyedOnEnd) Destroy(effect, data.timeDestroy);
+        }
     }
 
     private bool IsItemExistedByVisualEffectType(VisualEffectType visualEffectType)
