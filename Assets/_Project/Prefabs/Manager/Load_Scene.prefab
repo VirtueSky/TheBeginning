@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5462937994073092637}
   - component: {fileID: 2928229551909750266}
+  - component: {fileID: 7927390080338094779}
   m_Layer: 0
   m_Name: Load_Scene
   m_TagString: Untagged
@@ -51,3 +52,40 @@ MonoBehaviour:
   tick: 0
   lateTick: 0
   fixedTick: 0
+--- !u!114 &7927390080338094779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124390242640168296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c3896ac4944b93ba8d6d836c2614ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: load__scene
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
+  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
+  earlyTick: 0
+  tick: 0
+  lateTick: 0
+  fixedTick: 0
+  bindingListener: 0
+  listEventResponseDatas:
+  - event: {fileID: 11400000, guid: e36010c92447644fab7f16f3fc58d088, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2928229551909750266}
+          m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+          m_MethodName: Load
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

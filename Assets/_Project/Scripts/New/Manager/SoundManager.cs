@@ -91,10 +91,10 @@ public class SoundManager : BaseMono
     //     PlayFX(SoundType.LoseLevel);
     // }
     //
-    // private void ClickButton()
-    // {
-    //     PlayFX(SoundType.ClickButton);
-    // }
+    public void ClickButton()
+    {
+        PlayFX(SoundType.ClickButton);
+    }
     //
     // private void CoinMove()
     // {

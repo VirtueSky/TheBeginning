@@ -17,6 +17,11 @@ public class VisualEffectsManager : BaseMono
         DontDestroyOnLoad(this.gameObject);
     }
 
+    private void Start()
+    {
+        pools.Initialize();
+    }
+
     public VisualEffectData GetVisualEffectDataByType(VisualEffectType visualEffectType)
     {
         return visualEffectDatas.Find(item => item.visualEffectType == visualEffectType);

@@ -8,7 +8,8 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private Transform parentContainer;
     [SerializeField] private CanvasScaler canvasScaler;
     [SerializeField] private Camera cameraUI;
-    [SerializeField] private List<UIPopup> listPopups;
+    [SerializeField] private List<UIPopup> listPopups = new List<UIPopup>();
+    [SerializeField] private PopupVariable popupVariable;
     private readonly Dictionary<Type, UIPopup> _container = new Dictionary<Type, UIPopup>();
 
     private void Awake()
@@ -17,30 +18,33 @@ public class PopupManager : MonoBehaviour
         canvasScaler.matchWidthOrHeight = cameraUI.aspect > .7f ? 1 : 0;
     }
 
+    private void Start()
+    {
+        popupVariable.Value = this;
+    }
+
     public void Show<T>()
     {
-        if (_container.TryGetValue(typeof(T), out UIPopup popup))
+        _container.TryGetValue(typeof(T), out UIPopup popup);
+        if (popup == null)
         {
-            if (popup == null)
+            var popupPrefab = GetPopupPrefab(typeof(T));
+            if (popupPrefab != null)
             {
-                var popupPrefab = GetPopupPrefab(typeof(T));
-                if (popupPrefab != null)
-                {
-                    var popupInstance = Instantiate(popupPrefab, parentContainer);
-                    popupInstance.Show();
-                    _container.Add(popupInstance.GetType(), popupInstance);
-                }
-                else
-                {
-                    Debug.Log("Popup not found in the list to show");
-                }
+                var popupInstance = Instantiate(popupPrefab, parentContainer);
+                popupInstance.Show();
+                _container.Add(popupInstance.GetType(), popupInstance);
             }
             else
             {
-                if (!popup.isActiveAndEnabled)
-                {
-                    popup.Show();
-                }
+                Debug.Log("Popup not found in the list to show");
+            }
+        }
+        else
+        {
+            if (!popup.isActiveAndEnabled)
+            {
+                popup.Show();
             }
         }
     }

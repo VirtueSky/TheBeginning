@@ -138,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3048643525464316042}
   - component: {fileID: 391347337002318094}
+  - component: {fileID: 3920512419355670695}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -183,6 +184,43 @@ MonoBehaviour:
   fixedTick: 0
   backgroundAudio: {fileID: 8546824468311424377}
   fxAudio: {fileID: 8466455734524625443}
+--- !u!114 &3920512419355670695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889738730436452001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f477bc0650f64520ad655afc7aacef99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: sound_manager
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
+  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
+  earlyTick: 0
+  tick: 0
+  lateTick: 0
+  fixedTick: 0
+  bindingListener: 0
+  listEventResponseDatas:
+  - event: {fileID: 11400000, guid: 2176f55e227ed49aeb8e528df4396bd2, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 391347337002318094}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: ClickButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6576115400911339863
 GameObject:
   m_ObjectHideFlags: 0

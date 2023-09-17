@@ -8,10 +8,12 @@ using Firebase.RemoteConfig;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VirtueSky.Core;
+using VirtueSky.Events;
 
 public class FirebaseManager : BaseMono
 {
     public DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
+    public EventNoParam initFirebaseSuccess;
 
     protected void Awake()
     {
@@ -124,6 +126,8 @@ public class FirebaseManager : BaseMono
             {
                 Debug.Log("Fetching data did not completed!");
             }
+
+            initFirebaseSuccess.Raise();
         });
     }
 

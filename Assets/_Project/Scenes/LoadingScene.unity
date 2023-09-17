@@ -870,6 +870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1885131756}
   - component: {fileID: 1885131755}
+  - component: {fileID: 1885131757}
   m_Layer: 0
   m_Name: LoadingManager
   m_TagString: Untagged
@@ -890,15 +891,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: loading_controller
-  pools: {fileID: 0}
-  ticker: {fileID: 0}
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
+  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
   earlyTick: 0
   tick: 0
   lateTick: 0
   fixedTick: 0
   progressBar: {fileID: 1926659687}
   loadingText: {fileID: 1603526854}
-  timeLoading: 1
+  timeLoading: 2.5
+  loadSceneEvent: {fileID: 11400000, guid: e36010c92447644fab7f16f3fc58d088, type: 2}
+  listObjSpawn:
+  - {fileID: 2928229551909750266, guid: 617e008bdc3664433aa3a3c539ddd869, type: 3}
+  - {fileID: 8974140294996834593, guid: 48ab25084dbf747049bdc74c0a7fc7b7, type: 3}
+  - {fileID: 4947718590444436639, guid: c9d51eb379d3c4a83ab10db7238ba2aa, type: 3}
+  - {fileID: 391347337002318094, guid: d5374a547a1554b4c8e7575a3429af69, type: 3}
 --- !u!4 &1885131756
 Transform:
   m_ObjectHideFlags: 0
@@ -914,6 +921,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1885131757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885131754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f477bc0650f64520ad655afc7aacef99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: loading_manager
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
+  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
+  earlyTick: 0
+  tick: 0
+  lateTick: 0
+  fixedTick: 0
+  bindingListener: 0
+  listEventResponseDatas:
+  - event: {fileID: 11400000, guid: 6f7f8137294ca4def990313655eede12, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1885131755}
+          m_TargetAssemblyTypeName: LoadingManager, Assembly-CSharp
+          m_MethodName: FirebaseIsInitialized
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1926659685
 GameObject:
   m_ObjectHideFlags: 0

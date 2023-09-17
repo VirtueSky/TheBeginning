@@ -52,3 +52,5 @@ MonoBehaviour:
   lateTick: 0
   fixedTick: 0
   dependencyStatus: 7
+  initFirebaseSuccess: {fileID: 11400000, guid: 6f7f8137294ca4def990313655eede12,
+    type: 2}

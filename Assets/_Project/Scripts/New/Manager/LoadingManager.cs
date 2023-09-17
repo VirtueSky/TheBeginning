@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
@@ -15,26 +17,31 @@ public class LoadingManager : BaseMono
     [FormerlySerializedAs("TimeLoading")] [Header("Attributes")] [Range(0.1f, 10f)]
     public float timeLoading = 5f;
 
+    [SerializeField] private LoadSceneEvent loadSceneEvent;
+    [SerializeField] private List<BaseMono> listObjSpawn = new List<BaseMono>();
     private bool _flagDoneProgress;
-    private AsyncOperation _operation;
     private bool firebaseIsInitialized = false;
 
     void Start()
     {
-        _operation = SceneManager.LoadSceneAsync(Constant.GAMEPLAY_SCENE);
-        _operation.allowSceneActivation = false;
+        foreach (var mono in listObjSpawn)
+        {
+            Instantiate(mono);
+            mono.Initialize();
+        }
 
+        Initialize();
+    }
+
+    public override void Initialize()
+    {
+        base.Initialize();
         progressBar.fillAmount = 0;
         progressBar.DOFillAmount(5, timeLoading)
             .OnUpdate(() => loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%")
             .OnComplete(() => _flagDoneProgress = true);
-        WaitProcess();
-    }
-
-    private async void WaitProcess()
-    {
-        await UniTask.WaitUntil(() => firebaseIsInitialized && _flagDoneProgress);
-        _operation.allowSceneActivation = true;
+        loadSceneEvent.Raise(new LoadSceneData(true, Constant.HOME_SCENE, timeLoading,
+            () => _flagDoneProgress && firebaseIsInitialized));
     }
 
     public void FirebaseIsInitialized()
