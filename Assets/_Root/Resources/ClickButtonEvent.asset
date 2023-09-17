@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719558c56beb4a8d98cf058fadf5455a, type: 3}
-  m_Name: btnClickEvent
+  m_Script: {fileID: 11500000, guid: 34f5aa4023cc40ee952b894df1be543c, type: 3}
+  m_Name: ClickButtonEvent
   m_EditorClassIdentifier: 
-  id: btn_click_event
+  id: 
   pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
   earlyTick: 0

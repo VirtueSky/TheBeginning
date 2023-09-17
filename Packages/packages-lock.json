@@ -134,6 +134,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.device-simulator.devices": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
       "depth": 1,
@@ -247,11 +254,11 @@
       "hash": "6d439506b339905559b6667db9623df31572f53e"
     },
     "com.virtuesky.scriptableobject.architecture": {
-      "version": "https://github.com/VirtueSky/SO.Architecture.git#1.0.0",
+      "version": "https://github.com/VirtueSky/SO.Architecture.git#1.0.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "63cc44f432c91ca6c0c244008a9b0150510f0bad"
+      "hash": "06ad4701f7de09b361d52b9c4b611c9ca58b8012"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
