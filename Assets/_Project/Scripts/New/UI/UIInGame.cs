@@ -1,16 +1,22 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-
 using TMPro;
 using UnityEngine;
+using VirtueSky.Events;
 
-public class PopupInGame : UIPopup
+public class UIInGame : MonoBehaviour
 {
     [Header("Components")] public TextMeshProUGUI LevelText;
     public TextMeshProUGUI LevelTypeText;
-   
+    [SerializeField] private EventNoParam replayEvent;
+    [SerializeField] private EventNoParam backHomeEvent;
+    [SerializeField] private EventNoParam nextLevelEvent;
+    [SerializeField] private EventNoParam backLevelEvent;
+    [SerializeField] private FloatEvent winLevelEvent;
+    [SerializeField] private FloatEvent loseLevelEvent;
 
 
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
@@ -27,17 +33,9 @@ public class PopupInGame : UIPopup
         Observer.LoseLevel -= HideUI;
     }
 
-    protected override void OnBeforeShow()
+    private void OnEnable()
     {
-        base.OnBeforeShow();
-        //if (!Data.IsTesting) eventShowBannerAds.Raise();
         Setup();
-    }
-
-    protected override void OnBeforeHide()
-    {
-        base.OnBeforeHide();
-        //eventHideBannerAds.Raise();
     }
 
     public void Setup()
@@ -50,15 +48,14 @@ public class PopupInGame : UIPopup
     {
         MethodBase function = MethodBase.GetCurrentMethod();
         Observer.TrackClickButton?.Invoke(function.Name);
-
-        GameManager.Instance.ReturnHome();
+        backHomeEvent.Raise();
     }
 
     public void OnClickReplay()
     {
         if (Data.IsTesting)
         {
-            GameManager.Instance.ReplayGame();
+            replayEvent.Raise();
         }
         else
         {
@@ -74,14 +71,14 @@ public class PopupInGame : UIPopup
 
     public void OnClickPrevious()
     {
-        GameManager.Instance.BackLevel();
+        backLevelEvent.Raise();
     }
 
     public void OnClickSkip()
     {
         if (Data.IsTesting)
         {
-            GameManager.Instance.NextLevel();
+            nextLevelEvent.Raise();
         }
         else
         {
@@ -98,23 +95,23 @@ public class PopupInGame : UIPopup
     public void OnClickLevelA()
     {
         Data.UseLevelABTesting = 0;
-        GameManager.Instance.ReplayGame();
+        replayEvent.Raise();
     }
 
     public void OnClickLevelB()
     {
         Data.UseLevelABTesting = 1;
-        GameManager.Instance.ReplayGame();
+        replayEvent.Raise();
     }
 
     public void OnClickLose()
     {
-        GameManager.Instance.OnLoseGame(1f);
+        loseLevelEvent.Raise(1);
     }
 
     public void OnClickWin()
     {
-        GameManager.Instance.OnWinGame(1f);
+        winLevelEvent.Raise(1);
     }
 
     private void HideUI(Level level = null)

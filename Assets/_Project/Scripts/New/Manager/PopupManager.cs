@@ -14,7 +14,7 @@ public class PopupManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Assert(cameraUI != null, "Camera.main != null");
+        Debug.Assert(cameraUI != null, "CameraUI != null");
         canvasScaler.matchWidthOrHeight = cameraUI.aspect > .7f ? 1 : 0;
     }
 

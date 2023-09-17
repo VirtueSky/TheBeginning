@@ -2,22 +2,22 @@ using CodeStage.AdvancedFPSCounter;
 using DG.Tweening;
 using UnityEngine;
 
-public class GameManager : SingletonDontDestroy<GameManager>
+public class GameManager : MonoBehaviour
 {
     public LevelController levelController;
     public GameState gameState;
+    [SerializeField] private LoadSceneEvent loadSceneEvent;
+    [SerializeField] private PopupVariable popupVariable;
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         Application.targetFrameRate = 60;
     }
 
     void Start()
     {
-        ReturnHome();
-
+        //PrepareLevel();
         Observer.StartLevel += UpdateScore;
     }
 
@@ -43,10 +43,7 @@ public class GameManager : SingletonDontDestroy<GameManager>
 
     public void ReturnHome()
     {
-        PrepareLevel();
-        // PopupController.Instance.HideAll();
-        // PopupController.Instance.Show<PopupBackground>();
-        // PopupController.Instance.Show<PopupHome>();
+        loadSceneEvent.Raise(new LoadSceneData(false, Constant.HOME_SCENE, .1f, null));
     }
 
     public void ReplayGame()
@@ -82,30 +79,24 @@ public class GameManager : SingletonDontDestroy<GameManager>
 
     public void OnWinGame(float delayPopupShowTime = 2.5f)
     {
-        if (gameState == GameState.WaitingResult || gameState == GameState.LoseGame || gameState == GameState.WinGame) return;
+        if (gameState == GameState.WaitingResult || gameState == GameState.LoseGame ||
+            gameState == GameState.WinGame) return;
         gameState = GameState.WinGame;
         Observer.WinLevel?.Invoke(levelController.currentLevel);
         Data.CurrentLevel++;
-        DOTween.Sequence().AppendInterval(delayPopupShowTime).AppendCallback(() =>
-        {
-            // PopupController.Instance.HideAll();
-            // PopupWin popupWin = PopupController.Instance.Get<PopupWin>() as PopupWin;
-            // popupWin.SetupMoneyWin(levelController.currentLevel.BonusMoney);
-            // popupWin.Show();
-        });
+        DOTween.Sequence().AppendInterval(delayPopupShowTime)
+            .AppendCallback(() => { popupVariable?.Value.Show<PopupWin>(); });
     }
 
     public void OnLoseGame(float delayPopupShowTime = 2.5f)
     {
-        if (gameState == GameState.WaitingResult || gameState == GameState.LoseGame || gameState == GameState.WinGame) return;
+        if (gameState == GameState.WaitingResult || gameState == GameState.LoseGame ||
+            gameState == GameState.WinGame) return;
         gameState = GameState.LoseGame;
         Observer.LoseLevel?.Invoke(levelController.currentLevel);
 
-        DOTween.Sequence().AppendInterval(delayPopupShowTime).AppendCallback(() =>
-        {
-            // PopupController.Instance.Hide<PopupInGame>();
-            // PopupController.Instance.Show<PopupLose>();
-        });
+        DOTween.Sequence().AppendInterval(delayPopupShowTime)
+            .AppendCallback(() => { popupVariable?.Value.Show<PopupLose>(); });
     }
 
     public void ChangeAFpsState()

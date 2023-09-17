@@ -1,5 +1,7 @@
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
+using VirtueSky.Events;
 
 public class PopupDebug : UIPopup
 {
@@ -7,6 +9,8 @@ public class PopupDebug : UIPopup
     public TMP_InputField SetCoin;
     public Toggle ToggleTesting;
     public Toggle ToggleIsOffInterAds;
+    [SerializeField] private EventNoParam changeFpsEvent;
+    [SerializeField] private EventNoParam prepareLevelEvent;
 
     protected override void OnBeforeShow()
     {
@@ -20,8 +24,7 @@ public class PopupDebug : UIPopup
         if (SetLevel.text != null && SetLevel.text != "")
         {
             Data.CurrentLevel = int.Parse(SetLevel.text);
-            GameManager.Instance.PrepareLevel();
-            GameManager.Instance.StartGame();
+            prepareLevelEvent.Raise();
         }
 
         if (SetCoin.text != null && SetCoin.text != "")
@@ -31,7 +34,7 @@ public class PopupDebug : UIPopup
 
         SetCoin.text = string.Empty;
         SetLevel.text = string.Empty;
-        gameObject.SetActive(false);
+        Hide();
     }
 
     public void ChangeTestingState()
@@ -41,7 +44,7 @@ public class PopupDebug : UIPopup
 
     public void OnClickFPSBtn()
     {
-        GameManager.Instance.ChangeAFpsState();
+        changeFpsEvent.Raise();
     }
 
     public void OnClickUnlockAllSkin()

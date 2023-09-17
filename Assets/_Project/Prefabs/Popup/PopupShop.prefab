@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3148620018233505073}
-  - component: {fileID: 8675668869206180065}
+  - component: {fileID: 2566253350877171921}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -173,7 +173,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8675668869206180065
+--- !u!114 &2566253350877171921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7064240004806998928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97afc556caea1c44969477eb7ddec74, type: 3}
+  m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ConformX: 1
@@ -293,41 +293,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e68ffdfbf9a6ad4383b39fac3fc0c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closePopupEvent: {fileID: 11400000, guid: 2a9f86402a6ce554589c3ce94e95a72f, type: 2}
-  canvas: {fileID: 1788165637488831168}
   canvasGroup: {fileID: -7875144206898530341}
-  background: {fileID: 2889927691598436472}
-  container: {fileID: 3148620018233505073}
-  closeByClickContainer: 0
-  closeByClickBackground: 0
-  closeByBackButton: 0
-  closeButtons: []
-  motionShowData:
-    motion: 0
-    duration: 0.3
-    scale: {x: 1, y: 1}
-    fromPosition: {x: 0, y: 0}
-    toPosition: {x: 0, y: 0}
-    ease: 27
-  motionCloseData:
-    motion: 0
-    duration: 0.3
-    scale: {x: 0, y: 0}
-    fromPosition: {x: 0, y: 0}
-    toPosition: {x: 0, y: 0}
-    ease: 0
-  onBeforeShow:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfterShow:
-    m_PersistentCalls:
-      m_Calls: []
-  onBeforeClose:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfterClose:
-    m_PersistentCalls:
-      m_Calls: []
+  canvas: {fileID: 1788165637488831168}
+  UseAnimation: 0
+  Background: {fileID: 0}
+  Container: {fileID: 0}
+  UseShowAnimation: 0
+  ShowAnimationType: 0
+  UseHideAnimation: 0
+  HideAnimationType: 0
 --- !u!1 &7536292437439048616
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +313,7 @@ GameObject:
   - component: {fileID: 7843751566554092689}
   - component: {fileID: 4378084168400200001}
   - component: {fileID: 6840975007889894293}
-  - component: {fileID: 9097706628565693054}
+  - component: {fileID: 8690576714093984672}
   m_Layer: 5
   m_Name: ExitBtn
   m_TagString: Untagged
@@ -404,7 +378,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9097706628565693054
+--- !u!114 &8690576714093984672
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -413,7 +387,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7536292437439048616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -449,7 +423,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2915254623132364138}
-        m_TargetAssemblyTypeName: Popup, Assembly-CSharp
+        m_TargetAssemblyTypeName: UIPopup, Assembly-CSharp
         m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
@@ -460,42 +434,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 0
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 0.92, y: 0.92}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &8722397669771440195
 GameObject:
   m_ObjectHideFlags: 0

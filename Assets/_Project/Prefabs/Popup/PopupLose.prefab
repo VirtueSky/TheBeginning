@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 6275807326665964467}
   - component: {fileID: 3739629409740625190}
   - component: {fileID: 7607586365036201884}
-  - component: {fileID: 5705614843647128392}
+  - component: {fileID: 2936590280428015978}
   m_Layer: 5
   m_Name: BtnReplay
   m_TagString: Untagged
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5705614843647128392
+--- !u!114 &2936590280428015978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1089173547608043174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -268,42 +268,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &2112546984656705563
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1468105648884148360}
-  - component: {fileID: 4910773079706538536}
+  - component: {fileID: 6670303860923055996}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -477,7 +445,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4910773079706538536
+--- !u!114 &6670303860923055996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -486,7 +454,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5363128110904485602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97afc556caea1c44969477eb7ddec74, type: 3}
+  m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ConformX: 1
@@ -672,38 +640,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b763ab43569044990e8c9f94ebf929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closePopupEvent: {fileID: 11400000, guid: 2a9f86402a6ce554589c3ce94e95a72f, type: 2}
-  canvas: {fileID: 1788165637488831168}
   canvasGroup: {fileID: -7875144206898530341}
-  background: {fileID: 3170660929758679617}
-  container: {fileID: 1468105648884148360}
-  closeByClickContainer: 0
-  closeByClickBackground: 0
-  closeByBackButton: 0
-  closeButtons: []
-  motionShowData:
-    motion: 0
-    duration: 0.3
-    scale: {x: 1, y: 1}
-    fromPosition: {x: 0, y: 0}
-    toPosition: {x: 0, y: 0}
-    ease: 27
-  motionCloseData:
-    motion: 0
-    duration: 0.3
-    scale: {x: 0, y: 0}
-    fromPosition: {x: 0, y: 0}
-    toPosition: {x: 0, y: 0}
-    ease: 0
-  onBeforeShow:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfterShow:
-    m_PersistentCalls:
-      m_Calls: []
-  onBeforeClose:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfterClose:
-    m_PersistentCalls:
-      m_Calls: []
+  canvas: {fileID: 1788165637488831168}
+  UseAnimation: 0
+  Background: {fileID: 0}
+  Container: {fileID: 0}
+  UseShowAnimation: 0
+  ShowAnimationType: 0
+  UseHideAnimation: 0
+  HideAnimationType: 0
+  replayGameEvent: {fileID: 11400000, guid: a495da2db51e743dbb01ee4724bca09f, type: 2}

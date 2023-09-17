@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 5904753474609162163}
   - component: {fileID: 7411982131516459011}
   - component: {fileID: 484905023820971656}
-  - component: {fileID: 2113089077794801520}
+  - component: {fileID: 3656198902379422524}
   m_Layer: 5
   m_Name: WatchAds
   m_TagString: Untagged
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2113089077794801520
+--- !u!114 &3656198902379422524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 684091610695217680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -608,42 +608,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &872215847354943931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,7 +2744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8721002957770195226}
   - component: {fileID: 5100265953517264245}
-  - component: {fileID: 3328999356325790194}
+  - component: {fileID: 6955833318171200673}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -2818,7 +2786,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4226929061295375689}
   m_CullTransparentMesh: 1
---- !u!114 &3328999356325790194
+--- !u!114 &6955833318171200673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2827,7 +2795,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4226929061295375689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97afc556caea1c44969477eb7ddec74, type: 3}
+  m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ConformX: 1
@@ -3840,49 +3808,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed33b59dd1fdb454bb6a4bbac266b163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closePopupEvent: {fileID: 11400000, guid: 2a9f86402a6ce554589c3ce94e95a72f, type: 2}
-  canvas: {fileID: 1788165637488831168}
   canvasGroup: {fileID: -7875144206898530341}
-  background: {fileID: 4774305344694220605}
-  container: {fileID: 8721002957770195226}
-  closeByClickContainer: 0
-  closeByClickBackground: 0
-  closeByBackButton: 0
-  closeButtons: []
-  motionShowData:
-    motion: 0
-    duration: 0.3
-    scale: {x: 1, y: 1}
-    fromPosition: {x: 0, y: 0}
-    toPosition: {x: 0, y: 0}
-    ease: 27
-  motionCloseData:
-    motion: 0
-    duration: 0.3
-    scale: {x: 0, y: 0}
-    fromPosition: {x: 0, y: 0}
-    toPosition: {x: 0, y: 0}
-    ease: 0
-  onBeforeShow:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfterShow:
-    m_PersistentCalls:
-      m_Calls: []
-  onBeforeClose:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfterClose:
-    m_PersistentCalls:
-      m_Calls: []
+  canvas: {fileID: 1788165637488831168}
+  UseAnimation: 0
+  Background: {fileID: 0}
+  Container: {fileID: 0}
+  UseShowAnimation: 0
+  ShowAnimationType: 0
+  UseHideAnimation: 0
+  HideAnimationType: 0
   BonusArrowHandler: {fileID: 4182017765428493193}
   BtnRewardAds: {fileID: 684091610695217680}
   BtnTapToContinue: {fileID: 9196906812386607124}
   TotalMoney: 0
   ProcessBar: {fileID: 4221467736387531753}
   TextPercentGift: {fileID: 4518080855719057209}
-  rewardVariable: {fileID: 11400000, guid: 1b4f80acd35cc4c4088f544f29ddcd5d, type: 2}
-  eventShowRewardAd: {fileID: 11400000, guid: 110bd6016d6db46b8922ddd4392ea5a9, type: 2}
+  playCurrentLevelEvent: {fileID: 11400000, guid: 5a5db695b2b6948928e344ee35b16e50,
+    type: 2}
 --- !u!1 &7418177931432179246
 GameObject:
   m_ObjectHideFlags: 0
@@ -4180,7 +4122,7 @@ GameObject:
   - component: {fileID: 1050422456352430429}
   - component: {fileID: 7997092612348833975}
   - component: {fileID: 3451255413487190160}
-  - component: {fileID: 5927054458216624543}
+  - component: {fileID: 7126456528369066239}
   m_Layer: 5
   m_Name: ContinueBtn
   m_TagString: Untagged
@@ -4246,7 +4188,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5927054458216624543
+--- !u!114 &7126456528369066239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4255,7 +4197,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9196906812386607124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -4302,42 +4244,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &9211212431835267844
 GameObject:
   m_ObjectHideFlags: 0

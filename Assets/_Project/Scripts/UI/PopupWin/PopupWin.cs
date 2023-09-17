@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VirtueSky.Events;
 
 public class PopupWin : UIPopup
 {
@@ -12,6 +13,7 @@ public class PopupWin : UIPopup
     [ReadOnly] public int TotalMoney;
     public Image ProcessBar;
     public TextMeshProUGUI TextPercentGift;
+    [SerializeField] private EventNoParam playCurrentLevelEvent;
     private float percent = 0;
     private Sequence sequence;
     public int MoneyWin => Config.Game.WinLevelMoney;
@@ -112,7 +114,7 @@ public class PopupWin : UIPopup
         BtnTapToContinue.SetActive(false);
         sequence?.Kill();
 
-        DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { GameManager.Instance.PlayCurrentLevel(); });
+        DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { playCurrentLevelEvent.Raise(); });
     }
 
     public void OnClickContinue()
@@ -121,7 +123,7 @@ public class PopupWin : UIPopup
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
 
-        DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { GameManager.Instance.PlayCurrentLevel(); });
+        DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { playCurrentLevelEvent.Raise(); });
     }
 
     private void ReceiveGift()

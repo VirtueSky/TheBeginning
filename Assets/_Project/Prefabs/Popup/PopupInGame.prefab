@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5364855900474096421}
-  - component: {fileID: 2931089905365319772}
+  - component: {fileID: 6271661223627482829}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -46,7 +46,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2931089905365319772
+--- !u!114 &6271661223627482829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 44115311812151522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97afc556caea1c44969477eb7ddec74, type: 3}
+  m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ConformX: 1
@@ -73,8 +73,8 @@ GameObject:
   - component: {fileID: 2110820821374203978}
   - component: {fileID: 8288219723752485141}
   - component: {fileID: 331501569123143340}
-  - component: {fileID: 6645780417153125706}
   - component: {fileID: 8062709920373124958}
+  - component: {fileID: 482767971673568620}
   m_Layer: 5
   m_Name: BtnWin
   m_TagString: Untagged
@@ -162,7 +162,7 @@ MonoBehaviour:
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
---- !u!114 &6645780417153125706
+--- !u!114 &8062709920373124958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +171,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 337785703427156683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsShowByTesting: 1
+  IsShowByLevel: 0
+  IsShowByTime: 0
+  DelayShowTime: 0
+  LevelsShow: 
+  MaxTimeShow: 0
+  ShowID: 
+--- !u!114 &482767971673568620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337785703427156683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -205,74 +224,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8288219723752485141}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7403689956956133583}
-        m_TargetAssemblyTypeName: PopupInGame, Assembly-CSharp
-        m_MethodName: OnClickWin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
       m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
---- !u!114 &8062709920373124958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337785703427156683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsShowByTesting: 1
-  IsShowByLevel: 0
-  IsShowByTime: 0
-  DelayShowTime: 0
-  LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &500080215166614254
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +376,7 @@ GameObject:
   - component: {fileID: 8275243719829209432}
   - component: {fileID: 4995003225708122407}
   - component: {fileID: 4139460289340240365}
-  - component: {fileID: 7376978022758260584}
+  - component: {fileID: 1396267036189863357}
   m_Layer: 5
   m_Name: BtnHome
   m_TagString: Untagged
@@ -507,7 +463,7 @@ MonoBehaviour:
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
---- !u!114 &7376978022758260584
+--- !u!114 &1396267036189863357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -516,7 +472,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 972229794992604582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -550,55 +506,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4995003225708122407}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7403689956956133583}
-        m_TargetAssemblyTypeName: PopupInGame, Assembly-CSharp
-        m_MethodName: OnClickHome
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
       m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &1680069359137271434
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,8 +523,8 @@ GameObject:
   - component: {fileID: 7070084973451059044}
   - component: {fileID: 7405959458051577280}
   - component: {fileID: 3062342282396356421}
-  - component: {fileID: 8319261800468831320}
   - component: {fileID: 3614541057652268415}
+  - component: {fileID: 5882979696365320499}
   m_Layer: 5
   m_Name: BtnLevelB
   m_TagString: Untagged
@@ -700,7 +612,7 @@ MonoBehaviour:
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
---- !u!114 &8319261800468831320
+--- !u!114 &3614541057652268415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -709,7 +621,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1680069359137271434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsShowByTesting: 1
+  IsShowByLevel: 0
+  IsShowByTime: 0
+  DelayShowTime: 0
+  LevelsShow: 
+  MaxTimeShow: 0
+  ShowID: 
+--- !u!114 &5882979696365320499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680069359137271434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -743,74 +674,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7405959458051577280}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7403689956956133583}
-        m_TargetAssemblyTypeName: PopupInGame, Assembly-CSharp
-        m_MethodName: OnClickLevelB
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
       m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
---- !u!114 &3614541057652268415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680069359137271434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsShowByTesting: 1
-  IsShowByLevel: 0
-  IsShowByTime: 0
-  DelayShowTime: 0
-  LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &2646351314242081864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,8 +961,8 @@ GameObject:
   - component: {fileID: 5861430742064186920}
   - component: {fileID: 5907823700991422491}
   - component: {fileID: 5513561723334349175}
-  - component: {fileID: 2143295536133822422}
   - component: {fileID: 8631382620401082301}
+  - component: {fileID: 3682554864368902776}
   m_Layer: 5
   m_Name: BtnLose
   m_TagString: Untagged
@@ -1182,7 +1050,7 @@ MonoBehaviour:
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
---- !u!114 &2143295536133822422
+--- !u!114 &8631382620401082301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1191,7 +1059,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 3592698499990389922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsShowByTesting: 1
+  IsShowByLevel: 0
+  IsShowByTime: 0
+  DelayShowTime: 0
+  LevelsShow: 
+  MaxTimeShow: 0
+  ShowID: 
+--- !u!114 &3682554864368902776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3592698499990389922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1225,74 +1112,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5907823700991422491}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7403689956956133583}
-        m_TargetAssemblyTypeName: PopupInGame, Assembly-CSharp
-        m_MethodName: OnClickLose
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
       m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
---- !u!114 &8631382620401082301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3592698499990389922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsShowByTesting: 1
-  IsShowByLevel: 0
-  IsShowByTime: 0
-  DelayShowTime: 0
-  LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &4429355886652026346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,8 +1129,8 @@ GameObject:
   - component: {fileID: 434853575595296403}
   - component: {fileID: 6411312079665324011}
   - component: {fileID: 7041843638920532719}
-  - component: {fileID: 8580436411738377938}
   - component: {fileID: 2586208684874524798}
+  - component: {fileID: 7029687196579537761}
   m_Layer: 5
   m_Name: BtnSkip
   m_TagString: Untagged
@@ -1394,7 +1218,7 @@ MonoBehaviour:
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
---- !u!114 &8580436411738377938
+--- !u!114 &2586208684874524798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1403,7 +1227,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 4429355886652026346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsShowByTesting: 1
+  IsShowByLevel: 0
+  IsShowByTime: 0
+  DelayShowTime: 0
+  LevelsShow: 
+  MaxTimeShow: 0
+  ShowID: 
+--- !u!114 &7029687196579537761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4429355886652026346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1437,74 +1280,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6411312079665324011}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7403689956956133583}
-        m_TargetAssemblyTypeName: PopupInGame, Assembly-CSharp
-        m_MethodName: OnClickSkip
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
       m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
---- !u!114 &2586208684874524798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4429355886652026346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsShowByTesting: 1
-  IsShowByLevel: 0
-  IsShowByTime: 0
-  DelayShowTime: 0
-  LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &4957344726548281664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,8 +1475,8 @@ GameObject:
   - component: {fileID: 3323573493838346954}
   - component: {fileID: 6396744187648853598}
   - component: {fileID: 9009864860809207450}
-  - component: {fileID: 4712148890218638804}
   - component: {fileID: 8484136883854958465}
+  - component: {fileID: 5134650400679727036}
   m_Layer: 5
   m_Name: BtnLevelA
   m_TagString: Untagged
@@ -1784,7 +1564,7 @@ MonoBehaviour:
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
---- !u!114 &4712148890218638804
+--- !u!114 &8484136883854958465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1793,7 +1573,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 5208550979288179814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsShowByTesting: 1
+  IsShowByLevel: 0
+  IsShowByTime: 0
+  DelayShowTime: 0
+  LevelsShow: 
+  MaxTimeShow: 0
+  ShowID: 
+--- !u!114 &5134650400679727036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5208550979288179814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1827,74 +1626,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6396744187648853598}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7403689956956133583}
-        m_TargetAssemblyTypeName: PopupInGame, Assembly-CSharp
-        m_MethodName: OnClickLevelA
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
       m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
---- !u!114 &8484136883854958465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5208550979288179814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsShowByTesting: 1
-  IsShowByLevel: 0
-  IsShowByTime: 0
-  DelayShowTime: 0
-  LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &6281683904878446207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,47 +2239,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4ad34b92746294397a5c815d61ea88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closePopupEvent: {fileID: 11400000, guid: 2a9f86402a6ce554589c3ce94e95a72f, type: 2}
-  canvas: {fileID: 1788165637488831168}
   canvasGroup: {fileID: -7875144206898530341}
-  background: {fileID: 26941293881852722}
-  container: {fileID: 5364855900474096421}
-  closeByClickContainer: 0
-  closeByClickBackground: 0
-  closeByBackButton: 0
-  closeButtons: []
-  motionShowData:
-    motion: 0
-    duration: 0.3
-    scale: {x: 1, y: 1}
-    fromPosition: {x: 0, y: 0}
-    toPosition: {x: 0, y: 0}
-    ease: 27
-  motionCloseData:
-    motion: 0
-    duration: 0.3
-    scale: {x: 0, y: 0}
-    fromPosition: {x: 0, y: 0}
-    toPosition: {x: 0, y: 0}
-    ease: 0
-  onBeforeShow:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfterShow:
-    m_PersistentCalls:
-      m_Calls: []
-  onBeforeClose:
-    m_PersistentCalls:
-      m_Calls: []
-  onAfterClose:
-    m_PersistentCalls:
-      m_Calls: []
+  canvas: {fileID: 1788165637488831168}
+  UseAnimation: 0
+  Background: {fileID: 0}
+  Container: {fileID: 0}
+  UseShowAnimation: 0
+  ShowAnimationType: 0
+  UseHideAnimation: 0
+  HideAnimationType: 0
   LevelText: {fileID: 3421561290902501057}
   LevelTypeText: {fileID: 4609003189904288388}
-  eventShowBannerAds: {fileID: 11400000, guid: 49a228fad43c4ca438fbf2e39ca79db0, type: 2}
-  eventHideBannerAds: {fileID: 11400000, guid: d72b2e754cb1e704182b6cc33bf98a8a, type: 2}
-  eventShowInterAd: {fileID: 11400000, guid: 42ffbeee81e50423a8270efe05c445b5, type: 2}
-  eventShowRewardAd: {fileID: 11400000, guid: 110bd6016d6db46b8922ddd4392ea5a9, type: 2}
 --- !u!1 &7582038696164621230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,7 +2397,7 @@ GameObject:
   - component: {fileID: 9161932885862187896}
   - component: {fileID: 1735350241572243168}
   - component: {fileID: 5117205151153870509}
-  - component: {fileID: 8826423797174123682}
+  - component: {fileID: 2339675967748671536}
   m_Layer: 5
   m_Name: BtnReplay
   m_TagString: Untagged
@@ -2778,7 +2484,7 @@ MonoBehaviour:
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
---- !u!114 &8826423797174123682
+--- !u!114 &2339675967748671536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2787,7 +2493,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8785879184831882045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -2821,55 +2527,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1735350241572243168}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7403689956956133583}
-        m_TargetAssemblyTypeName: PopupInGame, Assembly-CSharp
-        m_MethodName: OnClickReplay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
       m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}
 --- !u!1 &9054173132683076706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2882,8 +2544,8 @@ GameObject:
   - component: {fileID: 6155008036255519497}
   - component: {fileID: 640313825970560007}
   - component: {fileID: 586999487551448420}
-  - component: {fileID: 4560236152226466752}
   - component: {fileID: 1281462807358273892}
+  - component: {fileID: 1482241063318323086}
   m_Layer: 5
   m_Name: BtnPrevious
   m_TagString: Untagged
@@ -2971,7 +2633,7 @@ MonoBehaviour:
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
---- !u!114 &4560236152226466752
+--- !u!114 &1281462807358273892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2980,7 +2642,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 9054173132683076706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d327287640dac41b4aaade109e3242c0, type: 3}
+  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsShowByTesting: 1
+  IsShowByLevel: 0
+  IsShowByTime: 0
+  DelayShowTime: 0
+  LevelsShow: 
+  MaxTimeShow: 0
+  ShowID: 
+--- !u!114 &1482241063318323086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9054173132683076706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b68f598bc9541c7b9f48bf2b23de502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -3014,71 +2695,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 640313825970560007}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7403689956956133583}
-        m_TargetAssemblyTypeName: PopupInGame, Assembly-CSharp
-        m_MethodName: OnClickPrevious
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  clickType: 0
-  allowMultipleClick: 1
-  timeDisableButton: 0.2
-  doubleClickInterval: 0.2
-  longClickInterval: 0.5
-  delayDetectHold: 0.2
-  onDoubleClick:
-    m_PersistentCalls:
       m_Calls: []
-  onLongClick:
-    m_PersistentCalls:
-      m_Calls: []
-  onPointerUp:
-    m_PersistentCalls:
-      m_Calls: []
-  onHold:
-    m_PersistentCalls:
-      m_Calls: []
-  isMotion: 1
-  ignoreTimeScale: 0
-  isMotionUnableInteract: 0
-  isAffectToSelf: 1
-  affectObject: {fileID: 0}
-  enabledSound: 0
-  audioClick: {fileID: 0}
-  audioPlayEvent: {fileID: 0}
-  motionData:
-    scale: {x: 1.05, y: 1.05}
-    motion: 2
-    duration: 0.1
-    ease: 0
-  motionDataUnableInteract:
-    scale: {x: 1.15, y: 1.15}
-    motion: 3
-    duration: 0.1
-    ease: 0
---- !u!114 &1281462807358273892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9054173132683076706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21b8c6516250a1498f947b71a909a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsShowByTesting: 1
-  IsShowByLevel: 0
-  IsShowByTime: 0
-  DelayShowTime: 0
-  LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
+  ease: 15
+  scale: 0.9
+  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  test: {fileID: 0}

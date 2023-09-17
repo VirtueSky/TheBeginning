@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 771778091}
   - component: {fileID: 771778092}
   - component: {fileID: 771778093}
+  - component: {fileID: 771778094}
   m_Layer: 0
   m_Name: Home_Service
   m_TagString: Untagged
@@ -258,7 +259,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadSceneEvent: {fileID: 11400000, guid: e36010c92447644fab7f16f3fc58d088, type: 2}
-  popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
 --- !u!114 &771778093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +279,19 @@ MonoBehaviour:
   - {fileID: 5900877145956595185, guid: f09001724e3f0b644aada44bd0a99cc2, type: 3}
   - {fileID: 7125858397958467425, guid: b9d19d35a41c9864889d42bde3de9a92, type: 3}
   - {fileID: 2915254623132364138, guid: 813a9cef4af4e4a4c91638583b5577d4, type: 3}
+  popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
+--- !u!114 &771778094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771778090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5e265e2c74b4151858e77b6c92109f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
 --- !u!1 &845301144
 GameObject:
@@ -367,7 +380,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1066,21 +1079,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4140034709510563558}
   m_CullTransparentMesh: 1
---- !u!114 &3748207528272437605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7181232591556637776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97afc556caea1c44969477eb7ddec74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ConformX: 1
-  ConformY: 1
-  Logging: 0
 --- !u!1 &4140034709510563558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,7 +1420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264459450816080432}
-  - component: {fileID: 3748207528272437605}
+  - component: {fileID: 7181232591556637777}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -1430,6 +1428,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7181232591556637777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181232591556637776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConformX: 1
+  ConformY: 1
+  Logging: 0
 --- !u!114 &7246788183723032711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,8 +1772,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771778092}
-        m_TargetAssemblyTypeName: HomeManager, Assembly-CSharp
+      - m_Target: {fileID: 771778094}
+        m_TargetAssemblyTypeName: UIHome, Assembly-CSharp
         m_MethodName: OnClickDebug
         m_Mode: 1
         m_Arguments:
@@ -1855,8 +1868,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771778092}
-        m_TargetAssemblyTypeName: HomeManager, Assembly-CSharp
+      - m_Target: {fileID: 771778094}
+        m_TargetAssemblyTypeName: UIHome, Assembly-CSharp
         m_MethodName: OnClickShop
         m_Mode: 1
         m_Arguments:
@@ -2051,8 +2064,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771778092}
-        m_TargetAssemblyTypeName: HomeManager, Assembly-CSharp
+      - m_Target: {fileID: 771778094}
+        m_TargetAssemblyTypeName: UIHome, Assembly-CSharp
         m_MethodName: OnClickDailyReward
         m_Mode: 1
         m_Arguments:
@@ -2131,8 +2144,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771778092}
-        m_TargetAssemblyTypeName: HomeManager, Assembly-CSharp
+      - m_Target: {fileID: 771778094}
+        m_TargetAssemblyTypeName: UIHome, Assembly-CSharp
         m_MethodName: OnClickSetting
         m_Mode: 1
         m_Arguments:
