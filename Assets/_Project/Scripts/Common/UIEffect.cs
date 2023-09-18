@@ -8,28 +8,29 @@ public class UIEffect : MonoBehaviour
     private AnimType animType;
 
     [SerializeField] private bool playOnAwake = true;
+    [SerializeField] private bool isResetPositionWhenEnable;
     [SerializeField] private float animTime = .5f;
     [SerializeField] private float delayAnimTime;
 
-    [SerializeField] private Vector3 fromScale = Vector3.zero;
-    [SerializeField] private Vector3 saveLocalScale;
+    [SerializeField] private Vector3 fromScale = Vector3.one;
+    [SerializeField] private Vector3 saveLocalScale = Vector3.one;
 
     [Header("Shake Effect")] [SerializeField]
     private float strength = 3f;
 
-    [Header("Move Effect")] [ShowIf("UIAnimType", AnimType.Move)]
+    [Header("Move Effect")] [ShowIf(nameof(animType), AnimType.Move)] [SerializeField]
     private MoveType _moveType;
 
-    [ShowIf("IsShowAttributeFromPosition")] [SerializeField]
+    [ShowIf(nameof(IsShowAttributeFromPosition))] [SerializeField]
     private Vector3 fromPosition;
 
-    [ShowIf("IsShowAttributesMoveDirection")] [SerializeField]
+    [ShowIf(nameof(IsShowAttributesMoveDirection))] [SerializeField]
     private DirectionType directionType;
 
-    [ShowIf("IsShowAttributesMoveDirection")] [SerializeField]
+    [ShowIf(nameof(IsShowAttributesMoveDirection))] [SerializeField]
     private float offset;
 
-    [ShowIf("UIAnimType", AnimType.Move)] [ReadOnly]
+    [ShowIf(nameof(animType), AnimType.Move)] [ReadOnly]
     private Vector3 _saveAnchorPosition;
 
     private RectTransform _rectTransform;
@@ -47,6 +48,11 @@ public class UIEffect : MonoBehaviour
 
     public void OnEnable()
     {
+        if (isResetPositionWhenEnable)
+        {
+            Reset();
+        }
+
         if (playOnAwake)
         {
             PlayAnim();
@@ -58,37 +64,41 @@ public class UIEffect : MonoBehaviour
         switch (animType)
         {
             case AnimType.OutBack:
-                _sequence = DOTween.Sequence().SetDelay(delayAnimTime).OnStart(() => transform.localScale = fromScale)
-                    .Append(transform.DOScale(Vector3.one, animTime).OnKill(() => transform.localScale = saveLocalScale).SetEase(Ease.OutBack));
+                transform.localScale = fromScale;
+                _sequence = DOTween.Sequence().OnStart(() => transform.localScale = fromScale).SetDelay(delayAnimTime)
+                    .Append(transform.DOScale(Vector3.one, animTime).OnKill(() => transform.localScale = saveLocalScale)
+                        .SetEase(Ease.OutBack));
                 break;
             case AnimType.Shake:
-                _sequence = DOTween.Sequence().SetDelay(delayAnimTime).Append(transform.DOShakeRotation(animTime, strength).SetEase(Ease.Linear));
+                _sequence = DOTween.Sequence().SetDelay(delayAnimTime)
+                    .Append(transform.DOShakeRotation(animTime, strength).SetEase(Ease.Linear));
                 break;
             case AnimType.Move:
                 _rectTransform.anchoredPosition = _saveAnchorPosition;
                 switch (_moveType)
                 {
                     case MoveType.Vector3:
-                        transform.DOLocalMove(_saveAnchorPosition, animTime).SetDelay(delayAnimTime).SetEase(Ease.Linear);
+                        transform.DOLocalMove(_saveAnchorPosition, animTime).SetDelay(delayAnimTime)
+                            .SetEase(Ease.Linear);
                         break;
                     case MoveType.Direction:
                         switch (directionType)
                         {
                             case DirectionType.Up:
-                                _sequence = DOTween.Sequence().SetDelay(delayAnimTime)
-                                    .Append(transform.DOLocalMoveY(transform.localPosition.y + offset, animTime).SetEase(Ease.InBack));
+                                _sequence = DOTween.Sequence().SetDelay(delayAnimTime).Append(transform
+                                    .DOLocalMoveY(transform.localPosition.y + offset, animTime).SetEase(Ease.InBack));
                                 break;
                             case DirectionType.Down:
-                                _sequence = DOTween.Sequence().SetDelay(delayAnimTime)
-                                    .Append(transform.DOLocalMoveY(transform.localPosition.y - offset, animTime).SetEase(Ease.InBack));
+                                _sequence = DOTween.Sequence().SetDelay(delayAnimTime).Append(transform
+                                    .DOLocalMoveY(transform.localPosition.y - offset, animTime).SetEase(Ease.InBack));
                                 break;
                             case DirectionType.Left:
-                                _sequence = DOTween.Sequence().SetDelay(delayAnimTime)
-                                    .Append(transform.DOLocalMoveX(transform.localPosition.x - offset, animTime).SetEase(Ease.InBack));
+                                _sequence = DOTween.Sequence().SetDelay(delayAnimTime).Append(transform
+                                    .DOLocalMoveX(transform.localPosition.x - offset, animTime).SetEase(Ease.InBack));
                                 break;
                             case DirectionType.Right:
-                                _sequence = DOTween.Sequence().SetDelay(delayAnimTime)
-                                    .Append(transform.DOLocalMoveX(transform.localPosition.x + offset, animTime).SetEase(Ease.InBack));
+                                _sequence = DOTween.Sequence().SetDelay(delayAnimTime).Append(transform
+                                    .DOLocalMoveX(transform.localPosition.x + offset, animTime).SetEase(Ease.InBack));
                                 break;
                         }
 

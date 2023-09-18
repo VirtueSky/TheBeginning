@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private IntegerVariable indexLevelVariable;
     [SerializeField] private EventEndLevel eventWinLevel;
     [SerializeField] private EventEndLevel eventLoseLevel;
+    [SerializeField] private GameObject uiInGame;
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 
     void Awake()
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
     {
         PrepareLevel();
         StartGame();
+        uiInGame.SetActive(true);
     }
 
     public void UpdateScore(Level level)
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
             {
                 indexLevelVariable.Value++;
                 popupVariable?.Value.Show<PopupWin>();
+                uiInGame.SetActive(false);
             });
     }
 
@@ -106,7 +109,11 @@ public class GameManager : MonoBehaviour
         gameState = GameState.LoseGame;
         eventLoseLevel.Raise(levelController.currentLevel);
         DOTween.Sequence().AppendInterval(delayPopupShowTime)
-            .AppendCallback(() => { popupVariable?.Value.Show<PopupLose>(); });
+            .AppendCallback(() =>
+            {
+                popupVariable?.Value.Show<PopupLose>();
+                uiInGame.SetActive(false);
+            });
     }
 
     public void ChangeAFpsState()

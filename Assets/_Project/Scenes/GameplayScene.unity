@@ -626,10 +626,8 @@ GameObject:
   - component: {fileID: 2095473174}
   - component: {fileID: 2095473175}
   - component: {fileID: 2095473176}
-  - component: {fileID: 2095473177}
   - component: {fileID: 2095473179}
   - component: {fileID: 2095473178}
-  - component: {fileID: 2095473180}
   - component: {fileID: 2095473181}
   m_Layer: 0
   m_Name: Game_Service
@@ -674,6 +672,7 @@ MonoBehaviour:
   indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
   eventWinLevel: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
   eventLoseLevel: {fileID: 11400000, guid: 6d4181221526fb843905ee98636c6378, type: 2}
+  uiInGame: {fileID: 7370416451176602697}
 --- !u!114 &2095473175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,27 +795,6 @@ MonoBehaviour:
   - {fileID: 7338174430931127897, guid: 0a7d626686eff674c9417735b945d004, type: 3}
   - {fileID: 8541034256649808196, guid: 978822c5a74dfba4dab63a5a695a08fc, type: 3}
   popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
---- !u!114 &2095473177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095473172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551a2df68f1ca406c8b763d5144b4670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelText: {fileID: 3421561291258514110}
-  LevelTypeText: {fileID: 4609003190076806907}
-  replayEvent: {fileID: 11400000, guid: a495da2db51e743dbb01ee4724bca09f, type: 2}
-  backHomeEvent: {fileID: 11400000, guid: df8d6624f2bb8495d91bf71fd4fa9d24, type: 2}
-  nextLevelEvent: {fileID: 11400000, guid: 8fe1bf4448a2845b0ab22880260e5343, type: 2}
-  backLevelEvent: {fileID: 11400000, guid: f772540e59f97462b8629a84b81f2bcb, type: 2}
-  winLevelEvent: {fileID: 11400000, guid: 588d7a46b9b024aa39cafc33429fc79b, type: 2}
-  loseLevelEvent: {fileID: 11400000, guid: 65dccb272537f4c71b8ebd4dd0c8d370, type: 2}
-  indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
 --- !u!114 &2095473178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,44 +981,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &2095473180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095473172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3184f556234f4c47b9374467cd4afcef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: game__service
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
-  bindingListener: 0
-  listEventResponseDatas:
-  - event: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2095473177}
-          m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
-          m_MethodName: Setup
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  setOnEnable: 1
 --- !u!114 &2095473181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,7 +1006,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2095473177}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
           m_MethodName: HideUI
           m_Mode: 0
@@ -1082,7 +1022,7 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2095473177}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
           m_MethodName: HideUI
           m_Mode: 0
@@ -1150,16 +1090,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
-  directionType: 0
-  offset: 0
+  directionType: 3
+  offset: 400
 --- !u!1 &337785703061755572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1175,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095473177}
+      - m_Target: {fileID: 7370416451176602705}
         m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
         m_MethodName: OnClickWin
         m_Mode: 1
@@ -1279,16 +1221,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
-  directionType: 0
-  offset: 0
+  directionType: 2
+  offset: 300
 --- !u!114 &640313825647108216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,9 +1396,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095473177}
-        m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
-        m_MethodName: OnClickHome
+      - m_Target: {fileID: 2095473174}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReturnHome
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1512,7 +1456,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095473177}
+      - m_Target: {fileID: 7370416451176602705}
         m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
         m_MethodName: OnClickPrevious
         m_Mode: 1
@@ -1828,7 +1772,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095473177}
+      - m_Target: {fileID: 7370416451176602705}
         m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
         m_MethodName: OnClickReplay
         m_Mode: 1
@@ -1940,16 +1884,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
-  directionType: 0
-  offset: 0
+  directionType: 1
+  offset: 300
 --- !u!222 &3323573494069577397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2133,7 +2079,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095473177}
+      - m_Target: {fileID: 7370416451176602705}
         m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
         m_MethodName: OnClickLose
         m_Mode: 1
@@ -2161,16 +2107,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
-  directionType: 0
-  offset: 0
+  directionType: 2
+  offset: 300
 --- !u!222 &4275723629431238220
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2322,16 +2270,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
-  offset: 0
+  offset: 300
 --- !u!224 &4744081305955309030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2550,16 +2500,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
-  directionType: 0
-  offset: 0
+  directionType: 3
+  offset: 300
 --- !u!114 &5134650400466383811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2604,7 +2556,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095473177}
+      - m_Target: {fileID: 7370416451176602705}
         m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
         m_MethodName: OnClickLevelA
         m_Mode: 1
@@ -2682,16 +2634,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
-  directionType: 0
-  offset: 0
+  directionType: 2
+  offset: 400
 --- !u!222 &5861430742453779031
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2744,7 +2698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095473177}
+      - m_Target: {fileID: 7370416451176602705}
         m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
         m_MethodName: OnClickLevelB
         m_Mode: 1
@@ -3192,16 +3146,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
-  offset: 0
+  offset: 400
 --- !u!224 &6877773155873313665
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3265,7 +3221,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2095473177}
+      - m_Target: {fileID: 7370416451176602705}
         m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
         m_MethodName: OnClickSkip
         m_Mode: 1
@@ -3293,16 +3249,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
-  directionType: 0
-  offset: 0
+  directionType: 3
+  offset: 300
 --- !u!222 &7070084973640295195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3362,6 +3320,9 @@ GameObject:
   - component: {fileID: 1788165637149578943}
   - component: {fileID: 645323652312171279}
   - component: {fileID: 1348227829793213348}
+  - component: {fileID: 7370416451176602705}
+  - component: {fileID: 7370416451176602704}
+  - component: {fileID: 7370416451176602703}
   m_Layer: 5
   m_Name: UI_InGame
   m_TagString: Untagged
@@ -3390,6 +3351,118 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7370416451176602703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370416451176602697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010ec6b1c9e5b914fa3d8310726cdb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: u_i__in_game
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
+  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
+  earlyTick: 0
+  tick: 0
+  lateTick: 0
+  fixedTick: 0
+  bindingListener: 0
+  listEventResponseDatas:
+  - event: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7370416451176602705}
+          m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
+          m_MethodName: HideUI
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - event: {fileID: 11400000, guid: 6d4181221526fb843905ee98636c6378, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7370416451176602705}
+          m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
+          m_MethodName: HideUI
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &7370416451176602704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370416451176602697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3184f556234f4c47b9374467cd4afcef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: u_i__in_game
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
+  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
+  earlyTick: 0
+  tick: 0
+  lateTick: 0
+  fixedTick: 0
+  bindingListener: 0
+  listEventResponseDatas:
+  - event: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7370416451176602705}
+          m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
+          m_MethodName: Setup
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  setOnEnable: 1
+--- !u!114 &7370416451176602705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370416451176602697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551a2df68f1ca406c8b763d5144b4670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelText: {fileID: 3421561291258514110}
+  LevelTypeText: {fileID: 4609003190076806907}
+  replayEvent: {fileID: 11400000, guid: a495da2db51e743dbb01ee4724bca09f, type: 2}
+  backHomeEvent: {fileID: 11400000, guid: df8d6624f2bb8495d91bf71fd4fa9d24, type: 2}
+  nextLevelEvent: {fileID: 11400000, guid: 8fe1bf4448a2845b0ab22880260e5343, type: 2}
+  backLevelEvent: {fileID: 11400000, guid: f772540e59f97462b8629a84b81f2bcb, type: 2}
+  winLevelEvent: {fileID: 11400000, guid: 588d7a46b9b024aa39cafc33429fc79b, type: 2}
+  loseLevelEvent: {fileID: 11400000, guid: 65dccb272537f4c71b8ebd4dd0c8d370, type: 2}
+  indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
 --- !u!114 &7405959457711286719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3834,16 +3907,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 1
   fromPosition: {x: 0, y: 0, z: 0}
-  directionType: 0
-  offset: 0
+  directionType: 1
+  offset: 300
 --- !u!1 &9054173132402546717
 GameObject:
   m_ObjectHideFlags: 0
