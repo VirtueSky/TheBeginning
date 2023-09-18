@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1839755324336539402}
-  - component: {fileID: 7480923976849778557}
+  - component: {fileID: 4856593180495743204}
   m_Layer: 0
   m_Name: MoveSystem
   m_TagString: Untagged
@@ -284,7 +284,7 @@ Transform:
   - {fileID: 3220077259936833505}
   m_Father: {fileID: 3816432991369057859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7480923976849778557
+--- !u!114 &4856593180495743204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8069190395287309204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 022043d9fbf2f644ea5c948fb41358e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 46e435ee81f643968c015f2e2c597987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: move_system
@@ -309,7 +309,7 @@ MonoBehaviour:
   - {fileID: 6699581152747611969}
   - {fileID: 4775607257343131413}
   - {fileID: 3220077259936833505}
-  speed: 5
+  speed: 4
   moveOnAwake: 1
   loop: 1
 --- !u!1 &8469226754386088863

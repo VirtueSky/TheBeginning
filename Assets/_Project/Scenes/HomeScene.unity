@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402185, g: 0.49316472, b: 0.57223153, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -223,7 +223,6 @@ GameObject:
   - component: {fileID: 771778091}
   - component: {fileID: 771778092}
   - component: {fileID: 771778093}
-  - component: {fileID: 771778094}
   m_Layer: 0
   m_Name: Home_Service
   m_TagString: Untagged
@@ -275,23 +274,10 @@ MonoBehaviour:
   canvasScaler: {fileID: 1522974174}
   cameraUI: {fileID: 2141998377}
   listPopups:
-  - {fileID: 1139648773171673726, guid: 1bd72ebe47024c0428d207cb890f7d32, type: 3}
+  - {fileID: 5600369039360957863, guid: 1bd72ebe47024c0428d207cb890f7d32, type: 3}
   - {fileID: 5900877145956595185, guid: f09001724e3f0b644aada44bd0a99cc2, type: 3}
   - {fileID: 7125858397958467425, guid: b9d19d35a41c9864889d42bde3de9a92, type: 3}
   - {fileID: 2915254623132364138, guid: 813a9cef4af4e4a4c91638583b5577d4, type: 3}
-  popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
---- !u!114 &771778094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 771778090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5e265e2c74b4151858e77b6c92109f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
 --- !u!1 &845301144
 GameObject:
@@ -1506,6 +1492,7 @@ GameObject:
   - component: {fileID: 1788165636388258274}
   - component: {fileID: 645323650892715090}
   - component: {fileID: 1348227828914134265}
+  - component: {fileID: 7370416449895287573}
   m_Layer: 5
   m_Name: UI_Home
   m_TagString: Untagged
@@ -1513,6 +1500,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7370416449895287573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370416449895287572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5e265e2c74b4151858e77b6c92109f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
 --- !u!222 &7415493059293284073
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1772,7 +1772,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771778094}
+      - m_Target: {fileID: 7370416449895287573}
         m_TargetAssemblyTypeName: UIHome, Assembly-CSharp
         m_MethodName: OnClickDebug
         m_Mode: 1
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771778094}
+      - m_Target: {fileID: 7370416449895287573}
         m_TargetAssemblyTypeName: UIHome, Assembly-CSharp
         m_MethodName: OnClickShop
         m_Mode: 1
@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771778090}
+      - m_Target: {fileID: 7370416449895287572}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771778094}
+      - m_Target: {fileID: 7370416449895287573}
         m_TargetAssemblyTypeName: UIHome, Assembly-CSharp
         m_MethodName: OnClickDailyReward
         m_Mode: 1
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 771778094}
+      - m_Target: {fileID: 7370416449895287573}
         m_TargetAssemblyTypeName: UIHome, Assembly-CSharp
         m_MethodName: OnClickSetting
         m_Mode: 1

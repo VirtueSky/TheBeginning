@@ -2814,8 +2814,8 @@ GameObject:
   - component: {fileID: 4419125325685704253}
   - component: {fileID: 6106309609813213368}
   - component: {fileID: 6275265695695959087}
-  - component: {fileID: 4386946871253645963}
   - component: {fileID: 4182017765428493193}
+  - component: {fileID: 120477767572001601}
   m_Layer: 0
   m_Name: PointerArrow
   m_TagString: Untagged
@@ -2913,32 +2913,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4386946871253645963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4405685256339215952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 022043d9fbf2f644ea5c948fb41358e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: pointer_arrow
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 1
-  lateTick: 0
-  fixedTick: 0
-  movingObject: {fileID: 4405685256339215952}
-  points:
-  - {fileID: 5647264209562423215}
-  - {fileID: 8954405792263532985}
-  speed: 8
-  moveOnAwake: 1
-  loop: 1
 --- !u!114 &4182017765428493193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2952,6 +2926,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentAreaItem: {fileID: 0}
+--- !u!114 &120477767572001601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405685256339215952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e435ee81f643968c015f2e2c597987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: pointer_arrow
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
+  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
+  earlyTick: 0
+  tick: 1
+  lateTick: 0
+  fixedTick: 0
+  movingObject: {fileID: 4405685256339215952}
+  points:
+  - {fileID: 5647264209562423215}
+  - {fileID: 8954405792263532985}
+  speed: 3
+  moveOnAwake: 1
+  loop: 1
 --- !u!1 &4466897278194069138
 GameObject:
   m_ObjectHideFlags: 0

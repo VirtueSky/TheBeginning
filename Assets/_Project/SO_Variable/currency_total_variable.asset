@@ -21,4 +21,5 @@ MonoBehaviour:
   fixedTick: 0
   initializeValue: 0
   isSavable: 1
+  isSaveInStorage: 1
   isRaiseEvent: 1

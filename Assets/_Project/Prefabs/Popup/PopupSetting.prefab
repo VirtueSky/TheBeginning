@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1139648773171673726}
+      - m_Target: {fileID: 5600369039360957863}
         m_TargetAssemblyTypeName: UIPopup, Assembly-CSharp
         m_MethodName: Hide
         m_Mode: 1
@@ -2010,7 +2010,7 @@ GameObject:
   - component: {fileID: 1788165637488831168}
   - component: {fileID: 645323652005445488}
   - component: {fileID: -7875144206898530341}
-  - component: {fileID: 1139648773171673726}
+  - component: {fileID: 5600369039360957863}
   m_Layer: 5
   m_Name: PopupSetting
   m_TagString: Untagged
@@ -2091,7 +2091,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1139648773171673726
+--- !u!114 &5600369039360957863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2103,8 +2103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa927bf2b343a54282b865ea7628969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 0}
-  canvas: {fileID: 0}
+  canvasGroup: {fileID: -7875144206898530341}
+  canvas: {fileID: 1788165637488831168}
   UseAnimation: 0
   Background: {fileID: 0}
   Container: {fileID: 0}
