@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Events;
+using VirtueSky.Variables;
 
 public class PopupDebug : UIPopup
 {
@@ -11,6 +12,7 @@ public class PopupDebug : UIPopup
     public Toggle ToggleIsOffInterAds;
     [SerializeField] private EventNoParam changeFpsEvent;
     [SerializeField] private EventNoParam prepareLevelEvent;
+    [SerializeField] private IntegerVariable currentLevelVariable;
 
     protected override void OnBeforeShow()
     {
@@ -23,7 +25,7 @@ public class PopupDebug : UIPopup
     {
         if (SetLevel.text != null && SetLevel.text != "")
         {
-            Data.CurrentLevel = int.Parse(SetLevel.text);
+           currentLevelVariable.Value = int.Parse(SetLevel.text);
             prepareLevelEvent.Raise();
         }
 

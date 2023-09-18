@@ -578,6 +578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 0}
+  currentlevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
 --- !u!1 &1647375224
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +629,7 @@ GameObject:
   - component: {fileID: 2095473177}
   - component: {fileID: 2095473179}
   - component: {fileID: 2095473178}
+  - component: {fileID: 2095473180}
   m_Layer: 0
   m_Name: Game_Service
   m_TagString: Untagged
@@ -667,6 +670,8 @@ MonoBehaviour:
   gameState: 0
   loadSceneEvent: {fileID: 11400000, guid: e36010c92447644fab7f16f3fc58d088, type: 2}
   popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
 --- !u!114 &2095473175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,6 +814,8 @@ MonoBehaviour:
   backLevelEvent: {fileID: 11400000, guid: f772540e59f97462b8629a84b81f2bcb, type: 2}
   winLevelEvent: {fileID: 11400000, guid: 588d7a46b9b024aa39cafc33429fc79b, type: 2}
   loseLevelEvent: {fileID: 11400000, guid: 65dccb272537f4c71b8ebd4dd0c8d370, type: 2}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
 --- !u!114 &2095473178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -995,6 +1002,44 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2095473180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095473172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3184f556234f4c47b9374467cd4afcef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: game__service
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
+  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
+  earlyTick: 0
+  tick: 0
+  lateTick: 0
+  fixedTick: 0
+  bindingListener: 0
+  listEventResponseDatas:
+  - event: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2095473177}
+          m_TargetAssemblyTypeName: UIInGame, Assembly-CSharp
+          m_MethodName: Setup
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  setOnEnable: 1
 --- !u!224 &26941294162394957
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1293,6 +1338,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -1760,6 +1806,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -1984,6 +2031,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -2265,6 +2313,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -3461,6 +3510,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -3627,6 +3677,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -3665,6 +3716,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 

@@ -1,6 +1,7 @@
 using CodeStage.AdvancedFPSCounter;
 using DG.Tweening;
 using UnityEngine;
+using VirtueSky.Variables;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     [SerializeField] private LoadSceneEvent loadSceneEvent;
     [SerializeField] private PopupVariable popupVariable;
+    [SerializeField] private IntegerVariable currentLevelVariable;
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 
     void Awake()
@@ -24,7 +26,6 @@ public class GameManager : MonoBehaviour
     public void PlayCurrentLevel()
     {
         PrepareLevel();
-        popupVariable?.Value.HideAll();
         StartGame();
     }
 
@@ -56,7 +57,11 @@ public class GameManager : MonoBehaviour
 
     public void BackLevel()
     {
-        Data.CurrentLevel--;
+       // Data.CurrentLevel--;
+        if (currentLevelVariable?.Value > 1)
+        {
+            currentLevelVariable.Value--;
+        }
 
         PrepareLevel();
         StartGame();
@@ -65,7 +70,8 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         Observer.SkipLevel?.Invoke(levelController.currentLevel);
-        Data.CurrentLevel++;
+      //  Data.CurrentLevel++;
+        currentLevelVariable.Value++;
 
         PrepareLevel();
         StartGame();
@@ -84,7 +90,8 @@ public class GameManager : MonoBehaviour
             gameState == GameState.WinGame) return;
         gameState = GameState.WinGame;
         Observer.WinLevel?.Invoke(levelController.currentLevel);
-        Data.CurrentLevel++;
+       // Data.CurrentLevel++;
+        currentLevelVariable.Value++;
         DOTween.Sequence().AppendInterval(delayPopupShowTime)
             .AppendCallback(() => { popupVariable?.Value.Show<PopupWin>(); });
     }

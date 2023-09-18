@@ -11,7 +11,7 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private List<UIPopup> listPopups = new List<UIPopup>();
     [SerializeField] private PopupVariable popupVariable;
     private readonly Dictionary<Type, UIPopup> _container = new Dictionary<Type, UIPopup>();
-
+    private int index = 1;
     private void Awake()
     {
         Debug.Assert(cameraUI != null, "CameraUI != null");
@@ -35,6 +35,7 @@ public class PopupManager : MonoBehaviour
                 HideAll();
                 popupInstance.Show();
                 _container.Add(popupInstance.GetType(), popupInstance);
+                popupInstance.canvas.sortingOrder = index++;
             }
             else
             {

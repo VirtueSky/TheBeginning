@@ -2255,6 +2255,8 @@ MonoBehaviour:
   ToggleIsOffInterAds: {fileID: 1478969954753167769}
   changeFpsEvent: {fileID: 11400000, guid: a06d9c1fa7bd74a38bcdae398e0cd8ea, type: 2}
   prepareLevelEvent: {fileID: 11400000, guid: 3dd7aee2a9d7d44edb062944d4ff59d3, type: 2}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
 --- !u!1 &7491507754432524308
 GameObject:
   m_ObjectHideFlags: 0

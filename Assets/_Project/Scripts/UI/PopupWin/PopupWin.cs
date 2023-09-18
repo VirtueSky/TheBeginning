@@ -114,7 +114,11 @@ public class PopupWin : UIPopup
         BtnTapToContinue.SetActive(false);
         sequence?.Kill();
 
-        DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { playCurrentLevelEvent.Raise(); });
+        DOTween.Sequence().AppendInterval(1f).AppendCallback(() =>
+        {
+            Hide();
+            playCurrentLevelEvent.Raise();
+        });
     }
 
     public void OnClickContinue()
@@ -123,7 +127,11 @@ public class PopupWin : UIPopup
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
 
-        DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { playCurrentLevelEvent.Raise(); });
+        DOTween.Sequence().AppendInterval(1f).AppendCallback(() =>
+        {
+            Hide();
+            playCurrentLevelEvent.Raise();
+        });
     }
 
     private void ReceiveGift()

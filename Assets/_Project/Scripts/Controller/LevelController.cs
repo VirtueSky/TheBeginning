@@ -1,15 +1,17 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
+using VirtueSky.Variables;
 using Debug = System.Diagnostics.Debug;
 
 public class LevelController : SingletonDontDestroy<LevelController>
 {
     [ReadOnly] public Level currentLevel;
+    [SerializeField] private IntegerVariable currentlevelVariable;
     private GameConfig Game => Config.Game;
 
     public void PrepareLevel()
     {
-        GenerateLevel(Data.CurrentLevel);
+        GenerateLevel(currentlevelVariable.Value);
     }
 
     public void GenerateLevel(int indexLevel)

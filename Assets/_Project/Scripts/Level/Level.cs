@@ -2,9 +2,11 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 using VirtueSky.Misc;
+using VirtueSky.Variables;
 
 public class Level : MonoBehaviour
 {
+    [SerializeField] private IntegerVariable currentLevelVariable;
     private bool _isFingerDown;
     private bool _isFingerDrag;
 
@@ -12,8 +14,8 @@ public class Level : MonoBehaviour
     [Button]
     private void StartLevel()
     {
-        Data.CurrentLevel = Common.GetNumberInAString(gameObject.name);
-
+        currentLevelVariable.Value = Common.GetNumberInAString(gameObject.name);
+        
         EditorApplication.isPlaying = true;
     }
 #endif

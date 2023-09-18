@@ -6,6 +6,7 @@ using System.Reflection;
 using TMPro;
 using UnityEngine;
 using VirtueSky.Events;
+using VirtueSky.Variables;
 
 public class UIInGame : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class UIInGame : MonoBehaviour
     [SerializeField] private EventNoParam backLevelEvent;
     [SerializeField] private FloatEvent winLevelEvent;
     [SerializeField] private FloatEvent loseLevelEvent;
-
+    [SerializeField] private IntegerVariable currentLevelVariable;
 
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
 
@@ -35,12 +36,12 @@ public class UIInGame : MonoBehaviour
 
     private void OnEnable()
     {
-        Setup();
+        Setup(currentLevelVariable.Value);
     }
 
-    public void Setup()
+    public void Setup(int currentLevel)
     {
-        LevelText.text = $"Level {Data.CurrentLevel}";
+        LevelText.text = $"Level {currentLevel}";
         LevelTypeText.text = $"Level {(Data.UseLevelABTesting == 0 ? "A" : "B")}";
     }
 

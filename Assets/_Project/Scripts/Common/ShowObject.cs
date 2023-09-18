@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using VirtueSky.Variables;
 
 // [DeclareHorizontalGroup("horizontal")]
 // [DeclareVerticalGroup("horizontal/vars")]
@@ -13,6 +14,7 @@ public class ShowObject : MonoBehaviour
     public bool IsShowByLevel;
     public bool IsShowByTime;
     public float DelayShowTime;
+    [SerializeField] private IntegerVariable currentLevelVariable;
     [ShowIf(nameof(IsShowByLevel))] public List<int> LevelsShow;
     [ShowIf("IsShowByTime")] public int MaxTimeShow;
 
@@ -33,7 +35,7 @@ public class ShowObject : MonoBehaviour
     {
         foreach (int item in LevelsShow)
         {
-            if (Data.CurrentLevel == item)
+            if (currentLevelVariable.Value == item)
             {
                 return true;
             }

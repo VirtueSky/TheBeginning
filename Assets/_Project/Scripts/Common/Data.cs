@@ -30,16 +30,16 @@ public static partial class Data
         set => SetBool(Constant.IS_OFF_INTER_ADS, value);
     }
 
-    public static int CurrentLevel
-    {
-        get { return GetInt(Constant.INDEX_LEVEL_CURRENT, 1); }
-
-        set
-        {
-            SetInt(Constant.INDEX_LEVEL_CURRENT, value >= 1 ? value : 1);
-            Observer.CurrentLevelChanged?.Invoke();
-        }
-    }
+    // public static int CurrentLevel
+    // {
+    //     get { return GetInt(Constant.INDEX_LEVEL_CURRENT, 1); }
+    //
+    //     set
+    //     {
+    //         SetInt(Constant.INDEX_LEVEL_CURRENT, value >= 1 ? value : 1);
+    //         Observer.CurrentLevelChanged?.Invoke();
+    //     }
+    // }
 
     public static int GetNumberShowGameObject(string gameObjectID)
     {
