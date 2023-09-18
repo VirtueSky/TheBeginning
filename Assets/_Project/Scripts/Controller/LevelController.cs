@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using VirtueSky.Variables;
 using Debug = System.Diagnostics.Debug;
 
-public class LevelController : SingletonDontDestroy<LevelController>
+public class LevelController : MonoBehaviour
 {
     [ReadOnly] public Level currentLevel;
     [SerializeField] private IntegerVariable currentlevelVariable;

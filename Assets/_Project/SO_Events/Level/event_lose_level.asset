@@ -9,16 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b05498849c03a74fb5253a01822fdb0, type: 3}
-  m_Name: current_level_variable
+  m_Script: {fileID: 11500000, guid: 21a94c62b3f5478438c03982c0ee12f6, type: 3}
+  m_Name: event_lose_level
   m_EditorClassIdentifier: 
-  id: current_level_variable
+  id: event_lose_level
   pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
   earlyTick: 0
   tick: 0
   lateTick: 0
   fixedTick: 0
-  initializeValue: {fileID: 0}
-  isSavable: 0
-  isRaiseEvent: 0

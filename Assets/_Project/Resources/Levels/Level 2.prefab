@@ -151,8 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45dd11d646118348b4f2e994976c4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+  currentLevelVariable: {fileID: 11400000, guid: b32f4c057db03794285fb0f88ee3bba8,
     type: 2}
+  indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
 --- !u!1 &4781438789122592882
 GameObject:
   m_ObjectHideFlags: 0

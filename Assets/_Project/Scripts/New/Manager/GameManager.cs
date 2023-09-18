@@ -1,6 +1,7 @@
 using CodeStage.AdvancedFPSCounter;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.DataStorage;
 using VirtueSky.Variables;
 
@@ -10,7 +11,9 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     [SerializeField] private LoadSceneEvent loadSceneEvent;
     [SerializeField] private PopupVariable popupVariable;
-    [SerializeField] private IntegerVariable currentLevelVariable;
+    [SerializeField] private IntegerVariable indexLevelVariable;
+    [SerializeField] private EventEndLevel eventWinLevel;
+    [SerializeField] private EventEndLevel eventLoseLevel;
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 
     void Awake()
@@ -58,10 +61,9 @@ public class GameManager : MonoBehaviour
 
     public void BackLevel()
     {
-        if (currentLevelVariable?.Value > 1)
+        if (indexLevelVariable?.Value > 1)
         {
-            currentLevelVariable.Value--;
-            //GameData.Save();
+            indexLevelVariable.Value--;
         }
 
         PrepareLevel();
@@ -71,9 +73,7 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         Observer.SkipLevel?.Invoke(levelController.currentLevel);
-        currentLevelVariable.Value++;
-        //GameData.Save();
-
+        indexLevelVariable.Value++;
         PrepareLevel();
         StartGame();
     }
@@ -90,13 +90,11 @@ public class GameManager : MonoBehaviour
         if (gameState == GameState.WaitingResult || gameState == GameState.LoseGame ||
             gameState == GameState.WinGame) return;
         gameState = GameState.WinGame;
-        Observer.WinLevel?.Invoke(levelController.currentLevel);
-
+        eventWinLevel.Raise(levelController.currentLevel);
         DOTween.Sequence().AppendInterval(delayPopupShowTime)
             .AppendCallback(() =>
             {
-                currentLevelVariable.Value++;
-                //GameData.Save();
+                indexLevelVariable.Value++;
                 popupVariable?.Value.Show<PopupWin>();
             });
     }
@@ -106,8 +104,7 @@ public class GameManager : MonoBehaviour
         if (gameState == GameState.WaitingResult || gameState == GameState.LoseGame ||
             gameState == GameState.WinGame) return;
         gameState = GameState.LoseGame;
-        Observer.LoseLevel?.Invoke(levelController.currentLevel);
-
+        eventLoseLevel.Raise(levelController.currentLevel);
         DOTween.Sequence().AppendInterval(delayPopupShowTime)
             .AppendCallback(() => { popupVariable?.Value.Show<PopupLose>(); });
     }

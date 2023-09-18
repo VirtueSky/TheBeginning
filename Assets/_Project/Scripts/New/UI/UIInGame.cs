@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
@@ -18,25 +19,21 @@ public class UIInGame : MonoBehaviour
     [SerializeField] private EventNoParam backLevelEvent;
     [SerializeField] private FloatEvent winLevelEvent;
     [SerializeField] private FloatEvent loseLevelEvent;
-    [SerializeField] private IntegerVariable currentLevelVariable;
+    [SerializeField] private IntegerVariable indexLevelVariable;
 
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
 
     public void Start()
     {
-        Observer.WinLevel += HideUI;
-        Observer.LoseLevel += HideUI;
     }
 
     public void OnDestroy()
     {
-        Observer.WinLevel -= HideUI;
-        Observer.LoseLevel -= HideUI;
     }
 
     private void OnEnable()
     {
-        Setup(currentLevelVariable.Value);
+        Setup(indexLevelVariable.Value);
     }
 
     public void Setup(int currentLevel)
@@ -115,7 +112,7 @@ public class UIInGame : MonoBehaviour
         winLevelEvent.Raise(1);
     }
 
-    private void HideUI(Level level = null)
+    public void HideUI(Level level = null)
     {
         foreach (UIEffect item in UIEffects)
         {
