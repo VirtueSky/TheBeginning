@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VirtueSky.Core;
+using VirtueSky.DataStorage;
 
 public class LoadScene : BaseMono
 {
@@ -27,12 +28,6 @@ public class LoadScene : BaseMono
         }
     }
 
-    // private async void WaitCondition(Func<bool> condition)
-    // {
-    //     await UniTask.WaitUntil(condition);
-    //     _operation.allowSceneActivation = true;
-    // }
-
     IEnumerator Wait(float time, Func<bool> condition)
     {
         yield return new WaitForSeconds(time);
@@ -43,4 +38,21 @@ public class LoadScene : BaseMono
 
         _operation.allowSceneActivation = true;
     }
+
+    #region Save Data Game When Pause Or Quit
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            GameData.Save();
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        GameData.Save();
+    }
+
+    #endregion
 }

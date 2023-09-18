@@ -1,6 +1,7 @@
 using CodeStage.AdvancedFPSCounter;
 using DG.Tweening;
 using UnityEngine;
+using VirtueSky.DataStorage;
 using VirtueSky.Variables;
 
 public class GameManager : MonoBehaviour
@@ -57,10 +58,10 @@ public class GameManager : MonoBehaviour
 
     public void BackLevel()
     {
-       // Data.CurrentLevel--;
         if (currentLevelVariable?.Value > 1)
         {
             currentLevelVariable.Value--;
+            //GameData.Save();
         }
 
         PrepareLevel();
@@ -70,8 +71,8 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         Observer.SkipLevel?.Invoke(levelController.currentLevel);
-      //  Data.CurrentLevel++;
         currentLevelVariable.Value++;
+        //GameData.Save();
 
         PrepareLevel();
         StartGame();
@@ -90,10 +91,14 @@ public class GameManager : MonoBehaviour
             gameState == GameState.WinGame) return;
         gameState = GameState.WinGame;
         Observer.WinLevel?.Invoke(levelController.currentLevel);
-       // Data.CurrentLevel++;
-        currentLevelVariable.Value++;
+
         DOTween.Sequence().AppendInterval(delayPopupShowTime)
-            .AppendCallback(() => { popupVariable?.Value.Show<PopupWin>(); });
+            .AppendCallback(() =>
+            {
+                currentLevelVariable.Value++;
+                //GameData.Save();
+                popupVariable?.Value.Show<PopupWin>();
+            });
     }
 
     public void OnLoseGame(float delayPopupShowTime = 2.5f)
