@@ -3,6 +3,8 @@ using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VirtueSky.Events;
+using VirtueSky.Variables;
 
 public class DailyRewardItem : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class DailyRewardItem : MonoBehaviour
     public Image backgroundClaim;
     public Image backgroundCanNotClaim;
     public Image iconItem;
+    [SerializeField] private IntegerVariable currencyTotalVariable;
+    [SerializeField] private Vector3Event generateCoinEvent;
     private int coinValue;
     private DailyRewardItemState dailyRewardItemState;
     private DailyRewardData dailyRewardData;
@@ -126,7 +130,8 @@ public class DailyRewardItem : MonoBehaviour
         switch (dailyRewardData.DailyRewardType)
         {
             case DailyRewardType.Currency:
-                Data.CurrencyTotal += coinValue * (isClaimX5 ? 5 : 1);
+                generateCoinEvent.Raise(this.gameObject.transform.position);
+                currencyTotalVariable.Value += coinValue * (isClaimX5 ? 5 : 1);
                 break;
             case DailyRewardType.Skin:
                 //shopItemData.IsUnlocked = true;

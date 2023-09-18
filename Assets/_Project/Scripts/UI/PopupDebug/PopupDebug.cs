@@ -14,6 +14,7 @@ public class PopupDebug : UIPopup
     [SerializeField] private EventNoParam changeFpsEvent;
     [SerializeField] private EventNoParam prepareLevelEvent;
     [SerializeField] private IntegerVariable indexLevelVariable;
+    [SerializeField] private IntegerVariable currencyTotalVariable;
 
     protected override void OnBeforeShow()
     {
@@ -32,7 +33,7 @@ public class PopupDebug : UIPopup
 
         if (SetCoin.text != null && SetCoin.text != "")
         {
-            Data.CurrencyTotal = int.Parse(SetCoin.text);
+            currencyTotalVariable.Value = int.Parse(SetCoin.text);
         }
 
         SetCoin.text = string.Empty;

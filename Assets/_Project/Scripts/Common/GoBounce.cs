@@ -1,29 +1,32 @@
 using UnityEngine;
+using VirtueSky.Core;
 
-public class GoBounce : MonoBehaviour
+public class GoBounce : BaseMono
 {
-    [Header("Attributes")]
-    public bool isRotate = false;
+    [Header("Attributes")] public bool isRotate = false;
     public float degreesPerSecond = 15.0f;
     public float amplitude = 0.5f;
     public float frequency = 1f;
-    
+
     private Vector3 _posOffset;
     private Vector3 _tempPos;
-    
-    void Start () {
+
+    void Start()
+    {
         _posOffset = transform.position;
     }
- 
-    void FixedUpdate () {
+
+    public override void FixedTick()
+    {
+        base.FixedTick();
         if (isRotate)
         {
             transform.Rotate(new Vector3(0f, Time.deltaTime * degreesPerSecond, 0f), Space.World);
         }
-        
+
         _tempPos = _posOffset;
-        _tempPos.y += Mathf.Sin (Time.fixedTime * Mathf.PI * frequency) * amplitude;
- 
+        _tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
+
         transform.position = _tempPos;
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
+using VirtueSky.Core;
 
-public class GoRotate : MonoBehaviour
+public class GoRotate : BaseMono
 {
     [Header("Attributes")] public bool ignoreTimeScale;
     public float speed = 1f;
@@ -9,8 +10,9 @@ public class GoRotate : MonoBehaviour
     public bool rotateZ;
     public bool isReverse;
 
-    public void FixedUpdate()
+    public override void FixedTick()
     {
+        base.FixedTick();
         var transformTemp = transform;
         if (rotateX)
         {

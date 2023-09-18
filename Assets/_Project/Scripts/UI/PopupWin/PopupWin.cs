@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Events;
+using VirtueSky.Variables;
 
 public class PopupWin : UIPopup
 {
@@ -14,6 +15,8 @@ public class PopupWin : UIPopup
     public Image ProcessBar;
     public TextMeshProUGUI TextPercentGift;
     [SerializeField] private EventNoParam playCurrentLevelEvent;
+    [SerializeField] private IntegerVariable currencyTotalVariable;
+    [SerializeField] private Vector3Event generateCoinEvent;
     private float percent = 0;
     private Sequence sequence;
     public int MoneyWin => Config.Game.WinLevelMoney;
@@ -26,10 +29,7 @@ public class PopupWin : UIPopup
         {
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
-            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() =>
-            {
-                TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%";
-            })).OnComplete((() =>
+            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%"; })).OnComplete((() =>
             {
                 if (percent >= 100)
                 {
@@ -108,13 +108,14 @@ public class PopupWin : UIPopup
 
     public void GetRewardAds()
     {
-        Data.CurrencyTotal += TotalMoney * BonusArrowHandler.CurrentAreaItem.MultiBonus;
+        generateCoinEvent.Raise(BtnRewardAds.transform.position);
+        currencyTotalVariable.Value += TotalMoney * BonusArrowHandler.CurrentAreaItem.MultiBonus;
         BonusArrowHandler.MoveObject.StopMoving();
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
         sequence?.Kill();
 
-        DOTween.Sequence().AppendInterval(1f).AppendCallback(() =>
+        DOTween.Sequence().AppendInterval(1.2f).AppendCallback(() =>
         {
             Hide();
             playCurrentLevelEvent.Raise();
@@ -123,14 +124,15 @@ public class PopupWin : UIPopup
 
     public void OnClickContinue()
     {
-        Data.CurrencyTotal += TotalMoney;
+        generateCoinEvent.Raise(BtnTapToContinue.transform.position);
+        currencyTotalVariable.Value += TotalMoney;
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
 
-        DOTween.Sequence().AppendInterval(1f).AppendCallback(() =>
+        DOTween.Sequence().AppendInterval(1.2f).AppendCallback(() =>
         {
-            Hide();
             playCurrentLevelEvent.Raise();
+            Hide();
         });
     }
 

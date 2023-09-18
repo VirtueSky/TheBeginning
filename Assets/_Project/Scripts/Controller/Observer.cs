@@ -8,9 +8,9 @@ public static class Observer
     public static Action DebugChanged;
 
     // Currency
-    public static Action SaveCurrencyTotal;
-
-    public static Action CurrencyTotalChanged;
+    // public static Action SaveCurrencyTotal;
+    //
+    // public static Action CurrencyTotalChanged;
 
     // Level Spawn
     public static Action CurrentLevelChanged;

@@ -178,6 +178,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -628,6 +629,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -1066,6 +1068,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -1234,6 +1237,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -1460,6 +1464,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -1580,6 +1585,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -2146,7 +2152,6 @@ GameObject:
   - component: {fileID: 1788165637488831168}
   - component: {fileID: 645323652005445488}
   - component: {fileID: -7875144206898530341}
-  - component: {fileID: 7403689956956133583}
   m_Layer: 5
   m_Name: PopupInGame
   m_TagString: Untagged
@@ -2227,29 +2232,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &7403689956956133583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7370416450938019894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a4ad34b92746294397a5c815d61ea88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasGroup: {fileID: -7875144206898530341}
-  canvas: {fileID: 1788165637488831168}
-  UseAnimation: 0
-  Background: {fileID: 0}
-  Container: {fileID: 0}
-  UseShowAnimation: 0
-  ShowAnimationType: 0
-  UseHideAnimation: 0
-  HideAnimationType: 0
-  LevelText: {fileID: 3421561290902501057}
-  LevelTypeText: {fileID: 4609003189904288388}
 --- !u!1 &7582038696164621230
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,6 +2631,7 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
+  currentLevelVariable: {fileID: 0}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 

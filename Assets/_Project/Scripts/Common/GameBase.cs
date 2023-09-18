@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using VirtueSky.DataStorage;
 
 public class GameBase : EditorWindow
 {
@@ -42,15 +43,16 @@ public class GameBase : EditorWindow
     [MenuItem("GameBase/Data/Clear Data %F3")]
     public static void ClearAll()
     {
+        GameData.Clear();
         PlayerPrefs.DeleteAll();
         Debug.Log($"<color=Green>Clear data succeed</color>");
     }
 
-    [MenuItem("GameBase/Data/Add 100k Money")]
-    public static void Add100kMoney()
-    {
-        Data.CurrencyTotal += 100000;
-        Debug.Log($"<color=Green>Add 100k coin succeed</color>");
-    }
+    // [MenuItem("GameBase/Data/Add 100k Money")]
+    // public static void Add100kMoney()
+    // {
+    //     Data.CurrencyTotal += 100000;
+    //     Debug.Log($"<color=Green>Add 100k coin succeed</color>");
+    // }
 }
 #endif

@@ -52,16 +52,16 @@ public static partial class Data
         SetInt($"{Constant.GAMEOBJECT_SHOW}_{gameObjectID}", ++value);
     }
 
-    public static int CurrencyTotal
-    {
-        get => GetInt(Constant.CURRENCY_TOTAL, 0);
-        set
-        {
-            Observer.SaveCurrencyTotal?.Invoke();
-            SetInt(Constant.CURRENCY_TOTAL, value);
-            Observer.CurrencyTotalChanged?.Invoke();
-        }
-    }
+    // public static int CurrencyTotal
+    // {
+    //     get => GetInt(Constant.CURRENCY_TOTAL, 0);
+    //     set
+    //     {
+    //         Observer.SaveCurrencyTotal?.Invoke();
+    //         SetInt(Constant.CURRENCY_TOTAL, value);
+    //         Observer.CurrencyTotalChanged?.Invoke();
+    //     }
+    // }
 
     public static int ProgressAmount
     {

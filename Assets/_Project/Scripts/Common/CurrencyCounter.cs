@@ -1,6 +1,8 @@
+using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using VirtueSky.Variables;
 
 public class CurrencyCounter : MonoBehaviour
 {
@@ -8,24 +10,30 @@ public class CurrencyCounter : MonoBehaviour
     public int StepCount = 10;
     public float DelayTime = .01f;
     public CurrencyGenerate CurrencyGenerate;
+    [SerializeField] IntegerVariable currencyTotalVariable;
 
     private int currentCoin;
 
     private void Start()
     {
-        Observer.SaveCurrencyTotal += SaveCurrency;
-        Observer.CurrencyTotalChanged += UpdateCurrencyAmountText;
-        CurrencyAmountText.text = Data.CurrencyTotal.ToString();
+        // Observer.SaveCurrencyTotal += SaveCurrency;
+        // Observer.CurrencyTotalChanged += UpdateCurrencyAmountText;
+    }
+
+    private void OnEnable()
+    {
+        CurrencyAmountText.text = currencyTotalVariable.Value.ToString();
+        SaveCurrency();
     }
 
     private void SaveCurrency()
     {
-        currentCoin = Data.CurrencyTotal;
+        currentCoin = currencyTotalVariable.Value;
     }
 
-    private void UpdateCurrencyAmountText()
+    public void UpdateCurrencyAmountText()
     {
-        if (Data.CurrencyTotal > currentCoin)
+        if (currencyTotalVariable.Value > currentCoin)
         {
             IncreaseCurrency();
         }
@@ -46,7 +54,7 @@ public class CurrencyCounter : MonoBehaviour
             {
                 isFirstMove = true;
                 int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-                int nextAmount = (Data.CurrencyTotal - currentCurrencyAmount) / StepCount;
+                int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
                 int step = StepCount;
                 CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
             }
@@ -60,7 +68,7 @@ public class CurrencyCounter : MonoBehaviour
     private void DecreaseCurrency()
     {
         int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-        int nextAmount = (Data.CurrencyTotal - currentCurrencyAmount) / StepCount;
+        int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
         int step = StepCount;
         CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
     }
@@ -69,7 +77,7 @@ public class CurrencyCounter : MonoBehaviour
     {
         if (stepCount == 0)
         {
-            CurrencyAmountText.text = Data.CurrencyTotal.ToString();
+            CurrencyAmountText.text = currencyTotalVariable.Value.ToString();
             return;
         }
 

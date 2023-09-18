@@ -6,6 +6,6 @@ public class PopupUI : UIPopup
 {
     public void Debugging()
     {
-        Data.CurrencyTotal += 100;
+        // Data.CurrencyTotal += 100;
     }
 }

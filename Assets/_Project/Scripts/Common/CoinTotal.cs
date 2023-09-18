@@ -7,12 +7,12 @@ public class CoinTotal : MonoBehaviour
 
     private void Awake()
     {
-        Observer.CurrencyTotalChanged += UpdateCurrencyText;
+        //  Observer.CurrencyTotalChanged += UpdateCurrencyText;
         UpdateCurrencyText();
     }
 
     private void UpdateCurrencyText()
     {
-        currencyTotal.text = Data.CurrencyTotal.ToString();
+        //  currencyTotal.text = Data.CurrencyTotal.ToString();
     }
 }

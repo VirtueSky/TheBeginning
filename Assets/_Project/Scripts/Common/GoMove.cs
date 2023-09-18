@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
+using VirtueSky.Core;
 
-public class GoMove : MonoBehaviour
+public class GoMove : BaseMono
 {
     public GameObject movingObject;
     public List<Transform> points; // List of points the object will move through
@@ -24,8 +25,9 @@ public class GoMove : MonoBehaviour
         }
     }
 
-    void Update()
+    public override void Tick()
     {
+        base.Tick();
         if (_isMoving)
         {
             if (_currentPoint < points.Count)

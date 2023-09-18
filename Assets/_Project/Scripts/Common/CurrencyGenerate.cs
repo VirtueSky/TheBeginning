@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using VirtueSky.Core;
 
-public class CurrencyGenerate : MonoBehaviour
+public class CurrencyGenerate : BaseMono
 {
-       public GameObject overlay;
-    public GameObject coinPrefab;
-    public GameObject from;
-    public GameObject to;
-    public int numberCoin;
-    public int delay;
-    public float durationNear;
-    public float durationTarget;
-    public Ease easeNear;
-    public Ease easeTarget;
-    public float scale = 1;
-    private int numberCoinMoveDone;
+    [SerializeField] private GameObject overlay;
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private Vector3? from;
+    [SerializeField] private GameObject to;
+    [SerializeField] private int numberCoin;
+    [SerializeField] private int delay;
+    [SerializeField] private float durationNear;
+    [SerializeField] private float durationTarget;
+    [SerializeField] private Ease easeNear;
+    [SerializeField] private Ease easeTarget;
+    [SerializeField] private float scale = 1;
     private System.Action moveOneCoinDone;
-    private System.Action moveAllCoinDone;
+    private bool isScaleIconTo = false;
 
-    public void SetFromGameObject(GameObject from)
+    private List<GameObject> coinsActive = new List<GameObject>();
+
+    public void SetFrom(Vector3 from)
     {
         this.from = from;
     }
@@ -34,41 +36,60 @@ public class CurrencyGenerate : MonoBehaviour
     private void Start()
     {
         overlay.SetActive(false);
+        pools.Initialize();
     }
 
-    public async void GenerateCoin(System.Action moveOneCoinDone, System.Action moveAllCoinDone, GameObject from = null, GameObject to = null, int numberCoin = -1)
+    public async void GenerateCoin(System.Action moveOneCoinDone, System.Action moveAllCoinDone, GameObject to = null, int numberCoin = -1)
     {
+        isScaleIconTo = false;
         this.moveOneCoinDone = moveOneCoinDone;
-        this.moveAllCoinDone = moveAllCoinDone;
-        this.from = from == null ? this.from : from;
+        //this.moveAllCoinDone = moveAllCoinDone;
         this.to = to == null ? this.to : to;
         this.numberCoin = numberCoin < 0 ? this.numberCoin : numberCoin;
-        numberCoinMoveDone = 0;
         overlay.SetActive(true);
         for (int i = 0; i < this.numberCoin; i++)
         {
             await Task.Delay(Random.Range(0, delay));
-            GameObject coin = Instantiate(coinPrefab, transform);
+            GameObject coin = pools.Spawn(coinPrefab, transform);
             coin.transform.localScale = Vector3.one * scale;
-            coin.transform.position = this.from.transform.position;
-            MoveCoin(coin);
+            coinsActive.Add(coin);
+            if (from != null)
+            {
+                coin.transform.position = from.Value;
+            }
+            else
+            {
+                coin.transform.localPosition = Vector3.zero;
+            }
+
+            MoveCoin(coin, moveAllCoinDone);
+            if (i == numberCoin - 1)
+            {
+                Observer.CoinMove?.Invoke();
+            }
         }
     }
 
-    private void MoveCoin(GameObject coin)
+    private void MoveCoin(GameObject coin, System.Action moveAllCoinDone)
     {
-        //Observer.PlayOnce(SoundType.CoinMove);
         MoveToNear(coin).OnComplete(() =>
         {
             MoveToTarget(coin).OnComplete(() =>
             {
-                numberCoinMoveDone++;
-                Destroy(coin);
+                coinsActive.Remove(coin);
+                pools.Despawn(coin);
+                if (!isScaleIconTo)
+                {
+                    isScaleIconTo = true;
+                    ScaleIconTo();
+                }
+
                 moveOneCoinDone?.Invoke();
-                if (numberCoinMoveDone >= numberCoin)
+                if (coinsActive.Count == 0)
                 {
                     moveAllCoinDone?.Invoke();
                     overlay.SetActive(false);
+                    from = null;
                 }
             });
         });
@@ -81,16 +102,24 @@ public class CurrencyGenerate : MonoBehaviour
 
     private DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions> MoveToNear(GameObject coin)
     {
-        return MoveTo(coin.transform.position + (Vector3)Random.insideUnitCircle*3, coin, durationNear, easeNear);
+        return MoveTo(coin.transform.position + (Vector3)Random.insideUnitCircle * 1.3f, coin, durationNear, easeNear);
     }
 
     private DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions> MoveToTarget(GameObject coin)
     {
         return MoveTo(to.transform.position, coin, durationTarget, easeTarget);
     }
-    
+
     public void SetNumberCoin(int _numberCoin)
     {
         numberCoin = _numberCoin;
+    }
+
+    private void ScaleIconTo()
+    {
+        Vector3 currentScale = Vector3.one;
+        Vector3 nextScale = currentScale + new Vector3(.1f, .1f, .1f);
+        to.transform.DOScale(nextScale, durationTarget).SetEase(Ease.OutBack)
+            .OnComplete((() => { to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack); }));
     }
 }
