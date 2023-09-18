@@ -29,7 +29,10 @@ public class PopupWin : UIPopup
         {
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
-            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%"; })).OnComplete((() =>
+            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() =>
+            {
+                TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%";
+            })).OnComplete((() =>
             {
                 if (percent >= 100)
                 {
@@ -109,7 +112,7 @@ public class PopupWin : UIPopup
     public void GetRewardAds()
     {
         generateCoinEvent.Raise(BtnRewardAds.transform.position);
-        currencyTotalVariable.Value += TotalMoney * BonusArrowHandler.CurrentAreaItem.MultiBonus;
+        currencyTotalVariable.Value += MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus;
         BonusArrowHandler.MoveObject.StopMoving();
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
@@ -125,7 +128,7 @@ public class PopupWin : UIPopup
     public void OnClickContinue()
     {
         generateCoinEvent.Raise(BtnTapToContinue.transform.position);
-        currencyTotalVariable.Value += TotalMoney;
+        currencyTotalVariable.Value += MoneyWin;
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
 

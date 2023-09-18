@@ -4445,7 +4445,7 @@ PrefabInstance:
     - target: {fileID: 6804244171169076866, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
         type: 3}
       propertyPath: bindingListener
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7735359813405760995, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
         type: 3}

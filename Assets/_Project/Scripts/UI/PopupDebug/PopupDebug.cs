@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -38,7 +39,7 @@ public class PopupDebug : UIPopup
 
         SetCoin.text = string.Empty;
         SetLevel.text = string.Empty;
-        Hide();
+        DOTween.Sequence().AppendInterval(1).AppendCallback(() => { Hide(); });
     }
 
     public void ChangeTestingState()
