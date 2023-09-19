@@ -1,8 +1,15 @@
 #if UNITY_EDITOR
+using DG.Tweening.Plugins.Core.PathCore;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using System;
+using System.IO;
+using UnityEngine.Windows;
+using UnityEngine.WSA;
 using VirtueSky.DataStorage;
+using File = System.IO.File;
+using Path = System.IO.Path;
 
 public class GameBase : EditorWindow
 {
@@ -43,6 +50,7 @@ public class GameBase : EditorWindow
     [MenuItem("GameBase/Data/Clear Data %F3")]
     public static void ClearAll()
     {
+        File.Delete(Path.Combine(DataStorage.GetPersistentDataPath(), "data.dat"));
         GameData.Clear();
         PlayerPrefs.DeleteAll();
         Debug.Log($"<color=Green>Clear data succeed</color>");

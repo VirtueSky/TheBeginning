@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402185, g: 0.49316472, b: 0.57223153, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -868,6 +868,7 @@ GameObject:
   - component: {fileID: 5227045042185849145}
   - component: {fileID: 8660902623537255845}
   - component: {fileID: 8758060767005110935}
+  - component: {fileID: 8758060767005110936}
   m_Layer: 5
   m_Name: BtnTest
   m_TagString: Untagged
@@ -903,6 +904,7 @@ GameObject:
   - component: {fileID: 4241444006412729292}
   - component: {fileID: 5582595641284906654}
   - component: {fileID: 8128687198831228533}
+  - component: {fileID: 8128687198831228534}
   m_Layer: 5
   m_Name: BtnDebug
   m_TagString: Untagged
@@ -956,6 +958,7 @@ GameObject:
   - component: {fileID: 9062633714511670432}
   - component: {fileID: 7246788183723032711}
   - component: {fileID: 9062633714511670433}
+  - component: {fileID: 9062633714511670434}
   m_Layer: 5
   m_Name: BtnDailyReward
   m_TagString: Untagged
@@ -975,6 +978,7 @@ GameObject:
   - component: {fileID: 6624154312305489742}
   - component: {fileID: 6630264911437941459}
   - component: {fileID: 8560036185210033978}
+  - component: {fileID: 8560036185210033979}
   m_Layer: 5
   m_Name: BtnShop
   m_TagString: Untagged
@@ -1674,6 +1678,21 @@ MonoBehaviour:
   scale: 0.9
   clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
   test: {fileID: 0}
+--- !u!114 &8128687198831228534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2357932875664155915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6d71043917f4558833eb085b54db75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeScale: 0.5
+  EaseType: 27
+  fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &8454268290368642238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,6 +1789,21 @@ MonoBehaviour:
   scale: 0.9
   clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
   test: {fileID: 0}
+--- !u!114 &8560036185210033979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125538785364239347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6d71043917f4558833eb085b54db75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeScale: 0.5
+  EaseType: 27
+  fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!114 &8660902623537255845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1879,6 +1913,21 @@ MonoBehaviour:
   scale: 0.9
   clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
   test: {fileID: 0}
+--- !u!114 &8758060767005110936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991553266119257848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6d71043917f4558833eb085b54db75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeScale: 0.5
+  EaseType: 27
+  fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!224 &8795868125360480389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1966,6 +2015,21 @@ MonoBehaviour:
   scale: 0.9
   clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
   test: {fileID: 0}
+--- !u!114 &9062633714511670434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653305590449929773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6d71043917f4558833eb085b54db75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeScale: 0.5
+  EaseType: 27
+  fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &9157407161587575317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,6 +2042,7 @@ GameObject:
   - component: {fileID: 2584431201621759339}
   - component: {fileID: 89262920315694812}
   - component: {fileID: 9157407161587575318}
+  - component: {fileID: 9157407161587575319}
   m_Layer: 5
   m_Name: BtnSetting
   m_TagString: Untagged
@@ -2045,6 +2110,21 @@ MonoBehaviour:
   scale: 0.9
   clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
   test: {fileID: 0}
+--- !u!114 &9157407161587575319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157407161587575317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6d71043917f4558833eb085b54db75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeScale: 0.5
+  EaseType: 27
+  fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

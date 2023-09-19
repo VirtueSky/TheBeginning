@@ -254,11 +254,11 @@
       "hash": "6d439506b339905559b6667db9623df31572f53e"
     },
     "com.virtuesky.scriptableobject.architecture": {
-      "version": "https://github.com/VirtueSky/SO.Architecture.git#1.0.2",
+      "version": "https://github.com/VirtueSky/SO.Architecture.git#1.0.3",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "db6016d36218c97495a820babbc969f436c93211"
+      "hash": "554d595440d933a2bdd5808eda013f160ae30352"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
