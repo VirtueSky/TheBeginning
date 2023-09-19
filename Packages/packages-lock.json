@@ -253,12 +253,12 @@
       "dependencies": {},
       "hash": "6d439506b339905559b6667db9623df31572f53e"
     },
-    "com.virtuesky.scriptableobject.architecture": {
-      "version": "https://github.com/VirtueSky/SO.Architecture.git#1.0.5",
+    "com.virtuesky.sunflower": {
+      "version": "https://github.com/VirtueSky/sunflower.git#1.0.6",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "0552b93a1f5c47098ec736467f5bcb1a8af2a89b"
+      "hash": "e07f479b80e37fc52c966072c4dffd1452a83c33"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
