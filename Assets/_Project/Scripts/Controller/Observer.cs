@@ -19,7 +19,7 @@ public static class Observer
     // Ads
 
     // Other
-    public static Action CoinMove;
+   // public static Action CoinMove;
     public static Action ClickButton;
     public static Action<string> TrackClickButton;
     public static Action PurchaseFail;

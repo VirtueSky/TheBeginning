@@ -39,7 +39,8 @@ public class CurrencyGenerate : BaseMono
         pools.Initialize();
     }
 
-    public async void GenerateCoin(System.Action moveOneCoinDone, System.Action moveAllCoinDone, GameObject to = null, int numberCoin = -1)
+    public async void GenerateCoin(System.Action moveOneCoinDone, System.Action moveAllCoinDone, GameObject to = null,
+        int numberCoin = -1)
     {
         isScaleIconTo = false;
         this.moveOneCoinDone = moveOneCoinDone;
@@ -63,10 +64,10 @@ public class CurrencyGenerate : BaseMono
             }
 
             MoveCoin(coin, moveAllCoinDone);
-            if (i == numberCoin - 1)
-            {
-                Observer.CoinMove?.Invoke();
-            }
+            // if (i == numberCoin - 1)
+            // {
+            //     Observer.CoinMove?.Invoke();
+            // }
         }
     }
 
@@ -95,17 +96,20 @@ public class CurrencyGenerate : BaseMono
         });
     }
 
-    private DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions> MoveTo(Vector3 endValue, GameObject coin, float duration, Ease ease)
+    private DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions> MoveTo(
+        Vector3 endValue, GameObject coin, float duration, Ease ease)
     {
         return coin.transform.DOMove(endValue, duration).SetEase(ease);
     }
 
-    private DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions> MoveToNear(GameObject coin)
+    private DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions> MoveToNear(
+        GameObject coin)
     {
         return MoveTo(coin.transform.position + (Vector3)Random.insideUnitCircle * 1.3f, coin, durationNear, easeNear);
     }
 
-    private DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions> MoveToTarget(GameObject coin)
+    private DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions> MoveToTarget(
+        GameObject coin)
     {
         return MoveTo(to.transform.position, coin, durationTarget, easeTarget);
     }

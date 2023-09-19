@@ -76,35 +76,35 @@ public class SoundManager : BaseMono
 
     #region ActionEvent
 
-    // private void StartLevel(Level level)
-    // {
-    //     PlayFX(SoundType.StartLevel);
-    // }
-    //
-    // private void WinLevel(Level level)
-    // {
-    //     PlayFX(SoundType.WinLevel);
-    // }
-    //
-    // private void LoseLevel(Level level)
-    // {
-    //     PlayFX(SoundType.LoseLevel);
-    // }
-    //
+    public void StartLevel(Level level)
+    {
+        PlayFX(SoundType.StartLevel);
+    }
+
+    public void WinLevel(Level level)
+    {
+        PlayFX(SoundType.WinLevel);
+    }
+
+    public void LoseLevel(Level level)
+    {
+        PlayFX(SoundType.LoseLevel);
+    }
+
     public void ClickButton()
     {
         PlayFX(SoundType.ClickButton);
     }
-    //
-    // private void CoinMove()
-    // {
-    //     PlayFX(SoundType.CoinMove);
-    // }
-    //
-    // private void PurchaseSucceed()
-    // {
-    //     PlayFX(SoundType.PurchaseSucceed);
-    // }
+
+    public void CoinMove()
+    {
+        PlayFX(SoundType.CoinMove);
+    }
+
+    public void PurchaseSucceed()
+    {
+        PlayFX(SoundType.PurchaseSucceed);
+    }
 
     #endregion
 }

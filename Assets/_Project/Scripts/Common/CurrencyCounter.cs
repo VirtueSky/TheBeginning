@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using VirtueSky.Events;
 using VirtueSky.Variables;
 
 public class CurrencyCounter : MonoBehaviour
@@ -11,13 +12,12 @@ public class CurrencyCounter : MonoBehaviour
     public float DelayTime = .01f;
     public CurrencyGenerate CurrencyGenerate;
     [SerializeField] IntegerVariable currencyTotalVariable;
+    [SerializeField] private EventNoParam eventCoinMove;
 
     private int currentCoin;
 
     private void Start()
     {
-        // Observer.SaveCurrencyTotal += SaveCurrency;
-        // Observer.CurrencyTotalChanged += UpdateCurrencyAmountText;
     }
 
     private void OnEnable()
@@ -45,8 +45,6 @@ public class CurrencyCounter : MonoBehaviour
 
     private void IncreaseCurrency()
     {
-        // bool isPopupUIActive = PopupController.Instance.Get<PopupUI>().isActiveAndEnabled;
-        // if (!isPopupUIActive) PopupController.Instance.Show<PopupUI>();
         bool isFirstMove = false;
         CurrencyGenerate.GenerateCoin(() =>
         {
@@ -58,11 +56,7 @@ public class CurrencyCounter : MonoBehaviour
                 int step = StepCount;
                 CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
             }
-        }, () =>
-        {
-            Observer.CoinMove?.Invoke();
-            // if (!isPopupUIActive) PopupController.Instance.Hide<PopupUI>();
-        });
+        }, () => { eventCoinMove.Raise(); });
     }
 
     private void DecreaseCurrency()
@@ -82,7 +76,10 @@ public class CurrencyCounter : MonoBehaviour
         }
 
         int totalValue = (currentCurrencyValue + nextAmountValue);
-        DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate: true).AppendCallback(() => { CurrencyAmountText.text = totalValue.ToString(); })
+        DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate: true).AppendCallback(() =>
+            {
+                CurrencyAmountText.text = totalValue.ToString();
+            })
             .AppendCallback(() => { CurrencyTextCount(totalValue, nextAmountValue, stepCount - 1); });
     }
 }
