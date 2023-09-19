@@ -19,6 +19,15 @@ public class GameBase : EditorWindow
         GUILayout.EndHorizontal();
     }
 
+    [MenuItem("GameBase/Clear Data %F3")]
+    public static void ClearAll()
+    {
+        GameData.DelDataInStorage();
+        GameData.Clear();
+        PlayerPrefs.DeleteAll();
+        Debug.Log($"<color=Green>Clear data succeed</color>");
+    }
+
     [MenuItem("GameBase/Switch Debug %`")]
     public static void SwitchDebug()
     {
@@ -45,15 +54,6 @@ public class GameBase : EditorWindow
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAMEPLAY_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
-    }
-
-    [MenuItem("GameBase/Data/Clear Data %F3")]
-    public static void ClearAll()
-    {
-        GameData.DelDataInStorage();
-        GameData.Clear();
-        PlayerPrefs.DeleteAll();
-        Debug.Log($"<color=Green>Clear data succeed</color>");
     }
 
     // [MenuItem("GameBase/Data/Add 100k Money")]
