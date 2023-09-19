@@ -50,7 +50,7 @@ public class GameBase : EditorWindow
     [MenuItem("GameBase/Data/Clear Data %F3")]
     public static void ClearAll()
     {
-        File.Delete(Path.Combine(DataStorage.GetPersistentDataPath(), "data.dat"));
+        GameData.DelDataInStorage();
         GameData.Clear();
         PlayerPrefs.DeleteAll();
         Debug.Log($"<color=Green>Clear data succeed</color>");

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using PlayFab.ClientModels;
 using UnityEngine;
+using VirtueSky.DataStorage;
 
 public static partial class Data
 {
@@ -99,6 +100,11 @@ public static partial class Data
             SetBool(Constant.BACKGROUND_SOUND_STATE, value);
             Observer.MusicChanged?.Invoke();
         }
+    }
+
+    public static bool BackgroundSoundState
+    {
+        get => GameData.Get(Constant.BACKGROUND_SOUND_STATE, true);
     }
 
     public static bool FxSoundState

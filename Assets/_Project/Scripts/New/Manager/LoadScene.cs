@@ -38,21 +38,4 @@ public class LoadScene : BaseMono
 
         _operation.allowSceneActivation = true;
     }
-
-    #region Save Data Game When Pause Or Quit
-
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus)
-        {
-            GameData.Save();
-        }
-    }
-
-    private void OnApplicationQuit()
-    {
-        GameData.Save();
-    }
-
-    #endregion
 }
