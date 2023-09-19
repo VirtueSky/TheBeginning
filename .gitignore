@@ -75,4 +75,4 @@ crashlytics-build.properties
 /.idea
 
 # File Data
-/[Tt]empDataStorage/.dat
+/[Tt]empDataStorage
