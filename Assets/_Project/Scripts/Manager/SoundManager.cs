@@ -17,16 +17,14 @@ public class SoundManager : BaseMono
     {
         base.Initialize();
         Setup();
-        Observer.MusicChanged += OnMusicChanged;
-        Observer.SoundChanged += OnSoundChanged;
     }
 
-    private void OnMusicChanged()
+    public void OnMusicChanged()
     {
         backgroundAudio.mute = !Data.BgSoundState;
     }
 
-    private void OnSoundChanged()
+    public void OnSoundChanged()
     {
         fxAudio.mute = !Data.FxSoundState;
     }

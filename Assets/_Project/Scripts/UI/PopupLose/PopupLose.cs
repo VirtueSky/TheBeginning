@@ -18,8 +18,6 @@ public class PopupLose : UIPopup
 
     public void OnClickReplay()
     {
-        MethodBase function = MethodBase.GetCurrentMethod();
-        Observer.TrackClickButton?.Invoke(function.Name);
         Hide();
         replayGameEvent.Raise();
     }

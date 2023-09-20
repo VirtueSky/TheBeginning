@@ -506,7 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchState: 0
   IsOn: 0
-  SettingType: 0
+  SettingType: 1
   On: {fileID: 21300000, guid: aaa49c5262e8b034486e715aac5f6a78, type: 3}
   Off: {fileID: 21300000, guid: f5bc539c31d2420468257c58d8d50f37, type: 3}
   Switch: {fileID: 6064939920310842477}
@@ -514,6 +514,9 @@ MonoBehaviour:
   OnPos: {fileID: 2350903369578484739}
   SwitchText: {fileID: 0}
   TimeSwitching: 0.5
+  eventMusicChange: {fileID: 0}
+  eventSoundChange: {fileID: 11400000, guid: 63a3d5f62b23adb4b822e4deb259a660, type: 2}
+  eventVibrationChange: {fileID: 0}
 --- !u!114 &1722925637005679728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,6 +1911,9 @@ MonoBehaviour:
   OnPos: {fileID: 7872452235639505778}
   SwitchText: {fileID: 0}
   TimeSwitching: 0.5
+  eventMusicChange: {fileID: 11400000, guid: a84d005794e869b4d98b8f213b2661a5, type: 2}
+  eventSoundChange: {fileID: 0}
+  eventVibrationChange: {fileID: 0}
 --- !u!114 &7559086734630463595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,11 +2328,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0.5, y: 0.5, z: 0.5}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -2603,7 +2611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchState: 0
   IsOn: 0
-  SettingType: 0
+  SettingType: 2
   On: {fileID: 21300000, guid: aaa49c5262e8b034486e715aac5f6a78, type: 3}
   Off: {fileID: 21300000, guid: f5bc539c31d2420468257c58d8d50f37, type: 3}
   Switch: {fileID: 3630702325850332691}
@@ -2611,6 +2619,10 @@ MonoBehaviour:
   OnPos: {fileID: 3705843802279381368}
   SwitchText: {fileID: 0}
   TimeSwitching: 0.5
+  eventMusicChange: {fileID: 0}
+  eventSoundChange: {fileID: 0}
+  eventVibrationChange: {fileID: 11400000, guid: e6bc800096ebba34aa70453973ddc415,
+    type: 2}
 --- !u!114 &4068073062285116794
 MonoBehaviour:
   m_ObjectHideFlags: 0

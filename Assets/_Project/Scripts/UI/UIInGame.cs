@@ -44,8 +44,6 @@ public class UIInGame : MonoBehaviour
 
     public void OnClickHome()
     {
-        MethodBase function = MethodBase.GetCurrentMethod();
-        Observer.TrackClickButton?.Invoke(function.Name);
         backHomeEvent.Raise();
     }
 

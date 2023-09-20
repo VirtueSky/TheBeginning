@@ -79,21 +79,13 @@ public static partial class Data
     public static bool BgSoundState
     {
         get => Get(Constant.BACKGROUND_SOUND_STATE, true);
-        set
-        {
-            Set(Constant.BACKGROUND_SOUND_STATE, value);
-            Observer.MusicChanged?.Invoke();
-        }
+        set => Set(Constant.BACKGROUND_SOUND_STATE, value);
     }
 
     public static bool FxSoundState
     {
         get => Get(Constant.FX_SOUND_STATE, true);
-        set
-        {
-            Set(Constant.FX_SOUND_STATE, value);
-            Observer.SoundChanged?.Invoke();
-        }
+        set => Set(Constant.FX_SOUND_STATE, value);
     }
 
     public static bool VibrateState

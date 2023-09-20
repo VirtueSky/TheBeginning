@@ -11,18 +11,14 @@ public static class Observer
     public static Action CurrentLevelChanged;
 
     // Setting
-    public static Action MusicChanged;
-    public static Action SoundChanged;
-
-    public static Action VibrationChanged;
+    // public static Action MusicChanged;
+    // public static Action SoundChanged;
+    // public static Action VibrationChanged;
 
     // Ads
 
     // Other
-   // public static Action CoinMove;
-    public static Action ClickButton;
-    public static Action<string> TrackClickButton;
-    public static Action PurchaseFail;
+    // public static Action CoinMove;
     public static Action PurchaseSucceed;
     public static Action ClaimReward;
 
