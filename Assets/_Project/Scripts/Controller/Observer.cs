@@ -10,25 +10,6 @@ public static class Observer
     // Level Spawn
     public static Action CurrentLevelChanged;
 
-    // Setting
-    // public static Action MusicChanged;
-    // public static Action SoundChanged;
-    // public static Action VibrationChanged;
-
-    // Ads
-
-    // Other
-    // public static Action CoinMove;
-    public static Action ClaimReward;
-
     #endregion
-
-    #region Gameplay
-
-    // Game event
-    public static Action<Level> StartLevel;
-    public static Action<Level> ReplayLevel;
-    public static Action<Level> SkipLevel;
-
-    #endregion
+    
 }

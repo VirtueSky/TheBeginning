@@ -672,6 +672,9 @@ MonoBehaviour:
   indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
   eventWinLevel: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
   eventLoseLevel: {fileID: 11400000, guid: 6d4181221526fb843905ee98636c6378, type: 2}
+  eventStartLevel: {fileID: 11400000, guid: 545df38b3ddc70e4d9aa88fafd330283, type: 2}
+  eventSkipLevel: {fileID: 11400000, guid: 365ca09faa4f1434884a4ec49df6b0bb, type: 2}
+  eventReplayLevel: {fileID: 11400000, guid: a0584a6fb29766d48950937619c1bd30, type: 2}
   uiInGame: {fileID: 7370416451176602697}
 --- !u!114 &2095473175
 MonoBehaviour:

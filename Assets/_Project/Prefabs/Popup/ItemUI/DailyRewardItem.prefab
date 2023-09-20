@@ -710,3 +710,4 @@ MonoBehaviour:
   currencyTotalVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5,
     type: 2}
   generateCoinEvent: {fileID: 11400000, guid: cca847b8b67572046a2a5802e790b3bd, type: 2}
+  claimRewardEvent: {fileID: 11400000, guid: ee4f538f3c4d5da47b93c1d1d4e75873, type: 2}

@@ -4,11 +4,13 @@ using System;
 using System.Linq;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using VirtueSky.Events;
 
 public class PopupDailyReward : UIPopup
 {
     public GameObject BtnWatchVideo;
     public GameObject BtnClaim;
+    [SerializeField] private EventNoParam claimRewardEvent;
 
     [ReadOnly] public DailyRewardItem CurrentItem;
     public List<DailyRewardItem> DailyRewardItems => GetComponentsInChildren<DailyRewardItem>().ToList();
@@ -101,7 +103,7 @@ public class PopupDailyReward : UIPopup
 
     public void OnClickBtnClaim()
     {
-        Observer.ClaimReward?.Invoke();
+        claimRewardEvent.Raise();
         //Observer.OnNotifying?.Invoke();
         CurrentItem.OnClaim();
     }

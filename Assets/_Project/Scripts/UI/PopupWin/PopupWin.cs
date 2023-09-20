@@ -17,6 +17,7 @@ public class PopupWin : UIPopup
     [SerializeField] private EventNoParam playCurrentLevelEvent;
     [SerializeField] private IntegerVariable currencyTotalVariable;
     [SerializeField] private Vector3Event generateCoinEvent;
+    [SerializeField] private EventNoParam claimRewardEvent;
 
     [Header("Sound")] [SerializeField] private PlayAudioEvent playSoundFx;
     [SerializeField] private AudioClip soundPopupWin;
@@ -91,7 +92,7 @@ public class PopupWin : UIPopup
         if (Data.IsTesting)
         {
             GetRewardAds();
-            Observer.ClaimReward?.Invoke();
+            claimRewardEvent.Raise();
         }
         else
         {

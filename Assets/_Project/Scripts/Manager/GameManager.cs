@@ -12,8 +12,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LoadSceneEvent loadSceneEvent;
     [SerializeField] private PopupVariable popupVariable;
     [SerializeField] private IntegerVariable indexLevelVariable;
-    [SerializeField] private EventEndLevel eventWinLevel;
-    [SerializeField] private EventEndLevel eventLoseLevel;
+    [SerializeField] private EventLevel eventWinLevel;
+    [SerializeField] private EventLevel eventLoseLevel;
+    [SerializeField] private EventLevel eventStartLevel;
+    [SerializeField] private EventLevel eventSkipLevel;
+    [SerializeField] private EventLevel eventReplayLevel;
     [SerializeField] private GameObject uiInGame;
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 
@@ -25,7 +28,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         PlayCurrentLevel();
-        Observer.StartLevel += UpdateScore;
     }
 
     public void PlayCurrentLevel()
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void ReplayGame()
     {
-        Observer.ReplayLevel?.Invoke(levelController.currentLevel);
+        eventReplayLevel.Raise(levelController.currentLevel);
         PrepareLevel();
         StartGame();
     }
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        Observer.SkipLevel?.Invoke(levelController.currentLevel);
+        eventSkipLevel.Raise(levelController.currentLevel);
         indexLevelVariable.Value++;
         PrepareLevel();
         StartGame();
@@ -83,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         gameState = GameState.PlayingGame;
-        Observer.StartLevel?.Invoke(levelController.currentLevel);
+        eventStartLevel.Raise(levelController.currentLevel);
         levelController.currentLevel.gameObject.SetActive(true);
     }
 
