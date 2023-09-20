@@ -6,13 +6,11 @@ using VirtueSky.Misc;
 public class Config : BaseMono
 {
     [SerializeField] private GameConfig gameConfig;
-    [SerializeField] private SoundConfig soundConfig;
     [SerializeField] private DailyRewardConfig dailyRewardConfig;
     [SerializeField] private CountryConfig countryConfig;
     [SerializeField] private ItemConfig itemConfig;
 
     public static GameConfig Game;
-    public static SoundConfig Sound;
     public static DailyRewardConfig DailyRewardConfig;
     public static CountryConfig CountryConfig;
     public static ItemConfig ItemConfig;
@@ -21,7 +19,6 @@ public class Config : BaseMono
     {
         DontDestroyOnLoad(this.gameObject);
         Game = gameConfig;
-        Sound = soundConfig;
         DailyRewardConfig = dailyRewardConfig;
         CountryConfig = countryConfig;
         ItemConfig = itemConfig;
@@ -39,7 +36,6 @@ public class Config : BaseMono
     {
         string path = "Assets/_Project/Config/";
         gameConfig = GetFile.GetConfigFromFolder<GameConfig>(path);
-        soundConfig = GetFile.GetConfigFromFolder<SoundConfig>(path);
         dailyRewardConfig = GetFile.GetConfigFromFolder<DailyRewardConfig>(path);
         countryConfig = GetFile.GetConfigFromFolder<CountryConfig>(path);
         itemConfig = GetFile.GetConfigFromFolder<ItemConfig>(path);

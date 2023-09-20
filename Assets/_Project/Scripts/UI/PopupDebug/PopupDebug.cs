@@ -16,6 +16,7 @@ public class PopupDebug : UIPopup
     [SerializeField] private EventNoParam prepareLevelEvent;
     [SerializeField] private IntegerVariable indexLevelVariable;
     [SerializeField] private IntegerVariable currencyTotalVariable;
+    [SerializeField] private EventNoParam eventPurchaseSuccess;
 
     protected override void OnBeforeShow()
     {
@@ -55,7 +56,7 @@ public class PopupDebug : UIPopup
     public void OnClickUnlockAllSkin()
     {
         Config.ItemConfig.UnlockAllSkins();
-        Observer.PurchaseSucceed?.Invoke();
+        eventPurchaseSuccess.Raise();
     }
 
     public void OnClickIsOffInterAds()

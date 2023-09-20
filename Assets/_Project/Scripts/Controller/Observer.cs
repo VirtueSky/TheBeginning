@@ -19,7 +19,6 @@ public static class Observer
 
     // Other
     // public static Action CoinMove;
-    public static Action PurchaseSucceed;
     public static Action ClaimReward;
 
     #endregion

@@ -3836,6 +3836,8 @@ MonoBehaviour:
   currencyTotalVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5,
     type: 2}
   generateCoinEvent: {fileID: 11400000, guid: cca847b8b67572046a2a5802e790b3bd, type: 2}
+  playSoundFx: {fileID: 11400000, guid: 08da0d11316f0ba4189b2b2c9f4e808d, type: 2}
+  soundPopupWin: {fileID: 8300000, guid: d5d65442eccfa3548921d7156b6d821a, type: 3}
 --- !u!1 &7418177931432179246
 GameObject:
   m_ObjectHideFlags: 0

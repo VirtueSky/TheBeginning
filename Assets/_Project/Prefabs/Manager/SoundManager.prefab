@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 3048643525464316042}
   - component: {fileID: 391347337002318094}
   - component: {fileID: 9003085896704213967}
-  - component: {fileID: 3039400346252795044}
+  - component: {fileID: 5123777055516648558}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -185,6 +185,7 @@ MonoBehaviour:
   fixedTick: 0
   backgroundAudio: {fileID: 8546824468311424377}
   fxAudio: {fileID: 8466455734524625443}
+  soundClickButton: {fileID: 8300000, guid: ace45cf110d1bc7408ee20f51318c4a2, type: 3}
 --- !u!114 &9003085896704213967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,38 +207,6 @@ MonoBehaviour:
   fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
-  - event: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 391347337002318094}
-          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-          m_MethodName: ClickButton
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - event: {fileID: 11400000, guid: 0d3f8a7afdb904d72bd2ce9381cef0f4, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 391347337002318094}
-          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-          m_MethodName: CoinMove
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - event: {fileID: 11400000, guid: a84d005794e869b4d98b8f213b2661a5, type: 2}
     response:
       m_PersistentCalls:
@@ -270,7 +239,39 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &3039400346252795044
+  - event: {fileID: 11400000, guid: 3bfb88316ad0a2445a6966b32bf3fadd, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 391347337002318094}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: PauseBackground
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - event: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 391347337002318094}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: ClickButton
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &5123777055516648558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -279,7 +280,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 889738730436452001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010ec6b1c9e5b914fa3d8310726cdb93, type: 3}
+  m_Script: {fileID: 11500000, guid: 403efc7f1fa54336b727d878cb93a867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: sound_manager
@@ -291,13 +292,29 @@ MonoBehaviour:
   fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
-  - event: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
+  - event: {fileID: 11400000, guid: 41f2413520152804fa3e1b0231531b79, type: 2}
     response:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 391347337002318094}
           m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-          m_MethodName: WinLevel
+          m_MethodName: PlayBackgroundMusic
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - event: {fileID: 11400000, guid: 08da0d11316f0ba4189b2b2c9f4e808d, type: 2}
+    response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 391347337002318094}
+          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+          m_MethodName: PlaySoundFx
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

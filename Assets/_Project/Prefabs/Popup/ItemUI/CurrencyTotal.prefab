@@ -311,7 +311,8 @@ MonoBehaviour:
   CurrencyGenerate: {fileID: 8067335738139792805}
   currencyTotalVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5,
     type: 2}
-  eventCoinMove: {fileID: 11400000, guid: 0d3f8a7afdb904d72bd2ce9381cef0f4, type: 2}
+  playSoundFx: {fileID: 11400000, guid: 08da0d11316f0ba4189b2b2c9f4e808d, type: 2}
+  soundCoinMove: {fileID: 8300000, guid: e64a815b5b859704a8b9fb7d8ae396cf, type: 3}
 --- !u!114 &6804244171169076866
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
@@ -12,7 +13,10 @@ public class CurrencyCounter : MonoBehaviour
     public float DelayTime = .01f;
     public CurrencyGenerate CurrencyGenerate;
     [SerializeField] IntegerVariable currencyTotalVariable;
-    [SerializeField] private EventNoParam eventCoinMove;
+
+    [Header("Sound")] [SerializeField] public PlayAudioEvent playSoundFx;
+    [SerializeField] private AudioClip soundCoinMove;
+
 
     private int currentCoin;
 
@@ -51,12 +55,13 @@ public class CurrencyCounter : MonoBehaviour
             if (!isFirstMove)
             {
                 isFirstMove = true;
+                playSoundFx.Raise(soundCoinMove);
                 int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
                 int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
                 int step = StepCount;
                 CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
             }
-        }, () => { eventCoinMove.Raise(); });
+        }, () => { });
     }
 
     private void DecreaseCurrency()
@@ -76,10 +81,7 @@ public class CurrencyCounter : MonoBehaviour
         }
 
         int totalValue = (currentCurrencyValue + nextAmountValue);
-        DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate: true).AppendCallback(() =>
-            {
-                CurrencyAmountText.text = totalValue.ToString();
-            })
+        DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate: true).AppendCallback(() => { CurrencyAmountText.text = totalValue.ToString(); })
             .AppendCallback(() => { CurrencyTextCount(totalValue, nextAmountValue, stepCount - 1); });
     }
 }

@@ -17,6 +17,9 @@ public class PopupWin : UIPopup
     [SerializeField] private EventNoParam playCurrentLevelEvent;
     [SerializeField] private IntegerVariable currencyTotalVariable;
     [SerializeField] private Vector3Event generateCoinEvent;
+
+    [Header("Sound")] [SerializeField] private PlayAudioEvent playSoundFx;
+    [SerializeField] private AudioClip soundPopupWin;
     private float percent = 0;
     private Sequence sequence;
     public int MoneyWin => Config.Game.WinLevelMoney;
@@ -29,10 +32,7 @@ public class PopupWin : UIPopup
         {
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
-            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() =>
-            {
-                TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%";
-            })).OnComplete((() =>
+            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%"; })).OnComplete((() =>
             {
                 if (percent >= 100)
                 {
@@ -67,7 +67,7 @@ public class PopupWin : UIPopup
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
-        //  PopupController.Instance.Show<PopupUI>();
+        playSoundFx.Raise(soundPopupWin);
         Setup();
         SetupProgressBar();
         sequence = DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { BtnTapToContinue.SetActive(true); });

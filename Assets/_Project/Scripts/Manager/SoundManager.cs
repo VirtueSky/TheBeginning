@@ -6,7 +6,9 @@ public class SoundManager : BaseMono
 {
     public AudioSource backgroundAudio;
     public AudioSource fxAudio;
-    public SoundConfig SoundConfig => Config.Sound;
+
+    [Header("Sound Generation")] [SerializeField]
+    private AudioClip soundClickButton;
 
     private void Awake()
     {
@@ -35,33 +37,15 @@ public class SoundManager : BaseMono
         OnSoundChanged();
     }
 
-    public void PlayFX(SoundType soundType)
+    public void PlaySoundFx(AudioClip _audioClip)
     {
-        SoundData soundData = SoundConfig.GetSoundDataByType(soundType);
-
-        if (soundData != null)
-        {
-            fxAudio.PlayOneShot(soundData.GetRandomAudioClip());
-        }
-        else
-        {
-            Debug.LogWarning("Can't found sound data");
-        }
+        fxAudio.PlayOneShot(_audioClip);
     }
 
-    public void PlayBackground(SoundType soundType)
+    public void PlayBackgroundMusic(AudioClip _audioClip)
     {
-        SoundData soundData = SoundConfig.GetSoundDataByType(soundType);
-
-        if (soundData != null)
-        {
-            backgroundAudio.clip = soundData.GetRandomAudioClip();
-            backgroundAudio.Play();
-        }
-        else
-        {
-            Debug.LogWarning("Can't found sound data");
-        }
+        backgroundAudio.clip = _audioClip;
+        backgroundAudio.Play();
     }
 
     public void PauseBackground()
@@ -72,37 +56,8 @@ public class SoundManager : BaseMono
         }
     }
 
-    #region ActionEvent
-
-    public void StartLevel(Level level)
-    {
-        PlayFX(SoundType.StartLevel);
-    }
-
-    public void WinLevel(Level level)
-    {
-        PlayFX(SoundType.WinLevel);
-    }
-
-    public void LoseLevel(Level level)
-    {
-        PlayFX(SoundType.LoseLevel);
-    }
-
     public void ClickButton()
     {
-        PlayFX(SoundType.ClickButton);
+        PlaySoundFx(soundClickButton);
     }
-
-    public void CoinMove()
-    {
-        PlayFX(SoundType.CoinMove);
-    }
-
-    public void PurchaseSucceed()
-    {
-        PlayFX(SoundType.PurchaseSucceed);
-    }
-
-    #endregion
 }
