@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelController: {fileID: 1245891408}
-  gameState: 0
+  gameStateVariable: {fileID: 11400000, guid: b9ca1ef07ea5d9e4795b6a14b750aafc, type: 2}
   loadSceneEvent: {fileID: 11400000, guid: e36010c92447644fab7f16f3fc58d088, type: 2}
   popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
@@ -3469,6 +3469,7 @@ MonoBehaviour:
   winLevelEvent: {fileID: 11400000, guid: 588d7a46b9b024aa39cafc33429fc79b, type: 2}
   loseLevelEvent: {fileID: 11400000, guid: 65dccb272537f4c71b8ebd4dd0c8d370, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
+  adManagerVariable: {fileID: 11400000, guid: 2cd9f1ec9abd5ac43861239eaca070ee, type: 2}
 --- !u!114 &7405959457711286719
 MonoBehaviour:
   m_ObjectHideFlags: 0

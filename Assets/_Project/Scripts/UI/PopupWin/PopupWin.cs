@@ -18,6 +18,7 @@ public class PopupWin : UIPopup
     [SerializeField] private IntegerVariable currencyTotalVariable;
     [SerializeField] private Vector3Event generateCoinEvent;
     [SerializeField] private EventNoParam claimRewardEvent;
+    [SerializeField] private AdManagerVariable adManagerVariable;
 
     [Header("Sound")] [SerializeField] private PlayAudioEvent playSoundFx;
     [SerializeField] private AudioClip soundPopupWin;
@@ -96,17 +97,13 @@ public class PopupWin : UIPopup
         }
         else
         {
-            // if (rewardVariable.IsReady()) BonusArrowHandler.MoveObject.StopMoving();
-            // eventShowRewardAd.Raise(new ShowRewardAdData(() =>
-            // {
-            //     GetRewardAds();
-            //     Observer.ClaimReward?.Invoke();
-            // }, null, null, () =>
-            // {
-            //     BonusArrowHandler.MoveObject.ResumeMoving();
-            //     BtnRewardAds.SetActive(true);
-            //     BtnTapToContinue.SetActive(true);
-            // }));
+            if (adManagerVariable.Value.IsRewardReady()) BonusArrowHandler.MoveObject.StopMoving();
+            adManagerVariable.Value.ShowRewardAds(() => { GetRewardAds(); }, null, null, () =>
+            {
+                BonusArrowHandler.MoveObject.ResumeMoving();
+                BtnRewardAds.SetActive(true);
+                BtnTapToContinue.SetActive(true);
+            });
         }
     }
 
@@ -118,7 +115,7 @@ public class PopupWin : UIPopup
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
         sequence?.Kill();
-
+        claimRewardEvent.Raise();
         DOTween.Sequence().AppendInterval(1.2f).AppendCallback(() =>
         {
             Hide();

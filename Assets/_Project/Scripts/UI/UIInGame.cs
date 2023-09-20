@@ -20,6 +20,7 @@ public class UIInGame : MonoBehaviour
     [SerializeField] private FloatEvent winLevelEvent;
     [SerializeField] private FloatEvent loseLevelEvent;
     [SerializeField] private IntegerVariable indexLevelVariable;
+    [SerializeField] private AdManagerVariable adManagerVariable;
 
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
 
@@ -55,13 +56,7 @@ public class UIInGame : MonoBehaviour
         }
         else
         {
-            // eventShowInterAd.Raise(new ShowInterAdData(() =>
-            // {
-            //     MethodBase function = MethodBase.GetCurrentMethod();
-            //     Observer.TrackClickButton?.Invoke(function.Name);
-            //
-            //     GameManager.Instance.ReplayGame();
-            // }));
+            adManagerVariable.Value.ShowInterstitial(() => { replayEvent.Raise(); });
         }
     }
 
@@ -78,13 +73,7 @@ public class UIInGame : MonoBehaviour
         }
         else
         {
-            // eventShowRewardAd.Raise(new ShowRewardAdData(() =>
-            // {
-            //     MethodBase function = MethodBase.GetCurrentMethod();
-            //     Observer.TrackClickButton?.Invoke(function.Name);
-            //
-            //     GameManager.Instance.NextLevel();
-            // }));
+            adManagerVariable.Value.ShowRewardAds(() => { nextLevelEvent.Raise(); });
         }
     }
 

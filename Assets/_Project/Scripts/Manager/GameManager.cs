@@ -8,7 +8,7 @@ using VirtueSky.Variables;
 public class GameManager : MonoBehaviour
 {
     public LevelController levelController;
-    public GameState gameState;
+    [SerializeField] private GameStateVariable gameStateVariable;
     [SerializeField] private LoadSceneEvent loadSceneEvent;
     [SerializeField] private PopupVariable popupVariable;
     [SerializeField] private IntegerVariable indexLevelVariable;
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void PrepareLevel()
     {
-        gameState = GameState.PrepareGame;
+        gameStateVariable.Value = GameState.PrepareGame;
         levelController.PrepareLevel();
     }
 
@@ -84,16 +84,17 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        gameState = GameState.PlayingGame;
+        gameStateVariable.Value = GameState.PlayingGame;
         eventStartLevel.Raise(levelController.currentLevel);
         levelController.currentLevel.gameObject.SetActive(true);
     }
 
     public void OnWinGame(float delayPopupShowTime = 2.5f)
     {
-        if (gameState == GameState.WaitingResult || gameState == GameState.LoseGame ||
-            gameState == GameState.WinGame) return;
-        gameState = GameState.WinGame;
+        if (gameStateVariable.Value == GameState.WaitingResult || gameStateVariable.Value == GameState.LoseGame ||
+            gameStateVariable.Value == GameState.WinGame) return;
+
+        gameStateVariable.Value = GameState.WinGame;
         eventWinLevel.Raise(levelController.currentLevel);
         DOTween.Sequence().AppendInterval(delayPopupShowTime)
             .AppendCallback(() =>
@@ -106,9 +107,9 @@ public class GameManager : MonoBehaviour
 
     public void OnLoseGame(float delayPopupShowTime = 2.5f)
     {
-        if (gameState == GameState.WaitingResult || gameState == GameState.LoseGame ||
-            gameState == GameState.WinGame) return;
-        gameState = GameState.LoseGame;
+        if (gameStateVariable.Value == GameState.WaitingResult || gameStateVariable.Value == GameState.LoseGame ||
+            gameStateVariable.Value == GameState.WinGame) return;
+        gameStateVariable.Value = GameState.LoseGame;
         eventLoseLevel.Raise(levelController.currentLevel);
         DOTween.Sequence().AppendInterval(delayPopupShowTime)
             .AppendCallback(() =>
