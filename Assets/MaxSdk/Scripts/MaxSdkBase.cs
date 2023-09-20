@@ -1,9 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using AppLovinMax.ThirdParty.MiniJson;
 using UnityEngine;
+
+#if UNITY_IOS && !UNITY_EDITOR
+using System.Runtime.InteropServices;
+#endif
 
 public abstract class MaxSdkBase
 {
@@ -11,29 +16,6 @@ public abstract class MaxSdkBase
     protected static readonly MaxUserSegment SharedUserSegment = new MaxUserSegment();
     protected static readonly MaxTargetingData SharedTargetingData = new MaxTargetingData();
 
-    /// <summary>
-    /// This enum represents whether or not the consent dialog should be shown for this user.
-    /// The state where no such determination could be made is represented by <see cref="ConsentDialogState.Unknown"/>.
-    ///
-    /// NOTE: This version of the iOS consent flow has been deprecated and is only available on UNITY_ANDROID as of MAX Unity Plugin v4.0.0 + iOS SDK v7.0.0, please refer to our documentation for enabling the new consent flow.
-    /// </summary>
-    public enum ConsentDialogState
-    {
-        /// <summary>
-        /// The consent dialog state could not be determined. This is likely due to SDK failing to initialize.
-        /// </summary>
-        Unknown,
-
-        /// <summary>
-        /// This user should be shown a consent dialog.
-        /// </summary>
-        Applies,
-
-        /// <summary>
-        /// This user should not be shown a consent dialog.
-        /// </summary>
-        DoesNotApply
-    }
 
 #if UNITY_EDITOR || UNITY_IPHONE || UNITY_IOS
     /// <summary>
@@ -99,23 +81,42 @@ public abstract class MaxSdkBase
         /// <summary>
         /// Whether or not the SDK has been initialized successfully.
         /// </summary>
-        public bool IsSuccessfullyInitialized;
-
-        /// <summary>
-        /// Get the consent dialog state for this user. If no such determination could be made, `ALConsentDialogStateUnknown` will be returned.
-        /// </summary>
-        public ConsentDialogState ConsentDialogState;
+        public bool IsSuccessfullyInitialized { get; private set; }
 
         /// <summary>
         /// Get the country code for this user.
         /// </summary>
-        public string CountryCode;
+        public string CountryCode { get; private set; }
 
 #if UNITY_EDITOR || UNITY_IPHONE || UNITY_IOS
         /// <summary>
         /// App tracking status values. Primarily used in conjunction with iOS14's AppTrackingTransparency.framework.
         /// </summary>
-        public AppTrackingStatus AppTrackingStatus;
+        public AppTrackingStatus AppTrackingStatus { get; private set; }
+#endif
+
+        public bool IsTestModeEnabled { get; private set; }
+
+        [Obsolete("This API has been deprecated and will be removed in a future release.")]
+        public ConsentDialogState ConsentDialogState { get; private set; }
+
+#if UNITY_EDITOR || !(UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS)
+        public static SdkConfiguration CreateEmpty()
+        {
+            var sdkConfiguration = new SdkConfiguration();
+            sdkConfiguration.IsSuccessfullyInitialized = true;
+#pragma warning disable 0618
+            sdkConfiguration.ConsentDialogState = ConsentDialogState.Unknown;
+#pragma warning restore 0618
+#if UNITY_EDITOR
+            sdkConfiguration.AppTrackingStatus = AppTrackingStatus.Authorized;
+#endif
+            var currentRegion = RegionInfo.CurrentRegion;
+            sdkConfiguration.CountryCode = currentRegion != null ? currentRegion.TwoLetterISORegionName : "US";
+            sdkConfiguration.IsTestModeEnabled = false;
+
+            return sdkConfiguration;
+        }
 #endif
 
         public static SdkConfiguration Create(IDictionary<string, object> eventProps)
@@ -124,7 +125,9 @@ public abstract class MaxSdkBase
 
             sdkConfiguration.IsSuccessfullyInitialized = MaxSdkUtils.GetBoolFromDictionary(eventProps, "isSuccessfullyInitialized");
             sdkConfiguration.CountryCode = MaxSdkUtils.GetStringFromDictionary(eventProps, "countryCode", "");
+            sdkConfiguration.IsTestModeEnabled = MaxSdkUtils.GetBoolFromDictionary(eventProps, "isTestModeEnabled");
 
+#pragma warning disable 0618
             var consentDialogStateStr = MaxSdkUtils.GetStringFromDictionary(eventProps, "consentDialogState", "");
             if ("1".Equals(consentDialogStateStr))
             {
@@ -138,6 +141,7 @@ public abstract class MaxSdkBase
             {
                 sdkConfiguration.ConsentDialogState = ConsentDialogState.Unknown;
             }
+#pragma warning restore 0618
 
 #if UNITY_IPHONE || UNITY_IOS
             var appTrackingStatusStr = MaxSdkUtils.GetStringFromDictionary(eventProps, "appTrackingStatus", "-1");
@@ -343,7 +347,7 @@ public abstract class MaxSdkBase
             return "[MediatedNetworkInfo: name = " + Name +
                    ", testName = " + TestName +
                    ", latency = " + LatencyMillis +
-                   ", networkResponse = " + NetworkResponses + "]";
+                   ", networkResponse = " + string.Join(", ", NetworkResponses.Select(networkResponseInfo => networkResponseInfo.ToString()).ToArray()) + "]";
         }
     }
 
@@ -352,6 +356,7 @@ public abstract class MaxSdkBase
         public MaxAdLoadState AdLoadState { get; private set; }
         public MediatedNetworkInfo MediatedNetwork { get; private set; }
         public Dictionary<string, object> Credentials { get; private set; }
+        public bool IsBidding { get; private set; }
         public long LatencyMillis { get; private set; }
         public ErrorInfo Error { get; private set; }
 
@@ -361,6 +366,7 @@ public abstract class MaxSdkBase
             MediatedNetwork = mediatedNetworkInfoDict != null ? new MediatedNetworkInfo(mediatedNetworkInfoDict) : null;
 
             Credentials = MaxSdkUtils.GetDictionaryFromDictionary(networkResponseInfoDict, "credentials", new Dictionary<string, object>());
+            IsBidding = MaxSdkUtils.GetBoolFromDictionary(networkResponseInfoDict, "isBidding");
             LatencyMillis = MaxSdkUtils.GetLongFromDictionary(networkResponseInfoDict, "latencyMillis");
             AdLoadState = (MaxAdLoadState) MaxSdkUtils.GetIntFromDictionary(networkResponseInfoDict, "adLoadState");
 
@@ -372,7 +378,7 @@ public abstract class MaxSdkBase
         {
             var stringBuilder = new StringBuilder("[NetworkResponseInfo: adLoadState = ").Append(AdLoadState);
             stringBuilder.Append(", mediatedNetwork = ").Append(MediatedNetwork);
-            stringBuilder.Append(", credentials = ").Append(Credentials);
+            stringBuilder.Append(", credentials = ").Append(string.Join(", ", Credentials.Select(keyValuePair => keyValuePair.ToString()).ToArray()));
 
             switch (AdLoadState)
             {
@@ -497,6 +503,34 @@ public abstract class MaxSdkBase
 
         return new Rect(originX, originY, width, height);
     }
+
+    /// <summary>
+    /// Handles forwarding callbacks from native to C#.
+    /// </summary>
+    /// <param name="propsStr">A prop string with the event data</param>
+    protected static void HandleBackgroundCallback(string propsStr)
+    {
+        try
+        {
+            MaxSdkCallbacks.Instance.ForwardEvent(propsStr);
+        }
+        catch (Exception exception)
+        {
+            var eventProps = Json.Deserialize(propsStr) as Dictionary<string, object>;
+            if (eventProps == null) return;
+
+            var eventName = MaxSdkUtils.GetStringFromDictionary(eventProps, "name", "");
+            MaxSdkLogger.UserError("Unable to notify ad delegate due to an error in the publisher callback '" + eventName + "' due to exception: " + exception.Message);
+        }
+    }
+
+    [Obsolete("This API has been deprecated and will be removed in a future release.")]
+    public enum ConsentDialogState
+    {
+        Unknown,
+        Applies,
+        DoesNotApply
+    }
 }
 
 /// <summary>
@@ -581,6 +615,157 @@ internal static class AdPositionExtenstion
         else // position == MaxSdkBase.AdViewPosition.BottomRight
         {
             return "bottom_right";
+        }
+    }
+}
+
+namespace AppLovinMax.Internal.API
+{
+    public class CFError
+    {
+        /// <summary>
+        /// Indicates that the flow ended in an unexpected state.
+        /// </summary>
+        public const int ErrorCodeUnspecified = -1;
+
+        /// <summary>
+        /// Indicates that the consent flow has not been integrated correctly.
+        /// </summary>
+        public const int ErrorCodeInvalidIntegration = -100;
+
+        /// <summary>
+        /// Indicates that the consent flow is already being shown.
+        /// </summary>
+        public const int ErrorCodeFlowAlreadyInProgress = -200;
+
+        /// <summary>
+        /// Indicates that the user is not in a GDPR region.
+        /// </summary>
+        public const int ErrorCodeNotInGdprRegion = -300;
+
+        /// <summary>
+        /// The error code for this error. Will be one of the error codes listed in this file.
+        /// </summary>
+        public int Code { get; private set; }
+
+        /// <summary>
+        /// The error message for this error.
+        /// </summary>
+        public string Message { get; private set; }
+
+        public static CFError Create(IDictionary<string, object> errorObject)
+        {
+            if (!errorObject.ContainsKey("code") && !errorObject.ContainsKey("message")) return null;
+
+            var code = MaxSdkUtils.GetIntFromDictionary(errorObject, "code", ErrorCodeUnspecified);
+            var message = MaxSdkUtils.GetStringFromDictionary(errorObject, "message");
+            return new CFError(code, message);
+        }
+
+        private CFError(int code, string message)
+        {
+            Code = code;
+            Message = message;
+        }
+
+        public override string ToString()
+        {
+            return "[CFError Code: " + Code +
+                   ", Message: " + Message + "]";
+        }
+    }
+
+    public enum CFType
+    {
+        /// <summary>
+        /// The flow type is not known.
+        /// </summary>
+        Unknown,
+
+        /// <summary>
+        /// A standard flow where a TOS/PP alert is shown.
+        /// </summary>
+        Standard,
+
+        /// <summary>
+        /// A detailed modal shown to users in GDPR region.
+        /// </summary>
+        Detailed
+    }
+
+    public class CFService
+    {
+        private static Action<CFError> OnConsentFlowCompletedAction;
+
+#if UNITY_EDITOR
+#elif UNITY_ANDROID
+        private static readonly AndroidJavaClass MaxUnityPluginClass = new AndroidJavaClass("com.applovin.mediation.unity.MaxUnityPlugin");
+#elif UNITY_IOS
+        [DllImport("__Internal")]
+        private static extern string _MaxGetCFType();
+
+        [DllImport("__Internal")]
+        private static extern void _MaxStartConsentFlow();
+#endif
+
+        /// <summary>
+        /// The consent flow type that will be displayed.
+        /// </summary>
+        public static CFType CFType
+        {
+            get
+            {
+                var cfType = "0";
+#if UNITY_EDITOR
+#elif UNITY_ANDROID
+                cfType = MaxUnityPluginClass.CallStatic<string>("getCFType");
+#elif UNITY_IOS
+                cfType = _MaxGetCFType();
+#endif
+
+                if ("1".Equals(cfType))
+                {
+                    return CFType.Standard;
+                }
+                else if ("2".Equals(cfType))
+                {
+                    return CFType.Detailed;
+                }
+
+                return CFType.Unknown;
+            }
+        }
+
+        /// <summary>
+        /// Starts the consent flow. Call this method to re-show the consent flow for a user in GDPR region.
+        ///
+        /// Note: The flow will only be shown to users in GDPR regions.
+        /// </summary>
+        /// <param name="onFlowCompletedAction">Called when we finish showing the consent flow. Error object will be <c>null</c> if the flow completed successfully.</param>
+        public static void SCF(Action<CFError> onFlowCompletedAction)
+        {
+            OnConsentFlowCompletedAction = onFlowCompletedAction;
+
+#if UNITY_EDITOR
+            var errorDict = new Dictionary<string, object>()
+            {
+                {"code", CFError.ErrorCodeUnspecified},
+                {"message", "Consent flow is not supported in Unity Editor."}
+            };
+
+            NotifyConsentFlowCompletedIfNeeded(errorDict);
+#elif UNITY_ANDROID
+            MaxUnityPluginClass.CallStatic("startConsentFlow");
+#elif UNITY_IOS
+            _MaxStartConsentFlow();
+#endif
+        }
+
+        public static void NotifyConsentFlowCompletedIfNeeded(IDictionary<string, object> error)
+        {
+            if (OnConsentFlowCompletedAction == null) return;
+
+            OnConsentFlowCompletedAction(CFError.Create(error));
         }
     }
 }

@@ -5,7 +5,7 @@
 
 #import "MAUnityAdManager.h"
 
-#define VERSION @"5.5.5"
+#define VERSION @"5.11.3"
 
 #define KEY_WINDOW [UIApplication sharedApplication].keyWindow
 #define DEVICE_SPECIFIC_ADVIEW_AD_FORMAT ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? MAAdFormat.leader : MAAdFormat.banner
@@ -42,7 +42,7 @@ extern "C" {
 }
 #endif
 
-@interface MAUnityAdManager()<MAAdDelegate, MAAdViewAdDelegate, MARewardedAdDelegate, MAAdRevenueDelegate, ALVariableServiceDelegate>
+@interface MAUnityAdManager()<MAAdDelegate, MAAdViewAdDelegate, MARewardedAdDelegate, MAAdRevenueDelegate, MAAdReviewDelegate, ALVariableServiceDelegate>
 
 // Parent Fields
 @property (nonatomic, weak) ALSdk *sdk;
@@ -168,15 +168,22 @@ static ALUnityBackgroundCallback backgroundCallback;
 
 #pragma mark - Plugin Initialization
 
-- (ALSdk *)initializeSdkWithAdUnitIdentifiers:(NSString *)serializedAdUnitIdentifiers
-                                     metaData:(NSString *)serializedMetaData
-                           backgroundCallback:(ALUnityBackgroundCallback)unityBackgroundCallback
-                         andCompletionHandler:(ALSdkInitializationCompletionHandler)completionHandler
+- (ALSdk *)initializeSdkWithSettings:(ALSdkSettings *)settings
+                  backgroundCallback:(ALUnityBackgroundCallback)unityBackgroundCallback
+                andCompletionHandler:(ALSdkInitializationCompletionHandler)completionHandler
 {
     backgroundCallback = unityBackgroundCallback;
     NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
     NSString *sdkKey = infoDict[@"AppLovinSdkKey"];
-    self.sdk = [ALSdk sharedWithKey: sdkKey settings: [self generateSDKSettingsForAdUnitIdentifiers: serializedAdUnitIdentifiers metaData: serializedMetaData]];
+    if ( [sdkKey al_isValidString] )
+    {
+        self.sdk = [ALSdk sharedWithKey: sdkKey settings: settings];
+    }
+    else
+    {
+        self.sdk = [ALSdk sharedWithSettings: settings];
+    }
+    
     self.sdk.variableService.delegate = self;
     [self.sdk setPluginVersion: [@"Max-Unity-" stringByAppendingString: VERSION]];
     self.sdk.mediationProvider = @"max";
@@ -191,7 +198,8 @@ static ALUnityBackgroundCallback backgroundCallback;
                                                        @"consentDialogState" : consentDialogStateStr,
                                                        @"countryCode" : configuration.countryCode,
                                                        @"appTrackingStatus" : appTrackingStatus,
-                                                       @"isSuccessfullyInitialized" : ([self.sdk isInitialized] ? @"true" : @"false")}];
+                                                       @"isSuccessfullyInitialized" : @([self.sdk isInitialized]),
+                                                       @"isTestModeEnabled" : @([configuration isTestModeEnabled])}];
     }];
     
     return self.sdk;
@@ -541,7 +549,7 @@ static ALUnityBackgroundCallback backgroundCallback;
 
 - (void)trackEvent:(NSString *)event parameters:(NSString *)parameters
 {
-    NSDictionary<NSString *, id> *deserializedParameters = [self deserializeParameters: parameters];
+    NSDictionary<NSString *, id> *deserializedParameters = [MAUnityAdManager deserializeParameters: parameters];
     [self.sdk.eventService trackEvent: event parameters: deserializedParameters];
 }
 
@@ -614,6 +622,7 @@ static ALUnityBackgroundCallback backgroundCallback;
     }
     
     networkResponseDict[@"credentials"] = response.credentials;
+    networkResponseDict[@"isBidding"] = @([response isBidding]);
     
     MAError *error = response.error;
     if ( error )
@@ -1044,6 +1053,43 @@ static ALUnityBackgroundCallback backgroundCallback;
     [MAUnityAdManager forwardUnityEventWithArgs: args forwardInBackground: [adFormat isFullscreenAd]];
 }
 
+- (void)didGenerateCreativeIdentifier:(NSString *)creativeIdentifier forAd:(MAAd *)ad
+{
+    NSString *name;
+    MAAdFormat *adFormat = ad.format;
+    if ( MAAdFormat.banner == adFormat || MAAdFormat.leader == adFormat )
+    {
+        name = @"OnBannerAdReviewCreativeIdGeneratedEvent";
+    }
+    else if ( MAAdFormat.mrec == adFormat )
+    {
+        name = @"OnMRecAdReviewCreativeIdGeneratedEvent";
+    }
+    else if ( MAAdFormat.interstitial == adFormat )
+    {
+        name = @"OnInterstitialAdReviewCreativeIdGeneratedEvent";
+    }
+    else if ( MAAdFormat.rewarded == adFormat )
+    {
+        name = @"OnRewardedAdReviewCreativeIdGeneratedEvent";
+    }
+    else if ( MAAdFormat.rewardedInterstitial == adFormat )
+    {
+        name = @"OnRewardedInterstitialAdReviewCreativeIdGeneratedEvent";
+    }
+    else
+    {
+        [self logInvalidAdFormat: adFormat];
+        return;
+    }
+    
+    NSMutableDictionary<NSString *, id> *args = [self defaultAdEventParametersForName: name withAd: ad];
+    args[@"adReviewCreativeId"] = creativeIdentifier;
+    
+    // Forward the event in background for fullscreen ads so that the user gets the callback even while the ad is playing.
+    [MAUnityAdManager forwardUnityEventWithArgs: args forwardInBackground: [adFormat isFullscreenAd]];
+}
+
 - (NSMutableDictionary<NSString *, id> *)defaultAdEventParametersForName:(NSString *)name withAd:(MAAd *)ad
 {
     NSMutableDictionary<NSString *, id> *args = [[self adInfoForAd: ad] mutableCopy];
@@ -1058,6 +1104,11 @@ static ALUnityBackgroundCallback backgroundCallback;
 {
     max_unity_dispatch_on_main_thread(^{
         [self log: @"Creating %@ with ad unit identifier \"%@\" and position: \"%@\"", adFormat, adUnitIdentifier, adViewPosition];
+        
+        if ( self.adViews[adUnitIdentifier] )
+        {
+            [self log: @"Trying to create a %@ that was already created. This will cause the current ad to be hidden.", adFormat.label];
+        }
         
         // Retrieve ad view from the map
         MAAdView *adView = [self retrieveAdViewForAdUnitIdentifier: adUnitIdentifier adFormat: adFormat atPosition: adViewPosition withOffset: offset];
@@ -1430,6 +1481,7 @@ static ALUnityBackgroundCallback backgroundCallback;
         MAAdView *view = [self retrieveAdViewForAdUnitIdentifier: adUnitIdentifier adFormat: adFormat];
         view.delegate = nil;
         view.revenueDelegate = nil;
+        view.adReviewDelegate = nil;
         
         [view removeFromSuperview];
         
@@ -1460,6 +1512,16 @@ static ALUnityBackgroundCallback backgroundCallback;
     NSLog(@"[%@] [%@] %@", SDK_TAG, TAG, message);
 }
 
++ (void)log:(NSString *)format, ...
+{
+    va_list valist;
+    va_start(valist, format);
+    NSString *message = [[NSString alloc] initWithFormat: format arguments: valist];
+    va_end(valist);
+    
+    NSLog(@"[%@] [%@] %@", SDK_TAG, TAG, message);
+}
+
 - (MAInterstitialAd *)retrieveInterstitialForAdUnitIdentifier:(NSString *)adUnitIdentifier
 {
     MAInterstitialAd *result = self.interstitials[adUnitIdentifier];
@@ -1468,6 +1530,7 @@ static ALUnityBackgroundCallback backgroundCallback;
         result = [[MAInterstitialAd alloc] initWithAdUnitIdentifier: adUnitIdentifier sdk: self.sdk];
         result.delegate = self;
         result.revenueDelegate = self;
+        result.adReviewDelegate = self;
         
         self.interstitials[adUnitIdentifier] = result;
     }
@@ -1498,6 +1561,7 @@ static ALUnityBackgroundCallback backgroundCallback;
         result = [MARewardedAd sharedWithAdUnitIdentifier: adUnitIdentifier sdk: self.sdk];
         result.delegate = self;
         result.revenueDelegate = self;
+        result.adReviewDelegate = self;
         
         self.rewardedAds[adUnitIdentifier] = result;
     }
@@ -1513,6 +1577,7 @@ static ALUnityBackgroundCallback backgroundCallback;
         result = [[MARewardedInterstitialAd alloc] initWithAdUnitIdentifier: adUnitIdentifier sdk: self.sdk];
         result.delegate = self;
         result.revenueDelegate = self;
+        result.adReviewDelegate = self;
         
         self.rewardedInterstitialAds[adUnitIdentifier] = result;
     }
@@ -1536,6 +1601,7 @@ static ALUnityBackgroundCallback backgroundCallback;
         result.translatesAutoresizingMaskIntoConstraints = NO;
         result.delegate = self;
         result.revenueDelegate = self;
+        result.adReviewDelegate = self;
         
         self.adViews[adUnitIdentifier] = result;
         self.adViewPositions[adUnitIdentifier] = adViewPosition;
@@ -1897,7 +1963,7 @@ static ALUnityBackgroundCallback backgroundCallback;
     return [[NSString alloc] initWithData: jsonData encoding: NSUTF8StringEncoding];
 }
 
-- (NSDictionary<NSString *, id> *)deserializeParameters:(NSString *)serialized
++ (NSDictionary<NSString *, id> *)deserializeParameters:(NSString *)serialized
 {
     if ( serialized.length > 0 )
     {
@@ -1931,33 +1997,30 @@ static ALUnityBackgroundCallback backgroundCallback;
     }
 }
 
-- (ALSdkSettings *)generateSDKSettingsForAdUnitIdentifiers:(NSString *)serializedAdUnitIdentifiers metaData:(NSString *)serializedMetaData
-{
-    ALSdkSettings *settings = [[ALSdkSettings alloc] init];
-    settings.initializationAdUnitIdentifiers = [serializedAdUnitIdentifiers componentsSeparatedByString: @","];
-    
-    NSDictionary<NSString *, id> *unityMetaData = [self deserializeParameters: serializedMetaData];
-    
-    // Set the meta data to settings.
-    if ( ALSdk.versionCode >= 61201 )
-    {
-        NSMutableDictionary<NSString *, NSString *> *metaDataDict = [settings valueForKey: @"metaData"];
-        for ( NSString *key in unityMetaData )
-        {
-            metaDataDict[key] = unityMetaData[key];
-        }
-        
-        return settings;
-    }
-    
-    return settings;
-}
-
 #pragma mark - User Service
 
 - (void)didDismissUserConsentDialog
 {
     [MAUnityAdManager forwardUnityEventWithArgs: @{@"name" : @"OnSdkConsentDialogDismissedEvent"}];
+}
+
+#pragma mark - Consent Flow
+
+- (void)startConsentFlow
+{
+    [self.sdk.cfService scfWithCompletionHander:^(ALCFError * _Nullable error) {
+        
+        NSMutableDictionary<NSString *, id> *args = [NSMutableDictionary dictionaryWithCapacity: 3];
+        args[@"name"] = @"OnSdkConsentFlowCompletedEvent";
+        
+        if ( error )
+        {
+            args[@"code"] = @(error.code);
+            args[@"message"] = error.message;
+        }
+        
+        [MAUnityAdManager forwardUnityEventWithArgs: args];
+    }];
 }
 
 #pragma mark - Variable Service (Deprecated)

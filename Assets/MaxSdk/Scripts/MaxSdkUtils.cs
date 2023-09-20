@@ -496,6 +496,16 @@ public class MaxSdkUtils
         return VersionComparisonResult.Equal;
     }
 
+    /// <summary>
+    /// Check if the given string is valid - not <c>null</c> and not empty.
+    /// </summary>
+    /// <param name="toCheck">The string to be checked.</param>
+    /// <returns><c>true</c> if the given string is not <c>null</c> and not empty.</returns>
+    public static bool IsValidString(string toCheck)
+    {
+        return !string.IsNullOrEmpty(toCheck);
+    }
+
 #if UNITY_EDITOR
     /// <summary>
     /// Gets the path of the asset in the project for a given MAX plugin export path.

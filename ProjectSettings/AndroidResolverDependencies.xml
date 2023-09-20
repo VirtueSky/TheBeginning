@@ -13,7 +13,7 @@
     <package>com.applovin.mediation:mintegral-adapter:16.2.61.1</package>
     <package>com.applovin.mediation:unityads-adapter:4.4.1.0</package>
     <package>com.applovin.mediation:vungle-adapter:6.12.0.3</package>
-    <package>com.applovin:applovin-sdk:11.5.3</package>
+    <package>com.applovin:applovin-sdk:11.11.3</package>
     <package>com.google.android.gms:play-services-base:16.1.0</package>
     <package>com.google.android.gms:play-services-base:18.2.0</package>
     <package>com.google.android.play:core-common:2.0.0</package>
@@ -26,21 +26,14 @@
     <package>com.google.firebase:firebase-config-unity:11.4.0</package>
     <package>com.squareup.picasso:picasso:2.71828</package>
   </packages>
-  <files>
-    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/11.4.0/firebase-analytics-unity-11.4.0.aar</file>
-    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/11.4.0/firebase-analytics-unity-11.4.0.pom</file>
-    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-app-unity/11.4.0/firebase-app-unity-11.4.0.aar</file>
-    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-app-unity/11.4.0/firebase-app-unity-11.4.0.pom</file>
-    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-config-unity/11.4.0/firebase-config-unity-11.4.0.aar</file>
-    <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-config-unity/11.4.0/firebase-config-unity-11.4.0.pom</file>
-  </files>
+  <files />
   <settings>
     <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
     <setting name="bundleId" value="com.pdstudio.test" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
-    <setting name="gradlePropertiesTemplateEnabled" value="True" />
-    <setting name="gradleTemplateEnabled" value="True" />
+    <setting name="gradlePropertiesTemplateEnabled" value="False" />
+    <setting name="gradleTemplateEnabled" value="False" />
     <setting name="installAndroidPackages" value="True" />
     <setting name="localMavenRepoDir" value="Assets/GeneratedLocalRepo" />
     <setting name="packageDir" value="Assets/Plugins/Android" />

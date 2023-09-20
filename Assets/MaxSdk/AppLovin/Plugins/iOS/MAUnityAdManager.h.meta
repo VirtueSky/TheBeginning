@@ -3,7 +3,6 @@ guid: 4209563f82b8a4f7dabf03705ab761c6
 labels:
 - al_max
 - al_max_export_path-MaxSdk/AppLovin/Plugins/iOS/MAUnityAdManager.h
-- al_max_export_path-MaxSdk\AppLovin\Plugins\iOS\MAUnityAdManager.h
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -16,7 +15,7 @@ PluginImporter:
   validateReferences: 1
   platformData:
   - first:
-      : Any
+      '': Any
     second:
       enabled: 0
       settings:

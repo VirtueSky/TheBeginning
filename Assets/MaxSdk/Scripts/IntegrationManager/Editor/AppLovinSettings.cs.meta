@@ -3,7 +3,6 @@ guid: ebc0ba1b5ef6b4a6b9dd53d7eadfea16
 labels:
 - al_max
 - al_max_export_path-MaxSdk/Scripts/IntegrationManager/Editor/AppLovinSettings.cs
-- al_max_export_path-MaxSdk\Scripts\IntegrationManager\Editor\AppLovinSettings.cs
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

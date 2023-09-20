@@ -246,19 +246,19 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "com.virtuesky.collection-pk": {
-      "version": "https://github.com/VirtueSky/collection-pk.git#1.0.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "6d439506b339905559b6667db9623df31572f53e"
-    },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#1.0.6",
+      "version": "https://github.com/VirtueSky/sunflower.git#1.0.7",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "e07f479b80e37fc52c966072c4dffd1452a83c33"
+      "hash": "eea0eced3f84e24c3405faf608ce250fd7f03eaf"
+    },
+    "com.wolf.package.odin": {
+      "version": "https://github.com/wolf-package/OdinInspectorAndSerializer.git#3.1.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5f028cdadc5c7b51ce63add98d9aa7161c02742c"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

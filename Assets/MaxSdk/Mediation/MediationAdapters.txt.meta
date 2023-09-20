@@ -3,9 +3,4 @@ guid: 9a8f83e97729443c86120be3bb24190d
 labels:
 - al_max
 - al_max_export_path-MaxSdk/Mediation/MediationAdapters.txt
-- al_max_export_path-MaxSdk\Mediation\MediationAdapters.txt
-TextScriptImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+timeCreated: 1609308536

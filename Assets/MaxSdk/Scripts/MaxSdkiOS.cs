@@ -141,6 +141,20 @@ public class MaxSdkiOS : MaxSdkBase
     }
 
     [DllImport("__Internal")]
+    private static extern void _MaxShowCreativeDebugger();
+
+    /// <summary>
+    /// Present the creative debugger UI.
+    /// This debugger tool provides information for recently displayed ads.
+    ///
+    /// Please call this method after the SDK has initialized.
+    /// </summary>
+    public static void ShowCreativeDebugger()
+    {
+        _MaxShowCreativeDebugger();
+    }
+
+    [DllImport("__Internal")]
     private static extern string _MaxGetAdValue(string adUnitIdentifier, string key);
 
     /// <summary>
@@ -183,7 +197,7 @@ public class MaxSdkiOS : MaxSdkBase
     /// <summary>
     /// Set whether or not user has provided consent for information sharing with AppLovin and other providers.
     /// </summary>
-    /// <param name="hasUserConsent"><c>true</c> if the user has provided consent for information sharing with AppLovin. <c>false<c> by default.</param>
+    /// <param name="hasUserConsent"><c>true</c> if the user has provided consent for information sharing with AppLovin. <c>false</c> by default.</param>
     public static void SetHasUserConsent(bool hasUserConsent)
     {
         _MaxSetHasUserConsent(hasUserConsent);
@@ -207,7 +221,7 @@ public class MaxSdkiOS : MaxSdkBase
     /// <summary>
     /// Check if user has set consent for information sharing.
     /// </summary>
-    /// <returns><c>true<c> if user has set a value of consent for information sharing.</returns>
+    /// <returns><c>true</c> if user has set a value of consent for information sharing.</returns>
     public static bool IsUserConsentSet()
     {
         return _MaxIsUserConsentSet();
@@ -219,7 +233,7 @@ public class MaxSdkiOS : MaxSdkBase
     /// <summary>
     /// Mark user as age restricted (i.e. under 16).
     /// </summary>
-    /// <param name="isAgeRestrictedUser"><c>true<c> if the user is age restricted (i.e. under 16).</param>
+    /// <param name="isAgeRestrictedUser"><c>true</c> if the user is age restricted (i.e. under 16).</param>
     public static void SetIsAgeRestrictedUser(bool isAgeRestrictedUser)
     {
         _MaxSetIsAgeRestrictedUser(isAgeRestrictedUser);
@@ -231,7 +245,7 @@ public class MaxSdkiOS : MaxSdkBase
     /// <summary>
     /// Check if user is age restricted.
     /// </summary>
-    /// <returns><c>true<c> if the user is age-restricted. <c>false<c> if the user is not age-restricted or the age-restriction has not been set<see cref="IsAgeRestrictedUserSet">.</returns>
+    /// <returns><c>true</c> if the user is age-restricted. <c>false</c> if the user is not age-restricted or the age-restriction has not been set<see cref="IsAgeRestrictedUserSet">.</returns>
     public static bool IsAgeRestrictedUser()
     {
         return _MaxIsAgeRestrictedUser();
@@ -243,7 +257,7 @@ public class MaxSdkiOS : MaxSdkBase
     /// <summary>
     /// Check if user set its age restricted settings.
     /// </summary>
-    /// <returns><c>true<c> if user has set its age restricted settings.</returns>
+    /// <returns><c>true</c> if user has set its age restricted settings.</returns>
     public static bool IsAgeRestrictedUserSet()
     {
         return _MaxIsAgeRestrictedUserSet();
@@ -255,7 +269,7 @@ public class MaxSdkiOS : MaxSdkBase
     /// <summary>
     /// Set whether or not user has opted out of the sale of their personal information.
     /// </summary>
-    /// <param name="doNotSell"><c>true<c> if the user has opted out of the sale of their personal information.</param>
+    /// <param name="doNotSell"><c>true</c> if the user has opted out of the sale of their personal information.</param>
     public static void SetDoNotSell(bool doNotSell)
     {
         _MaxSetDoNotSell(doNotSell);
@@ -267,7 +281,7 @@ public class MaxSdkiOS : MaxSdkBase
     /// <summary>
     /// Check if the user has opted out of the sale of their personal information.
     /// </summary>
-    /// <returns><c>true<c> if the user has opted out of the sale of their personal information. <c>false<c> if the user opted in to the sell of their personal information or the value has not been set <see cref="IsDoNotSellSet">.</returns>
+    /// <returns><c>true</c> if the user has opted out of the sale of their personal information. <c>false</c> if the user opted in to the sell of their personal information or the value has not been set <see cref="IsDoNotSellSet">.</returns>
     public static bool IsDoNotSell()
     {
         return _MaxIsDoNotSell();
@@ -1351,6 +1365,12 @@ public class MaxSdkiOS : MaxSdkBase
     /// <param name="advertisingIdentifiers">String list of advertising identifiers from devices to receive test ads.</param>
     public static void SetTestDeviceAdvertisingIdentifiers(string[] advertisingIdentifiers)
     {
+        if (IsInitialized())
+        {
+            MaxSdkLogger.UserError("Test Device Advertising Identifiers must be set before SDK initialization.");
+            return;
+        }
+
         _MaxSetTestDeviceAdvertisingIdentifiers(advertisingIdentifiers, advertisingIdentifiers.Length);
     }
 
@@ -1470,7 +1490,7 @@ public class MaxSdkiOS : MaxSdkBase
     [MonoPInvokeCallback(typeof(ALUnityBackgroundCallback))]
     internal static void BackgroundCallback(string propsStr)
     {
-        MaxSdkCallbacks.Instance.ForwardEvent(propsStr);
+        HandleBackgroundCallback(propsStr);
     }
 
     #endregion
