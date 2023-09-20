@@ -18,11 +18,7 @@ public static partial class Data
     public static bool IsTesting
     {
         get => Get(Constant.IS_TESTING, 0) == 1;
-        set
-        {
-            Set(Constant.IS_TESTING, value ? 1 : 0);
-            Observer.DebugChanged?.Invoke();
-        }
+        set => Set(Constant.IS_TESTING, value ? 1 : 0);
     }
 
     public static bool IsOffInterAds

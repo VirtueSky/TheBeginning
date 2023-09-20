@@ -18,8 +18,7 @@ public class ShowObject : MonoBehaviour
     [ShowIf(nameof(IsShowByLevel))] public List<int> LevelsShow;
     [ShowIf("IsShowByTime")] public int MaxTimeShow;
 
-    [ShowIf("IsShowByTime")] [ReadOnly]
-    public string ShowID;
+    [ShowIf("IsShowByTime")] [ReadOnly] public string ShowID;
 
     [ShowIf("IsShowByTime")]
     [Button]
@@ -55,15 +54,6 @@ public class ShowObject : MonoBehaviour
     public void Awake()
     {
         Setup();
-
-        if (IsShowByLevel) Observer.CurrentLevelChanged += Setup;
-        if (IsShowByTesting) Observer.DebugChanged += Setup;
-    }
-
-    private void OnDestroy()
-    {
-        if (IsShowByLevel) Observer.CurrentLevelChanged -= Setup;
-        if (IsShowByTesting) Observer.DebugChanged -= Setup;
     }
 
     public void Setup()

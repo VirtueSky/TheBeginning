@@ -1339,7 +1339,8 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
-  currentLevelVariable: {fileID: 0}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -1807,7 +1808,8 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
-  currentLevelVariable: {fileID: 0}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -2034,7 +2036,8 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
-  currentLevelVariable: {fileID: 0}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -3640,7 +3643,8 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
-  currentLevelVariable: {fileID: 0}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -3807,7 +3811,8 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
-  currentLevelVariable: {fileID: 0}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -3846,7 +3851,8 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
-  currentLevelVariable: {fileID: 0}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 

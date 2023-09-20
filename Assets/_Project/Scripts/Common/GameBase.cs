@@ -19,15 +19,6 @@ public class GameBase : EditorWindow
         GUILayout.EndHorizontal();
     }
 
-    // [MenuItem("GameBase/Clear Data %F3")]
-    // public static void ClearAll()
-    // {
-    //     GameData.DelDataInStorage();
-    //     GameData.Clear();
-    //     PlayerPrefs.DeleteAll();
-    //     Debug.Log($"<color=Green>Clear data succeed</color>");
-    // }
-
     [MenuItem("GameBase/Switch Debug %`")]
     public static void SwitchDebug()
     {
