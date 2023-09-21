@@ -1,17 +1,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine.UI;
 
 public class PopupManager : MonoBehaviour
 {
-    [SerializeField] private Transform parentContainer;
-    [SerializeField] private CanvasScaler canvasScaler;
-    [SerializeField] private Camera cameraUI;
-    [SerializeField] private List<UIPopup> listPopups = new List<UIPopup>();
-    [SerializeField] private PopupVariable popupVariable;
+    [FoldoutGroup(Constant.Environment)] [SerializeField]
+    private Transform parentContainer;
+
+    [FoldoutGroup(Constant.Environment)] [SerializeField]
+    private CanvasScaler canvasScaler;
+
+    [FoldoutGroup(Constant.Environment)] [SerializeField]
+    private Camera cameraUI;
+
+    [FoldoutGroup(Constant.Environment)] [SerializeField]
+    private List<UIPopup> listPopups = new List<UIPopup>();
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private PopupVariable popupVariable;
+
     private readonly Dictionary<Type, UIPopup> _container = new Dictionary<Type, UIPopup>();
     private int index = 1;
+
     private void Awake()
     {
         Debug.Assert(cameraUI != null, "CameraUI != null");

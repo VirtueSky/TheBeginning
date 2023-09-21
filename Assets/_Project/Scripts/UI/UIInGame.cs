@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -11,16 +12,35 @@ using VirtueSky.Variables;
 
 public class UIInGame : MonoBehaviour
 {
-    [Header("Components")] public TextMeshProUGUI LevelText;
+    [FoldoutGroup(Constant.Normal_Attribute)]
+    public TextMeshProUGUI LevelText;
+
+    [FoldoutGroup(Constant.Normal_Attribute)]
     public TextMeshProUGUI LevelTypeText;
-    [SerializeField] private EventNoParam replayEvent;
-    [SerializeField] private EventNoParam backHomeEvent;
-    [SerializeField] private EventNoParam nextLevelEvent;
-    [SerializeField] private EventNoParam backLevelEvent;
-    [SerializeField] private FloatEvent winLevelEvent;
-    [SerializeField] private FloatEvent loseLevelEvent;
-    [SerializeField] private IntegerVariable indexLevelVariable;
-    [SerializeField] private AdManagerVariable adManagerVariable;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventNoParam replayEvent;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventNoParam backHomeEvent;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventNoParam nextLevelEvent;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventNoParam backLevelEvent;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private FloatEvent winLevelEvent;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private FloatEvent loseLevelEvent;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private IntegerVariable indexLevelVariable;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private AdManagerVariable adManagerVariable;
 
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
 

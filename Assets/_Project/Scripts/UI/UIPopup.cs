@@ -8,15 +8,27 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Canvas), typeof(GraphicRaycaster), typeof(CanvasGroup))]
 public class UIPopup : MonoBehaviour
 {
-    public CanvasGroup canvasGroup;
-    public Canvas canvas;
+    [FoldoutGroup(Constant.Environment)] public CanvasGroup canvasGroup;
+    [FoldoutGroup(Constant.Environment)] public Canvas canvas;
     public bool UseAnimation;
-    [ShowIf("UseAnimation")] public GameObject Background;
-    [ShowIf("UseAnimation")] public GameObject Container;
-    [ShowIf("UseAnimation")] public bool UseShowAnimation;
-    [ShowIf("UseShowAnimation")] public ShowAnimationType ShowAnimationType;
-    [ShowIf("UseAnimation")] public bool UseHideAnimation;
-    [ShowIf("UseHideAnimation")] public HideAnimationType HideAnimationType;
+
+    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseAnimation")]
+    public GameObject Background;
+
+    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseAnimation")]
+    public GameObject Container;
+
+    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseAnimation")]
+    public bool UseShowAnimation;
+
+    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseShowAnimation")]
+    public ShowAnimationType ShowAnimationType;
+
+    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseAnimation")]
+    public bool UseHideAnimation;
+
+    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseHideAnimation")]
+    public HideAnimationType HideAnimationType;
 
     public virtual void Show()
     {

@@ -1,13 +1,20 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Variables;
 
 public class AdsManager : BaseMono
 {
-    [SerializeField] private AdManagerVariable adManagerVariable;
-    [SerializeField] private GameStateVariable gameStateVariable;
-    [SerializeField] IntegerVariable indexLevelVariable;
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private AdManagerVariable adManagerVariable;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private GameStateVariable gameStateVariable;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    IntegerVariable indexLevelVariable;
+
     private int adsCounter;
     private float timePlay;
 

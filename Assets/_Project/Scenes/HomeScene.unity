@@ -289,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 845301145}
   m_Layer: 0
-  m_Name: HomeEnviroment
+  m_Name: HomeEnvironment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

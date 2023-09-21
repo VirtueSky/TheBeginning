@@ -1,13 +1,14 @@
 using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using VirtueSky.Core;
 
 public class SoundManager : BaseMono
 {
-    public AudioSource backgroundAudio;
-    public AudioSource fxAudio;
+    [FoldoutGroup("AudioSource")] public AudioSource backgroundAudio;
+    [FoldoutGroup("AudioSource")] public AudioSource fxAudio;
 
-    [Header("Sound Generation")] [SerializeField]
+    [FoldoutGroup("AudioClip")] [SerializeField]
     private AudioClip soundClickButton;
 
     private void Awake()

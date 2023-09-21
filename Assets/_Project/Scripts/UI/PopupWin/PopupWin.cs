@@ -8,20 +8,45 @@ using VirtueSky.Variables;
 
 public class PopupWin : UIPopup
 {
+    [FoldoutGroup(Constant.Normal_Attribute)]
     public BonusArrowHandler BonusArrowHandler;
-    public GameObject BtnRewardAds;
-    public GameObject BtnTapToContinue;
-    [ReadOnly] public int TotalMoney;
-    public Image ProcessBar;
-    public TextMeshProUGUI TextPercentGift;
-    [SerializeField] private EventNoParam playCurrentLevelEvent;
-    [SerializeField] private IntegerVariable currencyTotalVariable;
-    [SerializeField] private Vector3Event generateCoinEvent;
-    [SerializeField] private EventNoParam claimRewardEvent;
-    [SerializeField] private AdManagerVariable adManagerVariable;
 
-    [Header("Sound")] [SerializeField] private PlayAudioEvent playSoundFx;
-    [SerializeField] private AudioClip soundPopupWin;
+    [FoldoutGroup(Constant.Normal_Attribute)]
+    public GameObject BtnRewardAds;
+
+    [FoldoutGroup(Constant.Normal_Attribute)]
+    public GameObject BtnTapToContinue;
+
+    [FoldoutGroup(Constant.Normal_Attribute)] [ReadOnly]
+    public int TotalMoney;
+
+    [FoldoutGroup(Constant.Normal_Attribute)]
+    public Image ProcessBar;
+
+    [FoldoutGroup(Constant.Normal_Attribute)]
+    public TextMeshProUGUI TextPercentGift;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventNoParam playCurrentLevelEvent;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private IntegerVariable currencyTotalVariable;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private Vector3Event generateCoinEvent;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventNoParam claimRewardEvent;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private AdManagerVariable adManagerVariable;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private PlayAudioEvent playSoundFx;
+
+    [FoldoutGroup(Constant.Normal_Attribute)] [SerializeField]
+    private AudioClip soundPopupWin;
+
     private float percent = 0;
     private Sequence sequence;
     public int MoneyWin => Config.Game.WinLevelMoney;

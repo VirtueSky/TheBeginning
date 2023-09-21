@@ -1,5 +1,6 @@
 using CodeStage.AdvancedFPSCounter;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VirtueSky.DataStorage;
@@ -7,17 +8,39 @@ using VirtueSky.Variables;
 
 public class GameManager : MonoBehaviour
 {
+    [FoldoutGroup(Constant.Normal_Attribute)]
     public LevelController levelController;
-    [SerializeField] private GameStateVariable gameStateVariable;
-    [SerializeField] private LoadSceneEvent loadSceneEvent;
-    [SerializeField] private PopupVariable popupVariable;
-    [SerializeField] private IntegerVariable indexLevelVariable;
-    [SerializeField] private EventLevel eventWinLevel;
-    [SerializeField] private EventLevel eventLoseLevel;
-    [SerializeField] private EventLevel eventStartLevel;
-    [SerializeField] private EventLevel eventSkipLevel;
-    [SerializeField] private EventLevel eventReplayLevel;
-    [SerializeField] private GameObject uiInGame;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private GameStateVariable gameStateVariable;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private LoadSceneEvent loadSceneEvent;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private PopupVariable popupVariable;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private IntegerVariable indexLevelVariable;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventLevel eventWinLevel;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventLevel eventLoseLevel;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventLevel eventStartLevel;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventLevel eventSkipLevel;
+
+    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    private EventLevel eventReplayLevel;
+
+    [FoldoutGroup(Constant.Normal_Attribute)] [SerializeField]
+    private GameObject uiInGame;
+
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 
     void Awake()

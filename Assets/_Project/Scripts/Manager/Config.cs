@@ -5,10 +5,17 @@ using VirtueSky.Misc;
 
 public class Config : BaseMono
 {
-    [SerializeField] private GameConfig gameConfig;
-    [SerializeField] private DailyRewardConfig dailyRewardConfig;
-    [SerializeField] private CountryConfig countryConfig;
-    [SerializeField] private ItemConfig itemConfig;
+    [FoldoutGroup("Scriptable Config")] [FoldoutGroup("Scriptable Config")] [SerializeField]
+    private GameConfig gameConfig;
+
+    [FoldoutGroup("Scriptable Config")] [SerializeField]
+    private DailyRewardConfig dailyRewardConfig;
+
+    [FoldoutGroup("Scriptable Config")] [SerializeField]
+    private CountryConfig countryConfig;
+
+    [FoldoutGroup("Scriptable Config")] [SerializeField]
+    private ItemConfig itemConfig;
 
     public static GameConfig Game;
     public static DailyRewardConfig DailyRewardConfig;

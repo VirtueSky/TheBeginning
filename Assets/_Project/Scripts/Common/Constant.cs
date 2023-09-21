@@ -42,4 +42,14 @@ public class Constant
     public const string EQUIP_ITEM = "EQUIP_ITEM";
     public const string GAMEOBJECT_SHOW = "GAMEOBJECT_SHOW";
     public const string PERCENT_WIN_GIFT = "PERCENT_WIN_GIFT";
+
+    #region Group attribute
+
+    public const string SO_Event = "SO_Event";
+    public const string SO_Variable = "SO_Variable";
+    public const string Normal_Attribute = "Normal_Attribute";
+    public const string Environment = "Environment";
+    public const string UI_Motion = "UI_Motion";
+
+    #endregion
 }
