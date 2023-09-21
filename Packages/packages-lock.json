@@ -247,11 +247,11 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#1.0.7",
+      "version": "https://github.com/VirtueSky/sunflower.git#1.0.8",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "eea0eced3f84e24c3405faf608ce250fd7f03eaf"
+      "hash": "e2c0f5c83ee3639ef803f157da549f7d513a8447"
     },
     "com.wolf.package.odin": {
       "version": "https://github.com/wolf-package/OdinInspectorAndSerializer.git#3.1.2",
