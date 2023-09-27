@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using PlayFab.ClientModels;
 using UnityEngine;
 using VirtueSky.DataStorage;
+using VirtueSky.Vibration;
 
 public static partial class Data
 {
@@ -86,8 +87,8 @@ public static partial class Data
 
     public static bool VibrateState
     {
-        get => Get(Constant.VIBRATE_STATE, true);
-        set => Set(Constant.VIBRATE_STATE, value);
+        get => Vibration.EnableVibration;
+        set => Vibration.EnableVibration = value;
     }
 
     #endregion
