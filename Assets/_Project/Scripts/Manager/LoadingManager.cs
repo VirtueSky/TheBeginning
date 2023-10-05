@@ -43,7 +43,7 @@ public class LoadingManager : BaseMono
             .OnUpdate(() => loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%")
             .OnComplete(() => _flagDoneProgress = true);
         loadSceneEvent.Raise(new LoadSceneData(true, Constant.HOME_SCENE, timeLoading,
-            () => _flagDoneProgress && firebaseIsInitialized));
+            () => _flagDoneProgress));
     }
 
     public void FirebaseIsInitialized()

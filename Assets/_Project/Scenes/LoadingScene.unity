@@ -891,19 +891,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: loading_controller
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
   earlyTick: 0
   tick: 0
   lateTick: 0
   fixedTick: 0
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   progressBar: {fileID: 1926659687}
   loadingText: {fileID: 1603526854}
   timeLoading: 2.5
   loadSceneEvent: {fileID: 11400000, guid: e36010c92447644fab7f16f3fc58d088, type: 2}
   listObjSpawn:
   - {fileID: 2928229551909750266, guid: 617e008bdc3664433aa3a3c539ddd869, type: 3}
-  - {fileID: 8974140294996834593, guid: 48ab25084dbf747049bdc74c0a7fc7b7, type: 3}
   - {fileID: 4947718590444436639, guid: c9d51eb379d3c4a83ab10db7238ba2aa, type: 3}
   - {fileID: 391347337002318094, guid: d5374a547a1554b4c8e7575a3429af69, type: 3}
   - {fileID: 1836193827802664876, guid: 1857f964ec0734ff791840bf3e28325d, type: 3}
@@ -936,12 +935,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: loading_manager
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
   earlyTick: 0
   tick: 0
   lateTick: 0
   fixedTick: 0
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 6f7f8137294ca4def990313655eede12, type: 2}

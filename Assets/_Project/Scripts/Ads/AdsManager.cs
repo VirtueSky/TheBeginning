@@ -1,6 +1,7 @@
 using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using VirtueSky.Ads;
 using VirtueSky.Core;
 using VirtueSky.Variables;
 
@@ -14,6 +15,16 @@ public class AdsManager : BaseMono
 
     [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
     IntegerVariable indexLevelVariable;
+    
+    [Header("Ad Units Variable")]
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    AdUnitVariable banner;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private AdUnitVariable inter;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private AdUnitVariable reward;
 
     private int adsCounter;
     private float timePlay;
@@ -58,7 +69,7 @@ public class AdsManager : BaseMono
     bool IsEnableToShowInter()
     {
         // if purchase remove ads => return false
-        if (indexLevelVariable.Value > Data.LevelTurnOnInterstitial &&
+        if (inter.IsReady() && indexLevelVariable.Value > Data.LevelTurnOnInterstitial &&
             adsCounter >= Data.CounterNumbBetweenTwoInterstitial &&
             timePlay >= Data.TimeWinBetweenTwoInterstitial && !Data.IsOffInterAds)
         {
@@ -76,7 +87,7 @@ public class AdsManager : BaseMono
 
     public bool IsRewardReady()
     {
-        return true;
+        return reward.IsReady();
     }
 
     public void ShowBanner()
@@ -84,11 +95,13 @@ public class AdsManager : BaseMono
         if (IsEnableToShowBanner())
         {
             // show banner ads
+            banner.Show();
         }
     }
 
     public void HideBanner()
     {
+        banner.Destroy();
     }
 
     public void ShowInterstitial(Action completeCallback, Action displayCallback = null)
@@ -96,6 +109,7 @@ public class AdsManager : BaseMono
         if (IsEnableToShowInter())
         {
             //show inter ads
+            inter.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback);
         }
         else
         {
@@ -106,5 +120,9 @@ public class AdsManager : BaseMono
     public void ShowRewardAds(Action completeCallback, Action displayCallback = null,
         Action closeCallback = null, Action skipCallback = null)
     {
+        if (reward.IsReady())
+        {
+            reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback).OnClosed(closeCallback).OnSkipped(skipCallback);
+        }
     }
 }

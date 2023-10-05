@@ -25,4 +25,9 @@ public class UIHome : MonoBehaviour
     {
         popupVariable?.Value.Show<PopupShop>();
     }
+
+    public void OnClickTest()
+    {
+        popupVariable?.Value.Show<PopupTest>();
+    }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6879558954066982634}
   - component: {fileID: 3155267156113058423}
+  - component: {fileID: 5014854040172342744}
   - component: {fileID: 5519387516347581978}
   m_Layer: 0
   m_Name: AdsManager
@@ -46,15 +47,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: ads_manager
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
   earlyTick: 0
   tick: 0
   lateTick: 0
   fixedTick: 1
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   adManagerVariable: {fileID: 11400000, guid: 2cd9f1ec9abd5ac43861239eaca070ee, type: 2}
   gameStateVariable: {fileID: 11400000, guid: b9ca1ef07ea5d9e4795b6a14b750aafc, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
+  banner: {fileID: 11400000, guid: ea0013f7fdc95bd47a3d011a36b9b8dd, type: 2}
+  inter: {fileID: 11400000, guid: 838b860b6bcfdaf44b55a7effd06b4dc, type: 2}
+  reward: {fileID: 11400000, guid: be0fc20eb052fe54dbf8f89ae5737c2c, type: 2}
+--- !u!114 &5014854040172342744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4426367814553635962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e380b752cb6c40aaace317083692044f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adSetting: {fileID: 11400000, guid: 726ecee1d6284ba4c988d534230edd06, type: 2}
 --- !u!114 &5519387516347581978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,12 +85,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: ads_manager
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
   earlyTick: 0
   tick: 0
   lateTick: 0
   fixedTick: 0
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}

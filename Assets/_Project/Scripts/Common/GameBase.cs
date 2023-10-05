@@ -47,11 +47,11 @@ public class GameBase : EditorWindow
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    // [MenuItem("GameBase/Data/Add 100k Money")]
-    // public static void Add100kMoney()
-    // {
-    //     Data.CurrencyTotal += 100000;
-    //     Debug.Log($"<color=Green>Add 100k coin succeed</color>");
-    // }
+    [MenuItem("GameBase/Play Loading")]
+    public static void PlayLoading()
+    {
+        PlayFromLoadingScene();
+        EditorApplication.isPlaying = true;
+    }
 }
 #endif
