@@ -28,33 +28,6 @@
       "dependencies": {},
       "hash": "64445bb59f6d9d4d7f24be5eea45e7fdf2146546"
     },
-    "com.google.firebase.analytics": {
-      "version": "https://github.com/firebase-unity/firebase-analytics.git#11.4.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.firebase.app": "11.4.0"
-      },
-      "hash": "8af9ec78643770b8a34ea8607e246613c51c8ce2"
-    },
-    "com.google.firebase.app": {
-      "version": "https://github.com/firebase-unity/firebase-app.git#11.4.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.external-dependency-manager": "1.2.177"
-      },
-      "hash": "4677cd1b4e9eade8affa3935d2078c32a08a56ce"
-    },
-    "com.google.firebase.remote-config": {
-      "version": "https://github.com/firebase-unity/firebase-remote-config.git#11.4.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.firebase.app": "11.4.0"
-      },
-      "hash": "d7bdcfdabe28c0f9ae9648191bbb486a06429bed"
-    },
     "com.google.play.common": {
       "version": "https://github.com/google-unity/google-play-common.git#1.8.1",
       "depth": 0,
@@ -174,7 +147,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.6.3",
+      "version": "1.7.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -183,7 +156,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.mobile.notifications": {
-      "version": "2.2.1",
+      "version": "2.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -247,14 +220,14 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#1.1.6",
+      "version": "https://github.com/VirtueSky/sunflower.git#1.1.7",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "bc43e5acf2520e01bd1b31636ce47a533521d701"
+      "hash": "076f9f9fd16866c954accb3c9c0633c035e51648"
     },
     "com.wolf.package.odin": {
       "version": "https://github.com/wolf-package/OdinInspectorAndSerializer.git#3.1.2",
