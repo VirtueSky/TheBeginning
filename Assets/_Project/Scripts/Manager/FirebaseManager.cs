@@ -1,18 +1,32 @@
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
+
+#if VIRTUESKY_FIREBASE
 using Firebase;
-using Firebase.Analytics;
 using Firebase.Extensions;
+#endif
+
+#if VIRTUESKY_FIREBASE_ANALYTICS
+using Firebase.Analytics;
+#endif
+
+
+
+#if VIRTUESKY_FIREBASE_REMOTECONFIG
 using Firebase.RemoteConfig;
+#endif
+
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Core;
 using VirtueSky.Events;
 
 public class FirebaseManager : BaseMono
 {
-    public DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
+#if VIRTUESKY_FIREBASE
+     public DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
+#endif
+   
     public EventNoParam initFirebaseSuccess;
 
     protected void Awake()
@@ -24,6 +38,7 @@ public class FirebaseManager : BaseMono
 
     public override void Initialize()
     {
+#if VIRTUESKY_FIREBASE
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
             dependencyStatus = task.Result;
@@ -38,11 +53,16 @@ public class FirebaseManager : BaseMono
                 Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
             }
         });
+#endif
+        
     }
 
     private async void InitializeFirebase()
     {
+#if VIRTUESKY_FIREBASE_ANALYTICS
         FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
+#endif
+        
 
         var defaults = new System.Collections.Generic.Dictionary<string, object>
         {
@@ -55,6 +75,7 @@ public class FirebaseManager : BaseMono
                 Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL, Data.DEFAULT_SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL
             },
         };
+#if VIRTUESKY_FIREBASE_REMOTECONFIG
         await Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.SetDefaultsAsync(defaults)
             .ContinueWithOnMainThread(task =>
             {
@@ -63,11 +84,14 @@ public class FirebaseManager : BaseMono
             });
 
         await FetchDataAsync();
+#endif
+       
     }
-
+#if VIRTUESKY_FIREBASE_REMOTECONFIG
     public Task FetchDataAsync()
     {
-        Debug.Log("Fetching data...");
+
+         Debug.Log("Fetching data...");
         System.Threading.Tasks.Task fetchTask =
             Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.FetchAsync(TimeSpan.Zero);
         if (fetchTask.IsCanceled)
@@ -82,10 +106,9 @@ public class FirebaseManager : BaseMono
         {
             Debug.Log("Fetch completed successfully!");
         }
-
         return fetchTask.ContinueWithOnMainThread(tast =>
         {
-            var info = Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.Info;
+             var info = Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.Info;
             //SET NEW DATA FROM REMOTE CONFIG
             if (info.LastFetchStatus == LastFetchStatus.Success)
             {
@@ -126,10 +149,11 @@ public class FirebaseManager : BaseMono
             {
                 Debug.Log("Fetching data did not completed!");
             }
-
             initFirebaseSuccess.Raise();
+
         });
     }
+#endif
 
     #endregion
 
@@ -138,41 +162,53 @@ public class FirebaseManager : BaseMono
     public void OnStartLevel(Level level)
     {
         MethodBase function = MethodBase.GetCurrentMethod();
+#if VIRTUESKY_FIREBASE_ANALYTICS
         Parameter[] parameters =
         {
             new Parameter("level_name", level.gameObject.name),
         };
         LogEvent(function.Name, parameters);
+#endif
+        
     }
 
     public void OnLoseLevel(Level level)
     {
         MethodBase function = MethodBase.GetCurrentMethod();
-        Parameter[] parameters =
+#if VIRTUESKY_FIREBASE_ANALYTICS
+         Parameter[] parameters =
         {
             new Parameter("level_name", level.gameObject.name),
         };
         LogEvent(function.Name, parameters);
+#endif
+       
     }
 
     public void OnWinLevel(Level level)
     {
         MethodBase function = MethodBase.GetCurrentMethod();
-        Parameter[] parameters =
+#if VIRTUESKY_FIREBASE_ANALYTICS
+         Parameter[] parameters =
         {
             new Parameter("level_name", level.gameObject.name),
         };
         LogEvent(function.Name, parameters);
+#endif
+       
     }
 
     public void OnReplayLevel(Level level)
     {
         MethodBase function = MethodBase.GetCurrentMethod();
+#if VIRTUESKY_FIREBASE_ANALYTICS
         Parameter[] parameters =
         {
             new Parameter("level_name", level.gameObject.name),
         };
         LogEvent(function.Name, parameters);
+#endif
+        
     }
 
     #endregion
@@ -224,10 +260,11 @@ public class FirebaseManager : BaseMono
         return (Application.platform == RuntimePlatform.Android ||
                 Application.platform == RuntimePlatform.IPhonePlayer);
     }
-
+#if VIRTUESKY_FIREBASE_ANALYTICS
     public static void LogEvent(string paramName, Parameter[] parameters)
     {
         if (!IsMobile()) return;
+
         try
         {
             FirebaseAnalytics.LogEvent(paramName, parameters);
@@ -238,10 +275,12 @@ public class FirebaseManager : BaseMono
             throw;
         }
     }
+#endif
 
     public static void LogEvent(string paramName)
     {
         if (!IsMobile()) return;
+#if VIRTUESKY_FIREBASE_ANALYTICS
         try
         {
             FirebaseAnalytics.LogEvent(paramName);
@@ -251,6 +290,8 @@ public class FirebaseManager : BaseMono
             Debug.LogError("Event log error: " + e.ToString());
             throw;
         }
+#endif
+        
     }
 
     #endregion
