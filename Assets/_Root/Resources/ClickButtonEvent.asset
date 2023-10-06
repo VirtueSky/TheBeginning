@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f5aa4023cc40ee952b894df1be543c, type: 3}
   m_Name: ClickButtonEvent
   m_EditorClassIdentifier: 
-  id: 
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
+  id: click_button_event
+  description: 
   ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
   earlyTick: 0
   tick: 0
   lateTick: 0
   fixedTick: 0
+  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
