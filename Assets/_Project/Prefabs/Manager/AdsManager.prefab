@@ -47,12 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: ads_manager
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 1
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   adManagerVariable: {fileID: 11400000, guid: 2cd9f1ec9abd5ac43861239eaca070ee, type: 2}
   gameStateVariable: {fileID: 11400000, guid: b9ca1ef07ea5d9e4795b6a14b750aafc, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
@@ -71,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e380b752cb6c40aaace317083692044f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adSetting: {fileID: 11400000, guid: 726ecee1d6284ba4c988d534230edd06, type: 2}
+  adSetting: {fileID: 11400000, guid: fb5f51310080b45ef93d6e2ffe38be83, type: 2}
 --- !u!114 &5519387516347581978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,13 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010ec6b1c9e5b914fa3d8310726cdb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: ads_manager
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}

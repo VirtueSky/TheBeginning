@@ -2,6 +2,7 @@ using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VirtueSky.Core;
+using VirtueSky.Events;
 
 public class SoundManager : BaseMono
 {
@@ -10,6 +11,8 @@ public class SoundManager : BaseMono
 
     [FoldoutGroup("AudioClip")] [SerializeField]
     private AudioClip soundClickButton;
+
+    [SerializeField] private ClickButtonEvent clickButtonEvent;
 
     private void Awake()
     {
@@ -20,6 +23,7 @@ public class SoundManager : BaseMono
     {
         base.Initialize();
         Setup();
+        clickButtonEvent.AddListener(ClickButton);
     }
 
     public void OnMusicChanged()
@@ -57,7 +61,7 @@ public class SoundManager : BaseMono
         }
     }
 
-    public void ClickButton()
+    private void ClickButton()
     {
         PlaySoundFx(soundClickButton);
     }

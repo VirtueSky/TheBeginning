@@ -608,10 +608,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &872215847354943931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2939,12 +2939,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: pointer_arrow
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 1
-  lateTick: 0
-  fixedTick: 0
   movingObject: {fileID: 4405685256339215952}
   points:
   - {fileID: 5647264209562423215}
@@ -4259,10 +4253,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &9211212431835267844
 GameObject:
   m_ObjectHideFlags: 0

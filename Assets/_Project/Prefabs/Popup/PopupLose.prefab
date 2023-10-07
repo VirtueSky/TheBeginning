@@ -268,10 +268,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &2112546984656705563
 GameObject:
   m_ObjectHideFlags: 0

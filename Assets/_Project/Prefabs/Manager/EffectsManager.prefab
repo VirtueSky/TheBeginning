@@ -46,12 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: effects_manager
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   visualEffectDatas:
   - effectList: []
     visualEffectType: 0
@@ -59,6 +53,7 @@ MonoBehaviour:
     visualEffectType: 0
   - effectList: []
     visualEffectType: 0
+  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
 --- !u!114 &1654734796434661433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,13 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f89ccbd2c5c41e4a1ea4f3aed0a94f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: effects_manager
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 1938605bd5bde40b38948dbbf18ad703, type: 2}

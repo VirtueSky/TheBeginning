@@ -177,15 +177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: sound_manager
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   backgroundAudio: {fileID: 8546824468311424377}
   fxAudio: {fileID: 8466455734524625443}
   soundClickButton: {fileID: 8300000, guid: ace45cf110d1bc7408ee20f51318c4a2, type: 3}
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
 --- !u!114 &9003085896704213967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,13 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f477bc0650f64520ad655afc7aacef99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: sound_manager
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: a84d005794e869b4d98b8f213b2661a5, type: 2}
@@ -255,22 +243,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - event: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 391347337002318094}
-          m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-          m_MethodName: ClickButton
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &5123777055516648558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,13 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403efc7f1fa54336b727d878cb93a867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: sound_manager
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 41f2413520152804fa3e1b0231531b79, type: 2}

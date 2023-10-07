@@ -126,12 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: currency_spawner
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   overlay: {fileID: 1691035683630035736}
   coinPrefab: {fileID: 6793577256207356087, guid: c16f53179d9a79242b8f3649594b682b,
     type: 3}
@@ -143,6 +137,7 @@ MonoBehaviour:
   easeNear: 34
   easeTarget: 21
   scale: 0.5
+  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
 --- !u!114 &3358334660397944468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,13 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287ec16a80e0470794dd652b0c2636c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: currency_spawner
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: cca847b8b67572046a2a5802e790b3bd, type: 2}
@@ -325,13 +313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3184f556234f4c47b9374467cd4afcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: currency_bar
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5, type: 2}
@@ -350,7 +331,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  setOnEnable: 0
+  isRaisedOnStart: 0
+  isRaisedOnEnable: 0
 --- !u!1 &7525439484679414412
 GameObject:
   m_ObjectHideFlags: 0

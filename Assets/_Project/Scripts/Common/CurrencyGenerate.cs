@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using VirtueSky.Core;
+using VirtueSky.ObjectPooling;
 
 public class CurrencyGenerate : BaseMono
 {
@@ -18,6 +19,7 @@ public class CurrencyGenerate : BaseMono
     [SerializeField] private Ease easeNear;
     [SerializeField] private Ease easeTarget;
     [SerializeField] private float scale = 1;
+    [SerializeField] private Pools pools;
     private System.Action moveOneCoinDone;
     private bool isScaleIconTo = false;
 

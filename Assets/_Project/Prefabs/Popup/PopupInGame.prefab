@@ -154,11 +154,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -226,10 +228,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &500080215166614254
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,11 +458,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -508,10 +512,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &1680069359137271434
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,11 +609,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -677,10 +683,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &2646351314242081864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,11 +1050,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -1116,10 +1124,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &4429355886652026346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,11 +1221,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -1285,10 +1295,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &4957344726548281664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,11 +1450,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -1561,11 +1573,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -1633,10 +1647,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &6281683904878446207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,11 +2146,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -2458,11 +2474,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -2510,10 +2528,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &9054173132683076706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,11 +2625,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animType: 0
   playOnAwake: 1
+  isResetPositionWhenEnable: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 0, y: 0, z: 0}
   saveLocalScale: {x: 0, y: 0, z: 0}
   strength: 3
+  _moveType: 0
   fromPosition: {x: 0, y: 0, z: 0}
   directionType: 0
   offset: 0
@@ -2679,7 +2699,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}

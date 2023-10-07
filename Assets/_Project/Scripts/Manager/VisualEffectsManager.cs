@@ -5,12 +5,14 @@ using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 using VirtueSky.Core;
+using VirtueSky.ObjectPooling;
 using Random = UnityEngine.Random;
 
 
 public class VisualEffectsManager : BaseMono
 {
     public List<VisualEffectData> visualEffectDatas;
+    [SerializeField] private Pools pools;
 
     private void Awake()
     {

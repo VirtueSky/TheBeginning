@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adCheckingInterval: 8
   adLoadingInterval: 15
-  adNetwork: 0
-  sdkKey: -feJa9bEGOmZW95XxkyfhE2R_yHQ4poWZofsvPWhIw_es2dT16vUIDRoHKX63m6a9JD7wX1Q0PZ0Qng8EukpFT
+  adNetwork: 1
+  sdkKey: 
   applovinEnableAgeRestrictedUser: 0
-  maxAdClient: {fileID: 11400000, guid: 3565d8ecad8990e40adf950798fdb335, type: 2}
-  maxBannerVariable: {fileID: 11400000, guid: ea0013f7fdc95bd47a3d011a36b9b8dd, type: 2}
-  maxInterVariable: {fileID: 11400000, guid: 838b860b6bcfdaf44b55a7effd06b4dc, type: 2}
-  maxRewardVariable: {fileID: 11400000, guid: be0fc20eb052fe54dbf8f89ae5737c2c, type: 2}
-  maxRewardInterVariable: {fileID: 11400000, guid: f7902da3a00763b48bc894e29f60d67b,
-    type: 2}
-  maxAppOpenVariable: {fileID: 11400000, guid: 812cf3aeb46d2f44b8e06726c91180b1, type: 2}
+  maxAdClient: {fileID: 0}
+  maxBannerVariable: {fileID: 0}
+  maxInterVariable: {fileID: 0}
+  maxRewardVariable: {fileID: 0}
+  maxRewardInterVariable: {fileID: 0}
+  maxAppOpenVariable: {fileID: 0}
   admobAdClient: {fileID: 0}
   admobBannerVariable: {fileID: 0}
   admobInterVariable: {fileID: 0}
