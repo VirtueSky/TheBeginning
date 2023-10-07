@@ -23,11 +23,15 @@ MonoBehaviour:
   maxRewardVariable: {fileID: 0}
   maxRewardInterVariable: {fileID: 0}
   maxAppOpenVariable: {fileID: 0}
-  admobAdClient: {fileID: 0}
-  admobBannerVariable: {fileID: 0}
-  admobInterVariable: {fileID: 0}
-  admobRewardVariable: {fileID: 0}
-  admobRewardInterVariable: {fileID: 0}
-  admobAppOpenVariable: {fileID: 0}
+  admobAdClient: {fileID: 11400000, guid: b0313849a85f24ab59929d8a12462e03, type: 2}
+  admobBannerVariable: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc,
+    type: 2}
+  admobInterVariable: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}
+  admobRewardVariable: {fileID: 11400000, guid: 863862f250bdb42ccaba78e46eb83840,
+    type: 2}
+  admobRewardInterVariable: {fileID: 11400000, guid: 6477d60c23e204e9e8fa57a6ed36d396,
+    type: 2}
+  admobAppOpenVariable: {fileID: 11400000, guid: 096fcfff50a4042bf8f96035a785af9c,
+    type: 2}
   admobEnableTestMode: 0
   admobDevicesTest: []

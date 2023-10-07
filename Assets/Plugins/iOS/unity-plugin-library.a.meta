@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: 3fbd85863e7246c8b9de13243cc83b5d
 labels:
 - gvh
-- gvh_version-6.1.2
+- gvh_version-8.5.2
 - gvhp_exportpath-Plugins/iOS/unity-plugin-library.a
 timeCreated: 1480838400
 PluginImporter:
@@ -68,6 +68,11 @@ PluginImporter:
         CPU: AnyCPU
     iOS:
       enabled: 1
+      settings:
+        CompileFlags:
+        FrameworkDependencies:
+    tvOS:
+      enabled: 0
       settings:
         CompileFlags:
         FrameworkDependencies:

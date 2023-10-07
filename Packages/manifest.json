@@ -2,14 +2,9 @@
   "dependencies": {
     "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
     "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
-    "com.google.android.appbundle": "https://github.com/google-unity/android-app-bundle.git#1.8.0",
+   
     "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.177",
-    "com.google.play.common": "https://github.com/google-unity/google-play-common.git#1.8.1",
-    "com.google.play.core": "https://github.com/google-unity/google-play-core.git#1.8.1",
-    "com.google.play.review": "https://github.com/google-unity/in-app-review.git#1.8.1",
-    "com.lupidan.apple-signin-unity": "https://github.com/lupidan/apple-signin-unity.git#v1.4.2",
-    "com.pancake.playfab": "https://github.com/pancake-llc/playfab.git#2.153.221024",
-    "com.sabresaurus.playerprefseditor": "https://github.com/sabresaurus/PlayerPrefsEditor.git",
+
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ads.ios-support": "1.2.0",
     "com.unity.ai.navigation": "1.1.4",

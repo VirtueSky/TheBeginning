@@ -14,69 +14,12 @@
       "dependencies": {},
       "hash": "429ff2dd09264fd091ed3005c7a4c247f118c7ae"
     },
-    "com.google.android.appbundle": {
-      "version": "https://github.com/google-unity/android-app-bundle.git#1.8.0",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "50d04b09ae563e7eed9b72180973870171e15423"
-    },
     "com.google.external-dependency-manager": {
       "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.177",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "64445bb59f6d9d4d7f24be5eea45e7fdf2146546"
-    },
-    "com.google.play.common": {
-      "version": "https://github.com/google-unity/google-play-common.git#1.8.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.android.appbundle": "1.8.0"
-      },
-      "hash": "5c3fb2edb0d5fdd0e71b283b0ca529f8baf61059"
-    },
-    "com.google.play.core": {
-      "version": "https://github.com/google-unity/google-play-core.git#1.8.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.android.appbundle": "1.8.0",
-        "com.google.external-dependency-manager": "1.2.172"
-      },
-      "hash": "c8b5299670d28304ca0b96b493d3593fd6ac1862"
-    },
-    "com.google.play.review": {
-      "version": "https://github.com/google-unity/in-app-review.git#1.8.1",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.google.play.common": "1.8.1",
-        "com.google.play.core": "1.8.1"
-      },
-      "hash": "039118f280938f9770ed4efcf04b5bf030981e7e"
-    },
-    "com.lupidan.apple-signin-unity": {
-      "version": "https://github.com/lupidan/apple-signin-unity.git#v1.4.2",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "e39981bca07f08f068231f651e1e8d0f69397222"
-    },
-    "com.pancake.playfab": {
-      "version": "https://github.com/pancake-llc/playfab.git#2.153.221024",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "4ccac33a0c4893b1f67d3eafda1767acb7d06eb9"
-    },
-    "com.sabresaurus.playerprefseditor": {
-      "version": "https://github.com/sabresaurus/PlayerPrefsEditor.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "710e074d16ed1c7f2fefa7f8e7912a05ecf25969"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -227,7 +170,7 @@
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "e2b662f00a4084907b8aae850688e7fb6e4e861e"
+      "hash": "c9d99f9e01fd6ec544472aabad6ff7809d53c987"
     },
     "com.wolf.package.odin": {
       "version": "https://github.com/wolf-package/OdinInspectorAndSerializer.git#3.1.2",

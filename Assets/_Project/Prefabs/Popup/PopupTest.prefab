@@ -541,7 +541,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
   ease: 15
   scale: 0.9
@@ -1655,6 +1655,6 @@ MonoBehaviour:
   textNotice: {fileID: 5278373313522493436}
   adManagerVariable: {fileID: 11400000, guid: 2cd9f1ec9abd5ac43861239eaca070ee, type: 2}
   currencyVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5, type: 2}
-  banner: {fileID: 11400000, guid: ea0013f7fdc95bd47a3d011a36b9b8dd, type: 2}
-  inter: {fileID: 11400000, guid: 838b860b6bcfdaf44b55a7effd06b4dc, type: 2}
-  reward: {fileID: 11400000, guid: be0fc20eb052fe54dbf8f89ae5737c2c, type: 2}
+  banner: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
+  inter: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}
+  reward: {fileID: 11400000, guid: 863862f250bdb42ccaba78e46eb83840, type: 2}

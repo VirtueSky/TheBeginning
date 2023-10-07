@@ -810,13 +810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995103f2e8fb4e2b9b064c3d37181c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: game__service
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 588d7a46b9b024aa39cafc33429fc79b, type: 2}
@@ -863,13 +856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f477bc0650f64520ad655afc7aacef99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: game__service
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 5a5db695b2b6948928e344ee35b16e50, type: 2}
@@ -996,13 +982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010ec6b1c9e5b914fa3d8310726cdb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: game__service
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
@@ -1190,10 +1169,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &500080215565551249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,10 +1391,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!114 &1482241063096501233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,10 +1451,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!224 &1538131507842747945
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1788,10 +1767,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!114 &2586208684710384641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2097,10 +2076,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!114 &4139460289613352338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2323,7 +2302,8 @@ MonoBehaviour:
   IsShowByLevel: 0
   IsShowByTime: 0
   DelayShowTime: 0
-  currentLevelVariable: {fileID: 0}
+  currentLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb,
+    type: 2}
   LevelsShow: 
   MaxTimeShow: 0
   ShowID: 
@@ -2574,10 +2554,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!1 &5208550979593869337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,10 +2696,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!114 &5907823701221608548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3239,10 +3219,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  isMotion: 1
   ease: 15
   scale: 0.9
-  clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
-  test: {fileID: 0}
 --- !u!114 &7041843638598069904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3369,13 +3349,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010ec6b1c9e5b914fa3d8310726cdb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: u_i__in_game
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
@@ -3422,13 +3395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3184f556234f4c47b9374467cd4afcef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: u_i__in_game
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
   bindingListener: 0
   listEventResponseDatas:
   - event: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
@@ -3447,7 +3413,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  setOnEnable: 1
+  isRaisedOnStart: 0
+  isRaisedOnEnable: 0
 --- !u!114 &7370416451176602705
 MonoBehaviour:
   m_ObjectHideFlags: 0

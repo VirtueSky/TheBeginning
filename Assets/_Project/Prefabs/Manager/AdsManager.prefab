@@ -50,9 +50,9 @@ MonoBehaviour:
   adManagerVariable: {fileID: 11400000, guid: 2cd9f1ec9abd5ac43861239eaca070ee, type: 2}
   gameStateVariable: {fileID: 11400000, guid: b9ca1ef07ea5d9e4795b6a14b750aafc, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
-  banner: {fileID: 11400000, guid: ea0013f7fdc95bd47a3d011a36b9b8dd, type: 2}
-  inter: {fileID: 11400000, guid: 838b860b6bcfdaf44b55a7effd06b4dc, type: 2}
-  reward: {fileID: 11400000, guid: be0fc20eb052fe54dbf8f89ae5737c2c, type: 2}
+  banner: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
+  inter: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}
+  reward: {fileID: 11400000, guid: 863862f250bdb42ccaba78e46eb83840, type: 2}
 --- !u!114 &5014854040172342744
 MonoBehaviour:
   m_ObjectHideFlags: 0

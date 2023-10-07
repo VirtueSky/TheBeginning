@@ -1,110 +1,81 @@
 fileFormatVersion: 2
-guid: f6190f2d34454c59917a4c1305f171d3
+guid: 742a4f35f04843bfb21d1c49a9474c90
 labels:
 - gvh
-- gvh_version-6.1.2
+- gvh_version-8.5.2
 - gvhp_exportpath-Plugins/Android/googlemobileads-unity.aar
+timeCreated: 1480838400
 PluginImporter:
-  externalObjects: {}
-  serializedVersion: 2
+  serializedVersion: 1
   iconMap: {}
   executionOrder: {}
-  defineConstraints: []
   isPreloaded: 0
-  isOverridable: 0
-  isExplicitlyReferenced: 0
-  validateReferences: 1
   platformData:
-  - first:
-      : Linux
-    second:
-      enabled: 1
-      settings:
-        CPU: x86
-  - first:
-      : LinuxUniversal
-    second:
+    Android:
       enabled: 1
       settings:
         CPU: AnyCPU
-  - first:
-      : OSXIntel
-    second:
-      enabled: 1
-      settings:
-        CPU: x86
-  - first:
-      : OSXIntel64
-    second:
-      enabled: 1
-      settings:
-        CPU: x86_64
-  - first:
-      : Web
-    second:
+    Any:
       enabled: 0
       settings: {}
-  - first:
-      : WebStreamed
-    second:
-      enabled: 0
-      settings: {}
-  - first:
-      Android: Android
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-  - first:
-      Any: 
-    second:
-      enabled: 0
-      settings: {}
-  - first:
-      Editor: Editor
-    second:
+    Editor:
       enabled: 1
       settings:
         CPU: AnyCPU
         DefaultValueInitialized: true
         OS: AnyOS
-  - first:
-      Standalone: Linux64
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-  - first:
-      Standalone: OSXUniversal
-    second:
-      enabled: 1
-      settings:
-        CPU: AnyCPU
-  - first:
-      Standalone: Win
-    second:
+    Linux:
       enabled: 1
       settings:
         CPU: x86
-  - first:
-      Standalone: Win64
-    second:
+    Linux64:
       enabled: 1
       settings:
         CPU: x86_64
-  - first:
-      Windows Store Apps: WindowsStoreApps
-    second:
+    LinuxUniversal:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+    OSXIntel:
+      enabled: 1
+      settings:
+        CPU: x86
+    OSXIntel64:
+      enabled: 1
+      settings:
+        CPU: x86_64
+    OSXUniversal:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+    Web:
+      enabled: 0
+      settings: {}
+    WebStreamed:
+      enabled: 0
+      settings: {}
+    Win:
+      enabled: 1
+      settings:
+        CPU: x86
+    Win64:
+      enabled: 1
+      settings:
+        CPU: x86_64
+    WindowsStoreApps:
       enabled: 0
       settings:
         CPU: AnyCPU
-  - first:
-      iPhone: iOS
-    second:
+    iOS:
       enabled: 0
       settings:
-        CompileFlags: 
-        FrameworkDependencies: 
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+        CompileFlags:
+        FrameworkDependencies:
+    tvOS:
+      enabled: 0
+      settings:
+        CompileFlags:
+        FrameworkDependencies:
+  userData:
+  assetBundleName:
+  assetBundleVariant:

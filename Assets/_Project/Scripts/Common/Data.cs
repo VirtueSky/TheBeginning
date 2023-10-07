@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using PlayFab.ClientModels;
-using UnityEngine;
 using VirtueSky.DataStorage;
 using VirtueSky.Vibration;
 
@@ -160,8 +156,6 @@ public static partial class Data
         get => Get(Constant.PLAYER_COUNTRY_CODE, string.Empty);
         set => Set(Constant.PLAYER_COUNTRY_CODE, value);
     }
-
-    public static PlayerProfileModel PlayerProfile;
 
     #endregion
 
