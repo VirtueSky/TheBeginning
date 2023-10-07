@@ -33,6 +33,7 @@ namespace VirtueSky.Ads
         public override bool IsReady()
         {
 #if VIRTUESKY_ADS && ADS_ADMOB
+            Debug.Log(_interstitialAd.CanShowAd() + " / inter is ready");
             return _interstitialAd != null && _interstitialAd.CanShowAd();
 #else
             return false;
@@ -42,7 +43,8 @@ namespace VirtueSky.Ads
         public override AdUnitVariable Show()
         {
             ResetChainCallback();
-            if (!Application.isMobilePlatform || string.IsNullOrEmpty(Id) || AdStatic.IsRemoveAd || !IsReady()) return this;
+            if (!Application.isMobilePlatform || string.IsNullOrEmpty(Id) || AdStatic.IsRemoveAd ||
+                !IsReady()) return this;
             ShowImpl();
             return this;
         }

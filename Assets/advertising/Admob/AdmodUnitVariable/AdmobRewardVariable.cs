@@ -34,6 +34,7 @@ namespace VirtueSky.Ads
         public override bool IsReady()
         {
 #if VIRTUESKY_ADS && ADS_ADMOB
+            Debug.Log(_rewardedAd.CanShowAd() + " / reward is ready");
             return _rewardedAd != null && _rewardedAd.CanShowAd();
 #else
             return false;
