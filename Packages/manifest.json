@@ -2,9 +2,7 @@
   "dependencies": {
     "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
     "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
-   
     "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.177",
-
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ads.ios-support": "1.2.0",
     "com.unity.ai.navigation": "1.1.4",
@@ -21,7 +19,7 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.5",
     "com.unity.ugui": "1.0.0",
-    "com.virtuesky.sunflower": "https://github.com/VirtueSky/sunflower.git#2.0.0",
+    "com.virtuesky.sunflower": "https://github.com/VirtueSky/sunflower.git#2.0.2",
     "com.wolf.package.odin": "https://github.com/wolf-package/OdinInspectorAndSerializer.git#3.1.2",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
