@@ -1,5 +1,5 @@
 # Base Game Unity
-- Unity 2022.3 LTS
+- Unity 2022.3 (LTS)
   
 Description: Gamebase for mobile hyper casual, casual game 
 
