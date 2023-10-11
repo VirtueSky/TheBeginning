@@ -163,14 +163,14 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.0.2",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.0.3",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "fd7b2f6c9bed9928ccc0d4251e625ad0d8f96e75"
+      "hash": "8376d33f034a9fdfca401f09592b7f1f56807e7b"
     },
     "com.wolf.package.odin": {
       "version": "https://github.com/wolf-package/OdinInspectorAndSerializer.git#3.1.2",
