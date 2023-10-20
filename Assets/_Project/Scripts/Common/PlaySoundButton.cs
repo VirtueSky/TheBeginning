@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using VirtueSky.Audio;
 using VirtueSky.Core;
 using VirtueSky.Events;
@@ -9,15 +10,14 @@ public class PlaySoundButton : BaseMono
     [SerializeField] private EventAudioHandle playSoundButton;
     [SerializeField] private SoundData soundClickButton;
 
-    public override void OnEnable()
+    private void Start()
     {
-        base.OnEnable();
         clickButtonEvent.AddListener(OnClickButton);
     }
 
-    public override void OnDisable()
+    public override void OnDestroy()
     {
-        base.OnDisable();
+        base.OnDestroy();
         clickButtonEvent.RemoveListener(OnClickButton);
     }
 
