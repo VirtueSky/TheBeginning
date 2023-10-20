@@ -56,6 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   ConformX: 1
   ConformY: 1
   Logging: 0
@@ -2256,8 +2257,8 @@ MonoBehaviour:
   ToggleIsOffInterAds: {fileID: 1478969954753167769}
   changeFpsEvent: {fileID: 11400000, guid: a06d9c1fa7bd74a38bcdae398e0cd8ea, type: 2}
   prepareLevelEvent: {fileID: 11400000, guid: 3dd7aee2a9d7d44edb062944d4ff59d3, type: 2}
-  indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
-  currencyTotalVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5,
+  indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
+  currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
   eventPurchaseSuccess: {fileID: 0}
 --- !u!1 &7491507754432524308

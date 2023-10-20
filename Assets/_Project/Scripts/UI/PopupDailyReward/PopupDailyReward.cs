@@ -103,7 +103,7 @@ public class PopupDailyReward : UIPopup
 
     public void OnClickBtnClaim()
     {
-        claimRewardEvent.Raise();
+       // claimRewardEvent.Raise();
         //Observer.OnNotifying?.Invoke();
         CurrentItem.OnClaim();
     }

@@ -3,6 +3,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using VirtueSky.Audio;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
@@ -14,15 +15,11 @@ public class CurrencyCounter : MonoBehaviour
     public CurrencyGenerate CurrencyGenerate;
     [SerializeField] IntegerVariable currencyTotalVariable;
 
-  //  [Header("Sound")] [SerializeField] public PlayAudioEvent playSoundFx;
-  //  [SerializeField] private AudioClip soundCoinMove;
+    [Header("Sound")] [SerializeField] public EventAudioHandle playSoundFx;
+    [SerializeField] private SoundData soundCoinMove;
 
 
     private int currentCoin;
-
-    private void Start()
-    {
-    }
 
     private void OnEnable()
     {
@@ -55,7 +52,7 @@ public class CurrencyCounter : MonoBehaviour
             if (!isFirstMove)
             {
                 isFirstMove = true;
-            ///    playSoundFx.Raise(soundCoinMove);
+                playSoundFx.Raise(soundCoinMove);
                 int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
                 int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
                 int step = StepCount;

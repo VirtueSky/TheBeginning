@@ -66,7 +66,6 @@ MonoBehaviour:
   currencyTotalVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5,
     type: 2}
   generateCoinEvent: {fileID: 11400000, guid: cca847b8b67572046a2a5802e790b3bd, type: 2}
-  claimRewardEvent: {fileID: 0}
 --- !u!1 &65604307107627601
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: container
   ConformX: 1
   ConformY: 1
   Logging: 0

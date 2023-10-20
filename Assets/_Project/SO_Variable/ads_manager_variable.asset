@@ -13,12 +13,7 @@ MonoBehaviour:
   m_Name: ads_manager_variable
   m_EditorClassIdentifier: 
   id: ads_manager_variable
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
+  description: 
   initializeValue: {fileID: 3155267156113058423, guid: 3ca7d77963b4f914ca17afdaba0f33c0,
     type: 3}
   isSavable: 0

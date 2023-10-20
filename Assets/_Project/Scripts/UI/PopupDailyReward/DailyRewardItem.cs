@@ -16,8 +16,10 @@ public class DailyRewardItem : MonoBehaviour
     public Image backgroundCanNotClaim;
     public Image iconItem;
     [SerializeField] private IntegerVariable currencyTotalVariable;
+
     [SerializeField] private Vector3Event generateCoinEvent;
-    [SerializeField] private EventNoParam claimRewardEvent;
+
+    //[SerializeField] private EventNoParam claimRewardEvent;
     private int coinValue;
     private DailyRewardItemState dailyRewardItemState;
     private DailyRewardData dailyRewardData;
@@ -120,7 +122,7 @@ public class DailyRewardItem : MonoBehaviour
         // else
         //     FirebaseManager.OnClaimDailyReward(dayIndex);
 
-        claimRewardEvent.Raise();
+        //claimRewardEvent.Raise();
 
         // Save datas
         Data.LastDailyRewardClaimed = DateTime.Now.ToString();
