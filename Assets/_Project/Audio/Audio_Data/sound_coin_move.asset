@@ -9,8 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f5aa4023cc40ee952b894df1be543c, type: 3}
-  m_Name: ClickButtonEvent
+  m_Script: {fileID: 11500000, guid: 474a3bbd13954ce3abb782ceec59e692, type: 3}
+  m_Name: sound_coin_move
   m_EditorClassIdentifier: 
-  id: click_button_event
+  id: sound_coin_move
   description: 
+  loop: 0
+  volume: 1
+  isMusicFadeInVolume: 0
+  fadeInDuration: 0.5
+  fadeOutDuration: 0.5
+  audioClips:
+  - {fileID: 8300000, guid: e64a815b5b859704a8b9fb7d8ae396cf, type: 3}

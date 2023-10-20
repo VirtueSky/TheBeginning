@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f5aa4023cc40ee952b894df1be543c, type: 3}
-  m_Name: ClickButtonEvent
+  m_Script: {fileID: 11500000, guid: a309b01705464ada9f25949218237230, type: 3}
+  m_Name: play_sfx_event
   m_EditorClassIdentifier: 
-  id: click_button_event
+  id: play_sfx_event
   description: 

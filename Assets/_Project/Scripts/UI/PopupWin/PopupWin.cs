@@ -40,10 +40,7 @@ public class PopupWin : UIPopup
 
     [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
     private AdManagerVariable adManagerVariable;
-
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private PlayAudioEvent playSoundFx;
-
+    
     [FoldoutGroup(Constant.Normal_Attribute)] [SerializeField]
     private AudioClip soundPopupWin;
 
@@ -94,7 +91,6 @@ public class PopupWin : UIPopup
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
-        playSoundFx.Raise(soundPopupWin);
         Setup();
         SetupProgressBar();
         sequence = DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { BtnTapToContinue.SetActive(true); });

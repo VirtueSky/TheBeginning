@@ -2799,6 +2799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   ConformX: 1
   ConformY: 1
   Logging: 0
@@ -3832,7 +3833,6 @@ MonoBehaviour:
   generateCoinEvent: {fileID: 11400000, guid: cca847b8b67572046a2a5802e790b3bd, type: 2}
   claimRewardEvent: {fileID: 11400000, guid: ee4f538f3c4d5da47b93c1d1d4e75873, type: 2}
   adManagerVariable: {fileID: 11400000, guid: 2cd9f1ec9abd5ac43861239eaca070ee, type: 2}
-  playSoundFx: {fileID: 11400000, guid: 08da0d11316f0ba4189b2b2c9f4e808d, type: 2}
   soundPopupWin: {fileID: 8300000, guid: d5d65442eccfa3548921d7156b6d821a, type: 3}
 --- !u!1 &7418177931432179246
 GameObject:

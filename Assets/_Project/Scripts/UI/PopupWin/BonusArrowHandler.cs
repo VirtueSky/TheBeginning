@@ -1,11 +1,12 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
+using VirtueSky.Component;
 using VirtueSky.Misc;
 
 public class BonusArrowHandler : MonoBehaviour
 {
     [ReadOnly] public AreaItem CurrentAreaItem;
-    public GoMove MoveObject => GetComponent<GoMove>();
+    public MoveComponent MoveObject => GetComponent<MoveComponent>();
 
     private void OnTriggerEnter2D(Collider2D other)
     {

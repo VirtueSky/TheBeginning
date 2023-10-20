@@ -14,8 +14,8 @@ public class CurrencyCounter : MonoBehaviour
     public CurrencyGenerate CurrencyGenerate;
     [SerializeField] IntegerVariable currencyTotalVariable;
 
-    [Header("Sound")] [SerializeField] public PlayAudioEvent playSoundFx;
-    [SerializeField] private AudioClip soundCoinMove;
+  //  [Header("Sound")] [SerializeField] public PlayAudioEvent playSoundFx;
+  //  [SerializeField] private AudioClip soundCoinMove;
 
 
     private int currentCoin;
@@ -55,7 +55,7 @@ public class CurrencyCounter : MonoBehaviour
             if (!isFirstMove)
             {
                 isFirstMove = true;
-                playSoundFx.Raise(soundCoinMove);
+            ///    playSoundFx.Raise(soundCoinMove);
                 int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
                 int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
                 int step = StepCount;
