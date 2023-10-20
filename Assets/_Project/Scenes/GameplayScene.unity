@@ -3335,7 +3335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bindingListener: 0
   listEventResponseDatas:
-  - event: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
+  - event: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
     response:
       m_PersistentCalls:
         m_Calls:
@@ -3367,14 +3367,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelText: {fileID: 3421561291258514110}
   LevelTypeText: {fileID: 4609003190076806907}
-  replayEvent: {fileID: 11400000, guid: a495da2db51e743dbb01ee4724bca09f, type: 2}
-  backHomeEvent: {fileID: 11400000, guid: df8d6624f2bb8495d91bf71fd4fa9d24, type: 2}
-  nextLevelEvent: {fileID: 11400000, guid: 8fe1bf4448a2845b0ab22880260e5343, type: 2}
-  backLevelEvent: {fileID: 11400000, guid: f772540e59f97462b8629a84b81f2bcb, type: 2}
-  winLevelEvent: {fileID: 11400000, guid: 588d7a46b9b024aa39cafc33429fc79b, type: 2}
-  loseLevelEvent: {fileID: 11400000, guid: 65dccb272537f4c71b8ebd4dd0c8d370, type: 2}
-  indexLevelVariable: {fileID: 11400000, guid: 21046dccdb209584aa289490af58e7eb, type: 2}
-  adManagerVariable: {fileID: 11400000, guid: 2cd9f1ec9abd5ac43861239eaca070ee, type: 2}
+  replayEvent: {fileID: 11400000, guid: 89e0f5f9de74ebd479ff2d6cb05894e3, type: 2}
+  backHomeEvent: {fileID: 11400000, guid: d29ea39604d26b246a023f8d87f821a0, type: 2}
+  nextLevelEvent: {fileID: 11400000, guid: 7a6969beee2c34a49a706b403a8a6e31, type: 2}
+  backLevelEvent: {fileID: 11400000, guid: 9cc98c82176f3fa4e9684e9f20c64999, type: 2}
+  winLevelEvent: {fileID: 11400000, guid: 8bb823675099e1844a9226562cd403df, type: 2}
+  loseLevelEvent: {fileID: 11400000, guid: 737e2b8f8e70c1445be0bbabb38d77b5, type: 2}
+  indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
+  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
 --- !u!114 &7405959457711286719
 MonoBehaviour:
   m_ObjectHideFlags: 0
