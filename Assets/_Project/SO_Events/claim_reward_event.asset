@@ -12,10 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719558c56beb4a8d98cf058fadf5455a, type: 3}
   m_Name: claim_reward_event
   m_EditorClassIdentifier: 
-  id: claim_reward_event
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
+  id: claim_reward_event 1
+  description: 

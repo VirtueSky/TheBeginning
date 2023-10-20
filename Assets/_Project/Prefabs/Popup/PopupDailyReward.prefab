@@ -63,9 +63,9 @@ MonoBehaviour:
   backgroundClaim: {fileID: 4368304898967994357}
   backgroundCanNotClaim: {fileID: 2671668069648912198}
   iconItem: {fileID: 1669326231918672061}
-  currencyTotalVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5,
+  currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
-  generateCoinEvent: {fileID: 11400000, guid: cca847b8b67572046a2a5802e790b3bd, type: 2}
+  generateCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
 --- !u!1 &65604307107627601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,7 +2123,7 @@ MonoBehaviour:
   HideAnimationType: 0
   BtnWatchVideo: {fileID: 2509353737946875765}
   BtnClaim: {fileID: 7151091472365318068}
-  claimRewardEvent: {fileID: 11400000, guid: ee4f538f3c4d5da47b93c1d1d4e75873, type: 2}
+  claimRewardEvent: {fileID: 11400000, guid: ed15ee22acf35214292a644a474e7be2, type: 2}
   CurrentItem: {fileID: 0}
 --- !u!1 &7505682461934572134
 GameObject:

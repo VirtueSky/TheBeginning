@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bindingListener: 0
   listEventResponseDatas:
-  - event: {fileID: 11400000, guid: cca847b8b67572046a2a5802e790b3bd, type: 2}
+  - event: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
     response:
       m_PersistentCalls:
         m_Calls:
@@ -253,7 +253,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3964082956100256311}
   - component: {fileID: 7519663561285704667}
-  - component: {fileID: 6804244171169076866}
   m_Layer: 5
   m_Name: CurrencyBar
   m_TagString: Untagged
@@ -297,42 +296,10 @@ MonoBehaviour:
   StepCount: 10
   DelayTime: 0.02
   CurrencyGenerate: {fileID: 8067335738139792805}
-  currencyTotalVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5,
+  currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
   playSoundFx: {fileID: 11400000, guid: 8b2f9f4ed3cbd03488b0a0bb69849430, type: 2}
   soundCoinMove: {fileID: 11400000, guid: b4bdc93dc03c4184dbf2735208d1e528, type: 2}
---- !u!114 &6804244171169076866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7111552140030416314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3184f556234f4c47b9374467cd4afcef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bindingListener: 0
-  listEventResponseDatas:
-  - event: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7519663561285704667}
-          m_TargetAssemblyTypeName: CurrencyCounter, Assembly-CSharp
-          m_MethodName: UpdateCurrencyAmountText
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  isRaisedOnStart: 0
-  isRaisedOnEnable: 0
 --- !u!1 &7525439484679414412
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,8 +23,14 @@ public class CurrencyCounter : MonoBehaviour
 
     private void OnEnable()
     {
+        currencyTotalVariable.AddListener(UpdateCurrencyAmountText);
         CurrencyAmountText.text = currencyTotalVariable.Value.ToString();
         SaveCurrency();
+    }
+
+    private void OnDisable()
+    {
+        currencyTotalVariable.RemoveListener(UpdateCurrencyAmountText);
     }
 
     private void SaveCurrency()
@@ -32,7 +38,7 @@ public class CurrencyCounter : MonoBehaviour
         currentCoin = currencyTotalVariable.Value;
     }
 
-    public void UpdateCurrencyAmountText()
+    public void UpdateCurrencyAmountText(int value)
     {
         if (currencyTotalVariable.Value > currentCoin)
         {

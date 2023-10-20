@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402185, g: 0.49316472, b: 0.57223153, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -415,7 +415,7 @@ MonoBehaviour:
   - {fileID: 7125858397958467425, guid: b9d19d35a41c9864889d42bde3de9a92, type: 3}
   - {fileID: 2915254623132364138, guid: 813a9cef4af4e4a4c91638583b5577d4, type: 3}
   - {fileID: 8175076033157189046, guid: 587f3ae9e6583c641af7334c3e7cd01e, type: 3}
-  popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
+  popupVariable: {fileID: 11400000, guid: aab7cadf21951934aa742ce00583e5ac, type: 2}
 --- !u!1 &845301144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   ConformX: 1
   ConformY: 1
   Logging: 0
@@ -1584,7 +1585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5e265e2c74b4151858e77b6c92109f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupVariable: {fileID: 11400000, guid: a40853e17b37149608db76bc4aa212f8, type: 2}
+  popupVariable: {fileID: 11400000, guid: aab7cadf21951934aa742ce00583e5ac, type: 2}
 --- !u!222 &7415493059293284073
 CanvasRenderer:
   m_ObjectHideFlags: 0

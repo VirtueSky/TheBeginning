@@ -45,12 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: firebase_manager
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 0
-  dependencyStatus: 7
-  initFirebaseSuccess: {fileID: 11400000, guid: 6f7f8137294ca4def990313655eede12,
+  initFirebaseSuccess: {fileID: 11400000, guid: a0d2faf94e1685747b597406f55265d9,
     type: 2}
