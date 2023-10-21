@@ -1,17 +1,18 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEngine.Serialization;
 using VirtueSky.Variables;
 using Debug = System.Diagnostics.Debug;
 
 public class LevelController : MonoBehaviour
 {
     [ReadOnly] public Level currentLevel;
-    [SerializeField] private IntegerVariable currentlevelVariable;
+    [SerializeField] private IntegerVariable currentIndexLevel;
     private GameConfig Game => Config.Game;
 
     public void PrepareLevel()
     {
-        GenerateLevel(currentlevelVariable.Value);
+        GenerateLevel(currentIndexLevel.Value);
     }
 
     public void GenerateLevel(int indexLevel)

@@ -15,9 +15,8 @@ public class AdsManager : BaseMono
 
     [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
     IntegerVariable indexLevelVariable;
-    
-    [Header("Ad Units Variable")]
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+
+    [Header("Ad Units Variable")] [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
     AdUnitVariable banner;
 
     [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
@@ -25,6 +24,9 @@ public class AdsManager : BaseMono
 
     [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
     private AdUnitVariable reward;
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private BooleanVariable isOffInterAdsVariable;
 
     private int adsCounter;
     private float timePlay;
@@ -71,7 +73,7 @@ public class AdsManager : BaseMono
         // if purchase remove ads => return false
         if (inter.IsReady() && indexLevelVariable.Value > Data.LevelTurnOnInterstitial &&
             adsCounter >= Data.CounterNumbBetweenTwoInterstitial &&
-            timePlay >= Data.TimeWinBetweenTwoInterstitial && !Data.IsOffInterAds)
+            timePlay >= Data.TimeWinBetweenTwoInterstitial && !isOffInterAdsVariable.Value)
         {
             return true;
         }
@@ -122,7 +124,8 @@ public class AdsManager : BaseMono
     {
         if (reward.IsReady())
         {
-            reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback).OnClosed(closeCallback).OnSkipped(skipCallback);
+            reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback).OnClosed(closeCallback)
+                .OnSkipped(skipCallback);
         }
     }
 }

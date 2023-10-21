@@ -1653,8 +1653,8 @@ MonoBehaviour:
   UseHideAnimation: 0
   HideAnimationType: 0
   textNotice: {fileID: 5278373313522493436}
-  adManagerVariable: {fileID: 11400000, guid: 2cd9f1ec9abd5ac43861239eaca070ee, type: 2}
-  currencyVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5, type: 2}
+  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
+  currencyVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
   banner: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
   inter: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}
   reward: {fileID: 11400000, guid: 863862f250bdb42ccaba78e46eb83840, type: 2}

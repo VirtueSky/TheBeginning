@@ -5,12 +5,15 @@ using System.Linq;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using VirtueSky.Events;
+using VirtueSky.Variables;
 
 public class PopupDailyReward : UIPopup
 {
     public GameObject BtnWatchVideo;
     public GameObject BtnClaim;
     [SerializeField] private EventNoParam claimRewardEvent;
+    [SerializeField] private BooleanVariable isTestingVariable;
+    [SerializeField] private GameObject btnNextDay;
 
     [ReadOnly] public DailyRewardItem CurrentItem;
     public List<DailyRewardItem> DailyRewardItems => GetComponentsInChildren<DailyRewardItem>().ToList();
@@ -24,6 +27,7 @@ public class PopupDailyReward : UIPopup
         // PopupController.Instance.Show<PopupUI>();
         ResetDailyReward();
         Setup();
+        btnNextDay.SetActive(isTestingVariable.Value);
     }
 
     public void ResetDailyReward()
@@ -103,7 +107,7 @@ public class PopupDailyReward : UIPopup
 
     public void OnClickBtnClaim()
     {
-       // claimRewardEvent.Raise();
+        // claimRewardEvent.Raise();
         //Observer.OnNotifying?.Invoke();
         CurrentItem.OnClaim();
     }

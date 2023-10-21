@@ -19,12 +19,12 @@ public class GameBase : EditorWindow
         GUILayout.EndHorizontal();
     }
 
-    [MenuItem("GameBase/Switch Debug %`")]
-    public static void SwitchDebug()
-    {
-        Data.IsTesting = !Data.IsTesting;
-        Debug.Log($"<color=Green>Data.IsTesting = {Data.IsTesting}</color>");
-    }
+    // [MenuItem("GameBase/Switch Debug %`")]
+    // public static void SwitchDebug()
+    // {
+    //     Data.IsTesting = !Data.IsTesting;
+    //     Debug.Log($"<color=Green>Data.IsTesting = {Data.IsTesting}</color>");
+    // }
 
     [MenuItem("GameBase/Open Scene/Loading Scene %F1")]
     public static void PlayFromLoadingScene()

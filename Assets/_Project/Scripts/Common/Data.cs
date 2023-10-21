@@ -12,18 +12,6 @@ public static partial class Data
         set => Set(Constant.IS_FIRST_OPEN_GAME, value ? 1 : 0);
     }
 
-    public static bool IsTesting
-    {
-        get => Get(Constant.IS_TESTING, 0) == 1;
-        set => Set(Constant.IS_TESTING, value ? 1 : 0);
-    }
-
-    public static bool IsOffInterAds
-    {
-        get => Get(Constant.IS_OFF_INTER_ADS, false);
-        set => Set(Constant.IS_OFF_INTER_ADS, value);
-    }
-
     public static int GetNumberShowGameObject(string gameObjectID)
     {
         return Get($"{Constant.GAMEOBJECT_SHOW}_{gameObjectID}", 0);

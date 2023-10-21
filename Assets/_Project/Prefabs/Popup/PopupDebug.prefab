@@ -2255,12 +2255,13 @@ MonoBehaviour:
   SetCoin: {fileID: 7397408201461823702}
   ToggleTesting: {fileID: 4894693133774114692}
   ToggleIsOffInterAds: {fileID: 1478969954753167769}
-  changeFpsEvent: {fileID: 11400000, guid: a06d9c1fa7bd74a38bcdae398e0cd8ea, type: 2}
-  prepareLevelEvent: {fileID: 11400000, guid: 3dd7aee2a9d7d44edb062944d4ff59d3, type: 2}
+  prepareLevelEvent: {fileID: 11400000, guid: 266e937667bbf014cb2949d2c1602d9f, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
-  eventPurchaseSuccess: {fileID: 0}
+  isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
+  isOffInterAdsVariable: {fileID: 11400000, guid: c24d9041b144240a1bc77ecec0a76660,
+    type: 2}
 --- !u!1 &7491507754432524308
 GameObject:
   m_ObjectHideFlags: 0

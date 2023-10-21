@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   ConformX: 1
   ConformY: 1
   Logging: 0
@@ -649,4 +650,4 @@ MonoBehaviour:
   ShowAnimationType: 0
   UseHideAnimation: 0
   HideAnimationType: 0
-  replayGameEvent: {fileID: 11400000, guid: a495da2db51e743dbb01ee4724bca09f, type: 2}
+  replayGameEvent: {fileID: 11400000, guid: 89e0f5f9de74ebd479ff2d6cb05894e3, type: 2}

@@ -1,7 +1,6 @@
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Events;
 using VirtueSky.Variables;
@@ -11,18 +10,22 @@ public class PopupDebug : UIPopup
     public TMP_InputField SetLevel;
     public TMP_InputField SetCoin;
     public Toggle ToggleTesting;
+
     public Toggle ToggleIsOffInterAds;
-    [SerializeField] private EventNoParam changeFpsEvent;
+
     [SerializeField] private EventNoParam prepareLevelEvent;
     [SerializeField] private IntegerVariable indexLevelVariable;
+
     [SerializeField] private IntegerVariable currencyTotalVariable;
-    [SerializeField] private EventNoParam eventPurchaseSuccess;
+
+    [SerializeField] private BooleanVariable isTestingVariable;
+    [SerializeField] private BooleanVariable isOffInterAdsVariable;
 
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
-        ToggleTesting.isOn = Data.IsTesting;
-        ToggleIsOffInterAds.isOn = Data.IsOffInterAds;
+        ToggleTesting.isOn = isTestingVariable.Value;
+        ToggleIsOffInterAds.isOn = isOffInterAdsVariable.Value;
     }
 
     public void OnClickAccept()
@@ -45,22 +48,21 @@ public class PopupDebug : UIPopup
 
     public void ChangeTestingState()
     {
-        Data.IsTesting = ToggleTesting.isOn;
+        isTestingVariable.Value = ToggleTesting.isOn;
     }
 
     public void OnClickFPSBtn()
     {
-        changeFpsEvent.Raise();
+        // changeFpsEvent.Raise();
     }
 
     public void OnClickUnlockAllSkin()
     {
         Config.ItemConfig.UnlockAllSkins();
-        eventPurchaseSuccess.Raise();
     }
 
     public void OnClickIsOffInterAds()
     {
-        Data.IsOffInterAds = ToggleIsOffInterAds.isOn;
+        isOffInterAdsVariable.Value = ToggleIsOffInterAds.isOn;
     }
 }

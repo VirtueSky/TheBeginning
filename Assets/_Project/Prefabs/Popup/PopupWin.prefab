@@ -3826,13 +3826,14 @@ MonoBehaviour:
   TotalMoney: 0
   ProcessBar: {fileID: 4221467736387531753}
   TextPercentGift: {fileID: 4518080855719057209}
-  playCurrentLevelEvent: {fileID: 11400000, guid: 5a5db695b2b6948928e344ee35b16e50,
+  playCurrentLevelEvent: {fileID: 11400000, guid: 2728698185b78224ea0bf86a5e6b2455,
     type: 2}
-  currencyTotalVariable: {fileID: 11400000, guid: 370d5e8dfdfa2d045b3c6964bd0e5fc5,
+  currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
-  generateCoinEvent: {fileID: 11400000, guid: cca847b8b67572046a2a5802e790b3bd, type: 2}
-  claimRewardEvent: {fileID: 11400000, guid: ee4f538f3c4d5da47b93c1d1d4e75873, type: 2}
-  adManagerVariable: {fileID: 11400000, guid: 2cd9f1ec9abd5ac43861239eaca070ee, type: 2}
+  generateCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
+  claimRewardEvent: {fileID: 11400000, guid: ed15ee22acf35214292a644a474e7be2, type: 2}
+  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
+  isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   soundPopupWin: {fileID: 8300000, guid: d5d65442eccfa3548921d7156b6d821a, type: 3}
 --- !u!1 &7418177931432179246
 GameObject:

@@ -40,7 +40,10 @@ public class PopupWin : UIPopup
 
     [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
     private AdManagerVariable adManagerVariable;
-    
+
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private BooleanVariable isTestingVariable;
+
     [FoldoutGroup(Constant.Normal_Attribute)] [SerializeField]
     private AudioClip soundPopupWin;
 
@@ -56,7 +59,10 @@ public class PopupWin : UIPopup
         {
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
-            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%"; })).OnComplete((() =>
+            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() =>
+            {
+                TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%";
+            })).OnComplete((() =>
             {
                 if (percent >= 100)
                 {
@@ -111,7 +117,7 @@ public class PopupWin : UIPopup
 
     public void OnClickAdsReward()
     {
-        if (Data.IsTesting)
+        if (isTestingVariable.Value)
         {
             GetRewardAds();
             claimRewardEvent.Raise();

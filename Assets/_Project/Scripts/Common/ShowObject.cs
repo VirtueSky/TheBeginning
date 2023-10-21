@@ -10,6 +10,7 @@ using VirtueSky.Variables;
 // [DeclareVerticalGroup("horizontal/buttons")]
 public class ShowObject : MonoBehaviour
 {
+    [SerializeField] private BooleanVariable isTestingVariable;
     public bool IsShowByTesting;
     public bool IsShowByLevel;
     public bool IsShowByTime;
@@ -45,13 +46,13 @@ public class ShowObject : MonoBehaviour
 
     private bool EnableToShow()
     {
-        bool testingCondition = !IsShowByTesting || (IsShowByTesting && Data.IsTesting);
+        bool testingCondition = !IsShowByTesting || (IsShowByTesting && isTestingVariable);
         bool levelCondition = !IsShowByLevel || (IsShowByLevel && IsLevelInLevelsShow());
         bool timeCondition = !IsShowByTime || (IsShowByTime && Data.GetNumberShowGameObject(ShowID) <= MaxTimeShow);
         return testingCondition && levelCondition && timeCondition;
     }
 
-    public void Awake()
+    public void OnEnable()
     {
         Setup();
     }

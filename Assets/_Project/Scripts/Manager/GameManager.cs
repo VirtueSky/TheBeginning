@@ -144,10 +144,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeAFpsState()
     {
-        if (Data.IsTesting)
-        {
-            AFpsCounter.enabled = !AFpsCounter.isActiveAndEnabled;
-        }
+        AFpsCounter.enabled = !AFpsCounter.isActiveAndEnabled;
     }
 }
 

@@ -42,6 +42,9 @@ public class UIInGame : MonoBehaviour
     [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
     private AdManagerVariable adManagerVariable;
 
+    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    private BooleanVariable isTestingVariable;
+
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
 
     public void Start()
@@ -70,7 +73,7 @@ public class UIInGame : MonoBehaviour
 
     public void OnClickReplay()
     {
-        if (Data.IsTesting)
+        if (isTestingVariable.Value)
         {
             replayEvent.Raise();
         }
@@ -87,7 +90,7 @@ public class UIInGame : MonoBehaviour
 
     public void OnClickSkip()
     {
-        if (Data.IsTesting)
+        if (isTestingVariable.Value)
         {
             nextLevelEvent.Raise();
         }
