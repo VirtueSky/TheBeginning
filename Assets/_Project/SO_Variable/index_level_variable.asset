@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: index_level_variable
   description: 
-  initializeValue: 0
+  initializeValue: 1
   isSavable: 1
   isSaveInStorageImmediately: 1
   isRaiseEvent: 1

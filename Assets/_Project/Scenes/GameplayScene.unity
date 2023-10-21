@@ -3378,7 +3378,7 @@ MonoBehaviour:
   loseLevelEvent: {fileID: 11400000, guid: 737e2b8f8e70c1445be0bbabb38d77b5, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
-  isTestingVariable: {fileID: 0}
+  isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
 --- !u!114 &7405959457711286719
 MonoBehaviour:
   m_ObjectHideFlags: 0
