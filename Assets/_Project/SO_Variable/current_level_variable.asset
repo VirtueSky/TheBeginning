@@ -15,6 +15,6 @@ MonoBehaviour:
   id: current_level_variable
   description: 
   initializeValue: {fileID: 0}
-  isSavable: 0
-  isSaveInStorageImmediately: 0
-  isRaiseEvent: 0
+  isSavable: 1
+  isSaveInStorageImmediately: 1
+  isRaiseEvent: 1

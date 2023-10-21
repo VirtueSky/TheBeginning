@@ -170,7 +170,7 @@
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "f1ba5ce3a4e8b18c63cc4b0e9293af54d691d74b"
+      "hash": "9bbeb0187eb430ce97ff4a464748a5bc83610dfc"
     },
     "com.wolf.package.odin": {
       "version": "https://github.com/wolf-package/OdinInspectorAndSerializer.git#3.1.2",
