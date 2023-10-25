@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadSceneEvent: {fileID: 11400000, guid: e36010c92447644fab7f16f3fc58d088, type: 2}
+  notificationVariable: {fileID: 11400000, guid: 968e6ecf0f1dc274e8b317a88339503b,
+    type: 2}
 --- !u!114 &771778093
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,9 +1,16 @@
+using System;
 using UnityEngine;
+using VirtueSky.Notifications;
 
 public class HomeManager : MonoBehaviour
 {
     [SerializeField] private LoadSceneEvent loadSceneEvent;
+    [SerializeField] private NotificationVariable notificationVariable;
 
+    private void Start()
+    {
+        notificationVariable.Schedule();
+    }
 
     public void LoadGameScene()
     {

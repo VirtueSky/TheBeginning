@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e085a2b84ef47babb9a940a1c0ead91, type: 3}
+  m_Name: notification_channel_data
+  m_EditorClassIdentifier: 
+  id: notification_channel_data
+  description: 
+  identifier: CombackGame
+  minute: 1440
+  repeat: 1
+  bigPicture: 1
+  namePicture: bigNoti.jpg
+  overrideIcon: 0
+  smallIcon: icon_0
+  largeIcon: icon_1
+  datas:
+  - title: Hey!
+    message: Let's comback game

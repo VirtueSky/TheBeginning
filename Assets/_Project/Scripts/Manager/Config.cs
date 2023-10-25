@@ -1,7 +1,11 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VirtueSky.Core;
+
+#if UNITY_EDITOR
 using VirtueSky.EditorUtils;
+#endif
+
 
 public class Config : BaseMono
 {
