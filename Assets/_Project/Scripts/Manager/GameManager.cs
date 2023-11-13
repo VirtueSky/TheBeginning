@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
         eventReplayLevel.Raise(levelController.currentLevel);
         PrepareLevel();
         StartGame();
+        uiInGame.SetActive(true);
     }
 
     public void BackLevel()
