@@ -32,9 +32,9 @@ RectTransform:
   - {fileID: 6956124443790572602}
   m_Father: {fileID: 4232207337656451848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 170, y: -95}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &520192287388132840
@@ -517,7 +517,6 @@ MonoBehaviour:
   musicChangedVariable: {fileID: 0}
   soundFxChangeVariable: {fileID: 11400000, guid: 83171e3aba8056847a4bdefe1c1337e3,
     type: 2}
-  vibrationChangeVariable: {fileID: 0}
 --- !u!114 &1722925637005679728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1214,9 +1213,9 @@ RectTransform:
   - {fileID: 7981864552956511288}
   m_Father: {fileID: 4232207337656451848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 170, y: -307.59048}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4989681717060571839
@@ -1915,7 +1914,6 @@ MonoBehaviour:
   musicChangedVariable: {fileID: 11400000, guid: ccb25c5ccf4e8924db7fb73d222ce616,
     type: 2}
   soundFxChangeVariable: {fileID: 0}
-  vibrationChangeVariable: {fileID: 0}
 --- !u!114 &7559086734630463595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,9 +2194,9 @@ RectTransform:
   - {fileID: 5385150286996163846}
   m_Father: {fileID: 4232207337656451848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 170, y: -520.18097}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7808417288728340493
@@ -2624,8 +2622,6 @@ MonoBehaviour:
   TimeSwitching: 0.5
   musicChangedVariable: {fileID: 0}
   soundFxChangeVariable: {fileID: 0}
-  vibrationChangeVariable: {fileID: 11400000, guid: 4efa1dc319e9f7b4b9e09af52fc0cb98,
-    type: 2}
 --- !u!114 &4068073062285116794
 MonoBehaviour:
   m_ObjectHideFlags: 0
