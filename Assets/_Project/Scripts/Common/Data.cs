@@ -1,6 +1,5 @@
 using System;
 using VirtueSky.DataStorage;
-using VirtueSky.Vibration;
 
 public static partial class Data
 {
@@ -51,28 +50,6 @@ public static partial class Data
     {
         get => Get(Constant.PERCENT_WIN_GIFT, 0);
         set => Set(Constant.PERCENT_WIN_GIFT, value);
-    }
-
-    #endregion
-
-    #region SETTING_DATA
-
-    public static bool BgSoundState
-    {
-        get => Get(Constant.BACKGROUND_SOUND_STATE, true);
-        set => Set(Constant.BACKGROUND_SOUND_STATE, value);
-    }
-
-    public static bool FxSoundState
-    {
-        get => Get(Constant.FX_SOUND_STATE, true);
-        set => Set(Constant.FX_SOUND_STATE, value);
-    }
-
-    public static bool VibrateState
-    {
-        get => Vibration.EnableVibration;
-        set => Vibration.EnableVibration = value;
     }
 
     #endregion

@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using VirtueSky.Events;
+using VirtueSky.Variables;
+using VirtueSky.Vibration;
 
 public class Switcher : MonoBehaviour
 {
@@ -23,27 +21,27 @@ public class Switcher : MonoBehaviour
     [Header("Config attribute")] [Range(0.1f, 3f)]
     public float TimeSwitching = .5f;
 
-    [ShowIf(nameof(SettingType), SettingType.BackgroundSound)] [SerializeField]
-    private EventNoParam eventMusicChange;
+    [ShowIf(nameof(SettingType), SettingType.BackgroundMusic)] [SerializeField]
+    private FloatVariable musicChangedVariable;
 
-    [ShowIf(nameof(SettingType), SettingType.FxSound)] [SerializeField]
-    private EventNoParam eventSoundChange;
+    [ShowIf(nameof(SettingType), SettingType.SoundFx)] [SerializeField]
+    private FloatVariable soundFxChangeVariable;
 
-    [ShowIf(nameof(SettingType), SettingType.Vibration)] [SerializeField]
-    private EventNoParam eventVibrationChange;
+    // [ShowIf(nameof(SettingType), SettingType.Vibration)] [SerializeField]
+    // private BooleanVariable vibrationChangeVariable;
 
     private void SetupData()
     {
         switch (SettingType)
         {
-            case SettingType.BackgroundSound:
-                IsOn = Data.BgSoundState;
+            case SettingType.BackgroundMusic:
+                IsOn = MusicChanged;
                 break;
-            case SettingType.FxSound:
-                IsOn = Data.FxSoundState;
+            case SettingType.SoundFx:
+                IsOn = SoundFxChanged;
                 break;
             case SettingType.Vibration:
-                IsOn = Data.VibrateState;
+                IsOn = VibrateChanged;
                 break;
         }
     }
@@ -90,29 +88,44 @@ public class Switcher : MonoBehaviour
         {
             switch (SettingType)
             {
-                case SettingType.BackgroundSound:
-                    Data.BgSoundState = !IsOn;
-                    eventMusicChange.Raise();
+                case SettingType.BackgroundMusic:
+                    MusicChanged = !IsOn;
                     break;
-                case SettingType.FxSound:
-                    Data.FxSoundState = !IsOn;
-                    eventSoundChange.Raise();
+                case SettingType.SoundFx:
+                    SoundFxChanged = !IsOn;
                     break;
                 case SettingType.Vibration:
-                    Data.VibrateState = !IsOn;
-                    eventVibrationChange.Raise();
+                    VibrateChanged = !IsOn;
                     break;
             }
 
             Setup();
         }).OnComplete(() => { SwitchState = SwitchState.Idle; });
     }
+
+    private bool MusicChanged
+    {
+        get => musicChangedVariable.Value == 1;
+        set => musicChangedVariable.Value = value ? 1 : 0;
+    }
+
+    private bool SoundFxChanged
+    {
+        get => soundFxChangeVariable.Value == 1;
+        set => soundFxChangeVariable.Value = value ? 1 : 0;
+    }
+
+    private bool VibrateChanged
+    {
+        get => Vibration.EnableVibration;
+        set => Vibration.EnableVibration = value;
+    }
 }
 
 public enum SettingType
 {
-    BackgroundSound,
-    FxSound,
+    BackgroundMusic,
+    SoundFx,
     Vibration,
 }
 

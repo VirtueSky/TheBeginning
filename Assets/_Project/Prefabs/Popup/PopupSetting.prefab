@@ -514,9 +514,10 @@ MonoBehaviour:
   OnPos: {fileID: 2350903369578484739}
   SwitchText: {fileID: 0}
   TimeSwitching: 0.5
-  eventMusicChange: {fileID: 0}
-  eventSoundChange: {fileID: 11400000, guid: 63a3d5f62b23adb4b822e4deb259a660, type: 2}
-  eventVibrationChange: {fileID: 0}
+  musicChangedVariable: {fileID: 0}
+  soundFxChangeVariable: {fileID: 11400000, guid: 83171e3aba8056847a4bdefe1c1337e3,
+    type: 2}
+  vibrationChangeVariable: {fileID: 0}
 --- !u!114 &1722925637005679728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1911,9 +1912,10 @@ MonoBehaviour:
   OnPos: {fileID: 7872452235639505778}
   SwitchText: {fileID: 0}
   TimeSwitching: 0.5
-  eventMusicChange: {fileID: 11400000, guid: a84d005794e869b4d98b8f213b2661a5, type: 2}
-  eventSoundChange: {fileID: 0}
-  eventVibrationChange: {fileID: 0}
+  musicChangedVariable: {fileID: 11400000, guid: ccb25c5ccf4e8924db7fb73d222ce616,
+    type: 2}
+  soundFxChangeVariable: {fileID: 0}
+  vibrationChangeVariable: {fileID: 0}
 --- !u!114 &7559086734630463595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2620,9 +2622,9 @@ MonoBehaviour:
   OnPos: {fileID: 3705843802279381368}
   SwitchText: {fileID: 0}
   TimeSwitching: 0.5
-  eventMusicChange: {fileID: 0}
-  eventSoundChange: {fileID: 0}
-  eventVibrationChange: {fileID: 11400000, guid: e6bc800096ebba34aa70453973ddc415,
+  musicChangedVariable: {fileID: 0}
+  soundFxChangeVariable: {fileID: 0}
+  vibrationChangeVariable: {fileID: 11400000, guid: 4efa1dc319e9f7b4b9e09af52fc0cb98,
     type: 2}
 --- !u!114 &4068073062285116794
 MonoBehaviour:
