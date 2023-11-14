@@ -1,9 +1,8 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VirtueSky.Core;
-
 #if UNITY_EDITOR
-using VirtueSky.EditorUtils;
+using VirtueSky.UtilsEditor;
 #endif
 
 
