@@ -1,51 +1,35 @@
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VirtueSky.Attributes;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
 public class PopupWin : UIPopup
 {
-    [FoldoutGroup(Constant.Normal_Attribute)]
+    [HeaderLine(Constant.Normal_Attribute)]
     public BonusArrowHandler BonusArrowHandler;
 
-    [FoldoutGroup(Constant.Normal_Attribute)]
     public GameObject BtnRewardAds;
-
-    [FoldoutGroup(Constant.Normal_Attribute)]
     public GameObject BtnTapToContinue;
-
-    [FoldoutGroup(Constant.Normal_Attribute)] [ReadOnly]
-    public int TotalMoney;
-
-    [FoldoutGroup(Constant.Normal_Attribute)]
+    [ReadOnly] public int TotalMoney;
     public Image ProcessBar;
-
-    [FoldoutGroup(Constant.Normal_Attribute)]
     public TextMeshProUGUI TextPercentGift;
+    [SerializeField] private AudioClip soundPopupWin;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    [HeaderLine(Constant.SO_Event)] [SerializeField]
     private EventNoParam playCurrentLevelEvent;
 
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    [SerializeField] private Vector3Event generateCoinEvent;
+    [SerializeField] private EventNoParam claimRewardEvent;
+
+    [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable currencyTotalVariable;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private Vector3Event generateCoinEvent;
+    [SerializeField] private AdManagerVariable adManagerVariable;
+    [SerializeField] private BooleanVariable isTestingVariable;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private EventNoParam claimRewardEvent;
-
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
-    private AdManagerVariable adManagerVariable;
-
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
-    private BooleanVariable isTestingVariable;
-
-    [FoldoutGroup(Constant.Normal_Attribute)] [SerializeField]
-    private AudioClip soundPopupWin;
 
     private float percent = 0;
     private Sequence sequence;
@@ -59,10 +43,7 @@ public class PopupWin : UIPopup
         {
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
-            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() =>
-            {
-                TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%";
-            })).OnComplete((() =>
+            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%"; })).OnComplete((() =>
             {
                 if (percent >= 100)
                 {

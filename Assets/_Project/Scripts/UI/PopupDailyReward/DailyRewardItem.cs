@@ -1,8 +1,8 @@
 using System;
-using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VirtueSky.Attributes;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 

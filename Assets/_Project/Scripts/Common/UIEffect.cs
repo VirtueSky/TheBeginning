@@ -1,6 +1,6 @@
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
+using VirtueSky.Attributes;
 
 public class UIEffect : MonoBehaviour
 {

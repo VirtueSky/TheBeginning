@@ -1,45 +1,37 @@
 using CodeStage.AdvancedFPSCounter;
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
-using VirtueSky.DataStorage;
+using VirtueSky.Attributes;
 using VirtueSky.Variables;
 
 public class GameManager : MonoBehaviour
 {
-    [FoldoutGroup(Constant.Normal_Attribute)]
+    [HeaderLine(Constant.Normal_Attribute)]
     public LevelController levelController;
 
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
-    private GameStateVariable gameStateVariable;
+    [SerializeField] private GameObject uiInGame;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+
+    [HeaderLine(Constant.SO_Event)] [SerializeField]
     private LoadSceneEvent loadSceneEvent;
 
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
-    private PopupVariable popupVariable;
+    [SerializeField] private EventLevel eventWinLevel;
 
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
-    private IntegerVariable indexLevelVariable;
+    [SerializeField] private EventLevel eventLoseLevel;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private EventLevel eventWinLevel;
+    [SerializeField] private EventLevel eventStartLevel;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private EventLevel eventLoseLevel;
+    [SerializeField] private EventLevel eventSkipLevel;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private EventLevel eventStartLevel;
+    [SerializeField] private EventLevel eventReplayLevel;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private EventLevel eventSkipLevel;
+    [HeaderLine(Constant.SO_Variable)] [SerializeField]
+    private GameStateVariable gameStateVariable;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private EventLevel eventReplayLevel;
+    [SerializeField] private PopupVariable popupVariable;
 
-    [FoldoutGroup(Constant.Normal_Attribute)] [SerializeField]
-    private GameObject uiInGame;
+    [SerializeField] private IntegerVariable indexLevelVariable;
+
 
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 

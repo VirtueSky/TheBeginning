@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
+using VirtueSky.Attributes;
 using VirtueSky.Variables;
 
 // [DeclareHorizontalGroup("horizontal")]

@@ -1,25 +1,21 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
+using VirtueSky.Attributes;
 using VirtueSky.Core;
-
 #if UNITY_EDITOR
-using VirtueSky.EditorUtils;
+using VirtueSky.UtilsEditor;
 #endif
 
 
 public class Config : BaseMono
 {
-    [FoldoutGroup("Scriptable Config")] [FoldoutGroup("Scriptable Config")] [SerializeField]
+    [HeaderLine("Scriptable Config")] [SerializeField]
     private GameConfig gameConfig;
 
-    [FoldoutGroup("Scriptable Config")] [SerializeField]
-    private DailyRewardConfig dailyRewardConfig;
+    [SerializeField] private DailyRewardConfig dailyRewardConfig;
 
-    [FoldoutGroup("Scriptable Config")] [SerializeField]
-    private CountryConfig countryConfig;
+    [SerializeField] private CountryConfig countryConfig;
 
-    [FoldoutGroup("Scriptable Config")] [SerializeField]
-    private ItemConfig itemConfig;
+    [SerializeField] private ItemConfig itemConfig;
 
     public static GameConfig Game;
     public static DailyRewardConfig DailyRewardConfig;

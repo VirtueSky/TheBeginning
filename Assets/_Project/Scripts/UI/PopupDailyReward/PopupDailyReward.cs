@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using DG.Tweening;
-using Sirenix.OdinInspector;
+using VirtueSky.Attributes;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
