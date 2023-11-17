@@ -1,49 +1,38 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
+using VirtueSky.Attributes;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
 public class UIInGame : MonoBehaviour
 {
-    [FoldoutGroup(Constant.Normal_Attribute)]
+    [HeaderLine(Constant.Normal_Attribute)]
     public TextMeshProUGUI LevelText;
 
-    [FoldoutGroup(Constant.Normal_Attribute)]
+
     public TextMeshProUGUI LevelTypeText;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
+    [HeaderLine(Constant.SO_Event)] [SerializeField]
     private EventNoParam replayEvent;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private EventNoParam backHomeEvent;
+    [SerializeField] private EventNoParam backHomeEvent;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private EventNoParam nextLevelEvent;
+    [SerializeField] private EventNoParam nextLevelEvent;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private EventNoParam backLevelEvent;
+    [SerializeField] private EventNoParam backLevelEvent;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private FloatEvent winLevelEvent;
+    [SerializeField] private FloatEvent winLevelEvent;
 
-    [FoldoutGroup(Constant.SO_Event)] [SerializeField]
-    private FloatEvent loseLevelEvent;
+    [SerializeField] private FloatEvent loseLevelEvent;
 
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable indexLevelVariable;
 
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
-    private AdManagerVariable adManagerVariable;
+    [SerializeField] private AdManagerVariable adManagerVariable;
 
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
-    private BooleanVariable isTestingVariable;
+    [SerializeField] private BooleanVariable isTestingVariable;
 
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
 

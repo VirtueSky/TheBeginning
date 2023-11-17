@@ -1,24 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Sirenix.OdinInspector;
 using UnityEngine.UI;
+using VirtueSky.Attributes;
 
 public class PopupManager : MonoBehaviour
 {
-    [FoldoutGroup(Constant.Environment)] [SerializeField]
+    [HeaderLine(Constant.Environment)] [SerializeField]
     private Transform parentContainer;
 
-    [FoldoutGroup(Constant.Environment)] [SerializeField]
-    private CanvasScaler canvasScaler;
+    [SerializeField] private CanvasScaler canvasScaler;
 
-    [FoldoutGroup(Constant.Environment)] [SerializeField]
-    private Camera cameraUI;
+    [SerializeField] private Camera cameraUI;
 
-    [FoldoutGroup(Constant.Environment)] [SerializeField]
-    private List<UIPopup> listPopups = new List<UIPopup>();
+    [SerializeField] private List<UIPopup> listPopups = new List<UIPopup>();
 
-    [FoldoutGroup(Constant.SO_Variable)] [SerializeField]
+    [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private PopupVariable popupVariable;
 
     private readonly Dictionary<Type, UIPopup> _container = new Dictionary<Type, UIPopup>();

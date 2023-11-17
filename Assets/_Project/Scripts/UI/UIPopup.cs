@@ -1,34 +1,27 @@
-using System;
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+using VirtueSky.Attributes;
 
 [RequireComponent(typeof(Canvas), typeof(GraphicRaycaster), typeof(CanvasGroup))]
 public class UIPopup : MonoBehaviour
 {
-    [FoldoutGroup(Constant.Environment)] public CanvasGroup canvasGroup;
-    [FoldoutGroup(Constant.Environment)] public Canvas canvas;
+    [HeaderLine(Constant.Environment)] public CanvasGroup canvasGroup;
+    public Canvas canvas;
     public bool UseAnimation;
 
-    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseAnimation")]
+    [HeaderLine(Constant.UI_Motion)] [ShowIf("UseAnimation")]
     public GameObject Background;
 
-    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseAnimation")]
-    public GameObject Container;
+    [ShowIf("UseAnimation")] public GameObject Container;
 
-    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseAnimation")]
-    public bool UseShowAnimation;
+    [ShowIf("UseAnimation")] public bool UseShowAnimation;
 
-    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseShowAnimation")]
-    public ShowAnimationType ShowAnimationType;
+    [ShowIf("UseShowAnimation")] public ShowAnimationType ShowAnimationType;
 
-    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseAnimation")]
-    public bool UseHideAnimation;
+    [ShowIf("UseAnimation")] public bool UseHideAnimation;
 
-    [FoldoutGroup(Constant.UI_Motion)] [ShowIf("UseHideAnimation")]
-    public HideAnimationType HideAnimationType;
+    [ShowIf("UseHideAnimation")] public HideAnimationType HideAnimationType;
 
     public virtual void Show()
     {

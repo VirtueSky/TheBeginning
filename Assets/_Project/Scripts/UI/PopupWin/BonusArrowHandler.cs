@@ -1,5 +1,5 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
+using VirtueSky.Attributes;
 using VirtueSky.Component;
 using VirtueSky.Misc;
 

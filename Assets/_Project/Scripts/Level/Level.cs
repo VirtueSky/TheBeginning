@@ -1,6 +1,6 @@
-using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using VirtueSky.Attributes;
 using VirtueSky.Misc;
 using VirtueSky.Variables;
 

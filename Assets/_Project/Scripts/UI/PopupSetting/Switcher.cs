@@ -1,8 +1,8 @@
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VirtueSky.Attributes;
 using VirtueSky.Variables;
 using VirtueSky.Vibration;
 

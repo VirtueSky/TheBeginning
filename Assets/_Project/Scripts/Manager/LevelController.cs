@@ -1,6 +1,5 @@
 using UnityEngine;
-using Sirenix.OdinInspector;
-using UnityEngine.Serialization;
+using VirtueSky.Attributes;
 using VirtueSky.Variables;
 using Debug = System.Diagnostics.Debug;
 
