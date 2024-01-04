@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "ItemConfig", menuName = "ScriptableObject/ItemConfig")]

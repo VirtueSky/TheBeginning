@@ -3,7 +3,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 using VirtueSky.Core;
 
 public class LoadingManager : BaseMono

@@ -1,6 +1,6 @@
 using UnityEditor;
 using UnityEngine;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 using VirtueSky.Misc;
 using VirtueSky.Variables;
 

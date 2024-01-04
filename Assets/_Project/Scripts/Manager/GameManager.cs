@@ -1,7 +1,7 @@
 using CodeStage.AdvancedFPSCounter;
 using DG.Tweening;
 using UnityEngine;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 public class GameManager : MonoBehaviour

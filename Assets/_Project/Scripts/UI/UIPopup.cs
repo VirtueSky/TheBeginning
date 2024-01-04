@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 
 [RequireComponent(typeof(Canvas), typeof(GraphicRaycaster), typeof(CanvasGroup))]
 public class UIPopup : MonoBehaviour

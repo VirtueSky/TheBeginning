@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 // [DeclareHorizontalGroup("horizontal")]

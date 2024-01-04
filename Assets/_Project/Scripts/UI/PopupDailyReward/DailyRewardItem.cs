@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 

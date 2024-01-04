@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 
 public class PopupManager : MonoBehaviour
 {

@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using DG.Tweening;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 

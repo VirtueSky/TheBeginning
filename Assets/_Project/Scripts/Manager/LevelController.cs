@@ -1,5 +1,5 @@
 using UnityEngine;
-using VirtueSky.Attributes;
+using VirtueSky.Inspector;
 using VirtueSky.Variables;
 using Debug = System.Diagnostics.Debug;
 
