@@ -85,30 +85,27 @@ public class FirebaseRemoteConfigManager : MonoBehaviour
 
                 Data.UseLevelABTesting = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.USE_LEVEL_AB_TESTING).StringValue);
+                AddLogFetchData(Constant.USE_LEVEL_AB_TESTING, Data.UseLevelABTesting);
                 Data.LevelTurnOnInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.LEVEL_TURN_ON_INTERSTITIAL).StringValue);
+                AddLogFetchData(Constant.LEVEL_TURN_ON_INTERSTITIAL, Data.LevelTurnOnInterstitial);
                 Data.CounterNumbBetweenTwoInterstitial =
                     int.Parse(FirebaseRemoteConfig.DefaultInstance
                         .GetValue(Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL).StringValue);
+                AddLogFetchData(Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL,
+                    Data.CounterNumbBetweenTwoInterstitial);
                 Data.TimeWinBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL).StringValue);
+                AddLogFetchData(Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL,
+                    Data.TimeWinBetweenTwoInterstitial);
                 Data.UseShowInterstitialOnLoseGame = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.SHOW_INTERSTITIAL_ON_LOSE_GAME).StringValue);
+                AddLogFetchData(Constant.SHOW_INTERSTITIAL_ON_LOSE_GAME,
+                    Data.UseShowInterstitialOnLoseGame);
                 Data.TimeLoseBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL).StringValue);
-
-                Debug.Log("<color=Green>Firebase Remote Config Fetching Values</color>");
-                Debug.Log($"<color=Green>Data.UseLevelABTesting: {Data.UseLevelABTesting}</color>");
-                Debug.Log(
-                    $"<color=Green>Data.LevelTurnOnInterstitial: {Data.LevelTurnOnInterstitial}</color>");
-                Debug.Log(
-                    $"<color=Green>Data.CounterNumbBetweenTwoInterstitial: {Data.CounterNumbBetweenTwoInterstitial}</color>");
-                Debug.Log(
-                    $"<color=Green>Data.TimeWinBetweenTwoInterstitial: {Data.TimeWinBetweenTwoInterstitial}</color>");
-                Debug.Log(
-                    $"<color=Green>Data.UseShowInterstitialOnLoseGame: {Data.UseShowInterstitialOnLoseGame}</color>");
-                Debug.Log(
-                    $"<color=Green>Data.TimeLoseBetweenTwoInterstitial: {Data.TimeLoseBetweenTwoInterstitial}</color>");
+                AddLogFetchData(Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL,
+                    Data.TimeLoseBetweenTwoInterstitial);
                 Debug.Log("<color=Green>Firebase Remote Config Fetching completed!</color>");
             }
             else
@@ -120,11 +117,23 @@ public class FirebaseRemoteConfigManager : MonoBehaviour
         });
 #endif
     }
+
+    void AddLogFetchData(string key, object value)
+    {
+        Debug.Log($"<color=Green>{key}: {value.ToString()}</color>");
+        listRemoteConfigData.Add(new RemoteConfigData(key, value.ToString()));
+    }
 }
 
 [Serializable]
 public class RemoteConfigData
 {
     public string key;
-    public object value;
+    public string value;
+
+    public RemoteConfigData(string key, string value)
+    {
+        this.key = key;
+        this.value = value;
+    }
 }
