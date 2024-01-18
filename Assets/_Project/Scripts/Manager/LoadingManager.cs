@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using TheBeginning.Custom_Scriptable_Event;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

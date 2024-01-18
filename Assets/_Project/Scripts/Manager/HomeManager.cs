@@ -1,3 +1,4 @@
+using TheBeginning.Custom_Scriptable_Event;
 using UnityEngine;
 using VirtueSky.Notifications;
 

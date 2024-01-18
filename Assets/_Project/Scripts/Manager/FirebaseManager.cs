@@ -7,10 +7,9 @@ using Firebase;
 using Firebase.Extensions;
 #endif
 
-#if VIRTUESKY_FIREBASE_ANALYTICS
+#if VIRTUESKY_FIREBASE_ANALYTIC
 using Firebase.Analytics;
 #endif
-
 
 
 #if VIRTUESKY_FIREBASE_REMOTECONFIG
@@ -26,13 +25,9 @@ public class FirebaseManager : BaseMono
 #if VIRTUESKY_FIREBASE
      public DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
 #endif
-   
+
     public EventNoParam initFirebaseSuccess;
 
-    protected void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     #region FirebaseInitGetRemoteConfig
 
@@ -54,25 +49,33 @@ public class FirebaseManager : BaseMono
             }
         });
 #endif
-        
     }
 
     private async void InitializeFirebase()
     {
-#if VIRTUESKY_FIREBASE_ANALYTICS
+#if VIRTUESKY_FIREBASE_ANALYTIC
         FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
 #endif
-        
+
 
         var defaults = new System.Collections.Generic.Dictionary<string, object>
         {
             { Constant.USE_LEVEL_AB_TESTING, Data.DEFAULT_USE_LEVEL_AB_TESTING },
             { Constant.LEVEL_TURN_ON_INTERSTITIAL, Data.DEFAULT_LEVEL_TURN_ON_INTERSTITIAL },
-            { Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL, Data.DEFAULT_COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL },
-            { Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL, Data.DEFAULT_SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL },
-            { Constant.SHOW_INTERSTITIAL_ON_LOSE_GAME, Data.DEFAULT_SHOW_INTERSTITIAL_ON_LOSE_GAME },
             {
-                Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL, Data.DEFAULT_SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL
+                Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL,
+                Data.DEFAULT_COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL
+            },
+            {
+                Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL,
+                Data.DEFAULT_SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL
+            },
+            {
+                Constant.SHOW_INTERSTITIAL_ON_LOSE_GAME, Data.DEFAULT_SHOW_INTERSTITIAL_ON_LOSE_GAME
+            },
+            {
+                Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL,
+                Data.DEFAULT_SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL
             },
         };
 #if VIRTUESKY_FIREBASE_REMOTECONFIG
@@ -85,7 +88,6 @@ public class FirebaseManager : BaseMono
 
         await FetchDataAsync();
 #endif
-       
     }
 #if VIRTUESKY_FIREBASE_REMOTECONFIG
     public Task FetchDataAsync()
@@ -123,7 +125,8 @@ public class FirebaseManager : BaseMono
                     .GetValue(Constant.USE_LEVEL_AB_TESTING).StringValue);
                 Data.LevelTurnOnInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.LEVEL_TURN_ON_INTERSTITIAL).StringValue);
-                Data.CounterNumbBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
+                Data.CounterNumbBetweenTwoInterstitial =
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL).StringValue);
                 Data.TimeWinBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
                     .GetValue(Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL).StringValue);
@@ -169,46 +172,42 @@ public class FirebaseManager : BaseMono
         };
         LogEvent(function.Name, parameters);
 #endif
-        
     }
 
     public void OnLoseLevel(Level level)
     {
         MethodBase function = MethodBase.GetCurrentMethod();
-#if VIRTUESKY_FIREBASE_ANALYTICS
+#if VIRTUESKY_FIREBASE_ANALYTIC
          Parameter[] parameters =
         {
             new Parameter("level_name", level.gameObject.name),
         };
         LogEvent(function.Name, parameters);
 #endif
-       
     }
 
     public void OnWinLevel(Level level)
     {
         MethodBase function = MethodBase.GetCurrentMethod();
-#if VIRTUESKY_FIREBASE_ANALYTICS
+#if VIRTUESKY_FIREBASE_ANALYTIC
          Parameter[] parameters =
         {
             new Parameter("level_name", level.gameObject.name),
         };
         LogEvent(function.Name, parameters);
 #endif
-       
     }
 
     public void OnReplayLevel(Level level)
     {
         MethodBase function = MethodBase.GetCurrentMethod();
-#if VIRTUESKY_FIREBASE_ANALYTICS
+#if VIRTUESKY_FIREBASE_ANALYTIC
         Parameter[] parameters =
         {
             new Parameter("level_name", level.gameObject.name),
         };
         LogEvent(function.Name, parameters);
 #endif
-        
     }
 
     #endregion
@@ -260,7 +259,7 @@ public class FirebaseManager : BaseMono
         return (Application.platform == RuntimePlatform.Android ||
                 Application.platform == RuntimePlatform.IPhonePlayer);
     }
-#if VIRTUESKY_FIREBASE_ANALYTICS
+#if VIRTUESKY_FIREBASE_ANALYTIC
     public static void LogEvent(string paramName, Parameter[] parameters)
     {
         if (!IsMobile()) return;
@@ -280,7 +279,7 @@ public class FirebaseManager : BaseMono
     public static void LogEvent(string paramName)
     {
         if (!IsMobile()) return;
-#if VIRTUESKY_FIREBASE_ANALYTICS
+#if VIRTUESKY_FIREBASE_ANALYTIC
         try
         {
             FirebaseAnalytics.LogEvent(paramName);
@@ -291,7 +290,6 @@ public class FirebaseManager : BaseMono
             throw;
         }
 #endif
-        
     }
 
     #endregion
