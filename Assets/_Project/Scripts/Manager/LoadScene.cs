@@ -3,16 +3,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VirtueSky.Core;
-using VirtueSky.DataStorage;
 
 public class LoadScene : BaseMono
 {
     private AsyncOperation _operation;
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     public void Load(LoadSceneData data)
     {

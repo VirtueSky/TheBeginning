@@ -1,15 +1,8 @@
 #if UNITY_EDITOR
-using DG.Tweening.Plugins.Core.PathCore;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using System;
-using System.IO;
-using UnityEngine.Windows;
-using UnityEngine.WSA;
-using VirtueSky.DataStorage;
-using File = System.IO.File;
-using Path = System.IO.Path;
+
 
 public class GameBase : EditorWindow
 {
@@ -27,21 +20,28 @@ public class GameBase : EditorWindow
     // }
 
     [MenuItem("GameBase/Open Scene/Loading Scene %F1")]
-    public static void PlayFromLoadingScene()
+    public static void OpenLoadingScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LOADING_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Open Scene/Home Scene %F2")]
-    public static void PlayFromHomeScene()
+    [MenuItem("GameBase/Open Scene/Service Scene %F2")]
+    public static void OpenServiceScene()
+    {
+        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICE_SCENE}.unity");
+        Debug.Log($"<color=Green>Change scene succeed</color>");
+    }
+
+    [MenuItem("GameBase/Open Scene/Home Scene %F3")]
+    public static void OpenHomeScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.HOME_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Open Scene/Gameplay Scene %F3")]
-    public static void PlayFromGamePlayScene()
+    [MenuItem("GameBase/Open Scene/Gameplay Scene %F4")]
+    public static void OpenGamePlayScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAMEPLAY_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
@@ -50,7 +50,7 @@ public class GameBase : EditorWindow
     [MenuItem("GameBase/Play Loading")]
     public static void PlayLoading()
     {
-        PlayFromLoadingScene();
+        OpenLoadingScene();
         EditorApplication.isPlaying = true;
     }
 }

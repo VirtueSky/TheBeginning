@@ -13,16 +13,6 @@ public class VisualEffectsManager : BaseMono
     public List<VisualEffectData> visualEffectDatas;
     [SerializeField] private Pools pools;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    private void Start()
-    {
-        pools.Initialize();
-    }
-
     public VisualEffectData GetVisualEffectDataByType(VisualEffectType visualEffectType)
     {
         return visualEffectDatas.Find(item => item.visualEffectType == visualEffectType);
@@ -36,7 +26,8 @@ public class VisualEffectsManager : BaseMono
             GameObject randomEffect = visualEffectData.GetRandomEffect();
             GameObject effect = pools.Spawn(randomEffect, data.parent, false);
             effect.transform.position = data.position;
-            effect.transform.localScale = (data.localScale == default) ? Vector3.one : data.localScale;
+            effect.transform.localScale =
+                (data.localScale == default) ? Vector3.one : data.localScale;
 
             if (data.isDestroyedOnEnd) Destroy(effect, data.timeDestroy);
         }
@@ -66,7 +57,8 @@ public class VisualEffectsManager : BaseMono
             visualEffectDatas.Add(visualEffectData);
         }
 
-        visualEffectDatas = visualEffectDatas.GroupBy(elem => elem.visualEffectType).Select(group => group.First())
+        visualEffectDatas = visualEffectDatas.GroupBy(elem => elem.visualEffectType)
+            .Select(group => group.First())
             .ToList();
     }
 }

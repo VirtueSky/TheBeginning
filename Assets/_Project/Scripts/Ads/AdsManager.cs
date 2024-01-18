@@ -30,11 +30,6 @@ public class AdsManager : BaseMono
     private int adsCounter;
     private float timePlay;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
     private void Start()
     {
         Initialize();
@@ -123,7 +118,8 @@ public class AdsManager : BaseMono
     {
         if (reward.IsReady())
         {
-            reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback).OnClosed(closeCallback)
+            reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback)
+                .OnClosed(closeCallback)
                 .OnSkipped(skipCallback);
         }
     }
