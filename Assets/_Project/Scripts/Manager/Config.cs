@@ -42,10 +42,10 @@ public class Config : BaseMono
     private void Load()
     {
         string path = "Assets/_Project/Config/";
-        gameConfig = GetFile.GetConfigFromFolder<GameConfig>(path);
-        dailyRewardConfig = GetFile.GetConfigFromFolder<DailyRewardConfig>(path);
-        countryConfig = GetFile.GetConfigFromFolder<CountryConfig>(path);
-        itemConfig = GetFile.GetConfigFromFolder<ItemConfig>(path);
+        gameConfig = FileExtension.GetConfigFromFolder<GameConfig>(path);
+        dailyRewardConfig = FileExtension.GetConfigFromFolder<DailyRewardConfig>(path);
+        countryConfig = FileExtension.GetConfigFromFolder<CountryConfig>(path);
+        itemConfig = FileExtension.GetConfigFromFolder<ItemConfig>(path);
     }
 #endif
 }

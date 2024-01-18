@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        Application.targetFrameRate = 60;
+        // Application.targetFrameRate = 60;
     }
 
     void Start()
@@ -107,7 +107,8 @@ public class GameManager : MonoBehaviour
 
     public void OnWinGame(float delayPopupShowTime = 2.5f)
     {
-        if (gameStateVariable.Value == GameState.WaitingResult || gameStateVariable.Value == GameState.LoseGame ||
+        if (gameStateVariable.Value == GameState.WaitingResult ||
+            gameStateVariable.Value == GameState.LoseGame ||
             gameStateVariable.Value == GameState.WinGame) return;
 
         gameStateVariable.Value = GameState.WinGame;
@@ -123,7 +124,8 @@ public class GameManager : MonoBehaviour
 
     public void OnLoseGame(float delayPopupShowTime = 2.5f)
     {
-        if (gameStateVariable.Value == GameState.WaitingResult || gameStateVariable.Value == GameState.LoseGame ||
+        if (gameStateVariable.Value == GameState.WaitingResult ||
+            gameStateVariable.Value == GameState.LoseGame ||
             gameStateVariable.Value == GameState.WinGame) return;
         gameStateVariable.Value = GameState.LoseGame;
         eventLoseLevel.Raise(levelController.currentLevel);

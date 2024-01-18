@@ -6,6 +6,11 @@ public class HomeManager : MonoBehaviour
     [SerializeField] private LoadSceneEvent loadSceneEvent;
     [SerializeField] private NotificationVariable notificationVariable;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     private void Start()
     {
         notificationVariable.Schedule();

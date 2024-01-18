@@ -32,7 +32,7 @@ public class PopupManager : MonoBehaviour
         popupVariable.Value = this;
     }
 
-    public void Show<T>()
+    public void Show<T>(bool isHideAll = false)
     {
         _container.TryGetValue(typeof(T), out UIPopup popup);
         if (popup == null)
@@ -41,7 +41,11 @@ public class PopupManager : MonoBehaviour
             if (popupPrefab != null)
             {
                 var popupInstance = Instantiate(popupPrefab, parentContainer);
-                HideAll();
+                if (isHideAll)
+                {
+                    HideAll();
+                }
+
                 popupInstance.Show();
                 _container.Add(popupInstance.GetType(), popupInstance);
                 popupInstance.canvas.sortingOrder = index++;
