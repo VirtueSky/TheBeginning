@@ -654,53 +654,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425497487}
   m_CullTransparentMesh: 1
---- !u!1 &1464579793
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1464579794}
-  - component: {fileID: 1464579795}
-  m_Layer: 0
-  m_Name: Notifications
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1464579794
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464579793}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1464579795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464579793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4cadfcc9c3540478d6f4e3511ffac6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: notifications
-  notificationVariables:
-  - {fileID: 11400000, guid: 968e6ecf0f1dc274e8b317a88339503b, type: 2}
 --- !u!1 &1603526852
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,14 +893,9 @@ MonoBehaviour:
   id: loading_controller
   progressBar: {fileID: 1926659687}
   loadingText: {fileID: 1603526854}
-  timeLoading: 2.5
-  loadSceneEvent: {fileID: 11400000, guid: e36010c92447644fab7f16f3fc58d088, type: 2}
-  listObjSpawn:
-  - {fileID: 2928229551909750266, guid: 617e008bdc3664433aa3a3c539ddd869, type: 3}
-  - {fileID: 4947718590444436639, guid: c9d51eb379d3c4a83ab10db7238ba2aa, type: 3}
-  - {fileID: 1836193827802664876, guid: 1857f964ec0734ff791840bf3e28325d, type: 3}
-  - {fileID: 3155267156113058423, guid: 3ca7d77963b4f914ca17afdaba0f33c0, type: 3}
-  - {fileID: 5178752257251663180, guid: 61e07c15152f708458f143e7c969d932, type: 3}
+  timeLoading: 2
+  isWaitingFetchRemoteConfig: 0
+  listObjSpawn: []
 --- !u!4 &1885131756
 Transform:
   m_ObjectHideFlags: 0
@@ -1073,5 +1021,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1882194249}
-  - {fileID: 1464579794}
   - {fileID: 1885131756}

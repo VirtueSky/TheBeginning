@@ -1,10 +1,10 @@
-using TheBeginning.Custom_Scriptable_Event;
 using UnityEngine;
+using VirtueSky.Events;
 using VirtueSky.Notifications;
 
 public class HomeManager : MonoBehaviour
 {
-    [SerializeField] private LoadSceneEvent loadSceneEvent;
+    [SerializeField] private StringEvent changeSceneEvent;
     [SerializeField] private NotificationVariable notificationVariable;
 
     private void Awake()
@@ -19,6 +19,6 @@ public class HomeManager : MonoBehaviour
 
     public void LoadGameScene()
     {
-        loadSceneEvent.Raise(new LoadSceneData(false, Constant.GAMEPLAY_SCENE, 0, null));
+        changeSceneEvent.Raise(Constant.GAME_SCENE);
     }
 }

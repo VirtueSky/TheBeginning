@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44c6dd8ae2ee1da4db653e7719b669f5, type: 3}
-  m_Name: GameConfig
+  m_Script: {fileID: 11500000, guid: 7403481dc1f5472fb389d85c74090ef5, type: 3}
+  m_Name: unload_scene_event
   m_EditorClassIdentifier: 
-  DurationPopup: 0.25
-  WatchAdsMoney: 1000
-  LevelLoopType: 0
-  MaxLevel: 1
-  StartLoopLevel: 1
-  WinLevelMoney: 100
-  PercentWinGiftPerLevel: 10
+  id: unload_scene_event
+  description: 

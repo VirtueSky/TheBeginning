@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using DG.Tweening;
-using TheBeginning.Custom_Scriptable_Event;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
+using VirtueSky.Threading.Tasks;
 
 public class LoadingManager : BaseMono
 {
@@ -13,15 +14,13 @@ public class LoadingManager : BaseMono
     public TextMeshProUGUI loadingText;
 
     [Range(0.1f, 10f)] public float timeLoading = 5f;
-
-    [SerializeField] private LoadSceneEvent loadSceneEvent;
-
+    [SerializeField] bool isWaitingFetchRemoteConfig = false;
     [SerializeField] private List<BaseMono> listObjSpawn = new List<BaseMono>();
 
-    private bool _flagDoneProgress;
-    private bool firebaseIsInitialized = false;
+    private bool flagDoneProgress;
+    private bool fetchFirebaseRemoteConfigCompleted = false;
 
-    void Start()
+    private void Awake()
     {
         foreach (var mono in listObjSpawn)
         {
@@ -29,22 +28,39 @@ public class LoadingManager : BaseMono
             mono.Initialize();
         }
 
-        Initialize();
+        Init();
+        LoadScene();
     }
 
-    public override void Initialize()
+    private void Init()
     {
-        base.Initialize();
         progressBar.fillAmount = 0;
         progressBar.DOFillAmount(5, timeLoading)
             .OnUpdate(() => loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%")
-            .OnComplete(() => _flagDoneProgress = true);
-        loadSceneEvent.Raise(new LoadSceneData(true, Constant.HOME_SCENE, timeLoading,
-            () => _flagDoneProgress));
+            .OnComplete(() => flagDoneProgress = true);
+    }
+
+    private async void LoadScene()
+    {
+        await UniTask.WaitUntil(() => flagDoneProgress);
+        await SceneManager.LoadSceneAsync(Constant.SERVICE_SCENE);
+        if (isWaitingFetchRemoteConfig)
+        {
+            await UniTask.WaitUntil(() => fetchFirebaseRemoteConfigCompleted);
+        }
+
+        SceneManager.LoadSceneAsync(Constant.HOME_SCENE, LoadSceneMode.Additive).completed +=
+            operation =>
+            {
+                if (operation.isDone)
+                {
+                    SceneManager.SetActiveScene(SceneManager.GetSceneByName(Constant.HOME_SCENE));
+                }
+            };
     }
 
     public void FirebaseIsInitialized()
     {
-        firebaseIsInitialized = true;
+        fetchFirebaseRemoteConfigCompleted = true;
     }
 }

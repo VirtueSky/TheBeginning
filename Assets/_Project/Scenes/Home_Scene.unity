@@ -219,8 +219,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!114 &55630177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70972b53fe7a464c888cc7f50176e6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadSceneEvent: {fileID: 11400000, guid: e36010c92447644fab7f16f3fc58d088, type: 2}
+  changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
   notificationVariable: {fileID: 11400000, guid: 968e6ecf0f1dc274e8b317a88339503b,
     type: 2}
 --- !u!114 &771778093
@@ -412,12 +415,18 @@ MonoBehaviour:
   canvasScaler: {fileID: 1522974174}
   cameraUI: {fileID: 2141998377}
   listPopups:
-  - {fileID: 5600369039360957863, guid: 1bd72ebe47024c0428d207cb890f7d32, type: 3}
+  - {fileID: 6757482024752608808, guid: a3ffb9bece6d88b42afa90a0722accec, type: 3}
   - {fileID: 5900877145956595185, guid: f09001724e3f0b644aada44bd0a99cc2, type: 3}
   - {fileID: 7125858397958467425, guid: b9d19d35a41c9864889d42bde3de9a92, type: 3}
+  - {fileID: 4385920386591527244, guid: 9a1a13fe440d18d419a3a56c777eb016, type: 3}
+  - {fileID: 8541034256649808196, guid: 978822c5a74dfba4dab63a5a695a08fc, type: 3}
+  - {fileID: 5600369039360957863, guid: 1bd72ebe47024c0428d207cb890f7d32, type: 3}
   - {fileID: 2915254623132364138, guid: 813a9cef4af4e4a4c91638583b5577d4, type: 3}
   - {fileID: 8175076033157189046, guid: 587f3ae9e6583c641af7334c3e7cd01e, type: 3}
+  - {fileID: 3056728832346780796, guid: 65181ee735119bf47a143625bf9b01bc, type: 3}
+  - {fileID: 7338174430931127897, guid: 0a7d626686eff674c9417735b945d004, type: 3}
   popupVariable: {fileID: 11400000, guid: aab7cadf21951934aa742ce00583e5ac, type: 2}
+  pathPopup: Assets/_Project/Prefabs/Popup/
 --- !u!1 &845301144
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +667,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2141998378}
   - component: {fileID: 2141998377}
-  - component: {fileID: 2141998376}
   m_Layer: 0
   m_Name: CameraUI
   m_TagString: MainCamera
@@ -666,14 +674,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2141998376
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141998375}
-  m_Enabled: 1
 --- !u!20 &2141998377
 Camera:
   m_ObjectHideFlags: 0
@@ -1364,8 +1364,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!114 &6541805031477894622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,8 +1820,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!114 &8128687198831228534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,7 +1838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeScale: 0.5
-  EaseType: 27
+  ease: 27
   fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &8454268290368642238
 GameObject:
@@ -1928,8 +1934,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!114 &8560036185210033979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1943,7 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeScale: 0.5
-  EaseType: 27
+  ease: 27
   fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!114 &8660902623537255845
 MonoBehaviour:
@@ -2052,8 +2061,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!114 &8758060767005110936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,7 +2079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeScale: 0.5
-  EaseType: 27
+  ease: 27
   fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!224 &8795868125360480389
 RectTransform:
@@ -2154,8 +2166,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!114 &9062633714511670434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2169,7 +2184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeScale: 0.5
-  EaseType: 27
+  ease: 27
   fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1 &9157407161587575317
 GameObject:
@@ -2249,8 +2264,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!114 &9157407161587575319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2264,7 +2282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeScale: 0.5
-  EaseType: 27
+  ease: 27
   fromScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -19,10 +19,10 @@ public class GameBase : EditorWindow
     //     Debug.Log($"<color=Green>Data.IsTesting = {Data.IsTesting}</color>");
     // }
 
-    [MenuItem("GameBase/Open Scene/Loading Scene %F1")]
-    public static void OpenLoadingScene()
+    [MenuItem("GameBase/Open Scene/Launcher Scene %F1")]
+    public static void OpenLauncherScene()
     {
-        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LOADING_SCENE}.unity");
+        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
@@ -40,17 +40,17 @@ public class GameBase : EditorWindow
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Open Scene/Gameplay Scene %F4")]
-    public static void OpenGamePlayScene()
+    [MenuItem("GameBase/Open Scene/Game Scene %F4")]
+    public static void OpenGameScene()
     {
-        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAMEPLAY_SCENE}.unity");
+        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAME_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("GameBase/Play Loading")]
-    public static void PlayLoading()
+    [MenuItem("GameBase/Play Launcher")]
+    public static void PlayLauncher()
     {
-        OpenLoadingScene();
+        OpenLauncherScene();
         EditorApplication.isPlaying = true;
     }
 }

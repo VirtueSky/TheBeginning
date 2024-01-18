@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEditor;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
+using VirtueSky.UtilsEditor;
 
 public class PopupManager : MonoBehaviour
 {
@@ -103,4 +105,13 @@ public class PopupManager : MonoBehaviour
 
         return null;
     }
+#if UNITY_EDITOR
+    [SerializeField] private string pathPopup = "Assets/_Project/Prefabs/Popup/";
+    [Button]
+    void LoadPopup()
+    {
+        listPopups = FileExtension.GetPrefabsFromFolder<UIPopup>(pathPopup);
+        EditorUtility.SetDirty(this);
+    }
+#endif
 }
