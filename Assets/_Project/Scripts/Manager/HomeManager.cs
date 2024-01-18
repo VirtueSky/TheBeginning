@@ -18,6 +18,6 @@ public class HomeManager : MonoBehaviour
 
     public void LoadGameScene()
     {
-        loadSceneEvent.Raise(new LoadSceneData(false, Constant.GAMEPLAY_SCENE, .1f, null));
+        loadSceneEvent.Raise(new LoadSceneData(false, Constant.GAMEPLAY_SCENE, 0, null));
     }
 }
