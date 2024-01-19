@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DG.Tweening;
+using PrimeTween;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.ObjectPooling;
@@ -98,24 +97,18 @@ public class CurrencyGenerate : BaseMono
         });
     }
 
-    private DG.Tweening.Core.TweenerCore<Vector3, Vector3,
-        DG.Tweening.Plugins.Options.VectorOptions> MoveTo(
-        Vector3 endValue, GameObject coin, float duration, Ease ease)
+    private Tween MoveTo(Vector3 endValue, GameObject coin, float duration, Ease ease)
     {
         return coin.transform.DOMove(endValue, duration).SetEase(ease);
     }
 
-    private DG.Tweening.Core.TweenerCore<Vector3, Vector3,
-        DG.Tweening.Plugins.Options.VectorOptions> MoveToNear(
-        GameObject coin)
+    private Tween MoveToNear(GameObject coin)
     {
         return MoveTo(coin.transform.position + (Vector3)Random.insideUnitCircle * 1.3f, coin,
             durationNear, easeNear);
     }
 
-    private DG.Tweening.Core.TweenerCore<Vector3, Vector3,
-        DG.Tweening.Plugins.Options.VectorOptions> MoveToTarget(
-        GameObject coin)
+    private Tween MoveToTarget(GameObject coin)
     {
         return MoveTo(to.transform.position, coin, durationTarget, easeTarget);
     }
@@ -130,9 +123,6 @@ public class CurrencyGenerate : BaseMono
         Vector3 currentScale = Vector3.one;
         Vector3 nextScale = currentScale + new Vector3(.1f, .1f, .1f);
         to.transform.DOScale(nextScale, durationTarget).SetEase(Ease.OutBack)
-            .OnComplete((() =>
-            {
-                to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack);
-            }));
+            .OnComplete((() => { to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack); }));
     }
 }

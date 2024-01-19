@@ -1,8 +1,6 @@
 using CodeStage.AdvancedFPSCounter;
-using DG.Tweening;
-using TheBeginning.Custom_Scriptable_Event;
+using PrimeTween;
 using UnityEngine;
-using VirtueSky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
@@ -14,8 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject uiInGame;
 
 
-    [HeaderLine(Constant.SO_Event)] [SerializeField]
-    private StringEvent changeSceneEvent;
+    [HeaderLine(Constant.SO_Event)] 
 
     [SerializeField] private EventLevel eventWinLevel;
 
@@ -70,7 +67,6 @@ public class GameManager : MonoBehaviour
 
     public void ReturnHome()
     {
-        changeSceneEvent.Raise(Constant.HOME_SCENE);
     }
 
     public void ReplayGame()

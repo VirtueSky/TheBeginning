@@ -1,4 +1,4 @@
-using DG.Tweening;
+using PrimeTween;
 using UnityEngine;
 using VirtueSky.Inspector;
 
@@ -65,8 +65,8 @@ public class UIEffect : MonoBehaviour
         {
             case AnimType.OutBack:
                 transform.localScale = fromScale;
-                _sequence = DOTween.Sequence().OnStart(() => transform.localScale = fromScale).SetDelay(delayAnimTime)
-                    .Append(transform.DOScale(Vector3.one, animTime).OnKill(() => transform.localScale = saveLocalScale)
+                _sequence = DOTween.Sequence().ChainCallback(() => transform.localScale = fromScale).SetDelay(delayAnimTime)
+                    .Append(transform.DOScale(Vector3.one, animTime).OnComplete(() => transform.localScale = saveLocalScale)
                         .SetEase(Ease.OutBack));
                 break;
             case AnimType.Shake:
@@ -112,7 +112,7 @@ public class UIEffect : MonoBehaviour
     public void OnDisable()
     {
         Reset();
-        _sequence?.Kill();
+        _sequence.Kill();
     }
 
 

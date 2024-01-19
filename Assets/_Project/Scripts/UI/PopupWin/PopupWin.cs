@@ -1,4 +1,4 @@
-using DG.Tweening;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,20 +43,23 @@ public class PopupWin : UIPopup
         {
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
-            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%"; })).OnComplete((() =>
+            ProcessBar.DOFillAmount(percent / 100, .5f).OnUpdate(ProcessBar, (image, tween) =>
+            {
+                TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f) + "%");
+            }).OnComplete(() =>
             {
                 if (percent >= 100)
                 {
                     ReceiveGift();
                 }
-            }));
+            });
         }
     }
 
     public void ClearProgress()
     {
         ProcessBar.DOFillAmount(0, 1f)
-            .OnUpdate(() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100)) + "%"; });
+            .OnUpdate(ProcessBar,(image, tween) => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100)) + "%"; });
     }
 
     private void SetupProgressBar()
@@ -122,7 +125,7 @@ public class PopupWin : UIPopup
         BonusArrowHandler.MoveObject.StopMoving();
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
-        sequence?.Kill();
+        sequence.Kill();
         claimRewardEvent.Raise();
         DOTween.Sequence().AppendInterval(1.2f).AppendCallback(() =>
         {

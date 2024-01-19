@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿
+using PrimeTween;
 using UnityEngine;
 using VirtueSky.Core;
 
@@ -15,7 +16,6 @@ namespace VirtueSky.Component
 
         public void CameraShake()
         {
-            camera.DOComplete();
             camera.DOShakePosition(durationPosition, positionStrength);
             camera.DOShakeRotation(durationRotation, rotationStrength);
         }
@@ -23,7 +23,6 @@ namespace VirtueSky.Component
         public void CameraShake(float _durationPosition, float _durationRotation, Vector3 _positionStrength,
             Vector3 _rotationStrength)
         {
-            camera.DOComplete();
             camera.DOShakePosition(_durationPosition, _positionStrength);
             camera.DOShakeRotation(_durationRotation, _rotationStrength);
         }

@@ -1,4 +1,4 @@
-using DG.Tweening;
+using PrimeTween;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
@@ -32,12 +32,12 @@ public class UIPopup : MonoBehaviour
             switch (ShowAnimationType)
             {
                 case ShowAnimationType.OutBack:
-                    DOTween.Sequence().OnStart(() => Container.transform.localScale = Vector3.one * .9f)
+                    DOTween.Sequence().ChainCallback(() => Container.transform.localScale = Vector3.one * .9f)
                         .Append(Container.transform.DOScale(Vector3.one, Config.Game.DurationPopup)
                             .SetEase(Ease.OutBack).OnComplete(() => { OnAfterShow(); }));
                     break;
                 case ShowAnimationType.Flip:
-                    DOTween.Sequence().OnStart(() => Container.transform.localEulerAngles = new Vector3(0, 180, 0))
+                    DOTween.Sequence().ChainCallback(() => Container.transform.localEulerAngles = new Vector3(0, 180, 0))
                         .Append(Container.transform.DORotate(Vector3.zero, Config.Game.DurationPopup))
                         .SetEase(Ease.Linear).OnComplete(() => { OnAfterShow(); });
                     break;

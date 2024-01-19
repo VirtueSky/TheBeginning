@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using DG.Tweening;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,19 +14,12 @@ public class LoadingManager : BaseMono
 
     [Range(0.1f, 10f)] public float timeLoading = 5f;
     [SerializeField] bool isWaitingFetchRemoteConfig = false;
-    [SerializeField] private List<BaseMono> listObjSpawn = new List<BaseMono>();
 
     private bool flagDoneProgress;
     private bool fetchFirebaseRemoteConfigCompleted = false;
 
     private void Awake()
     {
-        foreach (var mono in listObjSpawn)
-        {
-            Instantiate(mono);
-            mono.Initialize();
-        }
-
         Init();
         LoadScene();
     }
@@ -35,8 +27,9 @@ public class LoadingManager : BaseMono
     private void Init()
     {
         progressBar.fillAmount = 0;
-        progressBar.DOFillAmount(5, timeLoading)
-            .OnUpdate(() => loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%")
+        progressBar.DOFillAmount(1, timeLoading)
+            .OnUpdate(progressBar,
+                (image, tween) => loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%")
             .OnComplete(() => flagDoneProgress = true);
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -176,7 +176,9 @@ MonoBehaviour:
   - {fileID: 6757482024752608808, guid: a3ffb9bece6d88b42afa90a0722accec, type: 3}
   - {fileID: 5900877145956595185, guid: f09001724e3f0b644aada44bd0a99cc2, type: 3}
   - {fileID: 7125858397958467425, guid: b9d19d35a41c9864889d42bde3de9a92, type: 3}
+  - {fileID: 1933832861120935608, guid: 24053abdae338bf4c8e1d0e5c120c4fa, type: 3}
   - {fileID: 4385920386591527244, guid: 9a1a13fe440d18d419a3a56c777eb016, type: 3}
+  - {fileID: 5682861250151010794, guid: 0fc6bfe072f692047a72a93c72daa6d5, type: 3}
   - {fileID: 8541034256649808196, guid: 978822c5a74dfba4dab63a5a695a08fc, type: 3}
   - {fileID: 5600369039360957863, guid: 1bd72ebe47024c0428d207cb890f7d32, type: 3}
   - {fileID: 2915254623132364138, guid: 813a9cef4af4e4a4c91638583b5577d4, type: 3}
@@ -195,7 +197,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1406708708}
   - component: {fileID: 1406708709}
-  - component: {fileID: 1406708710}
   m_Layer: 0
   m_Name: CameraUI
   m_TagString: Untagged
@@ -269,14 +270,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1406708710
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406708707}
-  m_Enabled: 1
 --- !u!1 &1448091006
 GameObject:
   m_ObjectHideFlags: 0

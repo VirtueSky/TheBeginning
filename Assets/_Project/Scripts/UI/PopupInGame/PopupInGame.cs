@@ -16,9 +16,8 @@ public class PopupInGame : UIPopup
 
     [HeaderLine(Constant.SO_Event)] [SerializeField]
     private EventNoParam replayEvent;
-
-    [SerializeField] private EventNoParam backHomeEvent;
-
+    [SerializeField] private StringEvent changeSceneEvent;
+    
     [SerializeField] private EventNoParam nextLevelEvent;
 
     [SerializeField] private EventNoParam backLevelEvent;
@@ -58,7 +57,7 @@ public class PopupInGame : UIPopup
 
     public void OnClickHome()
     {
-        backHomeEvent.Raise();
+        changeSceneEvent.Raise(Constant.HOME_SCENE);
     }
 
     public void OnClickReplay()

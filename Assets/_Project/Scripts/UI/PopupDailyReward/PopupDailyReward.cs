@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
-using DG.Tweening;
+using PrimeTween;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
 using VirtueSky.Variables;
@@ -50,7 +50,7 @@ public class PopupDailyReward : UIPopup
         //     PopupController.Instance.Hide<PopupUI>();
         // }
 
-        sequence?.Kill();
+        sequence.Kill();
     }
 
     private bool IsCurrentItem(int index)

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using DG.Tweening;
+using PrimeTween;
 using UnityEngine;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1696447199686004790}
   - component: {fileID: 6101520726296952583}
   - component: {fileID: 4088022423889664445}
+  - component: {fileID: 214430364624038868}
   m_Layer: 5
   m_Name: LevelTypeText
   m_TagString: Untagged
@@ -135,6 +136,30 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &214430364624038868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767417185410928074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
+  animTime: 0.5
+  delayAnimTime: 0
+  fromScale: {x: 1, y: 1, z: 1}
+  saveLocalScale: {x: 1, y: 1, z: 1}
+  strength: 3
+  _moveType: 1
+  fromPosition: {x: 0, y: 0, z: 0}
+  directionType: 0
+  offset: 300
 --- !u!1 &1053650572203305622
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +442,7 @@ GameObject:
   - component: {fileID: 7737905765532784206}
   - component: {fileID: 2447461169283433002}
   - component: {fileID: 5442481947537378005}
+  - component: {fileID: 2451479553689678787}
   m_Layer: 5
   m_Name: BtnDebug_Lose
   m_TagString: Untagged
@@ -545,6 +571,30 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+--- !u!114 &2451479553689678787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309950552254105989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
+  animTime: 0.5
+  delayAnimTime: 0
+  fromScale: {x: 1, y: 1, z: 1}
+  saveLocalScale: {x: 1, y: 1, z: 1}
+  strength: 3
+  _moveType: 1
+  fromPosition: {x: 0, y: 0, z: 0}
+  directionType: 2
+  offset: 500
 --- !u!1 &3268204137957227887
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +607,7 @@ GameObject:
   - component: {fileID: 5329381664976593621}
   - component: {fileID: 6971732421519493835}
   - component: {fileID: 5019155657852852336}
+  - component: {fileID: 852783793798748293}
   m_Layer: 5
   m_Name: BtnDebug_PrevLevel
   m_TagString: Untagged
@@ -685,6 +736,30 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+--- !u!114 &852783793798748293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268204137957227887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
+  animTime: 0.5
+  delayAnimTime: 0
+  fromScale: {x: 1, y: 1, z: 1}
+  saveLocalScale: {x: 1, y: 1, z: 1}
+  strength: 3
+  _moveType: 1
+  fromPosition: {x: 0, y: 0, z: 0}
+  directionType: 2
+  offset: 500
 --- !u!1 &4064878368111334617
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +810,7 @@ GameObject:
   - component: {fileID: 8140921322257942250}
   - component: {fileID: 8960770679385483732}
   - component: {fileID: 5242133268829020740}
+  - component: {fileID: 4765313547458961679}
   m_Layer: 5
   m_Name: LevelText
   m_TagString: Untagged
@@ -859,6 +935,30 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4765313547458961679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614830620348307228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
+  animTime: 0.5
+  delayAnimTime: 0
+  fromScale: {x: 1, y: 1, z: 1}
+  saveLocalScale: {x: 1, y: 1, z: 1}
+  strength: 3
+  _moveType: 1
+  fromPosition: {x: 0, y: 0, z: 0}
+  directionType: 0
+  offset: 300
 --- !u!1 &4824072918083738613
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +971,7 @@ GameObject:
   - component: {fileID: 6775521553164228315}
   - component: {fileID: 14045196446564162}
   - component: {fileID: 5042421301967142047}
+  - component: {fileID: 1713361894634546378}
   m_Layer: 5
   m_Name: Btn_Replay
   m_TagString: Untagged
@@ -998,6 +1099,30 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+--- !u!114 &1713361894634546378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824072918083738613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
+  animTime: 0.5
+  delayAnimTime: 0
+  fromScale: {x: 1, y: 1, z: 1}
+  saveLocalScale: {x: 1, y: 1, z: 1}
+  strength: 3
+  _moveType: 1
+  fromPosition: {x: 0, y: 0, z: 0}
+  directionType: 3
+  offset: 300
 --- !u!1 &6161697119534261548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,6 +1135,7 @@ GameObject:
   - component: {fileID: 29583937991579001}
   - component: {fileID: 56404323110388492}
   - component: {fileID: 1312870040723763003}
+  - component: {fileID: 2681426980154273690}
   m_Layer: 5
   m_Name: Btn_Home
   m_TagString: Untagged
@@ -1137,6 +1263,30 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+--- !u!114 &2681426980154273690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6161697119534261548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
+  animTime: 0.5
+  delayAnimTime: 0
+  fromScale: {x: 1, y: 1, z: 1}
+  saveLocalScale: {x: 1, y: 1, z: 1}
+  strength: 3
+  _moveType: 1
+  fromPosition: {x: 0, y: 0, z: 0}
+  directionType: 2
+  offset: 300
 --- !u!1 &6380047507344400146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,6 +1299,7 @@ GameObject:
   - component: {fileID: 2671048344679321655}
   - component: {fileID: 3695143036288402568}
   - component: {fileID: 986218553439783353}
+  - component: {fileID: 4260804509848350102}
   m_Layer: 5
   m_Name: BtnDebug_NextLevel
   m_TagString: Untagged
@@ -1277,6 +1428,30 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+--- !u!114 &4260804509848350102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380047507344400146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
+  animTime: 0.5
+  delayAnimTime: 0
+  fromScale: {x: 1, y: 1, z: 1}
+  saveLocalScale: {x: 1, y: 1, z: 1}
+  strength: 3
+  _moveType: 1
+  fromPosition: {x: 0, y: 0, z: 0}
+  directionType: 3
+  offset: 500
 --- !u!1 &6631244465714846239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,17 +1699,17 @@ MonoBehaviour:
   ShowAnimationType: 0
   UseHideAnimation: 0
   HideAnimationType: 0
-  LevelText: {fileID: 0}
-  LevelTypeText: {fileID: 0}
-  replayEvent: {fileID: 0}
-  backHomeEvent: {fileID: 0}
-  nextLevelEvent: {fileID: 0}
-  backLevelEvent: {fileID: 0}
-  winLevelEvent: {fileID: 0}
-  loseLevelEvent: {fileID: 0}
-  indexLevelVariable: {fileID: 0}
-  adManagerVariable: {fileID: 0}
-  isTestingVariable: {fileID: 0}
+  LevelText: {fileID: 5242133268829020740}
+  LevelTypeText: {fileID: 4088022423889664445}
+  replayEvent: {fileID: 11400000, guid: 89e0f5f9de74ebd479ff2d6cb05894e3, type: 2}
+  changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
+  nextLevelEvent: {fileID: 11400000, guid: 7a6969beee2c34a49a706b403a8a6e31, type: 2}
+  backLevelEvent: {fileID: 11400000, guid: 9cc98c82176f3fa4e9684e9f20c64999, type: 2}
+  winLevelEvent: {fileID: 11400000, guid: 8bb823675099e1844a9226562cd403df, type: 2}
+  loseLevelEvent: {fileID: 11400000, guid: 737e2b8f8e70c1445be0bbabb38d77b5, type: 2}
+  indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
+  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
+  isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
 --- !u!114 &9141098031787605229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,6 +1768,7 @@ GameObject:
   - component: {fileID: 6604185889319038898}
   - component: {fileID: 753817817956323118}
   - component: {fileID: 4940960935067248887}
+  - component: {fileID: 1110959440709015039}
   m_Layer: 5
   m_Name: BtnDebug_Win
   m_TagString: Untagged
@@ -1721,6 +1897,30 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+--- !u!114 &1110959440709015039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668492148784960920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animType: 2
+  playOnAwake: 0
+  isResetPositionWhenEnable: 0
+  animTime: 0.5
+  delayAnimTime: 0
+  fromScale: {x: 1, y: 1, z: 1}
+  saveLocalScale: {x: 1, y: 1, z: 1}
+  strength: 3
+  _moveType: 1
+  fromPosition: {x: 0, y: 0, z: 0}
+  directionType: 3
+  offset: 500
 --- !u!1 &8293800740300456271
 GameObject:
   m_ObjectHideFlags: 0
