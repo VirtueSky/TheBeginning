@@ -1,9 +1,15 @@
 using UnityEngine;
 using VirtueSky.Events;
 
-public class UIHome : MonoBehaviour
+public class PopupHome : UIPopup
 {
+    [SerializeField] private StringEvent changeSceneEvent;
     [SerializeField] private PopupVariable popupVariable;
+
+    public void OnClickStartGame()
+    {
+        changeSceneEvent.Raise(Constant.GAME_SCENE);
+    }
 
     public void OnClickSetting()
     {

@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using VirtueSky.Inspector;
 using VirtueSky.Events;
+using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
-public class UIInGame : MonoBehaviour
+public class PopupInGame : UIPopup
 {
     [HeaderLine(Constant.Normal_Attribute)]
     public TextMeshProUGUI LevelText;
@@ -37,9 +37,17 @@ public class UIInGame : MonoBehaviour
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
 
 
-    private void OnEnable()
+    protected override void OnBeforeShow()
     {
+        base.OnBeforeShow();
         Setup(indexLevelVariable.Value);
+        indexLevelVariable.AddListener(Setup);
+    }
+
+    protected override void OnBeforeHide()
+    {
+        base.OnBeforeHide();
+        indexLevelVariable.RemoveListener(Setup);
     }
 
     public void Setup(int currentLevel)
@@ -82,18 +90,6 @@ public class UIInGame : MonoBehaviour
         }
     }
 
-    public void OnClickLevelA()
-    {
-        Data.UseLevelABTesting = 0;
-        replayEvent.Raise();
-    }
-
-    public void OnClickLevelB()
-    {
-        Data.UseLevelABTesting = 1;
-        replayEvent.Raise();
-    }
-
     public void OnClickLose()
     {
         loseLevelEvent.Raise(1);
@@ -106,6 +102,7 @@ public class UIInGame : MonoBehaviour
 
     public void HideUI(Level level = null)
     {
+        if (UIEffects.Count == 0) return;
         foreach (UIEffect item in UIEffects)
         {
             item.PlayAnim();
