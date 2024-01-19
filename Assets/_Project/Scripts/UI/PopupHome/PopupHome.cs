@@ -13,17 +13,17 @@ public class PopupHome : UIPopup
 
     public void OnClickSetting()
     {
-        popupVariable?.Value.Show<PopupSetting>();
+        popupVariable?.Value.Show<PopupSetting>(false);
     }
 
     public void OnClickDebug()
     {
-        popupVariable?.Value.Show<PopupDebug>();
+        popupVariable?.Value.Show<PopupDebug>(false);
     }
 
     public void OnClickDailyReward()
     {
-        popupVariable?.Value.Show<PopupDailyReward>();
+        popupVariable?.Value.Show<PopupDailyReward>(false);
     }
 
     public void OnClickShop()

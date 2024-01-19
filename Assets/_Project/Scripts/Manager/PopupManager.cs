@@ -61,7 +61,11 @@ public class PopupManager : MonoBehaviour
         {
             if (!popup.isActiveAndEnabled)
             {
-                HideAll();
+                if (isHideAll)
+                {
+                    HideAll();
+                }
+
                 popup.Show();
             }
         }
