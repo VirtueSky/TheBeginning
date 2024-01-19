@@ -76,3 +76,5 @@ crashlytics-build.properties
 
 # File Data
 /[Tt]empDataStorage
+# Finder Cache
+/[Aa]ssets/_Sunflower/[Ee]ditor/[Ff]inderCache
