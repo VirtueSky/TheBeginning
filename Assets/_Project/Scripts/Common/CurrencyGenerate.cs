@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using PrimeTween;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.ObjectPooling;
+using Random = UnityEngine.Random;
 
 public class CurrencyGenerate : BaseMono
 {
@@ -74,9 +76,9 @@ public class CurrencyGenerate : BaseMono
 
     private void MoveCoin(GameObject coin, System.Action moveAllCoinDone)
     {
-        MoveToNear(coin).OnComplete(() =>
+        MoveToNear(coin, () =>
         {
-            MoveToTarget(coin).OnComplete(() =>
+            MoveToTarget(coin, () =>
             {
                 coinsActive.Remove(coin);
                 pools.Despawn(coin);
@@ -97,20 +99,24 @@ public class CurrencyGenerate : BaseMono
         });
     }
 
-    private Tween MoveTo(Vector3 endValue, GameObject coin, float duration, Ease ease)
+    private void MoveTo(Vector3 endValue, GameObject coin, float duration, Ease ease, Action completed)
     {
-        return coin.transform.DOMove(endValue, duration).SetEase(ease);
+        coin.transform.DOMove(endValue, duration).SetEase(ease).OnComplete(completed);
     }
 
-    private Tween MoveToNear(GameObject coin)
+    private void MoveToNear(GameObject coin, Action completed)
     {
-        return MoveTo(coin.transform.position + (Vector3)Random.insideUnitCircle * 1.3f, coin,
-            durationNear, easeNear);
+        // MoveTo(coin.transform.position + (Vector3)Random.insideUnitCircle * 1.3f, coin,
+        //     durationNear, easeNear, completed);
+        Vector3 startPosition = coin.transform.position;
+        coin.transform.Position(startPosition + (Vector3)Random.insideUnitCircle * 1.3f, durationNear, easeNear)
+            .OnComplete(completed);
     }
 
-    private Tween MoveToTarget(GameObject coin)
+    private void MoveToTarget(GameObject coin, Action completed)
     {
-        return MoveTo(to.transform.position, coin, durationTarget, easeTarget);
+        // MoveTo(to.transform.position, coin, durationTarget, easeTarget, completed);
+        coin.transform.Position(to.transform.position, durationTarget, easeTarget).OnComplete(completed);
     }
 
     public void SetNumberCoin(int _numberCoin)

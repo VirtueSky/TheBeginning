@@ -24,7 +24,6 @@ public class Config : BaseMono
 
     protected void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
         Game = gameConfig;
         DailyRewardConfig = dailyRewardConfig;
         CountryConfig = countryConfig;

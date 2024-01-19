@@ -34,7 +34,7 @@ public class PopupManager : MonoBehaviour
         popupVariable.Value = this;
     }
 
-    public void Show<T>(bool isHideAll = false)
+    public void Show<T>(bool isHideAll = true)
     {
         _container.TryGetValue(typeof(T), out UIPopup popup);
         if (popup == null)

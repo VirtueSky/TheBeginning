@@ -9,12 +9,8 @@ public class GameManager : MonoBehaviour
     [HeaderLine(Constant.Normal_Attribute)]
     public LevelController levelController;
 
-    [SerializeField] private GameObject uiInGame;
-
-
-    [HeaderLine(Constant.SO_Event)] 
-
-    [SerializeField] private EventLevel eventWinLevel;
+    [HeaderLine(Constant.SO_Event)] [SerializeField]
+    private EventLevel eventWinLevel;
 
     [SerializeField] private EventLevel eventLoseLevel;
 
@@ -48,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         PrepareLevel();
         StartGame();
-        uiInGame.SetActive(true);
+        popupVariable.Value.Show<PopupInGame>();
     }
 
     public void UpdateScore(Level level)
@@ -74,7 +70,7 @@ public class GameManager : MonoBehaviour
         eventReplayLevel.Raise(levelController.currentLevel);
         PrepareLevel();
         StartGame();
-        uiInGame.SetActive(true);
+        popupVariable.Value.Show<PopupInGame>();
     }
 
     public void BackLevel()
@@ -116,7 +112,7 @@ public class GameManager : MonoBehaviour
             {
                 indexLevelVariable.Value++;
                 popupVariable?.Value.Show<PopupWin>();
-                uiInGame.SetActive(false);
+                popupVariable.Value.Hide<PopupInGame>();
             });
     }
 
@@ -131,7 +127,7 @@ public class GameManager : MonoBehaviour
             .AppendCallback(() =>
             {
                 popupVariable?.Value.Show<PopupLose>();
-                uiInGame.SetActive(false);
+                popupVariable.Value.Hide<PopupInGame>();
             });
     }
 
