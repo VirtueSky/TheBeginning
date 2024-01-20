@@ -11,7 +11,7 @@ public class CurrencyGenerate : BaseMono
 {
     [SerializeField] private GameObject overlay;
     [SerializeField] private GameObject coinPrefab;
-    [SerializeField] private Vector3? from;
+    [SerializeField] private Vector3 from = Vector3.zero;
     [SerializeField] private GameObject to;
     [SerializeField] private int numberCoin;
     [SerializeField] private int delay;
@@ -20,6 +20,7 @@ public class CurrencyGenerate : BaseMono
     [SerializeField] private Ease easeNear;
     [SerializeField] private Ease easeTarget;
     [SerializeField] private float scale = 1;
+    [SerializeField] private float offsetNear = 1;
     [SerializeField] private Pools pools;
     private System.Action moveOneCoinDone;
     private bool isScaleIconTo = false;
@@ -57,15 +58,7 @@ public class CurrencyGenerate : BaseMono
             GameObject coin = pools.Spawn(coinPrefab, transform);
             coin.transform.localScale = Vector3.one * scale;
             coinsActive.Add(coin);
-            if (from != null)
-            {
-                coin.transform.position = from.Value;
-            }
-            else
-            {
-                coin.transform.localPosition = Vector3.zero;
-            }
-
+            coin.transform.position = from;
             MoveCoin(coin, moveAllCoinDone);
             // if (i == numberCoin - 1)
             // {
@@ -76,47 +69,37 @@ public class CurrencyGenerate : BaseMono
 
     private void MoveCoin(GameObject coin, System.Action moveAllCoinDone)
     {
-        MoveToNear(coin, () =>
+        MoveToTarget(coin, () =>
         {
-            MoveToTarget(coin, () =>
+            coinsActive.Remove(coin);
+            pools.Despawn(coin);
+            if (!isScaleIconTo)
             {
-                coinsActive.Remove(coin);
-                pools.Despawn(coin);
-                if (!isScaleIconTo)
-                {
-                    isScaleIconTo = true;
-                    ScaleIconTo();
-                }
+                isScaleIconTo = true;
+                ScaleIconTo();
+            }
 
-                moveOneCoinDone?.Invoke();
-                if (coinsActive.Count == 0)
-                {
-                    moveAllCoinDone?.Invoke();
-                    overlay.SetActive(false);
-                    from = null;
-                }
-            });
+            moveOneCoinDone?.Invoke();
+            if (coinsActive.Count == 0)
+            {
+                moveAllCoinDone?.Invoke();
+                overlay.SetActive(false);
+                from = Vector3.zero;
+            }
         });
     }
 
-    private void MoveTo(Vector3 endValue, GameObject coin, float duration, Ease ease, Action completed)
-    {
-        coin.transform.DOMove(endValue, duration).SetEase(ease).OnComplete(completed);
-    }
-
-    private void MoveToNear(GameObject coin, Action completed)
-    {
-        // MoveTo(coin.transform.position + (Vector3)Random.insideUnitCircle * 1.3f, coin,
-        //     durationNear, easeNear, completed);
-        Vector3 startPosition = coin.transform.position;
-        coin.transform.Position(startPosition + (Vector3)Random.insideUnitCircle * 1.3f, durationNear, easeNear)
-            .OnComplete(completed);
-    }
 
     private void MoveToTarget(GameObject coin, Action completed)
     {
-        // MoveTo(to.transform.position, coin, durationTarget, easeTarget, completed);
-        coin.transform.Position(to.transform.position, durationTarget, easeTarget).OnComplete(completed);
+        coin.transform.DOMove(coin.transform.position + (Vector3)Random.insideUnitCircle * offsetNear, durationNear)
+            .SetEase(easeNear)
+            .OnComplete(
+                () =>
+                {
+                    coin.transform.DOMove(to.transform.position, durationTarget).SetEase(easeTarget)
+                        .OnComplete(completed);
+                });
     }
 
     public void SetNumberCoin(int _numberCoin)
