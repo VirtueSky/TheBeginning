@@ -270,8 +270,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &2112546984656705563
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468105648884148360}
   - component: {fileID: 6670303860923055996}
+  - component: {fileID: 1545824011621627125}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -457,10 +461,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: container
   ConformX: 1
   ConformY: 1
   Logging: 0
+--- !u!114 &1545824011621627125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5363128110904485602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811e2d03be24a0142ab8b80a41d7f634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOffUIVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
+  listGraphics:
+  - {fileID: 1262377619817547201}
+  - {fileID: 7607586365036201884}
+  - {fileID: 4520157985863391960}
 --- !u!1 &6219204956602362958
 GameObject:
   m_ObjectHideFlags: 0

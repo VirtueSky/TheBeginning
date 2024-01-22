@@ -610,8 +610,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &872215847354943931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,6 +2748,7 @@ GameObject:
   - component: {fileID: 8721002957770195226}
   - component: {fileID: 5100265953517264245}
   - component: {fileID: 6955833318171200673}
+  - component: {fileID: 4965916296758738229}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -2799,10 +2803,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: container
   ConformX: 1
   ConformY: 1
   Logging: 0
+--- !u!114 &4965916296758738229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4226929061295375689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811e2d03be24a0142ab8b80a41d7f634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOffUIVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
+  listGraphics:
+  - {fileID: 6130420468093921937}
+  - {fileID: 4985898313006907615}
+  - {fileID: 5697902840537265342}
+  - {fileID: 4221467736387531753}
+  - {fileID: 4518080855719057209}
+  - {fileID: 1574465964308552290}
+  - {fileID: 1694744473854944607}
+  - {fileID: 5434216818410825861}
+  - {fileID: 3228971421447738126}
+  - {fileID: 2555560053731927527}
+  - {fileID: 1667151914094093773}
+  - {fileID: 1277614448333648122}
+  - {fileID: 2494747364412360101}
+  - {fileID: 5949419603102288624}
+  - {fileID: 3278625237638813866}
+  - {fileID: 7173497715624858262}
+  - {fileID: 1956911660993482282}
+  - {fileID: 2700200863586575181}
+  - {fileID: 7603918354282976187}
+  - {fileID: 6143172057549097087}
+  - {fileID: 6877105892793767400}
+  - {fileID: 3837254673759174509}
+  - {fileID: 9027622738525700929}
+  - {fileID: 484905023820971656}
+  - {fileID: 4168329194856728346}
+  - {fileID: 917455073814226193}
+  - {fileID: 2268698442411723254}
+  - {fileID: 3451255413487190160}
+  - {fileID: 8300233274868405494}
+  - {fileID: 5979691524331541832}
+  - {fileID: 5267584865773789102}
+  - {fileID: 2207832352282555155}
+  - {fileID: 6983442487520064210}
 --- !u!1 &4405685256339215952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3826,15 +3877,15 @@ MonoBehaviour:
   TotalMoney: 0
   ProcessBar: {fileID: 4221467736387531753}
   TextPercentGift: {fileID: 4518080855719057209}
+  soundPopupWin: {fileID: 8300000, guid: d5d65442eccfa3548921d7156b6d821a, type: 3}
   playCurrentLevelEvent: {fileID: 11400000, guid: 2728698185b78224ea0bf86a5e6b2455,
-    type: 2}
-  currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
   generateCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
   claimRewardEvent: {fileID: 11400000, guid: ed15ee22acf35214292a644a474e7be2, type: 2}
+  currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
+    type: 2}
   adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
-  soundPopupWin: {fileID: 8300000, guid: d5d65442eccfa3548921d7156b6d821a, type: 3}
 --- !u!1 &7418177931432179246
 GameObject:
   m_ObjectHideFlags: 0
@@ -4256,8 +4307,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &9211212431835267844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4456,9 +4510,57 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ece1524dd9c0dd43acf5cd0a3982069, type: 3}
+--- !u!114 &2207832352282555155 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8100701126856239942, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982827232638130261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5267584865773789102 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2869509380563159035, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982827232638130261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5979691524331541832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4338253766177836317, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982827232638130261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6711841059392609176 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3741801841614095309, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
     type: 3}
   m_PrefabInstance: {fileID: 7982827232638130261}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6983442487520064210 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1018544568791280263, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
+    type: 3}
+  m_PrefabInstance: {fileID: 7982827232638130261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
