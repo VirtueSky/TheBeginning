@@ -19,6 +19,9 @@ public class AdsManager : BaseMono
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private BooleanVariable isOffInterAdsVariable;
 
+    [SerializeField] private BooleanVariable isOffBannerVariable;
+    [SerializeField] private BooleanVariable isOffRewardVariable;
+
     [HeaderLine("Ad Units Variable")] [SerializeField]
     AdUnitVariable banner;
 
@@ -78,12 +81,17 @@ public class AdsManager : BaseMono
     bool IsEnableToShowBanner()
     {
         // if purchase remove ads => return false
-        return true;
+        return !isOffBannerVariable.Value;
     }
 
     public bool IsRewardReady()
     {
         return reward.IsReady();
+    }
+
+    bool IsEnableShowReward()
+    {
+        return reward.IsReady() && !isOffRewardVariable.Value;
     }
 
     public void ShowBanner()
@@ -100,7 +108,7 @@ public class AdsManager : BaseMono
         banner.Destroy();
     }
 
-    public void ShowInterstitial(Action completeCallback, Action displayCallback = null)
+    public void ShowInterstitial(Action completeCallback = null, Action displayCallback = null)
     {
         if (IsEnableToShowInter())
         {
@@ -113,10 +121,10 @@ public class AdsManager : BaseMono
         }
     }
 
-    public void ShowRewardAds(Action completeCallback, Action displayCallback = null,
+    public void ShowRewardAds(Action completeCallback = null, Action displayCallback = null,
         Action closeCallback = null, Action skipCallback = null)
     {
-        if (reward.IsReady())
+        if (IsEnableShowReward())
         {
             reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback)
                 .OnClosed(closeCallback)

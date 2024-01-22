@@ -50,11 +50,15 @@ MonoBehaviour:
   adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
   gameStateVariable: {fileID: 11400000, guid: 00d1914409592564ea7ca3f861a30d8e, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
+  isOffInterAdsVariable: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f,
+    type: 2}
+  isOffBannerVariable: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183,
+    type: 2}
+  isOffRewardVariable: {fileID: 11400000, guid: 9b82d09936466b04aa6e3bdc42405b50,
+    type: 2}
   banner: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
   inter: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}
   reward: {fileID: 11400000, guid: 863862f250bdb42ccaba78e46eb83840, type: 2}
-  isOffInterAdsVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25,
-    type: 2}
 --- !u!114 &5014854040172342744
 MonoBehaviour:
   m_ObjectHideFlags: 0
