@@ -28,11 +28,16 @@ public class PopupHome : UIPopup
 
     public void OnClickShop()
     {
-        popupVariable?.Value.Show<PopupShop>();
+        popupVariable?.Value.Show<PopupShop>(false);
     }
 
     public void OnClickTest()
     {
-        popupVariable?.Value.Show<PopupTest>();
+        popupVariable?.Value.Show<PopupTest>(false);
+    }
+
+    public void OnClickOpenAdministrator()
+    {
+        popupVariable.Value.Show<PopupAdministrator>(false);
     }
 }

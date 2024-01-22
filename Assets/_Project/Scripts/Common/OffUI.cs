@@ -34,7 +34,15 @@ public class OffUI : MonoBehaviour
     [Button]
     void GetComponentUI()
     {
-        listGraphics = GetComponentsInChildren<Graphic>(true).ToList();
+        List<Graphic> listTemp = GetComponentsInChildren<Graphic>(true).ToList();
+        listGraphics.Clear();
+        foreach (var graphic in listTemp)
+        {
+            if (graphic.color.a != 0)
+            {
+                listGraphics.Add(graphic);
+            }
+        }
     }
 
     private void Reset()

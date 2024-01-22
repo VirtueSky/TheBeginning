@@ -44,12 +44,6 @@ public class PopupAdministrator : UIPopup
 
     void Setup()
     {
-        isOffUIVariable.Value = toggleOffUI.isOn;
-        isTestingVariable.Value = toggleIsTesting.isOn;
-        isOffInterAds.Value = toggleOffInterAds.isOn;
-        isOffBannerAds.Value = toggleOffBannerAds.isOn;
-        isOffRewardAds.Value = toggleOffRewardAds.isOn;
-
         if (inputFieldCurrency.text != "")
         {
             isSetCurrency = true;
@@ -92,6 +86,31 @@ public class PopupAdministrator : UIPopup
 
     public void OnClickUnlockAllSkins()
     {
+    }
+
+    public void OnChangeOffIsTesting()
+    {
+        isTestingVariable.Value = toggleIsTesting.isOn;
+    }
+
+    public void OnChangeOffInter()
+    {
+        isOffInterAds.Value = toggleOffInterAds.isOn;
+    }
+
+    public void OnChangeOffReward()
+    {
+        isOffRewardAds.Value = toggleOffRewardAds.isOn;
+    }
+
+    public void OnChangeOffBanner()
+    {
+        isOffBannerAds.Value = toggleOffBannerAds.isOn;
+    }
+
+    public void OnChangeOffUI()
+    {
+        isOffUIVariable.Value = toggleOffUI.isOn;
     }
 
     public void OnClickOk()
