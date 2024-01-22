@@ -86,6 +86,7 @@ public class PopupAdministrator : UIPopup
 
     public void OnClickUnlockAllSkins()
     {
+        Config.ItemConfig.UnlockAllSkins();
     }
 
     public void OnChangeOffIsTesting()
