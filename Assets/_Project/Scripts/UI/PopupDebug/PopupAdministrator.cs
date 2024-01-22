@@ -90,6 +90,10 @@ public class PopupAdministrator : UIPopup
         adManagerVariable.Value.ShowRewardAds();
     }
 
+    public void OnClickUnlockAllSkins()
+    {
+    }
+
     public void OnClickOk()
     {
         Setup();
