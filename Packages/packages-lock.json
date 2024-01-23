@@ -213,6 +213,13 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.virtuesky.animancer": {
+      "version": "https://github.com/VirtueSky/animancer-unity.git#7.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5b2093e8217f8f0d2dd431483ca23872288a1b0d"
+    },
     "com.virtuesky.sunflower": {
       "version": "https://github.com/VirtueSky/sunflower.git#2.3.9",
       "depth": 0,

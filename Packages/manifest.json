@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.virtuesky.animancer": "https://github.com/VirtueSky/animancer-unity.git#7.0.0",
     "com.google.firebase.app": "https://github.com/firebase-unity/firebase-app.git#11.6.0",
     "com.google.firebase.analytics": "https://github.com/firebase-unity/firebase-analytics.git#11.6.0",
     "com.google.firebase.remote-config": "https://github.com/firebase-unity/firebase-remote-config.git#11.6.0",
