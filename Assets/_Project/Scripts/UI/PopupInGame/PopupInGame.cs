@@ -16,8 +16,9 @@ public class PopupInGame : UIPopup
 
     [HeaderLine(Constant.SO_Event)] [SerializeField]
     private EventNoParam replayEvent;
+
     [SerializeField] private StringEvent changeSceneEvent;
-    
+
     [SerializeField] private EventNoParam nextLevelEvent;
 
     [SerializeField] private EventNoParam backLevelEvent;
@@ -25,6 +26,7 @@ public class PopupInGame : UIPopup
     [SerializeField] private FloatEvent winLevelEvent;
 
     [SerializeField] private FloatEvent loseLevelEvent;
+    [SerializeField] private StringEvent playAnimCharacterEvent;
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable indexLevelVariable;
@@ -97,6 +99,11 @@ public class PopupInGame : UIPopup
     public void OnClickWin()
     {
         winLevelEvent.Raise(1);
+    }
+
+    public void OnClickPlayAnim(string animationName)
+    {
+        playAnimCharacterEvent.Raise(animationName);
     }
 
     public void HideUI(Level level = null)
