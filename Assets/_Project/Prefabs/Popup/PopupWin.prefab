@@ -3864,13 +3864,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
-  UseAnimation: 0
-  Background: {fileID: 0}
-  Container: {fileID: 0}
-  UseShowAnimation: 0
-  ShowAnimationType: 0
-  UseHideAnimation: 0
-  HideAnimationType: 0
+  useAnimation: 0
+  background: {fileID: 0}
+  container: {fileID: 0}
+  useShowAnimation: 0
+  showAnimationType: 1
+  durationShowPopup: 0
+  useHideAnimation: 0
+  hideAnimationType: 0
+  durationHidePopup: 0
   BonusArrowHandler: {fileID: 4182017765428493193}
   BtnRewardAds: {fileID: 684091610695217680}
   BtnTapToContinue: {fileID: 9196906812386607124}
@@ -3878,6 +3880,7 @@ MonoBehaviour:
   ProcessBar: {fileID: 4221467736387531753}
   TextPercentGift: {fileID: 4518080855719057209}
   soundPopupWin: {fileID: 8300000, guid: d5d65442eccfa3548921d7156b6d821a, type: 3}
+  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   playCurrentLevelEvent: {fileID: 11400000, guid: 2728698185b78224ea0bf86a5e6b2455,
     type: 2}
   generateCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}

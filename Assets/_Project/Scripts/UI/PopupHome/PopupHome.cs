@@ -16,11 +16,6 @@ public class PopupHome : UIPopup
         popupVariable?.Value.Show<PopupSetting>(false);
     }
 
-    public void OnClickDebug()
-    {
-        popupVariable?.Value.Show<PopupDebug>(false);
-    }
-
     public void OnClickDailyReward()
     {
         popupVariable?.Value.Show<PopupDailyReward>(false);

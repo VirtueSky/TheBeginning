@@ -18,6 +18,7 @@ public class DailyRewardItem : MonoBehaviour
     [SerializeField] private IntegerVariable currencyTotalVariable;
 
     [SerializeField] private Vector3Event generateCoinEvent;
+    [SerializeField] private DailyRewardConfig dailyRewardConfig;
 
     //[SerializeField] private EventNoParam claimRewardEvent;
     private int coinValue;
@@ -47,8 +48,8 @@ public class DailyRewardItem : MonoBehaviour
     {
         // Setup data
         dailyRewardData = Data.IsStartLoopingDailyReward
-            ? Config.DailyRewardConfig.DailyRewardDatasLoop[dayIndex - 1]
-            : Config.DailyRewardConfig.DailyRewardDatas[dayIndex - 1];
+            ? dailyRewardConfig.DailyRewardDatasLoop[dayIndex - 1]
+            : dailyRewardConfig.DailyRewardDatas[dayIndex - 1];
 
         coinValue = dailyRewardData.Value;
         // Setup states

@@ -8,37 +8,41 @@ public class UIPopup : MonoBehaviour
 {
     [HeaderLine(Constant.Environment)] public CanvasGroup canvasGroup;
     public Canvas canvas;
-    public bool UseAnimation;
+    public bool useAnimation;
 
-    [HeaderLine(Constant.UI_Motion)] [ShowIf("UseAnimation")]
-    public GameObject Background;
+    [HeaderLine(Constant.UI_Motion)] [ShowIf(nameof(useAnimation))]
+    public GameObject background;
 
-    [ShowIf("UseAnimation")] public GameObject Container;
+    [ShowIf(nameof(useAnimation))] public GameObject container;
 
-    [ShowIf("UseAnimation")] public bool UseShowAnimation;
+    [ShowIf(nameof(useAnimation))] public bool useShowAnimation;
 
-    [ShowIf("UseShowAnimation")] public ShowAnimationType ShowAnimationType;
+    [ShowIf(nameof(useShowAnimation))] public ShowAnimationType showAnimationType;
+    [ShowIf(nameof(useShowAnimation))] public float durationShowPopup;
+    [ShowIf(nameof(useAnimation))] public bool useHideAnimation;
 
-    [ShowIf("UseAnimation")] public bool UseHideAnimation;
-
-    [ShowIf("UseHideAnimation")] public HideAnimationType HideAnimationType;
+    [ShowIf(nameof(useHideAnimation))] public HideAnimationType hideAnimationType;
+    [ShowIf(nameof(useHideAnimation))] public float durationHidePopup;
 
     public virtual void Show()
     {
         OnBeforeShow();
         gameObject.SetActive(true);
-        if (UseShowAnimation)
+        if (useShowAnimation)
         {
-            switch (ShowAnimationType)
+            switch (showAnimationType)
             {
                 case ShowAnimationType.OutBack:
-                    DOTween.Sequence().ChainCallback(() => Container.transform.localScale = Vector3.one * .9f)
-                        .Append(Container.transform.DOScale(Vector3.one, Config.Game.DurationPopup)
+                    DOTween.Sequence().ChainCallback(() =>
+                            container.transform.localScale = Vector3.one * .9f)
+                        .Append(container.transform.DOScale(Vector3.one, durationShowPopup)
                             .SetEase(Ease.OutBack).OnComplete(() => { OnAfterShow(); }));
                     break;
                 case ShowAnimationType.Flip:
-                    DOTween.Sequence().ChainCallback(() => Container.transform.localEulerAngles = new Vector3(0, 180, 0))
-                        .Append(Container.transform.DORotate(Vector3.zero, Config.Game.DurationPopup))
+                    DOTween.Sequence().ChainCallback(() =>
+                            container.transform.localEulerAngles = new Vector3(0, 180, 0))
+                        .Append(container.transform.DORotate(Vector3.zero,
+                            durationShowPopup))
                         .SetEase(Ease.Linear).OnComplete(() => { OnAfterShow(); });
                     break;
             }
@@ -52,13 +56,13 @@ public class UIPopup : MonoBehaviour
     public virtual void Hide()
     {
         OnBeforeHide();
-        if (UseHideAnimation)
+        if (useHideAnimation)
         {
-            switch (HideAnimationType)
+            switch (hideAnimationType)
             {
                 case HideAnimationType.InBack:
-                    DOTween.Sequence().Append(Container.transform
-                        .DOScale(Vector3.one * .7f, Config.Game.DurationPopup).SetEase(Ease.InBack)
+                    DOTween.Sequence().Append(container.transform
+                        .DOScale(Vector3.one * .7f, durationHidePopup).SetEase(Ease.InBack)
                         .OnComplete(() =>
                         {
                             gameObject.SetActive(false);
@@ -66,7 +70,7 @@ public class UIPopup : MonoBehaviour
                         }));
                     break;
                 case HideAnimationType.Fade:
-                    canvasGroup.DOFade(0, Config.Game.DurationPopup).OnComplete(() =>
+                    canvasGroup.DOFade(0, durationHidePopup).OnComplete(() =>
                     {
                         canvasGroup.alpha = 1;
                         gameObject.SetActive(false);

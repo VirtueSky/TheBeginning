@@ -10,7 +10,6 @@ namespace TheBeginning.Services
     public class InitService : MonoBehaviour
     {
         [SerializeField] private Pools pools;
-        [SerializeField] List<BaseMono> listServersInitialized;
 
 
         private void Awake()
@@ -18,11 +17,6 @@ namespace TheBeginning.Services
             Application.targetFrameRate = 60;
             pools.Initialize();
             Vibration.Init();
-            foreach (var mono in listServersInitialized)
-            {
-                var monoService = Instantiate(mono);
-                monoService.Initialize();
-            }
         }
     }
 }

@@ -15,7 +15,7 @@ public class FirebaseManager : BaseMono
     [SerializeField] private FirebaseAnalyticManager firebaseAnalyticManager;
 
 
-    public override void Initialize()
+    public void Start()
     {
 #if VIRTUESKY_FIREBASE
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>

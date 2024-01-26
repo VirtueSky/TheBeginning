@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 
 public class CurrencyGenerate : BaseMono
 {
-    [SerializeField] private GameObject overlay;
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Vector3 from = Vector3.zero;
     [SerializeField] private GameObject to;
@@ -39,7 +38,6 @@ public class CurrencyGenerate : BaseMono
 
     private void Start()
     {
-        overlay.SetActive(false);
     }
 
     public async void GenerateCoin(System.Action moveOneCoinDone, System.Action moveAllCoinDone,
@@ -51,7 +49,7 @@ public class CurrencyGenerate : BaseMono
         //this.moveAllCoinDone = moveAllCoinDone;
         this.to = to == null ? this.to : to;
         this.numberCoin = numberCoin < 0 ? this.numberCoin : numberCoin;
-        overlay.SetActive(true);
+
         for (int i = 0; i < this.numberCoin; i++)
         {
             await Task.Delay(Random.Range(0, delay));
@@ -83,7 +81,7 @@ public class CurrencyGenerate : BaseMono
             if (coinsActive.Count == 0)
             {
                 moveAllCoinDone?.Invoke();
-                overlay.SetActive(false);
+
                 from = Vector3.zero;
             }
         });
@@ -92,7 +90,9 @@ public class CurrencyGenerate : BaseMono
 
     private void MoveToTarget(GameObject coin, Action completed)
     {
-        coin.transform.DOMove(coin.transform.position + (Vector3)Random.insideUnitCircle * offsetNear, durationNear)
+        coin.transform
+            .DOMove(coin.transform.position + (Vector3)Random.insideUnitCircle * offsetNear,
+                durationNear)
             .SetEase(easeNear)
             .OnComplete(
                 () =>
@@ -112,6 +112,9 @@ public class CurrencyGenerate : BaseMono
         Vector3 currentScale = Vector3.one;
         Vector3 nextScale = currentScale + new Vector3(.1f, .1f, .1f);
         to.transform.DOScale(nextScale, durationTarget).SetEase(Ease.OutBack)
-            .OnComplete((() => { to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack); }));
+            .OnComplete((() =>
+            {
+                to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack);
+            }));
     }
 }

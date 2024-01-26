@@ -7,7 +7,7 @@ public class LevelController : MonoBehaviour
 {
     [ReadOnly] public Level currentLevel;
     [SerializeField] private IntegerVariable currentIndexLevel;
-    private GameConfig Game => Config.Game;
+    [SerializeField] private GameConfig gameConfig;
 
     public void PrepareLevel()
     {
@@ -21,20 +21,22 @@ public class LevelController : MonoBehaviour
             Destroy(currentLevel.gameObject);
         }
 
-        if (indexLevel > Config.Game.MaxLevel)
+        if (indexLevel > gameConfig.MaxLevel)
         {
-            indexLevel = (indexLevel - Game.StartLoopLevel) % (Game.MaxLevel - Game.StartLoopLevel + 1) +
-                         Game.StartLoopLevel;
+            indexLevel = (indexLevel - gameConfig.StartLoopLevel) %
+                         (gameConfig.MaxLevel - gameConfig.StartLoopLevel + 1) +
+                         gameConfig.StartLoopLevel;
         }
         else
         {
-            if (Game.LevelLoopType == LevelLoopType.NormalLoop)
+            if (gameConfig.LevelLoopType == LevelLoopType.NormalLoop)
             {
-                indexLevel = (indexLevel - 1) % Config.Game.MaxLevel + 1;
+                indexLevel = (indexLevel - 1) % gameConfig.MaxLevel + 1;
             }
-            else if (Game.LevelLoopType == LevelLoopType.RandomLoop)
+            else if (gameConfig.LevelLoopType == LevelLoopType.RandomLoop)
             {
-                indexLevel = UnityEngine.Random.Range(Game.StartLoopLevel, Game.MaxLevel);
+                indexLevel =
+                    UnityEngine.Random.Range(gameConfig.StartLoopLevel, gameConfig.MaxLevel);
             }
         }
 

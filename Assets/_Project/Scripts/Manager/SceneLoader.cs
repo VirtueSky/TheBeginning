@@ -1,14 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TheBeginning.Custom_Scriptable_Event;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VirtueSky.Core;
-using VirtueSky.Inspector;
+using VirtueSky.Events;
+
 
 public class SceneLoader : BaseMono
 {
+    [SerializeField] private StringEvent changeSceneEvent;
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        changeSceneEvent.AddListener(ChangeScene);
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        changeSceneEvent.RemoveListener(ChangeScene);
+    }
     // public void Load(LoadSceneData data)
     // {
     //     if (data.isWaiting)

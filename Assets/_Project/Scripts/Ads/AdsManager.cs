@@ -36,11 +36,6 @@ public class AdsManager : BaseMono
     private void Start()
     {
         Initialize();
-    }
-
-    public override void Initialize()
-    {
-        base.Initialize();
         adManagerVariable.Value = this;
         ResetCounter();
     }

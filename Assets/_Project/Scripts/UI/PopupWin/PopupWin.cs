@@ -17,6 +17,7 @@ public class PopupWin : UIPopup
     public Image ProcessBar;
     public TextMeshProUGUI TextPercentGift;
     [SerializeField] private AudioClip soundPopupWin;
+    [SerializeField] private GameConfig gameConfig;
 
     [HeaderLine(Constant.SO_Event)] [SerializeField]
     private EventNoParam playCurrentLevelEvent;
@@ -30,10 +31,9 @@ public class PopupWin : UIPopup
     [SerializeField] private AdManagerVariable adManagerVariable;
     [SerializeField] private BooleanVariable isTestingVariable;
 
-
     private float percent = 0;
     private Sequence sequence;
-    public int MoneyWin => Config.Game.WinLevelMoney;
+    public int MoneyWin => gameConfig.WinLevelMoney;
 
 
     public float Percent
@@ -43,10 +43,11 @@ public class PopupWin : UIPopup
         {
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
-            ProcessBar.DOFillAmount(percent / 100, .5f).OnUpdate(ProcessBar, (image, tween) =>
-            {
-                TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f) + "%");
-            }).OnComplete(() =>
+            ProcessBar.DOFillAmount(percent / 100, .5f).OnUpdate(ProcessBar,
+                (image, tween) =>
+                {
+                    TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f) + "%");
+                }).OnComplete(() =>
             {
                 if (percent >= 100)
                 {
@@ -59,13 +60,17 @@ public class PopupWin : UIPopup
     public void ClearProgress()
     {
         ProcessBar.DOFillAmount(0, 1f)
-            .OnUpdate(ProcessBar,(image, tween) => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100)) + "%"; });
+            .OnUpdate(ProcessBar,
+                (image, tween) =>
+                {
+                    TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100)) + "%";
+                });
     }
 
     private void SetupProgressBar()
     {
         ProcessBar.fillAmount = (float)Data.PercentWinGift / 100;
-        Data.PercentWinGift += Config.Game.PercentWinGiftPerLevel;
+        Data.PercentWinGift += gameConfig.PercentWinGiftPerLevel;
         Percent = (float)Data.PercentWinGift;
         if (Data.PercentWinGift == 100)
         {
@@ -83,7 +88,10 @@ public class PopupWin : UIPopup
         base.OnBeforeShow();
         Setup();
         SetupProgressBar();
-        sequence = DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { BtnTapToContinue.SetActive(true); });
+        sequence = DOTween.Sequence().AppendInterval(2f).AppendCallback(() =>
+        {
+            BtnTapToContinue.SetActive(true);
+        });
     }
 
 

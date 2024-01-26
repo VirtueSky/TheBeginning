@@ -24,6 +24,7 @@ public class PopupAdministrator : UIPopup
     [SerializeField] private IntegerVariable indexLevelVariable;
     [SerializeField] private IntegerVariable currencyVariable;
     [SerializeField] private AdManagerVariable adManagerVariable;
+    [SerializeField] private ItemConfig itemConfig;
     private bool isSetCurrency = false;
 
     protected override void OnBeforeShow()
@@ -86,7 +87,7 @@ public class PopupAdministrator : UIPopup
 
     public void OnClickUnlockAllSkins()
     {
-        Config.ItemConfig.UnlockAllSkins();
+        itemConfig.UnlockAllSkins();
     }
 
     public void OnChangeOffIsTesting()
