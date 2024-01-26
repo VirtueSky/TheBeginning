@@ -174,7 +174,6 @@ MonoBehaviour:
   cameraUI: {fileID: 1406708709}
   listPopups:
   - {fileID: 8674916686584363521, guid: cc9fce46a8c59fb48bc2b3a44aae093f, type: 3}
-  - {fileID: 6757482024752608808, guid: a3ffb9bece6d88b42afa90a0722accec, type: 3}
   - {fileID: 5900877145956595185, guid: f09001724e3f0b644aada44bd0a99cc2, type: 3}
   - {fileID: 1933832861120935608, guid: 24053abdae338bf4c8e1d0e5c120c4fa, type: 3}
   - {fileID: 4385920386591527244, guid: 9a1a13fe440d18d419a3a56c777eb016, type: 3}

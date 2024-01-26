@@ -537,13 +537,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
-  UseAnimation: 0
-  Background: {fileID: 0}
-  Container: {fileID: 0}
-  UseShowAnimation: 0
-  ShowAnimationType: 0
-  UseHideAnimation: 0
-  HideAnimationType: 0
+  useAnimation: 0
+  background: {fileID: 0}
+  container: {fileID: 0}
+  useShowAnimation: 0
+  showAnimationType: 0
+  durationShowPopup: 0
+  useHideAnimation: 0
+  hideAnimationType: 0
+  durationHidePopup: 0
   changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
   popupVariable: {fileID: 11400000, guid: aab7cadf21951934aa742ce00583e5ac, type: 2}
 --- !u!1 &7501070212512654100
