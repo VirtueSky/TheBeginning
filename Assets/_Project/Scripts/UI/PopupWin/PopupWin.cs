@@ -29,10 +29,10 @@ public class PopupWin : UIPopup
     private IntegerVariable currencyTotalVariable;
 
     [SerializeField] private AdManagerVariable adManagerVariable;
-    [SerializeField] private BooleanVariable isTestingVariable;
 
     private float percent = 0;
-    private Sequence sequence;
+
+    //   private Tween tween;
     public int MoneyWin => gameConfig.WinLevelMoney;
 
 
@@ -44,16 +44,14 @@ public class PopupWin : UIPopup
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
             ProcessBar.DOFillAmount(percent / 100, .5f).OnUpdate(ProcessBar,
-                (image, tween) =>
+                    (image, tween) => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f) + "%"); })
+                .OnComplete(() =>
                 {
-                    TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f) + "%");
-                }).OnComplete(() =>
-            {
-                if (percent >= 100)
-                {
-                    ReceiveGift();
-                }
-            });
+                    if (percent >= 100)
+                    {
+                        ReceiveGift();
+                    }
+                });
         }
     }
 
@@ -61,10 +59,7 @@ public class PopupWin : UIPopup
     {
         ProcessBar.DOFillAmount(0, 1f)
             .OnUpdate(ProcessBar,
-                (image, tween) =>
-                {
-                    TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100)) + "%";
-                });
+                (image, tween) => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100)) + "%"; });
     }
 
     private void SetupProgressBar()
@@ -88,10 +83,7 @@ public class PopupWin : UIPopup
         base.OnBeforeShow();
         Setup();
         SetupProgressBar();
-        sequence = DOTween.Sequence().AppendInterval(2f).AppendCallback(() =>
-        {
-            BtnTapToContinue.SetActive(true);
-        });
+        Tween.Delay(2f, () => { BtnTapToContinue.SetActive(true); });
     }
 
 
@@ -109,21 +101,13 @@ public class PopupWin : UIPopup
 
     public void OnClickAdsReward()
     {
-        if (isTestingVariable.Value)
+        if (adManagerVariable.Value.IsRewardReady()) BonusArrowHandler.MoveObject.StopMoving();
+        adManagerVariable.Value.ShowRewardAds(() => { GetRewardAds(); }, null, null, () =>
         {
-            GetRewardAds();
-            claimRewardEvent.Raise();
-        }
-        else
-        {
-            if (adManagerVariable.Value.IsRewardReady()) BonusArrowHandler.MoveObject.StopMoving();
-            adManagerVariable.Value.ShowRewardAds(() => { GetRewardAds(); }, null, null, () =>
-            {
-                BonusArrowHandler.MoveObject.ResumeMoving();
-                BtnRewardAds.SetActive(true);
-                BtnTapToContinue.SetActive(true);
-            });
-        }
+            BonusArrowHandler.MoveObject.ResumeMoving();
+            BtnRewardAds.SetActive(true);
+            BtnTapToContinue.SetActive(true);
+        });
     }
 
     public void GetRewardAds()
@@ -133,9 +117,8 @@ public class PopupWin : UIPopup
         BonusArrowHandler.MoveObject.StopMoving();
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
-        sequence.Kill();
         claimRewardEvent.Raise();
-        DOTween.Sequence().AppendInterval(1.2f).AppendCallback(() =>
+        Tween.Delay(1.2f, () =>
         {
             Hide();
             playCurrentLevelEvent.Raise();
@@ -148,8 +131,7 @@ public class PopupWin : UIPopup
         currencyTotalVariable.Value += MoneyWin;
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
-
-        DOTween.Sequence().AppendInterval(1.2f).AppendCallback(() =>
+        Tween.Delay(1.2f, () =>
         {
             playCurrentLevelEvent.Raise();
             Hide();

@@ -118,13 +118,6 @@ public class DailyRewardItem : MonoBehaviour
 
     public void OnClaim(bool isClaimX5 = false)
     {
-        // if (isClaimX5)
-        //     FirebaseManager.OnClaimDailyRewardX5(dayIndex);
-        // else
-        //     FirebaseManager.OnClaimDailyReward(dayIndex);
-
-        //claimRewardEvent.Raise();
-
         // Save datas
         Data.LastDailyRewardClaimed = DateTime.Now.ToString();
         Data.DailyRewardDayIndex++;

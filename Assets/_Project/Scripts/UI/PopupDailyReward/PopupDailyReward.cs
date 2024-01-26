@@ -14,12 +14,9 @@ public class PopupDailyReward : UIPopup
     [SerializeField] private EventNoParam claimRewardEvent;
     [SerializeField] private BooleanVariable isTestingVariable;
     [SerializeField] private GameObject btnNextDay;
-
+    [SerializeField] private AdManagerVariable adManagerVariable;
     [ReadOnly] public DailyRewardItem CurrentItem;
     public List<DailyRewardItem> DailyRewardItems => GetComponentsInChildren<DailyRewardItem>().ToList();
-
-
-    private Sequence sequence;
 
     protected override void OnBeforeShow()
     {
@@ -49,8 +46,6 @@ public class PopupDailyReward : UIPopup
         //     GameManager.Instance.gameState = GameState.PlayingGame;
         //     PopupController.Instance.Hide<PopupUI>();
         // }
-
-        sequence.Kill();
     }
 
     private bool IsCurrentItem(int index)
@@ -97,18 +92,11 @@ public class PopupDailyReward : UIPopup
 
     public void OnClickBtnClaimX5Video()
     {
-        // eventShowRewardAd.Raise(new ShowRewardAdData(() =>
-        // {
-        //     Observer.ClaimReward?.Invoke();
-        //     //Observer.OnNotifying?.Invoke();
-        //     CurrentItem.OnClaim(true);
-        // }));
+        adManagerVariable.Value.ShowRewardAds(() => { CurrentItem.OnClaim(true); });
     }
 
     public void OnClickBtnClaim()
     {
-        // claimRewardEvent.Raise();
-        //Observer.OnNotifying?.Invoke();
         CurrentItem.OnClaim();
     }
 

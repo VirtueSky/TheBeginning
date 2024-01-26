@@ -102,13 +102,12 @@ public class GameManager : MonoBehaviour
         eventWinLevel.Raise(levelController.currentLevel);
         trackingFirebaseHasParamEvent.Raise(new TrackingFirebaseEventHasParamData("OnWinLevel", "level_name",
             levelController.currentLevel.name));
-        DOTween.Sequence().AppendInterval(delayPopupShowTime)
-            .AppendCallback(() =>
-            {
-                indexLevelVariable.Value++;
-                popupVariable?.Value.Show<PopupWin>();
-                popupVariable.Value.Hide<PopupInGame>();
-            });
+        Tween.Delay(delayPopupShowTime, () =>
+        {
+            indexLevelVariable.Value++;
+            popupVariable?.Value.Show<PopupWin>();
+            popupVariable.Value.Hide<PopupInGame>();
+        });
     }
 
     public void OnLoseGame(float delayPopupShowTime = 2.5f)
@@ -120,12 +119,11 @@ public class GameManager : MonoBehaviour
         eventLoseLevel.Raise(levelController.currentLevel);
         trackingFirebaseHasParamEvent.Raise(new TrackingFirebaseEventHasParamData("OnLoseLevel", "level_name",
             levelController.currentLevel.name));
-        DOTween.Sequence().AppendInterval(delayPopupShowTime)
-            .AppendCallback(() =>
-            {
-                popupVariable?.Value.Show<PopupLose>();
-                popupVariable.Value.Hide<PopupInGame>();
-            });
+        Tween.Delay(delayPopupShowTime, () =>
+        {
+            popupVariable?.Value.Show<PopupLose>();
+            popupVariable.Value.Hide<PopupInGame>();
+        });
     }
 
     public void ChangeAFpsState()

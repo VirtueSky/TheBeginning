@@ -66,6 +66,7 @@ MonoBehaviour:
   currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
   generateCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
+  dailyRewardConfig: {fileID: 0}
 --- !u!1 &65604307107627601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,18 +2106,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
-  UseAnimation: 0
-  Background: {fileID: 0}
-  Container: {fileID: 0}
-  UseShowAnimation: 0
-  ShowAnimationType: 0
-  UseHideAnimation: 0
-  HideAnimationType: 0
+  useAnimation: 0
+  background: {fileID: 0}
+  container: {fileID: 0}
+  useShowAnimation: 0
+  showAnimationType: 0
+  durationShowPopup: 0
+  useHideAnimation: 0
+  hideAnimationType: 0
+  durationHidePopup: 0
   BtnWatchVideo: {fileID: 2509353737946875765}
   BtnClaim: {fileID: 7151091472365318068}
   claimRewardEvent: {fileID: 11400000, guid: ed15ee22acf35214292a644a474e7be2, type: 2}
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   btnNextDay: {fileID: 4625085876766745524}
+  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
   CurrentItem: {fileID: 0}
 --- !u!1 &7505682461934572134
 GameObject:
