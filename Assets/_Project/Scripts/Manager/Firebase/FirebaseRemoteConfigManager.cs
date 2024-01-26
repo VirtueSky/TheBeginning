@@ -46,7 +46,6 @@ public class FirebaseRemoteConfigManager : MonoBehaviour
         return fetchTask.ContinueWithOnMainThread(tast =>
         {
             var info = Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.Info;
-            //SET NEW DATA FROM REMOTE CONFIG
             if (info.LastFetchStatus == LastFetchStatus.Success)
             {
                 FirebaseRemoteConfig.DefaultInstance.ActivateAsync().ContinueWithOnMainThread(
@@ -63,30 +62,6 @@ public class FirebaseRemoteConfigManager : MonoBehaviour
 
                         fetchRemoteConfigCompleted.Raise();
                     });
-
-                // Data.UseLevelABTesting = int.Parse(FirebaseRemoteConfig.DefaultInstance
-                //     .GetValue(Constant.USE_LEVEL_AB_TESTING).StringValue);
-                // AddLogFetchData(Constant.USE_LEVEL_AB_TESTING, Data.UseLevelABTesting);
-                // Data.LevelTurnOnInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
-                //     .GetValue(Constant.LEVEL_TURN_ON_INTERSTITIAL).StringValue);
-                // AddLogFetchData(Constant.LEVEL_TURN_ON_INTERSTITIAL, Data.LevelTurnOnInterstitial);
-                // Data.CounterNumbBetweenTwoInterstitial =
-                //     int.Parse(FirebaseRemoteConfig.DefaultInstance
-                //         .GetValue(Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL).StringValue);
-                // AddLogFetchData(Constant.COUNTER_NUMBER_BETWEEN_TWO_INTERSTITIAL,
-                //     Data.CounterNumbBetweenTwoInterstitial);
-                // Data.TimeWinBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
-                //     .GetValue(Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL).StringValue);
-                // AddLogFetchData(Constant.SPACE_TIME_WIN_BETWEEN_TWO_INTERSTITIAL,
-                //     Data.TimeWinBetweenTwoInterstitial);
-                // Data.UseShowInterstitialOnLoseGame = int.Parse(FirebaseRemoteConfig.DefaultInstance
-                //     .GetValue(Constant.SHOW_INTERSTITIAL_ON_LOSE_GAME).StringValue);
-                // AddLogFetchData(Constant.SHOW_INTERSTITIAL_ON_LOSE_GAME,
-                //     Data.UseShowInterstitialOnLoseGame);
-                // Data.TimeLoseBetweenTwoInterstitial = int.Parse(FirebaseRemoteConfig.DefaultInstance
-                //     .GetValue(Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL).StringValue);
-                // AddLogFetchData(Constant.SPACE_TIME_LOSE_BETWEEN_TWO_INTERSTITIAL,
-                //     Data.TimeLoseBetweenTwoInterstitial);
 
                 Debug.Log("<color=Green>Firebase Remote Config Fetching completed!</color>");
             }
@@ -143,7 +118,7 @@ public class RemoteConfigData
                 break;
         }
 
-        Debug.Log($"<color=Green>{key}: {result.ToString()}</color>");
+        Debug.Log($"<color=Green>{key}: {result.StringValue}</color>");
     }
 }
 

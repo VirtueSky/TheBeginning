@@ -10,17 +10,16 @@ public class AdsManager : BaseMono
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private AdManagerVariable adManagerVariable;
 
-    [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    private GameStateVariable gameStateVariable;
-
-    [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    IntegerVariable indexLevelVariable;
-
-    [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    private BooleanVariable isOffInterAdsVariable;
-
+    [SerializeField] private GameStateVariable gameStateVariable;
+    [SerializeField] private IntegerVariable indexLevelVariable;
+    [SerializeField] private BooleanVariable isOffInterAdsVariable;
     [SerializeField] private BooleanVariable isOffBannerVariable;
     [SerializeField] private BooleanVariable isOffRewardVariable;
+    [SerializeField] private IntegerVariable remoteConfigLevelTurnOnInterstitial;
+    [SerializeField] private IntegerVariable remoteConfigInterstitialCappingLevelVariable;
+    [SerializeField] private IntegerVariable remoteConfigInterstitialCappingTimeVariable;
+    [SerializeField] private BooleanVariable remoteConfigOnOffInterstitial;
+    [SerializeField] private BooleanVariable remoteConfigOnOffBanner;
 
     [HeaderLine("Ad Units Variable")] [SerializeField]
     AdUnitVariable banner;
@@ -35,7 +34,6 @@ public class AdsManager : BaseMono
 
     private void Start()
     {
-        Initialize();
         adManagerVariable.Value = this;
         ResetCounter();
     }
@@ -63,9 +61,10 @@ public class AdsManager : BaseMono
     bool IsEnableToShowInter()
     {
         // if purchase remove ads => return false
-        if (inter.IsReady() && indexLevelVariable.Value > Data.LevelTurnOnInterstitial &&
-            adsCounter >= Data.CounterNumbBetweenTwoInterstitial &&
-            timePlay >= Data.TimeWinBetweenTwoInterstitial && !isOffInterAdsVariable.Value)
+        if (inter.IsReady() && indexLevelVariable.Value > remoteConfigLevelTurnOnInterstitial.Value &&
+            adsCounter >= remoteConfigInterstitialCappingLevelVariable.Value &&
+            timePlay >= remoteConfigInterstitialCappingTimeVariable.Value && !isOffInterAdsVariable.Value &&
+            remoteConfigOnOffInterstitial.Value)
         {
             return true;
         }
@@ -76,7 +75,7 @@ public class AdsManager : BaseMono
     bool IsEnableToShowBanner()
     {
         // if purchase remove ads => return false
-        return !isOffBannerVariable.Value;
+        return !isOffBannerVariable.Value && remoteConfigOnOffBanner.Value;
     }
 
     public bool IsRewardReady()

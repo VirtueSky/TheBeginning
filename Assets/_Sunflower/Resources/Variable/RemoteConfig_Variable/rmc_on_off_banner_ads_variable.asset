@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f10eddf58b750694da5b9544b65207bc, type: 3}
-  m_Name: tracking_firebase_has_param_event
+  m_Script: {fileID: 11500000, guid: 8612af88fd55455ab06a565de64186b9, type: 3}
+  m_Name: rmc_on_off_banner_ads_variable
   m_EditorClassIdentifier: 
-  id: tracking_firebase_has_param_event
-  description: 
+  id: rmc_on_off_banner_ads_variable
+  description: true-show banner, false-hide banner
+  initializeValue: 1
+  isSavable: 0
+  isSaveInStorageImmediately: 0
+  isRaiseEvent: 0

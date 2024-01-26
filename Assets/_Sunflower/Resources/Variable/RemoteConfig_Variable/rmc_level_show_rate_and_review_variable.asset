@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f10eddf58b750694da5b9544b65207bc, type: 3}
-  m_Name: tracking_firebase_has_param_event
+  m_Script: {fileID: 11500000, guid: c1e2751cf33a439b997c1f79b966df48, type: 3}
+  m_Name: rmc_level_show_rate_and_review_variable
   m_EditorClassIdentifier: 
-  id: tracking_firebase_has_param_event
+  id: rmc_level_show_rate_and_review_variable
   description: 
+  initializeValue: 3
+  isSavable: 0
+  isSaveInStorageImmediately: 0
+  isRaiseEvent: 0

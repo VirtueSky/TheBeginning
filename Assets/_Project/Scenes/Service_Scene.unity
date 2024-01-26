@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -440,7 +440,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fetchRemoteConfigCompleted: {fileID: 11400000, guid: a0d2faf94e1685747b597406f55265d9,
     type: 2}
-  listRemoteConfigData: []
+  listRemoteConfigData:
+  - key: RMC_INTER_CAPPING_LEVEL
+    typeRemoteConfigData: 2
+    stringValue: {fileID: 0}
+    resultStringValue: 
+    boolValue: {fileID: 0}
+    resultBoolValue: 0
+    intValue: {fileID: 11400000, guid: 8b26d65d7ecc248d588fe6589b7ebdc4, type: 2}
+    resultIntValue: 0
+  - key: RMC_INTER_CAPPING_TIME
+    typeRemoteConfigData: 2
+    stringValue: {fileID: 0}
+    resultStringValue: 
+    boolValue: {fileID: 0}
+    resultBoolValue: 0
+    intValue: {fileID: 11400000, guid: 23a4d1b0c67734e99a0108751888caf0, type: 2}
+    resultIntValue: 0
+  - key: RMC_LEVEL_TURN_ON_INTER
+    typeRemoteConfigData: 2
+    stringValue: {fileID: 0}
+    resultStringValue: 
+    boolValue: {fileID: 0}
+    resultBoolValue: 0
+    intValue: {fileID: 11400000, guid: 9d24fb49e00e040a08c84af0e948f99d, type: 2}
+    resultIntValue: 0
+  - key: RMC_LEVEL_SHOW_RATE_AND_REVIEW
+    typeRemoteConfigData: 2
+    stringValue: {fileID: 0}
+    resultStringValue: 
+    boolValue: {fileID: 0}
+    resultBoolValue: 0
+    intValue: {fileID: 11400000, guid: 3c8cef2000c154815a4803a2bf4827eb, type: 2}
+    resultIntValue: 0
+  - key: RMC_ON_OFF_BANNER_ADS
+    typeRemoteConfigData: 1
+    stringValue: {fileID: 0}
+    resultStringValue: 
+    boolValue: {fileID: 11400000, guid: 656bf5dbd6eb94f4c9cebcd2a196bd11, type: 2}
+    resultBoolValue: 0
+    intValue: {fileID: 11400000, guid: 3c8cef2000c154815a4803a2bf4827eb, type: 2}
+    resultIntValue: 0
+  - key: RMC_ON_OFF_INTER_ADS
+    typeRemoteConfigData: 1
+    stringValue: {fileID: 0}
+    resultStringValue: 
+    boolValue: {fileID: 11400000, guid: 421e94b54b54747f388ece41e49e03c6, type: 2}
+    resultBoolValue: 0
+    intValue: {fileID: 11400000, guid: 3c8cef2000c154815a4803a2bf4827eb, type: 2}
+    resultIntValue: 0
+  - key: RMC_ON_OFF_RATE_AND_REVIEW
+    typeRemoteConfigData: 1
+    stringValue: {fileID: 0}
+    resultStringValue: 
+    boolValue: {fileID: 11400000, guid: 11634eeb370a441ec945f46de0a769b9, type: 2}
+    resultBoolValue: 0
+    intValue: {fileID: 11400000, guid: 3c8cef2000c154815a4803a2bf4827eb, type: 2}
+    resultIntValue: 0
 --- !u!1 &2114767007
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +865,16 @@ MonoBehaviour:
   isOffBannerVariable: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183,
     type: 2}
   isOffRewardVariable: {fileID: 11400000, guid: 9b82d09936466b04aa6e3bdc42405b50,
+    type: 2}
+  remoteConfigLevelTurnOnInterstitial: {fileID: 11400000, guid: 9d24fb49e00e040a08c84af0e948f99d,
+    type: 2}
+  remoteConfigInterstitialCappingLevelVariable: {fileID: 11400000, guid: 8b26d65d7ecc248d588fe6589b7ebdc4,
+    type: 2}
+  remoteConfigInterstitialCappingTimeVariable: {fileID: 11400000, guid: 23a4d1b0c67734e99a0108751888caf0,
+    type: 2}
+  remoteConfigOnOffInterstitial: {fileID: 11400000, guid: 421e94b54b54747f388ece41e49e03c6,
+    type: 2}
+  remoteConfigOnOffBanner: {fileID: 11400000, guid: 656bf5dbd6eb94f4c9cebcd2a196bd11,
     type: 2}
   banner: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
   inter: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}

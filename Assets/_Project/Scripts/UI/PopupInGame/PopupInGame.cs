@@ -54,7 +54,7 @@ public class PopupInGame : UIPopup
     public void Setup(int currentLevel)
     {
         LevelText.text = $"Level {currentLevel}";
-        LevelTypeText.text = $"Level {(Data.UseLevelABTesting == 0 ? "A" : "B")}";
+        // LevelTypeText.text = $"Level ";
     }
 
     public void OnClickHome()
