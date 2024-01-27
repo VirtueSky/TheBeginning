@@ -68,9 +68,13 @@ public class DailyRewardItem : MonoBehaviour
         else if (Data.DailyRewardDayIndex == dayIndex)
         {
             if (!Data.IsClaimedTodayDailyReward())
+            {
                 dailyRewardItemState = DailyRewardItemState.ReadyToClaim;
+            }
             else
+            {
                 dailyRewardItemState = DailyRewardItemState.NotClaim;
+            }
         }
         else
         {
