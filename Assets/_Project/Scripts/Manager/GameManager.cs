@@ -2,6 +2,7 @@ using CodeStage.AdvancedFPSCounter;
 using PrimeTween;
 using TheBeginning.Custom_Scriptable_Event;
 using UnityEngine;
+using VirtueSky.Firebase;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EventLevel eventSkipLevel;
 
     [SerializeField] private EventLevel eventReplayLevel;
-    [SerializeField] private TrackingFirebaseHasParamEvent trackingFirebaseHasParamEvent;
+    [SerializeField] private LogEventFirebaseAnalytic logEventFirebaseAnalytic;
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private GameStateVariable gameStateVariable;
@@ -57,8 +58,8 @@ public class GameManager : MonoBehaviour
     public void ReplayGame()
     {
         eventReplayLevel.Raise(levelController.currentLevel);
-        trackingFirebaseHasParamEvent.Raise(new TrackingFirebaseEventHasParamData("OnReplayLevel", "level_name",
-            levelController.currentLevel.name));
+        logEventFirebaseAnalytic.LogEvent("OnReplayLevel", "level_name",
+            levelController.currentLevel.name);
         PrepareLevel();
         StartGame();
         popupVariable.Value.Show<PopupInGame>();
@@ -88,8 +89,8 @@ public class GameManager : MonoBehaviour
         gameStateVariable.Value = GameState.PlayingGame;
         eventStartLevel.Raise(levelController.currentLevel);
         levelController.currentLevel.gameObject.SetActive(true);
-        trackingFirebaseHasParamEvent.Raise(new TrackingFirebaseEventHasParamData("OnStartLevel", "level_name",
-            levelController.currentLevel.name));
+        logEventFirebaseAnalytic.LogEvent("OnStartLevel", "level_name",
+            levelController.currentLevel.name);
     }
 
     public void OnWinGame(float delayPopupShowTime = 2.5f)
@@ -100,8 +101,8 @@ public class GameManager : MonoBehaviour
 
         gameStateVariable.Value = GameState.WinGame;
         eventWinLevel.Raise(levelController.currentLevel);
-        trackingFirebaseHasParamEvent.Raise(new TrackingFirebaseEventHasParamData("OnWinLevel", "level_name",
-            levelController.currentLevel.name));
+        logEventFirebaseAnalytic.LogEvent("OnWinLevel", "level_name",
+            levelController.currentLevel.name);
         Tween.Delay(delayPopupShowTime, () =>
         {
             indexLevelVariable.Value++;
@@ -117,8 +118,8 @@ public class GameManager : MonoBehaviour
             gameStateVariable.Value == GameState.WinGame) return;
         gameStateVariable.Value = GameState.LoseGame;
         eventLoseLevel.Raise(levelController.currentLevel);
-        trackingFirebaseHasParamEvent.Raise(new TrackingFirebaseEventHasParamData("OnLoseLevel", "level_name",
-            levelController.currentLevel.name));
+        logEventFirebaseAnalytic.LogEvent("OnLoseLevel", "level_name",
+            levelController.currentLevel.name);
         Tween.Delay(delayPopupShowTime, () =>
         {
             popupVariable?.Value.Show<PopupLose>();
