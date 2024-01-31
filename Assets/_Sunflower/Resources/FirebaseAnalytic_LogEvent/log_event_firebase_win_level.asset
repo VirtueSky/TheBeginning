@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a9cb05e507c704597bcb479279eb59, type: 3}
-  m_Name: log_event_firebase_analytic_no_param
+  m_Script: {fileID: 11500000, guid: e8b5edc0caef4a02a234b4d36a5a1c2a, type: 3}
+  m_Name: log_event_firebase_win_level
   m_EditorClassIdentifier: 
-  logEventOnlyMobile: 1
-  eventName: 
+  eventName: OnWinLevel
+  parameterName: level_name

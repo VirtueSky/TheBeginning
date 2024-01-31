@@ -221,14 +221,14 @@
       "hash": "5b2093e8217f8f0d2dd431483ca23872288a1b0d"
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.4.0",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.4.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "61d4b00553d821cd1e5a11865e6d4070533d1d4d"
+      "hash": "5d1356ad48efab1e104b9679b62cf1c176266fe7"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

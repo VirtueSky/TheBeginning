@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f22fdc4e68edff42978999c07c655aa, type: 3}
-  m_Name: log_event_firebase_analytic_has_param
+  m_Script: {fileID: 11500000, guid: 8612af88fd55455ab06a565de64186b9, type: 3}
+  m_Name: is_gdpr_can_request_ads_variables
   m_EditorClassIdentifier: 
-  logEventOnlyMobile: 1
-  eventName: 
-  parameterName: 
-  parameterValue: 
+  id: so_bool_variables
+  description: 
+  initializeValue: 1
+  isSavable: 0
+  isSaveInStorageImmediately: 0
+  isRaiseEvent: 1
