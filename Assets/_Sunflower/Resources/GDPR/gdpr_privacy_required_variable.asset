@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: gdpr_privacy_required_variable
   description: 
-  initializeValue: 1
+  initializeValue: 0
   isSavable: 0
   isSaveInStorageImmediately: 0
   isRaiseEvent: 1
