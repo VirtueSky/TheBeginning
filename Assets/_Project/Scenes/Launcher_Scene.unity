@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -355,71 +355,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1882194249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &859602514
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 859602515}
-  - component: {fileID: 859602517}
-  - component: {fileID: 859602516}
-  m_Layer: 0
-  m_Name: GDPR_Admob
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &859602515
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859602514}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &859602516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859602514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b1028554214aa41856937017c544a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  advertisingPrefab: {fileID: 2781926166304558771, guid: 7f0bf9d0220ee3e439f8d651a3edc95e,
-    type: 3}
-  isGDPRCanRequestAds: {fileID: 11400000, guid: ec64252a912679d4b838046aaf8ea5e7,
-    type: 2}
---- !u!114 &859602517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859602514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78907b8a672af2a4e9b8e7dd98348963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDontDestroyOnLoad: 1
-  isTestDevice: 0
-  listTestDeviceHashedIds: []
-  isCanRequestAds: {fileID: 11400000, guid: ec64252a912679d4b838046aaf8ea5e7, type: 2}
 --- !u!1 &913765155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,5 +1011,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1882194249}
-  - {fileID: 859602515}
   - {fileID: 1885131756}

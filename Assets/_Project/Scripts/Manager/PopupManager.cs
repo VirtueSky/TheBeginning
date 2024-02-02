@@ -4,7 +4,6 @@ using System;
 using UnityEditor;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
-using VirtueSky.UtilsEditor;
 
 public class PopupManager : MonoBehaviour
 {
@@ -114,7 +113,7 @@ public class PopupManager : MonoBehaviour
     [Button]
     void LoadPopup()
     {
-        listPopups = FileExtension.GetPrefabsFromFolder<UIPopup>(pathPopup);
+        listPopups = VirtueSky.UtilsEditor.FileExtension.GetPrefabsFromFolder<UIPopup>(pathPopup);
         EditorUtility.SetDirty(this);
     }
 #endif

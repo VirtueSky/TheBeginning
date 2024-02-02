@@ -2,6 +2,7 @@ using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VirtueSky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
@@ -14,6 +15,7 @@ public class PopupAdministrator : UIPopup
     [SerializeField] private Toggle toggleOffRewardAds;
     [SerializeField] private TMP_InputField inputFieldCurrency;
     [SerializeField] private TMP_InputField inputFieldLevel;
+    [SerializeField] private GameObject btnModifyConsent;
 
     [HeaderLine("SO")] [SerializeField] private BooleanVariable isOffUIVariable;
     [SerializeField] private BooleanVariable isOffInterAds;
@@ -25,6 +27,8 @@ public class PopupAdministrator : UIPopup
     [SerializeField] private IntegerVariable currencyVariable;
     [SerializeField] private AdManagerVariable adManagerVariable;
     [SerializeField] private ItemConfig itemConfig;
+    [SerializeField] private EventNoParam showConsentOption;
+    [SerializeField] private BooleanVariable gdpr_required_variable;
     private bool isSetCurrency = false;
 
     protected override void OnBeforeShow()
@@ -32,6 +36,7 @@ public class PopupAdministrator : UIPopup
         base.OnBeforeShow();
         isSetCurrency = false;
         SetupDefault();
+        btnModifyConsent.SetActive(gdpr_required_variable.Value);
     }
 
     void SetupDefault()
@@ -126,5 +131,10 @@ public class PopupAdministrator : UIPopup
         {
             Hide();
         }
+    }
+
+    public void OnClickModifyConsent()
+    {
+        showConsentOption.Raise();
     }
 }

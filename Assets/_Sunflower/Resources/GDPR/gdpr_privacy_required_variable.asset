@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8860d8e8b438431b873695abf0f12215, type: 3}
-  m_Name: IapSetting
+  m_Script: {fileID: 11500000, guid: 8612af88fd55455ab06a565de64186b9, type: 3}
+  m_Name: gdpr_privacy_required_variable
   m_EditorClassIdentifier: 
-  skusData: []
-  products: []
-  isValidatePurchase: 1
-  googlePlayStoreKey: 
+  id: gdpr_privacy_required_variable
+  description: 
+  initializeValue: 1
+  isSavable: 0
+  isSaveInStorageImmediately: 0
+  isRaiseEvent: 1
