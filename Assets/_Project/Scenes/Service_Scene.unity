@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 1448091007}
   - component: {fileID: 1448091010}
   - component: {fileID: 1448091014}
+  - component: {fileID: 1448091015}
   - component: {fileID: 1448091013}
   - component: {fileID: 1448091012}
   m_Layer: 0
@@ -360,84 +361,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: init__service
   changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
---- !u!1 &1669265307
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1669265308}
-  - component: {fileID: 1669265309}
-  - component: {fileID: 1669265311}
-  - component: {fileID: 1669265310}
-  m_Layer: 0
-  m_Name: FirebaseManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1669265308
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669265307}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1669265309
+--- !u!114 &1448091015
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669265307}
+  m_GameObject: {fileID: 1448091006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a893c9ac298db2741857e14aaca9e1c0, type: 3}
+  m_Script: {fileID: 11500000, guid: e909f45ff43f51f4eafa07ac90416b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: firebase_manager
   dependencyStatus: 7
-  firebaseRemoteConfigManager: {fileID: 1669265311}
-  firebaseAnalyticManager: {fileID: 1669265310}
---- !u!114 &1669265310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669265307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1398035ce79a7724b9d3cb620383b203, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackingFirebaseHasParamEvent: {fileID: 11400000, guid: 9abc1d58ceea6a94995a81a54d9dfa04,
-    type: 2}
-  trackingFirebaseEventNoParam: {fileID: 11400000, guid: 7eb4d1a8f477b7543872dccef68696df,
-    type: 2}
---- !u!114 &1669265311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1669265307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b379dfa7f2f3143a8ac357a6a8bb35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   fetchRemoteConfigCompleted: {fileID: 11400000, guid: a0d2faf94e1685747b597406f55265d9,
     type: 2}
   listRemoteConfigData:
@@ -903,7 +839,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1448091007}
-  - {fileID: 1669265308}
   - {fileID: 1462405470488005943}
   - {fileID: 393689797402902294}
   - {fileID: 3527657169019653263}
