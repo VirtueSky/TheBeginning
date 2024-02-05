@@ -2878,7 +2878,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 180}
+  m_AnchoredPosition: {x: 0, y: 211}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &672671873317187868
@@ -4544,15 +4544,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
-  useAnimation: 0
-  background: {fileID: 0}
-  container: {fileID: 0}
-  useShowAnimation: 0
+  useAnimation: 1
+  background: {fileID: 6631244465714846239}
+  container: {fileID: 7181232592666992498}
+  useShowAnimation: 1
   showAnimationType: 0
-  durationShowPopup: 0
-  useHideAnimation: 0
+  durationShowPopup: 0.5
+  scaleFromShow: {x: 0.5, y: 0.5, z: 0.5}
+  useHideAnimation: 1
   hideAnimationType: 0
-  durationHidePopup: 0
+  durationHidePopup: 0.5
+  scaleFromHide: {x: 0, y: 0, z: 0}
   toggleOffUI: {fileID: 4666713556915426008}
   toggleIsTesting: {fileID: 874665240700979913}
   toggleOffInterAds: {fileID: 1287382426385039314}

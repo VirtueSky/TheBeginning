@@ -1,5 +1,6 @@
 using PrimeTween;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 
@@ -15,14 +16,37 @@ public class UIPopup : MonoBehaviour
 
     [ShowIf(nameof(useAnimation))] public GameObject container;
 
-    [ShowIf(nameof(useAnimation))] public bool useShowAnimation;
+    [TitleColor("Show Animation", CustomColor.Aqua, CustomColor.Beige)] [ShowIf(nameof(useAnimation))]
+    public bool useShowAnimation;
 
     [ShowIf(nameof(useShowAnimation))] public ShowAnimationType showAnimationType;
     [ShowIf(nameof(useShowAnimation))] public float durationShowPopup;
-    [ShowIf(nameof(useAnimation))] public bool useHideAnimation;
+
+    [ShowIf(nameof(ConditionShowMove))] private MovePopupType showMovePopup;
+
+    [ShowIf(nameof(ConditionShowOutBack))] [SerializeField]
+    private Vector3 scaleFromShow = new Vector3(.5f, .5f, .5f);
+
+    [TitleColor("Hide Animation", CustomColor.Burlywood, CustomColor.Gold)] [ShowIf(nameof(useAnimation))]
+    public bool useHideAnimation;
 
     [ShowIf(nameof(useHideAnimation))] public HideAnimationType hideAnimationType;
     [ShowIf(nameof(useHideAnimation))] public float durationHidePopup;
+
+    [ShowIf(nameof(ConditionHideMove))] private MovePopupType hideMovePopup;
+
+    [ShowIf(nameof(ConditionHideInBack))] [SerializeField]
+    private Vector3 scaleFromHide = new Vector3(0, 0, 0);
+
+    private Tween tween;
+    private bool ConditionShowMove => useAnimation && useShowAnimation && showAnimationType == ShowAnimationType.Move;
+    private bool ConditionHideMove => useAnimation && useHideAnimation && hideAnimationType == HideAnimationType.Move;
+
+    private bool ConditionShowOutBack =>
+        useAnimation && useShowAnimation && showAnimationType == ShowAnimationType.OutBack;
+
+    private bool ConditionHideInBack =>
+        useAnimation && useHideAnimation && hideAnimationType == HideAnimationType.InBack;
 
     public virtual void Show()
     {
@@ -33,17 +57,14 @@ public class UIPopup : MonoBehaviour
             switch (showAnimationType)
             {
                 case ShowAnimationType.OutBack:
-                    DOTween.Sequence().ChainCallback(() =>
-                            container.transform.localScale = Vector3.one * .9f)
-                        .Append(container.transform.DOScale(Vector3.one, durationShowPopup)
-                            .SetEase(Ease.OutBack).OnComplete(() => { OnAfterShow(); }));
+                    Vector3 currentScale = transform.localScale;
+                    transform.localScale = scaleFromShow;
+                    tween = transform.Scale(currentScale, durationShowPopup, Ease.OutBack)
+                        .OnComplete(() => { OnAfterShow(); });
                     break;
                 case ShowAnimationType.Flip:
-                    DOTween.Sequence().ChainCallback(() =>
-                            container.transform.localEulerAngles = new Vector3(0, 180, 0))
-                        .Append(container.transform.DORotate(Vector3.zero,
-                            durationShowPopup))
-                        .SetEase(Ease.Linear).OnComplete(() => { OnAfterShow(); });
+                    break;
+                case ShowAnimationType.Move:
                     break;
             }
         }
@@ -60,34 +81,32 @@ public class UIPopup : MonoBehaviour
         {
             switch (hideAnimationType)
             {
-                case HideAnimationType.InBack:
-                    DOTween.Sequence().Append(container.transform
-                        .DOScale(Vector3.one * .7f, durationHidePopup).SetEase(Ease.InBack)
-                        .OnComplete(() =>
-                        {
-                            gameObject.SetActive(false);
-                            OnAfterShow();
-                        }));
-                    break;
                 case HideAnimationType.Fade:
-                    canvasGroup.DOFade(0, durationHidePopup).OnComplete(() =>
+                    tween = Tween.Alpha(canvasGroup, 0, durationHidePopup).OnComplete(() =>
                     {
-                        canvasGroup.alpha = 1;
                         gameObject.SetActive(false);
+                        canvasGroup.alpha = 1;
                         OnAfterHide();
                     });
+                    break;
+                case HideAnimationType.InBack:
+                    Vector3 currentScale = transform.localScale;
+                    tween = transform.Scale(scaleFromHide, durationHidePopup, Ease.InBack).OnComplete(() =>
+                    {
+                        gameObject.SetActive(false);
+                        transform.localScale = currentScale;
+                        OnAfterHide();
+                    });
+                    break;
+                case HideAnimationType.Move:
+
                     break;
             }
         }
         else
         {
-            gameObject.SetActive(false);
             OnAfterHide();
         }
-    }
-
-    protected virtual void AfterInstantiate()
-    {
     }
 
     protected virtual void OnBeforeShow()
@@ -96,6 +115,7 @@ public class UIPopup : MonoBehaviour
 
     protected virtual void OnAfterShow()
     {
+        tween.Stop();
     }
 
     protected virtual void OnBeforeHide()
@@ -104,8 +124,10 @@ public class UIPopup : MonoBehaviour
 
     protected virtual void OnAfterHide()
     {
+        tween.Stop();
     }
 
+#if UNITY_EDITOR
     private void Reset()
     {
         if (canvasGroup == null)
@@ -118,16 +140,27 @@ public class UIPopup : MonoBehaviour
             canvas = GetComponent<Canvas>();
         }
     }
+#endif
 }
 
 public enum ShowAnimationType
 {
     OutBack,
     Flip,
+    Move
 }
 
 public enum HideAnimationType
 {
     InBack,
     Fade,
+    Move
+}
+
+public enum MovePopupType
+{
+    Left,
+    Right,
+    Up,
+    Down
 }
