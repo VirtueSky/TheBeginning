@@ -4548,18 +4548,20 @@ MonoBehaviour:
   background: {fileID: 6631244465714846239}
   container: {fileID: 7181232592666992498}
   useShowAnimation: 1
-  showAnimationType: 2
+  showAnimationType: 4
   durationShowPopup: 0.5
   showMovePopup: 1
   offsetShowMove: 10
   scaleFromShow: {x: 0.5, y: 0.5, z: 0.5}
   eulerAngleShowFrom: {x: 0, y: 180, z: 0}
+  pointShowPos: {fileID: 11400000, guid: 2d22aacd171c2614bb668288eddf283c, type: 2}
   useHideAnimation: 1
-  hideAnimationType: 2
+  hideAnimationType: 3
   durationHidePopup: 0.5
   hideMovePopup: 1
   offsetHideMove: 10
   scaleFromHide: {x: 0, y: 0, z: 0}
+  pointHidePos: {fileID: 11400000, guid: 2d22aacd171c2614bb668288eddf283c, type: 2}
   toggleOffUI: {fileID: 4666713556915426008}
   toggleIsTesting: {fileID: 874665240700979913}
   toggleOffInterAds: {fileID: 1287382426385039314}

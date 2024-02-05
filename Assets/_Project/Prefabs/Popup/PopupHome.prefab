@@ -543,11 +543,22 @@ MonoBehaviour:
   useShowAnimation: 0
   showAnimationType: 0
   durationShowPopup: 0
+  showMovePopup: 0
+  offsetShowMove: 0
+  scaleFromShow: {x: 0.5, y: 0.5, z: 0.5}
+  eulerAngleShowFrom: {x: 0, y: 180, z: 0}
+  pointShowPos: {fileID: 0}
   useHideAnimation: 0
   hideAnimationType: 0
   durationHidePopup: 0
+  hideMovePopup: 0
+  offsetHideMove: 0
+  scaleFromHide: {x: 0, y: 0, z: 0}
+  pointHidePos: {fileID: 0}
   changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
   popupVariable: {fileID: 11400000, guid: aab7cadf21951934aa742ce00583e5ac, type: 2}
+  buttonAdmin: {fileID: 7501070212512654100}
+  posInOutPopupAdmin: {fileID: 11400000, guid: 2d22aacd171c2614bb668288eddf283c, type: 2}
 --- !u!1 &7501070212512654100
 GameObject:
   m_ObjectHideFlags: 0

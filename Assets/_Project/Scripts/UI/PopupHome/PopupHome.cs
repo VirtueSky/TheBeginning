@@ -1,10 +1,13 @@
 using UnityEngine;
 using VirtueSky.Events;
+using VirtueSky.Variables;
 
 public class PopupHome : UIPopup
 {
     [SerializeField] private StringEvent changeSceneEvent;
     [SerializeField] private PopupVariable popupVariable;
+    [SerializeField] private GameObject buttonAdmin;
+    [SerializeField] private Vector3Variable posInOutPopupAdmin;
 
     public void OnClickStartGame()
     {
@@ -33,6 +36,7 @@ public class PopupHome : UIPopup
 
     public void OnClickOpenAdministrator()
     {
+        posInOutPopupAdmin.Value = buttonAdmin.transform.position;
         popupVariable.Value.Show<PopupAdministrator>(false);
     }
 }

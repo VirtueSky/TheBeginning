@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
+using VirtueSky.Variables;
 
 [RequireComponent(typeof(Canvas), typeof(GraphicRaycaster), typeof(CanvasGroup))]
 public class UIPopup : MonoBehaviour
@@ -34,6 +35,9 @@ public class UIPopup : MonoBehaviour
     [ShowIf(nameof(ConditionShowFlip))] [SerializeField]
     private Vector3 eulerAngleShowFrom = new Vector3(0, 180, 0);
 
+    [ShowIf(nameof(showAnimationType), ShowAnimationType.OutBackFromPoint)] [SerializeField]
+    private Vector3Variable pointShowPos;
+
     [TitleColor("Hide Animation", CustomColor.Burlywood, CustomColor.Gold)] [ShowIf(nameof(useAnimation))]
     public bool useHideAnimation;
 
@@ -48,6 +52,9 @@ public class UIPopup : MonoBehaviour
 
     [ShowIf(nameof(ConditionHideInBack))] [SerializeField]
     private Vector3 scaleFromHide = new Vector3(0, 0, 0);
+
+    [ShowIf(nameof(hideAnimationType), HideAnimationType.InBackToPoint)] [SerializeField]
+    private Vector3Variable pointHidePos;
 
     private Tween tween;
     private bool ConditionShowMove => useAnimation && useShowAnimation && showAnimationType == ShowAnimationType.Move;
@@ -66,17 +73,18 @@ public class UIPopup : MonoBehaviour
         OnBeforeShow();
         if (useShowAnimation)
         {
+            Vector3 currentPos = transform.position;
+            Vector3 currentScale = transform.localScale;
+            Vector3 currentAngle = transform.localEulerAngles;
             switch (showAnimationType)
             {
                 case ShowAnimationType.OutBack:
-                    Vector3 currentScale = transform.localScale;
                     transform.localScale = scaleFromShow;
                     gameObject.SetActive(true);
                     tween = transform.Scale(currentScale, durationShowPopup, Ease.OutBack)
                         .OnComplete(() => { OnAfterShow(); });
                     break;
                 case ShowAnimationType.Flip:
-                    Vector3 currentAngle = transform.localEulerAngles;
                     transform.eulerAngles = eulerAngleShowFrom;
                     gameObject.SetActive(true);
                     tween = transform.EulerAngles(eulerAngleShowFrom, currentAngle, durationShowPopup)
@@ -92,7 +100,6 @@ public class UIPopup : MonoBehaviour
                     });
                     break;
                 case ShowAnimationType.Move:
-                    Vector3 currentPos = transform.position;
                     switch (showMovePopup)
                     {
                         case MovePopupType.Left:
@@ -130,6 +137,13 @@ public class UIPopup : MonoBehaviour
                     }
 
                     break;
+                case ShowAnimationType.OutBackFromPoint:
+                    transform.position = pointShowPos.Value;
+                    transform.localScale = Vector3.zero;
+                    gameObject.SetActive(true);
+                    transform.Position(currentPos, durationShowPopup, Ease.OutSine);
+                    transform.Scale(currentScale, durationShowPopup, Ease.OutSine).OnComplete(() => { OnAfterShow(); });
+                    break;
             }
         }
         else
@@ -144,6 +158,8 @@ public class UIPopup : MonoBehaviour
         OnBeforeHide();
         if (useHideAnimation)
         {
+            Vector3 currentPos = transform.position;
+            Vector3 currentScale = transform.localScale;
             switch (hideAnimationType)
             {
                 case HideAnimationType.Fade:
@@ -155,7 +171,7 @@ public class UIPopup : MonoBehaviour
                     });
                     break;
                 case HideAnimationType.InBack:
-                    Vector3 currentScale = transform.localScale;
+
                     tween = transform.Scale(scaleFromHide, durationHidePopup, Ease.InBack).OnComplete(() =>
                     {
                         gameObject.SetActive(false);
@@ -164,7 +180,6 @@ public class UIPopup : MonoBehaviour
                     });
                     break;
                 case HideAnimationType.Move:
-                    Vector3 currentPos = transform.position;
                     switch (hideMovePopup)
                     {
                         case MovePopupType.Left:
@@ -214,6 +229,16 @@ public class UIPopup : MonoBehaviour
                     }
 
                     break;
+                case HideAnimationType.InBackToPoint:
+                    transform.Position(pointHidePos.Value, durationHidePopup, Ease.InSine);
+                    transform.Scale(Vector3.zero, durationHidePopup, Ease.InSine).OnComplete(() =>
+                    {
+                        gameObject.SetActive(false);
+                        transform.position = currentPos;
+                        transform.localScale = currentScale;
+                        OnAfterHide();
+                    });
+                    break;
             }
         }
         else
@@ -262,14 +287,16 @@ public enum ShowAnimationType
     OutBack,
     Flip,
     Move,
-    Fade
+    Fade,
+    OutBackFromPoint,
 }
 
 public enum HideAnimationType
 {
     InBack,
     Fade,
-    Move
+    Move,
+    InBackToPoint,
 }
 
 public enum MovePopupType
