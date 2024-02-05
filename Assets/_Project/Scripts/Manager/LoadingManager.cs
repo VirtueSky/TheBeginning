@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
+using VirtueSky.Events;
 using VirtueSky.Threading.Tasks;
 
 public class LoadingManager : BaseMono
@@ -14,6 +15,7 @@ public class LoadingManager : BaseMono
 
     [Range(0.1f, 10f)] public float timeLoading = 5f;
     [SerializeField] bool isWaitingFetchRemoteConfig = false;
+    [SerializeField] private StringEvent changeSceneEvent;
 
     private bool flagDoneProgress;
     private bool fetchFirebaseRemoteConfigCompleted = false;
@@ -35,21 +37,14 @@ public class LoadingManager : BaseMono
 
     private async void LoadScene()
     {
+        await SceneManager.LoadSceneAsync(Constant.SERVICE_SCENE, LoadSceneMode.Additive);
         await UniTask.WaitUntil(() => flagDoneProgress);
-        await SceneManager.LoadSceneAsync(Constant.SERVICE_SCENE);
         if (isWaitingFetchRemoteConfig)
         {
             await UniTask.WaitUntil(() => fetchFirebaseRemoteConfigCompleted);
         }
 
-        SceneManager.LoadSceneAsync(Constant.HOME_SCENE, LoadSceneMode.Additive).completed +=
-            operation =>
-            {
-                if (operation.isDone)
-                {
-                    SceneManager.SetActiveScene(SceneManager.GetSceneByName(Constant.HOME_SCENE));
-                }
-            };
+        changeSceneEvent.Raise(Constant.HOME_SCENE);
     }
 
     public void FirebaseIsInitialized()

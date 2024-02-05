@@ -4560,7 +4560,7 @@ MonoBehaviour:
   toggleOffRewardAds: {fileID: 1881374832287174347}
   inputFieldCurrency: {fileID: 5730826781858295178}
   inputFieldLevel: {fileID: 7418151362209931502}
-  btnModifyConsent: {fileID: 5127056089081586811}
+  btnModifyConsent: {fileID: 3506953500364890825}
   isOffUIVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
   isOffInterAds: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f, type: 2}
   isOffBannerAds: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183, type: 2}

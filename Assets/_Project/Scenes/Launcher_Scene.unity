@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -886,6 +886,7 @@ MonoBehaviour:
   loadingText: {fileID: 1603526854}
   timeLoading: 2
   isWaitingFetchRemoteConfig: 0
+  changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
 --- !u!4 &1885131756
 Transform:
   m_ObjectHideFlags: 0
