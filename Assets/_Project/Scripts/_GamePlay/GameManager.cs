@@ -1,7 +1,9 @@
+using System;
 using CodeStage.AdvancedFPSCounter;
 using PrimeTween;
 using TheBeginning.AppControl;
 using UnityEngine;
+using VirtueSky.Events;
 using VirtueSky.FirebaseTraking;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
@@ -20,12 +22,17 @@ public class GameManager : MonoBehaviour
     private EventLevel eventWinLevel;
 
     [SerializeField] private EventLevel eventLoseLevel;
-
     [SerializeField] private EventLevel eventStartLevel;
-
     [SerializeField] private EventLevel eventSkipLevel;
-
     [SerializeField] private EventLevel eventReplayLevel;
+
+    [SerializeField] private EventNoParam callReplayLevelEvent;
+    [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
+    [SerializeField] private EventNoParam callNextLevelEvent;
+    [SerializeField] private EventNoParam callBackLevelEvent;
+    [SerializeField] private EventNoParam callPrepareLevelEvent;
+    [SerializeField] private FloatEvent callWinLevelEvent;
+    [SerializeField] private FloatEvent callLoseLevelEvent;
 
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
@@ -35,6 +42,28 @@ public class GameManager : MonoBehaviour
 
 
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
+
+    private void OnEnable()
+    {
+        callPlayCurrentLevelEvent.AddListener(PlayCurrentLevel);
+        callReplayLevelEvent.AddListener(ReplayGame);
+        callNextLevelEvent.AddListener(NextLevel);
+        callBackLevelEvent.AddListener(BackLevel);
+        callPrepareLevelEvent.AddListener(PrepareLevel);
+        callWinLevelEvent.AddListener(OnWinGame);
+        callLoseLevelEvent.AddListener(OnLoseGame);
+    }
+
+    private void OnDisable()
+    {
+        callPlayCurrentLevelEvent.RemoveListener(PlayCurrentLevel);
+        callReplayLevelEvent.RemoveListener(ReplayGame);
+        callNextLevelEvent.RemoveListener(NextLevel);
+        callBackLevelEvent.RemoveListener(BackLevel);
+        callPrepareLevelEvent.RemoveListener(PrepareLevel);
+        callWinLevelEvent.RemoveListener(OnWinGame);
+        callLoseLevelEvent.RemoveListener(OnLoseGame);
+    }
 
     void Start()
     {
@@ -52,10 +81,6 @@ public class GameManager : MonoBehaviour
     {
         gameStateVariable.Value = GameState.PrepareGame;
         levelController.PrepareLevel();
-    }
-
-    public void ReturnHome()
-    {
     }
 
     public void ReplayGame()
