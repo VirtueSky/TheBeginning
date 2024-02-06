@@ -8,20 +8,17 @@ using VirtueSky.Variables;
 [RequireComponent(typeof(Canvas), typeof(GraphicRaycaster), typeof(CanvasGroup))]
 public class UIPopup : MonoBehaviour
 {
-    [HeaderLine(Constant.Environment)] public CanvasGroup canvasGroup;
+    [TitleColor(Constant.Environment, CustomColor.Violet, CustomColor.Lime)]
+    public CanvasGroup canvasGroup;
+
     public Canvas canvas;
     public bool useAnimation;
-
-    [HeaderLine(Constant.UI_Motion)] [ShowIf(nameof(useAnimation))]
-    public GameObject background;
-
-    [ShowIf(nameof(useAnimation))] public GameObject container;
 
     [TitleColor("Show Animation", CustomColor.Aqua, CustomColor.Beige)] [ShowIf(nameof(useAnimation))]
     public bool useShowAnimation;
 
     [ShowIf(nameof(useShowAnimation))] public ShowAnimationType showAnimationType;
-    [ShowIf(nameof(useShowAnimation))] public float durationShowPopup;
+    [ShowIf(nameof(useShowAnimation))] public float durationShowPopup = .5f;
 
     [ShowIf(nameof(ConditionShowMove))] [SerializeField]
     private MovePopupType showMovePopup;
@@ -42,7 +39,7 @@ public class UIPopup : MonoBehaviour
     public bool useHideAnimation;
 
     [ShowIf(nameof(useHideAnimation))] public HideAnimationType hideAnimationType;
-    [ShowIf(nameof(useHideAnimation))] public float durationHidePopup;
+    [ShowIf(nameof(useHideAnimation))] public float durationHidePopup = .5f;
 
     [ShowIf(nameof(ConditionHideMove))] [SerializeField]
     private MovePopupType hideMovePopup;

@@ -2848,12 +2848,10 @@ MonoBehaviour:
   - {fileID: 4168329194856728346}
   - {fileID: 917455073814226193}
   - {fileID: 2268698442411723254}
-  - {fileID: 3451255413487190160}
   - {fileID: 8300233274868405494}
   - {fileID: 5979691524331541832}
   - {fileID: 5267584865773789102}
   - {fileID: 2207832352282555155}
-  - {fileID: 6983442487520064210}
 --- !u!1 &4405685256339215952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3870,9 +3868,18 @@ MonoBehaviour:
   useShowAnimation: 0
   showAnimationType: 1
   durationShowPopup: 0
+  showMovePopup: 0
+  offsetShowMove: 0
+  scaleFromShow: {x: 0.5, y: 0.5, z: 0.5}
+  eulerAngleShowFrom: {x: 0, y: 180, z: 0}
+  pointShowPos: {fileID: 0}
   useHideAnimation: 0
   hideAnimationType: 0
   durationHidePopup: 0
+  hideMovePopup: 0
+  offsetHideMove: 0
+  scaleFromHide: {x: 0, y: 0, z: 0}
+  pointHidePos: {fileID: 0}
   BonusArrowHandler: {fileID: 4182017765428493193}
   BtnRewardAds: {fileID: 684091610695217680}
   BtnTapToContinue: {fileID: 9196906812386607124}
@@ -3887,8 +3894,6 @@ MonoBehaviour:
   claimRewardEvent: {fileID: 11400000, guid: ed15ee22acf35214292a644a474e7be2, type: 2}
   currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
-  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
-  isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
 --- !u!1 &7418177931432179246
 GameObject:
   m_ObjectHideFlags: 0
@@ -4555,15 +4560,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7982827232638130261}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6983442487520064210 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1018544568791280263, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
-    type: 3}
-  m_PrefabInstance: {fileID: 7982827232638130261}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -27,7 +27,7 @@ public class OffUI : MonoBehaviour
         if (listGraphics.Count == 0) return;
         foreach (var graphic in listGraphics)
         {
-            graphic.DOFade(isOff ? 0 : 1, 0);
+            graphic.Alpha(isOff ? 0 : 1, 0);
         }
     }
 #if UNITY_EDITOR

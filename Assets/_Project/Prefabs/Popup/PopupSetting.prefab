@@ -32,9 +32,9 @@ RectTransform:
   - {fileID: 6956124443790572602}
   m_Father: {fileID: 4232207337656451848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170, y: -95}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &520192287388132840
@@ -605,8 +605,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &2548547116170753731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,9 +1216,9 @@ RectTransform:
   - {fileID: 7981864552956511288}
   m_Father: {fileID: 4232207337656451848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170, y: -307.59048}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4989681717060571839
@@ -1396,8 +1399,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &6077205205080482408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,8 +2008,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &7370416450938019894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,13 +2120,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
-  UseAnimation: 0
-  Background: {fileID: 0}
-  Container: {fileID: 0}
-  UseShowAnimation: 0
-  ShowAnimationType: 0
-  UseHideAnimation: 0
-  HideAnimationType: 0
+  useAnimation: 1
+  useShowAnimation: 1
+  showAnimationType: 0
+  durationShowPopup: 0.5
+  showMovePopup: 0
+  offsetShowMove: 0
+  scaleFromShow: {x: 0.5, y: 0.5, z: 0.5}
+  eulerAngleShowFrom: {x: 0, y: 180, z: 0}
+  pointShowPos: {fileID: 0}
+  useHideAnimation: 1
+  hideAnimationType: 0
+  durationHidePopup: 0.5
+  hideMovePopup: 0
+  offsetHideMove: 0
+  scaleFromHide: {x: 0, y: 0, z: 0}
+  pointHidePos: {fileID: 0}
 --- !u!1 &7616326084959031557
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,9 +2212,9 @@ RectTransform:
   - {fileID: 5385150286996163846}
   m_Father: {fileID: 4232207337656451848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170, y: -520.18097}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7808417288728340493
@@ -2284,7 +2302,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6927451325058545775}
-  - component: {fileID: 661804545614746164}
   - component: {fileID: 3888293589695856721}
   m_Layer: 5
   m_Name: Container
@@ -2314,30 +2331,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &661804545614746164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8315578149655763889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe270764967ed7b4abbfde5c9a04e74a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animType: 0
-  playOnAwake: 1
-  isResetPositionWhenEnable: 0
-  animTime: 0.5
-  delayAnimTime: 0
-  fromScale: {x: 0.5, y: 0.5, z: 0.5}
-  saveLocalScale: {x: 0, y: 0, z: 0}
-  strength: 3
-  _moveType: 0
-  fromPosition: {x: 0, y: 0, z: 0}
-  directionType: 0
-  offset: 0
 --- !u!114 &3888293589695856721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2350,7 +2343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 
+  id: container
   ConformX: 1
   ConformY: 1
   Logging: 0
@@ -2710,5 +2703,8 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
