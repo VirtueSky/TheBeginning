@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719558c56beb4a8d98cf058fadf5455a, type: 3}
-  m_Name: back_home_event
+  m_Script: {fileID: 11500000, guid: 0d8122074d0747c0bcac7e533000ff1e, type: 3}
+  m_Name: call_win_level_event
   m_EditorClassIdentifier: 
-  id: back_home_event
+  id: call_win_level_event
   description: 
