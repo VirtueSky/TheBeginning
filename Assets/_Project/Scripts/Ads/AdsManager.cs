@@ -4,6 +4,7 @@ using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
+using VirtueSky.FirebaseTraking;
 using VirtueSky.Variables;
 
 public class AdsManager : BaseMono
@@ -15,13 +16,25 @@ public class AdsManager : BaseMono
     [SerializeField] private BooleanVariable isOffInterAdsVariable;
     [SerializeField] private BooleanVariable isOffBannerVariable;
     [SerializeField] private BooleanVariable isOffRewardVariable;
-    [SerializeField] private IntegerVariable remoteConfigLevelTurnOnInterstitial;
+
+    [Space] [HeaderLine("Firebase Remote Config")] [SerializeField]
+    private IntegerVariable remoteConfigLevelTurnOnInterstitial;
+
     [SerializeField] private IntegerVariable remoteConfigInterstitialCappingLevelVariable;
     [SerializeField] private IntegerVariable remoteConfigInterstitialCappingTimeVariable;
     [SerializeField] private BooleanVariable remoteConfigOnOffInterstitial;
     [SerializeField] private BooleanVariable remoteConfigOnOffBanner;
 
-    [HeaderLine("Ad Units Variable")] [SerializeField]
+    [Space] [HeaderLine("Log Event Firebase Analytic")] [SerializeField]
+    private LogEventFirebaseNoParam logEventRequestInter;
+
+    [SerializeField] private LogEventFirebaseNoParam logEventShowInterCompleted;
+    [SerializeField] private LogEventFirebaseNoParam logEventRequestReward;
+    [SerializeField] private LogEventFirebaseNoParam logEventShowRewardCompleted;
+    [SerializeField] private LogEventFirebaseNoParam logEventShowBanner;
+    [SerializeField] private LogEventFirebaseNoParam logEventHideBanner;
+
+    [Space] [HeaderLine("Ad Units Variable")] [SerializeField]
     AdUnitVariable banner;
 
     [SerializeField] private AdUnitVariable inter;
@@ -86,12 +99,14 @@ public class AdsManager : BaseMono
         if (IsEnableToShowBanner())
         {
             banner.Show();
+            logEventShowBanner.LogEvent();
         }
     }
 
     public void HideBanner()
     {
         banner.Destroy();
+        logEventHideBanner.LogEvent();
     }
 
     public void ShowInterstitial(Action completeCallback = null, Action displayCallback = null)
@@ -100,7 +115,12 @@ public class AdsManager : BaseMono
         {
             if (inter.IsReady())
             {
-                inter.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback);
+                logEventRequestInter.LogEvent();
+                inter.Show().OnCompleted(() =>
+                {
+                    completeCallback?.Invoke();
+                    logEventShowInterCompleted.LogEvent();
+                }).OnDisplayed(displayCallback);
             }
             else
             {
@@ -120,7 +140,12 @@ public class AdsManager : BaseMono
         {
             if (reward.IsReady())
             {
-                reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback)
+                logEventRequestReward.LogEvent();
+                reward.Show().OnCompleted(() =>
+                    {
+                        completeCallback?.Invoke();
+                        logEventShowRewardCompleted.LogEvent();
+                    }).OnDisplayed(displayCallback)
                     .OnClosed(closeCallback)
                     .OnSkipped(skipCallback);
             }

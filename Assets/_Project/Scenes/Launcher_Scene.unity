@@ -861,7 +861,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1885131756}
   - component: {fileID: 1885131755}
-  - component: {fileID: 1885131757}
   m_Layer: 0
   m_Name: LoadingManager
   m_TagString: Untagged
@@ -885,8 +884,10 @@ MonoBehaviour:
   progressBar: {fileID: 1926659687}
   loadingText: {fileID: 1603526854}
   timeLoading: 2
-  isWaitingFetchRemoteConfig: 0
+  isWaitingFetchRemoteConfig: 1
   changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
+  fetchFirebaseRemoteConfigCompletedEvent: {fileID: 11400000, guid: a0d2faf94e1685747b597406f55265d9,
+    type: 2}
 --- !u!4 &1885131756
 Transform:
   m_ObjectHideFlags: 0
@@ -902,36 +903,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1885131757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885131754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f477bc0650f64520ad655afc7aacef99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bindingListener: 0
-  listEventResponseDatas:
-  - event: {fileID: 11400000, guid: a0d2faf94e1685747b597406f55265d9, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1885131755}
-          m_TargetAssemblyTypeName: LoadingManager, Assembly-CSharp
-          m_MethodName: FirebaseIsInitialized
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1926659685
 GameObject:
   m_ObjectHideFlags: 0
