@@ -11,7 +11,9 @@ using VirtueSky.Variables;
 
 public class PopupDailyReward : UIPopup
 {
+    [TitleColor("Attribute", CustomColor.Lavender, CustomColor.Cornsilk)]
     public GameObject BtnWatchVideo;
+
     public GameObject BtnClaim;
     [SerializeField] private EventNoParam claimRewardEvent;
     [SerializeField] private BooleanVariable isTestingVariable;
