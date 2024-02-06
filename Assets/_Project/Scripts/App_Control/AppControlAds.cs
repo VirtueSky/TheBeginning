@@ -28,8 +28,9 @@ namespace TheBeginning.AppControl
             _adsManager.ShowInterstitial(completeCallback, displayCallback);
         }
 
-        public static void ShowReward(Action completeCallback = null, Action displayCallback = null,
-            Action closeCallback = null, Action skipCallback = null)
+        public static void ShowReward(Action completeCallback = null, Action skipCallback = null,
+            Action displayCallback = null,
+            Action closeCallback = null)
         {
             if (_adsManager == null)
             {
@@ -37,7 +38,7 @@ namespace TheBeginning.AppControl
                 return;
             }
 
-            _adsManager.ShowRewardAds(completeCallback, displayCallback, closeCallback, skipCallback);
+            _adsManager.ShowRewardAds(completeCallback, skipCallback, displayCallback, closeCallback);
         }
 
         public static void ShowBanner()

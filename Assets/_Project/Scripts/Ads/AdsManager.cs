@@ -60,21 +60,14 @@ public class AdsManager : BaseMono
 
     bool IsEnableToShowInter()
     {
-        // if purchase remove ads => return false
-        if (inter.IsReady() && indexLevelVariable.Value > remoteConfigLevelTurnOnInterstitial.Value &&
-            adsCounter >= remoteConfigInterstitialCappingLevelVariable.Value &&
-            timePlay >= remoteConfigInterstitialCappingTimeVariable.Value && !isOffInterAdsVariable.Value &&
-            remoteConfigOnOffInterstitial.Value)
-        {
-            return true;
-        }
-
-        return false;
+        return indexLevelVariable.Value > remoteConfigLevelTurnOnInterstitial.Value &&
+               adsCounter >= remoteConfigInterstitialCappingLevelVariable.Value &&
+               timePlay >= remoteConfigInterstitialCappingTimeVariable.Value && !isOffInterAdsVariable.Value &&
+               remoteConfigOnOffInterstitial.Value;
     }
 
     bool IsEnableToShowBanner()
     {
-        // if purchase remove ads => return false
         return !isOffBannerVariable.Value && remoteConfigOnOffBanner.Value;
     }
 
@@ -83,16 +76,15 @@ public class AdsManager : BaseMono
         return reward.IsReady();
     }
 
-    bool IsEnableShowReward()
+    bool IsEnableToShowReward()
     {
-        return reward.IsReady() && !isOffRewardVariable.Value;
+        return !isOffRewardVariable.Value;
     }
 
     public void ShowBanner()
     {
         if (IsEnableToShowBanner())
         {
-            // show banner ads
             banner.Show();
         }
     }
@@ -106,8 +98,14 @@ public class AdsManager : BaseMono
     {
         if (IsEnableToShowInter())
         {
-            //show inter ads
-            inter.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback);
+            if (inter.IsReady())
+            {
+                inter.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback);
+            }
+            else
+            {
+                completeCallback?.Invoke();
+            }
         }
         else
         {
@@ -115,14 +113,30 @@ public class AdsManager : BaseMono
         }
     }
 
-    public void ShowRewardAds(Action completeCallback = null, Action displayCallback = null,
-        Action closeCallback = null, Action skipCallback = null)
+    public void ShowRewardAds(Action completeCallback = null, Action skipCallback = null, Action displayCallback = null,
+        Action closeCallback = null)
     {
-        if (IsEnableShowReward())
+        if (IsEnableToShowReward())
         {
-            reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback)
-                .OnClosed(closeCallback)
-                .OnSkipped(skipCallback);
+            if (reward.IsReady())
+            {
+                reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback)
+                    .OnClosed(closeCallback)
+                    .OnSkipped(skipCallback);
+            }
+            else if (inter.IsReady())
+            {
+                inter.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback).OnClosed(closeCallback)
+                    .OnSkipped(skipCallback);
+            }
+            else
+            {
+                completeCallback?.Invoke();
+            }
+        }
+        else
+        {
+            completeCallback?.Invoke();
         }
     }
 }
