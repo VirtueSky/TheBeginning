@@ -16,7 +16,7 @@ public class LoadingManager : BaseMono
     [Range(0.1f, 10f)] public float timeLoading = 5f;
     [SerializeField] bool isWaitingFetchRemoteConfig = false;
     [SerializeField] private StringEvent changeSceneEvent;
-
+    [SerializeField] private EventNoParam fetchFirebaseRemoteConfigCompletedEvent;
     private bool flagDoneProgress;
     private bool fetchFirebaseRemoteConfigCompleted = false;
 
@@ -25,6 +25,24 @@ public class LoadingManager : BaseMono
         Init();
         LoadScene();
     }
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        if (fetchFirebaseRemoteConfigCompletedEvent != null)
+        {
+            fetchFirebaseRemoteConfigCompletedEvent.AddListener(FirebaseRemoteConfigInitialized);
+        }
+    }
+   public override void OnDisable()
+      {
+          base.OnDisable();
+          if (fetchFirebaseRemoteConfigCompletedEvent != null)
+          {
+              fetchFirebaseRemoteConfigCompletedEvent.RemoveListener(FirebaseRemoteConfigInitialized);
+          }
+      }
+  
 
     private void Init()
     {
@@ -47,7 +65,7 @@ public class LoadingManager : BaseMono
         changeSceneEvent.Raise(Constant.HOME_SCENE);
     }
 
-    public void FirebaseIsInitialized()
+    void FirebaseRemoteConfigInitialized()
     {
         fetchFirebaseRemoteConfigCompleted = true;
     }
