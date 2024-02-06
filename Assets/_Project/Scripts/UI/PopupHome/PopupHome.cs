@@ -1,3 +1,4 @@
+using TheBeginning.AppControl;
 using UnityEngine;
 using VirtueSky.Events;
 using VirtueSky.Variables;
@@ -5,7 +6,6 @@ using VirtueSky.Variables;
 public class PopupHome : UIPopup
 {
     [SerializeField] private StringEvent changeSceneEvent;
-    [SerializeField] private PopupVariable popupVariable;
     [SerializeField] private GameObject buttonAdmin;
     [SerializeField] private Vector3Variable posInOutPopupAdmin;
 
@@ -16,27 +16,27 @@ public class PopupHome : UIPopup
 
     public void OnClickSetting()
     {
-        popupVariable?.Value.Show<PopupSetting>(false);
+        AppControlPopup.Show<PopupSetting>(false);
     }
 
     public void OnClickDailyReward()
     {
-        popupVariable?.Value.Show<PopupDailyReward>(false);
+        AppControlPopup.Show<PopupDailyReward>(false);
     }
 
     public void OnClickShop()
     {
-        popupVariable?.Value.Show<PopupShop>(false);
+        AppControlPopup.Show<PopupShop>(false);
     }
 
     public void OnClickTest()
     {
-        popupVariable?.Value.Show<PopupTest>(false);
+        AppControlPopup.Show<PopupTest>(false);
     }
 
     public void OnClickOpenAdministrator()
     {
         posInOutPopupAdmin.Value = buttonAdmin.transform.position;
-        popupVariable.Value.Show<PopupAdministrator>(false);
+        AppControlPopup.Show<PopupAdministrator>(false);
     }
 }

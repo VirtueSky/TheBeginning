@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TheBeginning.AppControl;
 using UnityEditor;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
@@ -17,20 +18,15 @@ public class PopupManager : MonoBehaviour
     [SerializeField] private List<UIPopup> listPopups = new List<UIPopup>();
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    private PopupVariable popupVariable;
-
     private readonly Dictionary<Type, UIPopup> _container = new Dictionary<Type, UIPopup>();
+
     private int index = 1;
 
     private void Awake()
     {
         Debug.Assert(cameraUI != null, "CameraUI != null");
         canvasScaler.matchWidthOrHeight = cameraUI.aspect > .7f ? 1 : 0;
-    }
-
-    private void Start()
-    {
-        popupVariable.Value = this;
+        AppControlPopup.Init(this);
     }
 
     public void Show<T>(bool isHideAll = true)

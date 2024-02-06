@@ -1,5 +1,6 @@
 using CodeStage.AdvancedFPSCounter;
 using PrimeTween;
+using TheBeginning.AppControl;
 using UnityEngine;
 using VirtueSky.FirebaseTraking;
 using VirtueSky.Inspector;
@@ -30,8 +31,6 @@ public class GameManager : MonoBehaviour
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private GameStateVariable gameStateVariable;
 
-    [SerializeField] private PopupVariable popupVariable;
-
     [SerializeField] private IntegerVariable indexLevelVariable;
 
 
@@ -46,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         PrepareLevel();
         StartGame();
-        popupVariable.Value.Show<PopupInGame>();
+        AppControlPopup.Show<PopupInGame>();
     }
 
     public void PrepareLevel()
@@ -65,7 +64,7 @@ public class GameManager : MonoBehaviour
         logEventFirebaseReplayLevel.LogEvent(levelController.currentLevel.name);
         PrepareLevel();
         StartGame();
-        popupVariable.Value.Show<PopupInGame>();
+        AppControlPopup.Show<PopupInGame>();
     }
 
     public void BackLevel()
@@ -107,8 +106,8 @@ public class GameManager : MonoBehaviour
         Tween.Delay(delayPopupShowTime, () =>
         {
             indexLevelVariable.Value++;
-            popupVariable?.Value.Show<PopupWin>();
-            popupVariable.Value.Hide<PopupInGame>();
+            AppControlPopup.Show<PopupWin>();
+            AppControlPopup.Hide<PopupInGame>();
         });
     }
 
@@ -122,8 +121,8 @@ public class GameManager : MonoBehaviour
         logEventFirebaseLoseLevel.LogEvent(levelController.currentLevel.name);
         Tween.Delay(delayPopupShowTime, () =>
         {
-            popupVariable?.Value.Show<PopupLose>();
-            popupVariable.Value.Hide<PopupInGame>();
+            AppControlPopup.Show<PopupLose>();
+            AppControlPopup.Hide<PopupInGame>();
         });
     }
 

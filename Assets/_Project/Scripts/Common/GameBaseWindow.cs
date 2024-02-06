@@ -4,20 +4,13 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 
 
-public class GameBase : EditorWindow
+public class GameBaseWindow : EditorWindow
 {
     void OnGUI()
     {
         GUILayout.BeginHorizontal(EditorStyles.toolbar);
         GUILayout.EndHorizontal();
     }
-
-    // [MenuItem("GameBase/Switch Debug %`")]
-    // public static void SwitchDebug()
-    // {
-    //     Data.IsTesting = !Data.IsTesting;
-    //     Debug.Log($"<color=Green>Data.IsTesting = {Data.IsTesting}</color>");
-    // }
 
     [MenuItem("GameBase/Open Scene/Launcher Scene %F1")]
     public static void OpenLauncherScene()
