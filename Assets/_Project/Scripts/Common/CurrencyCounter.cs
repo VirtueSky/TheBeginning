@@ -1,5 +1,5 @@
 using System;
-using DG.Tweening;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;

@@ -15,6 +15,7 @@ MonoBehaviour:
   DurationPopup: 0.25
   WatchAdsMoney: 1000
   LevelLoopType: 0
-  MaxLevel: 2
+  MaxLevel: 1
   StartLoopLevel: 1
   WinLevelMoney: 100
+  PercentWinGiftPerLevel: 10

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skusData: []
   products: []
-  isValidatePurchase: 0
+  isValidatePurchase: 1
   googlePlayStoreKey: 

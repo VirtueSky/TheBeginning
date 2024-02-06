@@ -9,7 +9,6 @@ using VirtueSky.Variables;
 public class PopupTest : UIPopup
 {
     public TextMeshProUGUI textNotice;
-    public AdManagerVariable adManagerVariable;
     public IntegerVariable currencyVariable;
 
     [Header("Unit variables")] public AdUnitVariable banner;

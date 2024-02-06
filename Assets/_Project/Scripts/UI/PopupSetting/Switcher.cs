@@ -1,4 +1,4 @@
-using DG.Tweening;
+using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,8 +27,6 @@ public class Switcher : MonoBehaviour
     [ShowIf(nameof(SettingType), SettingType.SoundFx)] [SerializeField]
     private FloatVariable soundFxChangeVariable;
 
-    // [ShowIf(nameof(SettingType), SettingType.Vibration)] [SerializeField]
-    // private BooleanVariable vibrationChangeVariable;
 
     private void SetupData()
     {
@@ -67,8 +65,8 @@ public class Switcher : MonoBehaviour
 
     private void OnEnable()
     {
-        Switch.transform.position = IsOn ? OnPos.position : OffPos.position;
         Setup();
+        Switch.transform.position = IsOn ? OnPos.position : OffPos.position;
     }
 
     public void Switching()
@@ -84,23 +82,24 @@ public class Switcher : MonoBehaviour
             Switch.transform.DOMove(OnPos.position, TimeSwitching);
         }
 
-        DOTween.Sequence().AppendInterval(TimeSwitching / 2f).SetEase(Ease.Linear).AppendCallback(() =>
-        {
-            switch (SettingType)
+        DOTween.Sequence().AppendInterval(TimeSwitching / 2f).SetEase(Ease.Linear).AppendCallback(
+            () =>
             {
-                case SettingType.BackgroundMusic:
-                    MusicChanged = !IsOn;
-                    break;
-                case SettingType.SoundFx:
-                    SoundFxChanged = !IsOn;
-                    break;
-                case SettingType.Vibration:
-                    VibrateChanged = !IsOn;
-                    break;
-            }
+                switch (SettingType)
+                {
+                    case SettingType.BackgroundMusic:
+                        MusicChanged = !IsOn;
+                        break;
+                    case SettingType.SoundFx:
+                        SoundFxChanged = !IsOn;
+                        break;
+                    case SettingType.Vibration:
+                        VibrateChanged = !IsOn;
+                        break;
+                }
 
-            Setup();
-        }).OnComplete(() => { SwitchState = SwitchState.Idle; });
+                Setup();
+            }).OnComplete(() => { SwitchState = SwitchState.Idle; });
     }
 
     private bool MusicChanged

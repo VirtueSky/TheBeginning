@@ -710,3 +710,4 @@ MonoBehaviour:
   currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
   generateCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
+  dailyRewardConfig: {fileID: 11400000, guid: 8595dbcfcc8e4d24b85c87242a5d3778, type: 2}

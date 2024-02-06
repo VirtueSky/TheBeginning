@@ -1,4 +1,5 @@
 using System;
+using TheBeginning.AppControl;
 using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Inspector;
@@ -8,16 +9,17 @@ using VirtueSky.Variables;
 public class AdsManager : BaseMono
 {
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    private AdManagerVariable adManagerVariable;
-
-    [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private GameStateVariable gameStateVariable;
 
-    [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    IntegerVariable indexLevelVariable;
-
-    [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    private BooleanVariable isOffInterAdsVariable;
+    [SerializeField] private IntegerVariable indexLevelVariable;
+    [SerializeField] private BooleanVariable isOffInterAdsVariable;
+    [SerializeField] private BooleanVariable isOffBannerVariable;
+    [SerializeField] private BooleanVariable isOffRewardVariable;
+    [SerializeField] private IntegerVariable remoteConfigLevelTurnOnInterstitial;
+    [SerializeField] private IntegerVariable remoteConfigInterstitialCappingLevelVariable;
+    [SerializeField] private IntegerVariable remoteConfigInterstitialCappingTimeVariable;
+    [SerializeField] private BooleanVariable remoteConfigOnOffInterstitial;
+    [SerializeField] private BooleanVariable remoteConfigOnOffBanner;
 
     [HeaderLine("Ad Units Variable")] [SerializeField]
     AdUnitVariable banner;
@@ -30,20 +32,9 @@ public class AdsManager : BaseMono
     private int adsCounter;
     private float timePlay;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
     private void Start()
     {
-        Initialize();
-    }
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        adManagerVariable.Value = this;
+        AppControlAds.Init(this);
         ResetCounter();
     }
 
@@ -69,21 +60,15 @@ public class AdsManager : BaseMono
 
     bool IsEnableToShowInter()
     {
-        // if purchase remove ads => return false
-        if (inter.IsReady() && indexLevelVariable.Value > Data.LevelTurnOnInterstitial &&
-            adsCounter >= Data.CounterNumbBetweenTwoInterstitial &&
-            timePlay >= Data.TimeWinBetweenTwoInterstitial && !isOffInterAdsVariable.Value)
-        {
-            return true;
-        }
-
-        return false;
+        return indexLevelVariable.Value > remoteConfigLevelTurnOnInterstitial.Value &&
+               adsCounter >= remoteConfigInterstitialCappingLevelVariable.Value &&
+               timePlay >= remoteConfigInterstitialCappingTimeVariable.Value && !isOffInterAdsVariable.Value &&
+               remoteConfigOnOffInterstitial.Value;
     }
 
     bool IsEnableToShowBanner()
     {
-        // if purchase remove ads => return false
-        return true;
+        return !isOffBannerVariable.Value && remoteConfigOnOffBanner.Value;
     }
 
     public bool IsRewardReady()
@@ -91,11 +76,15 @@ public class AdsManager : BaseMono
         return reward.IsReady();
     }
 
+    bool IsEnableToShowReward()
+    {
+        return !isOffRewardVariable.Value;
+    }
+
     public void ShowBanner()
     {
         if (IsEnableToShowBanner())
         {
-            // show banner ads
             banner.Show();
         }
     }
@@ -105,12 +94,18 @@ public class AdsManager : BaseMono
         banner.Destroy();
     }
 
-    public void ShowInterstitial(Action completeCallback, Action displayCallback = null)
+    public void ShowInterstitial(Action completeCallback = null, Action displayCallback = null)
     {
         if (IsEnableToShowInter())
         {
-            //show inter ads
-            inter.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback);
+            if (inter.IsReady())
+            {
+                inter.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback);
+            }
+            else
+            {
+                completeCallback?.Invoke();
+            }
         }
         else
         {
@@ -118,13 +113,30 @@ public class AdsManager : BaseMono
         }
     }
 
-    public void ShowRewardAds(Action completeCallback, Action displayCallback = null,
-        Action closeCallback = null, Action skipCallback = null)
+    public void ShowRewardAds(Action completeCallback = null, Action skipCallback = null, Action displayCallback = null,
+        Action closeCallback = null)
     {
-        if (reward.IsReady())
+        if (IsEnableToShowReward())
         {
-            reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback).OnClosed(closeCallback)
-                .OnSkipped(skipCallback);
+            if (reward.IsReady())
+            {
+                reward.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback)
+                    .OnClosed(closeCallback)
+                    .OnSkipped(skipCallback);
+            }
+            else if (inter.IsReady())
+            {
+                inter.Show().OnCompleted(completeCallback).OnDisplayed(displayCallback).OnClosed(closeCallback)
+                    .OnSkipped(skipCallback);
+            }
+            else
+            {
+                completeCallback?.Invoke();
+            }
+        }
+        else
+        {
+            completeCallback?.Invoke();
         }
     }
 }

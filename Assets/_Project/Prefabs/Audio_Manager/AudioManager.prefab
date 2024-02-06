@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1584050281575919236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 393689795819667974}
+  - component: {fileID: 5178752257251663180}
+  - component: {fileID: 1723015841773137970}
+  - component: {fileID: 496302010608656846}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &393689795819667974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584050281575919236}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5178752257251663180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584050281575919236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e25e7d80544a1d83bfd260713b1796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: audio_manager
+  pool: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
+  soundComponentPrefab: {fileID: 1050115384032487307, guid: 61141c7603e7a9740933706a3f0d4ab7,
+    type: 3}
+  eventPlayMusic: {fileID: 11400000, guid: 18db66017d2e88f458ea458ee4d3c244, type: 2}
+  eventStopMusic: {fileID: 11400000, guid: 78b9bae2e8340f24f88db7900b1db679, type: 2}
+  eventPauseMusic: {fileID: 11400000, guid: 6fa90b9d3e05ba7448a8d37af622948f, type: 2}
+  eventResumeMusic: {fileID: 11400000, guid: ca82985a47eb10e42b8ab6e5dad7a0ad, type: 2}
+  eventPlaySfx: {fileID: 11400000, guid: 8b2f9f4ed3cbd03488b0a0bb69849430, type: 2}
+  eventStopSfx: {fileID: 11400000, guid: 5d6a7766c0c40f443b23d9237dd1f4c0, type: 2}
+  eventPauseSfx: {fileID: 11400000, guid: 0914720bbffdfb4499ab77faa9ecec41, type: 2}
+  eventResumeSfx: {fileID: 11400000, guid: 0c9c0ba53c2191b4b88fc7790baa18d7, type: 2}
+  eventFinishSfx: {fileID: 11400000, guid: bdca07e605f03dd4fbc27aee541d6af7, type: 2}
+  eventStopAllSfx: {fileID: 11400000, guid: c33040d4a44945c498c80a7b6b86dea9, type: 2}
+  musicVolume: {fileID: 11400000, guid: ccb25c5ccf4e8924db7fb73d222ce616, type: 2}
+  sfxVolume: {fileID: 11400000, guid: 83171e3aba8056847a4bdefe1c1337e3, type: 2}
+--- !u!114 &1723015841773137970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584050281575919236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e49d3628ff744fdbbb3309c61e6cd6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: audio_manager
+  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
+  playSoundButton: {fileID: 11400000, guid: 8b2f9f4ed3cbd03488b0a0bb69849430, type: 2}
+  soundClickButton: {fileID: 11400000, guid: 3d6d3959376a08a43a8b1ca2ad5a0eb1, type: 2}
+--- !u!81 &496302010608656846
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584050281575919236}
+  m_Enabled: 1

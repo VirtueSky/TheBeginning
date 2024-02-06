@@ -1,4 +1,6 @@
-using DG.Tweening;
+using PrimeTween;
+using TheBeginning.AppControl;
+using TheBeginning.UserData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +19,7 @@ public class PopupWin : UIPopup
     public Image ProcessBar;
     public TextMeshProUGUI TextPercentGift;
     [SerializeField] private AudioClip soundPopupWin;
+    [SerializeField] private GameConfig gameConfig;
 
     [HeaderLine(Constant.SO_Event)] [SerializeField]
     private EventNoParam playCurrentLevelEvent;
@@ -27,13 +30,10 @@ public class PopupWin : UIPopup
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable currencyTotalVariable;
 
-    [SerializeField] private AdManagerVariable adManagerVariable;
-    [SerializeField] private BooleanVariable isTestingVariable;
-
-
     private float percent = 0;
-    private Sequence sequence;
-    public int MoneyWin => Config.Game.WinLevelMoney;
+
+    //   private Tween tween;
+    public int MoneyWin => gameConfig.WinLevelMoney;
 
 
     public float Percent
@@ -43,30 +43,33 @@ public class PopupWin : UIPopup
         {
             value = Mathf.Clamp(value, 0, 100);
             percent = value;
-            ProcessBar.DOFillAmount(percent / 100, 0.5f).OnUpdate((() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f)) + "%"; })).OnComplete((() =>
-            {
-                if (percent >= 100)
+            ProcessBar.DOFillAmount(percent / 100, .5f).OnUpdate(ProcessBar,
+                    (image, tween) => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f) + "%"); })
+                .OnComplete(() =>
                 {
-                    ReceiveGift();
-                }
-            }));
+                    if (percent >= 100)
+                    {
+                        ReceiveGift();
+                    }
+                });
         }
     }
 
     public void ClearProgress()
     {
         ProcessBar.DOFillAmount(0, 1f)
-            .OnUpdate(() => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100)) + "%"; });
+            .OnUpdate(ProcessBar,
+                (image, tween) => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100)) + "%"; });
     }
 
     private void SetupProgressBar()
     {
-        ProcessBar.fillAmount = (float)Data.PercentWinGift / 100;
-        Data.PercentWinGift += Config.Game.PercentWinGiftPerLevel;
-        Percent = (float)Data.PercentWinGift;
-        if (Data.PercentWinGift == 100)
+        ProcessBar.fillAmount = (float)UserData.PercentWinGift / 100;
+        UserData.PercentWinGift += gameConfig.PercentWinGiftPerLevel;
+        Percent = (float)UserData.PercentWinGift;
+        if (UserData.PercentWinGift == 100)
         {
-            Data.PercentWinGift = 0;
+            UserData.PercentWinGift = 0;
         }
     }
 
@@ -80,7 +83,7 @@ public class PopupWin : UIPopup
         base.OnBeforeShow();
         Setup();
         SetupProgressBar();
-        sequence = DOTween.Sequence().AppendInterval(2f).AppendCallback(() => { BtnTapToContinue.SetActive(true); });
+        Tween.Delay(2f, () => { BtnTapToContinue.SetActive(true); });
     }
 
 
@@ -98,21 +101,13 @@ public class PopupWin : UIPopup
 
     public void OnClickAdsReward()
     {
-        if (isTestingVariable.Value)
+        if (AppControlAds.IsRewardReady()) BonusArrowHandler.MoveObject.StopMoving();
+        AppControlAds.ShowReward(() => { GetRewardAds(); }, null, null, () =>
         {
-            GetRewardAds();
-            claimRewardEvent.Raise();
-        }
-        else
-        {
-            if (adManagerVariable.Value.IsRewardReady()) BonusArrowHandler.MoveObject.StopMoving();
-            adManagerVariable.Value.ShowRewardAds(() => { GetRewardAds(); }, null, null, () =>
-            {
-                BonusArrowHandler.MoveObject.ResumeMoving();
-                BtnRewardAds.SetActive(true);
-                BtnTapToContinue.SetActive(true);
-            });
-        }
+            BonusArrowHandler.MoveObject.ResumeMoving();
+            BtnRewardAds.SetActive(true);
+            BtnTapToContinue.SetActive(true);
+        });
     }
 
     public void GetRewardAds()
@@ -122,9 +117,8 @@ public class PopupWin : UIPopup
         BonusArrowHandler.MoveObject.StopMoving();
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
-        sequence?.Kill();
         claimRewardEvent.Raise();
-        DOTween.Sequence().AppendInterval(1.2f).AppendCallback(() =>
+        Tween.Delay(1.2f, () =>
         {
             Hide();
             playCurrentLevelEvent.Raise();
@@ -137,8 +131,7 @@ public class PopupWin : UIPopup
         currencyTotalVariable.Value += MoneyWin;
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
-
-        DOTween.Sequence().AppendInterval(1.2f).AppendCallback(() =>
+        Tween.Delay(1.2f, () =>
         {
             playCurrentLevelEvent.Raise();
             Hide();

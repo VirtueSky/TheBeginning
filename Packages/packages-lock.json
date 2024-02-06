@@ -21,6 +21,33 @@
       "dependencies": {},
       "hash": "64445bb59f6d9d4d7f24be5eea45e7fdf2146546"
     },
+    "com.google.firebase.analytics": {
+      "version": "https://github.com/firebase-unity/firebase-analytics.git#11.6.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.google.firebase.app": "11.6.0"
+      },
+      "hash": "544319d7f5d7d08584b671e1cd38ab5953d49b5b"
+    },
+    "com.google.firebase.app": {
+      "version": "https://github.com/firebase-unity/firebase-app.git#11.6.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.google.external-dependency-manager": "1.2.177"
+      },
+      "hash": "7ce22fc8eea927e34dea24a37c6a35def7ce5271"
+    },
+    "com.google.firebase.remote-config": {
+      "version": "https://github.com/firebase-unity/firebase-remote-config.git#11.6.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.google.firebase.app": "11.6.0"
+      },
+      "hash": "1691034f00b4d117325825b2ef7dd1d22d862f0b"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -96,6 +123,13 @@
       "dependencies": {
         "com.unity.modules.uielements": "1.0.0"
       },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.mobile.android-logcat": {
+      "version": "1.4.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.mobile.notifications": {
@@ -186,15 +220,22 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.virtuesky.animancer": {
+      "version": "https://github.com/VirtueSky/animancer-unity.git#7.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5b2093e8217f8f0d2dd431483ca23872288a1b0d"
+    },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.3.7",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.4.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "7e0b75799cb1313d0246ddc8f646ce83c37b6332"
+      "hash": "aa757e020e82104cb15f6305a8d495bd5ee2df36"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

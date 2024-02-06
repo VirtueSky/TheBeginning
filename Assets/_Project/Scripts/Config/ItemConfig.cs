@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TheBeginning.UserData;
 using UnityEngine;
 using VirtueSky.Inspector;
 using Random = UnityEngine.Random;
@@ -47,7 +48,8 @@ public class ItemConfig : ScriptableObject
     public ItemData GetGiftItemData()
     {
         List<ItemData> tempList =
-            itemDatas.FindAll(item => !item.IsUnlocked && (item.BuyType == BuyType.BuyCoin || item.BuyType == BuyType.WatchAds));
+            itemDatas.FindAll(item =>
+                !item.IsUnlocked && (item.BuyType == BuyType.BuyCoin || item.BuyType == BuyType.WatchAds));
         return tempList.Count > 0 ? tempList[Random.Range(0, tempList.Count)] : null;
     }
 }
@@ -76,22 +78,22 @@ public class ItemData : ItemIdentity
 
     public void EquipItem()
     {
-        Data.SetItemEquipped(Identity);
+        UserData.SetItemEquipped(Identity);
     }
 
     public bool IsUnlocked
     {
         get
         {
-            Data.IdItemUnlocked = Identity;
-            return Data.IsItemUnlocked;
+            UserData.IdItemUnlocked = Identity;
+            return UserData.IsItemUnlocked;
         }
 
         set
         {
             //FirebaseManager.OnClaimItemSkin(Identity);
-            Data.IdItemUnlocked = Identity;
-            Data.IsItemUnlocked = value;
+            UserData.IdItemUnlocked = Identity;
+            UserData.IsItemUnlocked = value;
         }
     }
 }

@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "273137810936",
-    "project_id": "teststoreducphong",
-    "storage_bucket": "teststoreducphong.appspot.com"
+    "project_number": "759919814051",
+    "project_id": "thebeginning-3cebf",
+    "storage_bucket": "thebeginning-3cebf.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:273137810936:android:94a81f3fdaad0678ceaa0d",
+        "mobilesdk_app_id": "1:759919814051:android:d64ed8ef4f05105c88a616",
         "android_client_info": {
-          "package_name": "com.pdstudio.test"
+          "package_name": "com.thebeginning.test"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "273137810936-4d4qhp216jns4gobt54mk032v8526b9u.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBlyuKKFB6SE5AiuVwfFoBPbrHcjVEXetI"
+          "current_key": "AIzaSyDyqS9g1EsHhz9GJ53QrZEeNncsRxzhtjg"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "273137810936-4d4qhp216jns4gobt54mk032v8526b9u.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

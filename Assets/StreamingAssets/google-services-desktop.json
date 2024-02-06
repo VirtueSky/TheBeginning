@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "785184657593",
-    "project_id": "test-13b49",
-    "storage_bucket": "test-13b49.appspot.com"
+    "project_number": "759919814051",
+    "project_id": "thebeginning-3cebf",
+    "storage_bucket": "thebeginning-3cebf.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:785184657593:android:75e0f57609f3c78526cb68",
+        "mobilesdk_app_id": "1:759919814051:android:d64ed8ef4f05105c88a616",
         "android_client_info": {
-          "package_name": "com.gamee.test"
+          "package_name": "com.thebeginning.test"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "785184657593-gmp5d6ikn43b2napk4mf2cecms2729lq.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAIn_Bv0DdeFpRXTuu2B1GF0t5j4y4XsR4"
+          "current_key": "AIzaSyDyqS9g1EsHhz9GJ53QrZEeNncsRxzhtjg"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "785184657593-gmp5d6ikn43b2napk4mf2cecms2729lq.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

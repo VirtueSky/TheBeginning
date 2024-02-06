@@ -34,4 +34,6 @@ MonoBehaviour:
   admobAppOpenVariable: {fileID: 11400000, guid: 096fcfff50a4042bf8f96035a785af9c,
     type: 2}
   admobEnableTestMode: 0
+  enableGDPR: 1
+  enableGDPRTestMode: 1
   admobDevicesTest: []

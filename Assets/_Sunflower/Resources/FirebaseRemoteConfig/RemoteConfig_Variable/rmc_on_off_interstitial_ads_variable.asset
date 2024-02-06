@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8612af88fd55455ab06a565de64186b9, type: 3}
+  m_Name: rmc_on_off_interstitial_ads_variable
+  m_EditorClassIdentifier: 
+  id: rmc_on_off_interstitial_ads_variable
+  description: true-show inter, false-not show inter
+  initializeValue: 1
+  isSavable: 0
+  isSaveInStorageImmediately: 0
+  isRaiseEvent: 0

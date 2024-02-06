@@ -1,4 +1,5 @@
 using System;
+using TheBeginning.UserData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,7 @@ public class DailyRewardItem : MonoBehaviour
     [SerializeField] private IntegerVariable currencyTotalVariable;
 
     [SerializeField] private Vector3Event generateCoinEvent;
+    [SerializeField] private DailyRewardConfig dailyRewardConfig;
 
     //[SerializeField] private EventNoParam claimRewardEvent;
     private int coinValue;
@@ -46,9 +48,9 @@ public class DailyRewardItem : MonoBehaviour
     private void SetUpData()
     {
         // Setup data
-        dailyRewardData = Data.IsStartLoopingDailyReward
-            ? Config.DailyRewardConfig.DailyRewardDatasLoop[dayIndex - 1]
-            : Config.DailyRewardConfig.DailyRewardDatas[dayIndex - 1];
+        dailyRewardData = UserData.IsStartLoopingDailyReward
+            ? dailyRewardConfig.DailyRewardDatasLoop[dayIndex - 1]
+            : dailyRewardConfig.DailyRewardDatas[dayIndex - 1];
 
         coinValue = dailyRewardData.Value;
         // Setup states
@@ -60,16 +62,20 @@ public class DailyRewardItem : MonoBehaviour
             //shopItemData = ConfigController.ItemConfig.GetShopItemDataById(dailyRewardData.SkinID);
         }
 
-        if (Data.DailyRewardDayIndex > dayIndex)
+        if (UserData.DailyRewardDayIndex > dayIndex)
         {
             dailyRewardItemState = DailyRewardItemState.Claimed;
         }
-        else if (Data.DailyRewardDayIndex == dayIndex)
+        else if (UserData.DailyRewardDayIndex == dayIndex)
         {
-            if (!Data.IsClaimedTodayDailyReward())
+            if (!UserData.IsClaimedTodayDailyReward())
+            {
                 dailyRewardItemState = DailyRewardItemState.ReadyToClaim;
+            }
             else
+            {
                 dailyRewardItemState = DailyRewardItemState.NotClaim;
+            }
         }
         else
         {
@@ -117,17 +123,10 @@ public class DailyRewardItem : MonoBehaviour
 
     public void OnClaim(bool isClaimX5 = false)
     {
-        // if (isClaimX5)
-        //     FirebaseManager.OnClaimDailyRewardX5(dayIndex);
-        // else
-        //     FirebaseManager.OnClaimDailyReward(dayIndex);
-
-        //claimRewardEvent.Raise();
-
         // Save datas
-        Data.LastDailyRewardClaimed = DateTime.Now.ToString();
-        Data.DailyRewardDayIndex++;
-        Data.TotalClaimDailyReward++;
+        UserData.LastDailyRewardClaimed = DateTime.Now.ToString();
+        UserData.DailyRewardDayIndex++;
+        UserData.TotalClaimDailyReward++;
 
         // Claim by type
         switch (dailyRewardData.DailyRewardType)
