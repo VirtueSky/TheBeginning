@@ -1,4 +1,5 @@
 using PrimeTween;
+using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using TMPro;
 using UnityEngine;
@@ -28,8 +29,6 @@ public class PopupWin : UIPopup
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable currencyTotalVariable;
-
-    [SerializeField] private AdManagerVariable adManagerVariable;
 
     private float percent = 0;
 
@@ -102,8 +101,8 @@ public class PopupWin : UIPopup
 
     public void OnClickAdsReward()
     {
-        if (adManagerVariable.Value.IsRewardReady()) BonusArrowHandler.MoveObject.StopMoving();
-        adManagerVariable.Value.ShowRewardAds(() => { GetRewardAds(); }, null, null, () =>
+        if (AppControlAds.IsRewardReady()) BonusArrowHandler.MoveObject.StopMoving();
+        AppControlAds.ShowReward(() => { GetRewardAds(); }, null, null, () =>
         {
             BonusArrowHandler.MoveObject.ResumeMoving();
             BtnRewardAds.SetActive(true);

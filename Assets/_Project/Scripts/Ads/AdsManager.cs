@@ -1,4 +1,5 @@
 using System;
+using TheBeginning.AppControl;
 using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Inspector;
@@ -8,9 +9,8 @@ using VirtueSky.Variables;
 public class AdsManager : BaseMono
 {
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    private AdManagerVariable adManagerVariable;
+    private GameStateVariable gameStateVariable;
 
-    [SerializeField] private GameStateVariable gameStateVariable;
     [SerializeField] private IntegerVariable indexLevelVariable;
     [SerializeField] private BooleanVariable isOffInterAdsVariable;
     [SerializeField] private BooleanVariable isOffBannerVariable;
@@ -34,7 +34,7 @@ public class AdsManager : BaseMono
 
     private void Start()
     {
-        adManagerVariable.Value = this;
+        AppControlAds.Init(this);
         ResetCounter();
     }
 

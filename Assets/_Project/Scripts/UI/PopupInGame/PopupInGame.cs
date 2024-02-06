@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TheBeginning.AppControl;
 using TMPro;
 using UnityEngine;
 using VirtueSky.Events;
@@ -31,10 +32,6 @@ public class PopupInGame : UIPopup
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable indexLevelVariable;
 
-    [SerializeField] private AdManagerVariable adManagerVariable;
-
-    [SerializeField] private BooleanVariable isTestingVariable;
-
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
 
 
@@ -64,14 +61,7 @@ public class PopupInGame : UIPopup
 
     public void OnClickReplay()
     {
-        if (isTestingVariable.Value)
-        {
-            replayEvent.Raise();
-        }
-        else
-        {
-            adManagerVariable.Value.ShowInterstitial(() => { replayEvent.Raise(); });
-        }
+        AppControlAds.ShowInterstitial(() => { replayEvent.Raise(); });
     }
 
     public void OnClickPrevious()
@@ -81,14 +71,7 @@ public class PopupInGame : UIPopup
 
     public void OnClickSkip()
     {
-        if (isTestingVariable.Value)
-        {
-            nextLevelEvent.Raise();
-        }
-        else
-        {
-            adManagerVariable.Value.ShowRewardAds(() => { nextLevelEvent.Raise(); });
-        }
+        AppControlAds.ShowReward(() => { nextLevelEvent.Raise(); });
     }
 
     public void OnClickLose()

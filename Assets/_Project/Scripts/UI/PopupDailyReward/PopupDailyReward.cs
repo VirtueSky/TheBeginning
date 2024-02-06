@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using PrimeTween;
+using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
@@ -15,7 +16,6 @@ public class PopupDailyReward : UIPopup
     [SerializeField] private EventNoParam claimRewardEvent;
     [SerializeField] private BooleanVariable isTestingVariable;
     [SerializeField] private GameObject btnNextDay;
-    [SerializeField] private AdManagerVariable adManagerVariable;
     [ReadOnly] public DailyRewardItem CurrentItem;
     public List<DailyRewardItem> DailyRewardItems => GetComponentsInChildren<DailyRewardItem>().ToList();
 
@@ -93,7 +93,7 @@ public class PopupDailyReward : UIPopup
 
     public void OnClickBtnClaimX5Video()
     {
-        adManagerVariable.Value.ShowRewardAds(() => { CurrentItem.OnClaim(true); });
+        AppControlAds.ShowReward(() => { CurrentItem.OnClaim(true); });
     }
 
     public void OnClickBtnClaim()

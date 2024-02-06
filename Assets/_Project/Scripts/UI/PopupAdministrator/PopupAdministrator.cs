@@ -1,4 +1,5 @@
 using PrimeTween;
+using TheBeginning.AppControl;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +26,6 @@ public class PopupAdministrator : UIPopup
 
     [SerializeField] private IntegerVariable indexLevelVariable;
     [SerializeField] private IntegerVariable currencyVariable;
-    [SerializeField] private AdManagerVariable adManagerVariable;
     [SerializeField] private ItemConfig itemConfig;
     [SerializeField] private EventNoParam showConsentOption;
     [SerializeField] private BooleanVariable gdpr_required_variable;
@@ -72,22 +72,22 @@ public class PopupAdministrator : UIPopup
 
     public void OnClickShowBanner()
     {
-        adManagerVariable.Value.ShowBanner();
+        AppControlAds.ShowBanner();
     }
 
     public void OnClickHideBanner()
     {
-        adManagerVariable.Value.HideBanner();
+        AppControlAds.HideBanner();
     }
 
     public void OnClickShowInter()
     {
-        adManagerVariable.Value.ShowInterstitial();
+        AppControlAds.ShowInterstitial();
     }
 
     public void OnClickShowReward()
     {
-        adManagerVariable.Value.ShowRewardAds();
+        AppControlAds.ShowReward();
     }
 
     public void OnClickUnlockAllSkins()
