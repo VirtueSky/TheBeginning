@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -184,7 +184,6 @@ MonoBehaviour:
   - {fileID: 8175076033157189046, guid: 587f3ae9e6583c641af7334c3e7cd01e, type: 3}
   - {fileID: 3056728832346780796, guid: 65181ee735119bf47a143625bf9b01bc, type: 3}
   - {fileID: 7338174430931127897, guid: 0a7d626686eff674c9417735b945d004, type: 3}
-  popupVariable: {fileID: 11400000, guid: aab7cadf21951934aa742ce00583e5ac, type: 2}
   pathPopup: Assets/_Project/Prefabs/Popup/
 --- !u!1 &1406708707
 GameObject:
@@ -799,7 +798,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: ads_manager
-  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
   gameStateVariable: {fileID: 11400000, guid: 00d1914409592564ea7ca3f861a30d8e, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   isOffInterAdsVariable: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f,
@@ -818,6 +816,16 @@ MonoBehaviour:
     type: 2}
   remoteConfigOnOffBanner: {fileID: 11400000, guid: 656bf5dbd6eb94f4c9cebcd2a196bd11,
     type: 2}
+  logEventRequestInter: {fileID: 11400000, guid: 7be70904d601ae049a3e7c391bf9b8a0,
+    type: 2}
+  logEventShowInterCompleted: {fileID: 11400000, guid: ba87dfc0db173264684b04d7e1ab239d,
+    type: 2}
+  logEventRequestReward: {fileID: 11400000, guid: b91c2b3e7f3f00b438e54856c4523deb,
+    type: 2}
+  logEventShowRewardCompleted: {fileID: 11400000, guid: 5b8e3fd403b4ad44d99d8673194f90ef,
+    type: 2}
+  logEventShowBanner: {fileID: 11400000, guid: 365179b152680ac43a296e15c48c16f2, type: 2}
+  logEventHideBanner: {fileID: 11400000, guid: 1246316147a4da84bb6feb9e27ac21e9, type: 2}
   banner: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
   inter: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}
   reward: {fileID: 11400000, guid: 863862f250bdb42ccaba78e46eb83840, type: 2}
