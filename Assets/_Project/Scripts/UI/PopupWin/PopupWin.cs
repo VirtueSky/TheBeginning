@@ -64,12 +64,12 @@ public class PopupWin : UIPopup
 
     private void SetupProgressBar()
     {
-        ProcessBar.fillAmount = (float)Data.PercentWinGift / 100;
-        Data.PercentWinGift += gameConfig.PercentWinGiftPerLevel;
-        Percent = (float)Data.PercentWinGift;
-        if (Data.PercentWinGift == 100)
+        ProcessBar.fillAmount = (float)UserData.PercentWinGift / 100;
+        UserData.PercentWinGift += gameConfig.PercentWinGiftPerLevel;
+        Percent = (float)UserData.PercentWinGift;
+        if (UserData.PercentWinGift == 100)
         {
-            Data.PercentWinGift = 0;
+            UserData.PercentWinGift = 0;
         }
     }
 

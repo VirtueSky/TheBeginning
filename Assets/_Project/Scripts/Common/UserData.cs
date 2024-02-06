@@ -1,7 +1,7 @@
 using System;
 using VirtueSky.DataStorage;
 
-public static partial class Data
+public struct UserData
 {
     #region GAME_DATA
 
@@ -123,10 +123,7 @@ public static partial class Data
     }
 
     #endregion
-}
 
-public static partial class Data
-{
     private static T Get<T>(string key, T defaultValue = default) => GameData.Get(key, defaultValue);
     private static void Set<T>(string key, T data) => GameData.Set(key, data);
 }

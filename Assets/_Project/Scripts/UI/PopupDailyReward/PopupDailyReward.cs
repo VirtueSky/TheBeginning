@@ -29,10 +29,10 @@ public class PopupDailyReward : UIPopup
 
     public void ResetDailyReward()
     {
-        if (!Data.IsClaimedTodayDailyReward() && Data.DailyRewardDayIndex == 29)
+        if (!UserData.IsClaimedTodayDailyReward() && UserData.DailyRewardDayIndex == 29)
         {
-            Data.DailyRewardDayIndex = 1;
-            Data.IsStartLoopingDailyReward = true;
+            UserData.DailyRewardDayIndex = 1;
+            UserData.IsStartLoopingDailyReward = true;
         }
     }
 
@@ -50,7 +50,7 @@ public class PopupDailyReward : UIPopup
 
     private bool IsCurrentItem(int index)
     {
-        return Data.DailyRewardDayIndex == index;
+        return UserData.DailyRewardDayIndex == index;
     }
 
     public void Setup()
@@ -60,8 +60,8 @@ public class PopupDailyReward : UIPopup
 
     private void SetUpItems()
     {
-        var week = (Data.DailyRewardDayIndex - 1) / 7;
-        if (Data.IsClaimedTodayDailyReward()) week = (Data.DailyRewardDayIndex - 2) / 7;
+        var week = (UserData.DailyRewardDayIndex - 1) / 7;
+        if (UserData.IsClaimedTodayDailyReward()) week = (UserData.DailyRewardDayIndex - 2) / 7;
 
         for (var i = 0; i < 7; i++)
         {
@@ -102,7 +102,7 @@ public class PopupDailyReward : UIPopup
 
     public void OnClickNextDay()
     {
-        Data.LastDailyRewardClaimed = DateTime.Now.AddDays(-1).ToString();
+        UserData.LastDailyRewardClaimed = DateTime.Now.AddDays(-1).ToString();
         ResetDailyReward();
         Setup();
         //Observer.OnNotifying?.Invoke();

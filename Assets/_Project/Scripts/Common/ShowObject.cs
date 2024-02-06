@@ -47,7 +47,7 @@ public class ShowObject : MonoBehaviour
     {
         bool testingCondition = !IsShowByTesting || (IsShowByTesting && isTestingVariable);
         bool levelCondition = !IsShowByLevel || (IsShowByLevel && IsLevelInLevelsShow());
-        bool timeCondition = !IsShowByTime || (IsShowByTime && Data.GetNumberShowGameObject(ShowID) <= MaxTimeShow);
+        bool timeCondition = !IsShowByTime || (IsShowByTime && UserData.GetNumberShowGameObject(ShowID) <= MaxTimeShow);
         return testingCondition && levelCondition && timeCondition;
     }
 
@@ -61,7 +61,7 @@ public class ShowObject : MonoBehaviour
         if (DelayShowTime > 0) gameObject.SetActive(false);
         DOTween.Sequence().AppendInterval(DelayShowTime).AppendCallback(() =>
         {
-            if (IsShowByTime) Data.IncreaseNumberShowGameObject(ShowID);
+            if (IsShowByTime) UserData.IncreaseNumberShowGameObject(ShowID);
             gameObject.SetActive(EnableToShow());
         });
     }
