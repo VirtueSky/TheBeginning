@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf7fd915596441e97e1ada0052356b4, type: 3}
   m_Name: LevelSystemEditorSetting
   m_EditorClassIdentifier: 
-  whitelistPaths:
-  - Assets/_Project/Prefabs
+  whitelistPaths: []
   blacklistPaths: []
