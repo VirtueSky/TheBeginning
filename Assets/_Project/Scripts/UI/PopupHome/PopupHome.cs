@@ -8,6 +8,13 @@ public class PopupHome : UIPopup
     [SerializeField] private StringEvent changeSceneEvent;
     [SerializeField] private GameObject buttonAdmin;
     [SerializeField] private Vector3Variable posInOutPopupAdmin;
+    [SerializeField] private GameConfig gameConfig;
+
+    protected override void OnBeforeShow()
+    {
+        base.OnBeforeShow();
+        buttonAdmin.SetActive(gameConfig.enableAdministrator);
+    }
 
     public void OnClickStartGame()
     {

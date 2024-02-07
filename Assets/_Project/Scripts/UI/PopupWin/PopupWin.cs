@@ -33,7 +33,7 @@ public class PopupWin : UIPopup
     private float percent = 0;
 
     //   private Tween tween;
-    public int MoneyWin => gameConfig.WinLevelMoney;
+    public int MoneyWin => gameConfig.winLevelMoney;
 
 
     public float Percent
@@ -65,7 +65,7 @@ public class PopupWin : UIPopup
     private void SetupProgressBar()
     {
         ProcessBar.fillAmount = (float)UserData.PercentWinGift / 100;
-        UserData.PercentWinGift += gameConfig.PercentWinGiftPerLevel;
+        UserData.PercentWinGift += gameConfig.percentWinGiftPerLevel;
         Percent = (float)UserData.PercentWinGift;
         if (UserData.PercentWinGift == 100)
         {

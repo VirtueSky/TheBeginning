@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c6dd8ae2ee1da4db653e7719b669f5, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  DurationPopup: 0.25
-  WatchAdsMoney: 1000
-  LevelLoopType: 0
-  MaxLevel: 1
-  StartLoopLevel: 1
-  WinLevelMoney: 100
-  PercentWinGiftPerLevel: 10
+  levelLoopType: 0
+  maxLevel: 2
+  startLoopLevel: 0
+  enableAdministrator: 0
+  targetFrameRate: 60
+  winLevelMoney: 100
+  percentWinGiftPerLevel: 10
