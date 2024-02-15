@@ -21,22 +21,22 @@ public class LevelController : MonoBehaviour
             Destroy(currentLevel.gameObject);
         }
 
-        if (indexLevel > gameConfig.MaxLevel)
+        if (indexLevel > gameConfig.maxLevel)
         {
-            indexLevel = (indexLevel - gameConfig.StartLoopLevel) %
-                         (gameConfig.MaxLevel - gameConfig.StartLoopLevel + 1) +
-                         gameConfig.StartLoopLevel;
+            indexLevel = (indexLevel - gameConfig.startLoopLevel) %
+                         (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
+                         gameConfig.startLoopLevel;
         }
         else
         {
-            if (gameConfig.LevelLoopType == LevelLoopType.NormalLoop)
+            if (gameConfig.levelLoopType == LevelLoopType.NormalLoop)
             {
-                indexLevel = (indexLevel - 1) % gameConfig.MaxLevel + 1;
+                indexLevel = (indexLevel - 1) % gameConfig.maxLevel + 1;
             }
-            else if (gameConfig.LevelLoopType == LevelLoopType.RandomLoop)
+            else if (gameConfig.levelLoopType == LevelLoopType.RandomLoop)
             {
                 indexLevel =
-                    UnityEngine.Random.Range(gameConfig.StartLoopLevel, gameConfig.MaxLevel);
+                    UnityEngine.Random.Range(gameConfig.startLoopLevel, gameConfig.maxLevel);
             }
         }
 

@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
+  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
 --- !u!114 &1448091012
 MonoBehaviour:
   m_ObjectHideFlags: 0

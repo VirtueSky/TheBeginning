@@ -1,7 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using VirtueSky.Core;
-using VirtueSky.Notifications;
 using VirtueSky.ObjectPooling;
 using VirtueSky.Vibration;
 
@@ -10,11 +7,11 @@ namespace TheBeginning.Services
     public class InitService : MonoBehaviour
     {
         [SerializeField] private Pools pools;
-
+        [SerializeField] private GameConfig gameConfig;
 
         private void Awake()
         {
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = (int)gameConfig.targetFrameRate;
             pools.Initialize();
             Vibration.Init();
         }

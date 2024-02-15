@@ -1,23 +1,32 @@
-
 using UnityEngine;
+using VirtueSky.Inspector;
+using VirtueSky.Utils;
 
 [CreateAssetMenu(fileName = "GameConfig", menuName = "ScriptableObject/GameConfig")]
 public class GameConfig : ScriptableObject
 {
-    [Header("UI config")]
-    public float DurationPopup = .5f;
-    public int WatchAdsMoney = 1000;
-    [Header("Level config")] 
-    public LevelLoopType LevelLoopType;
-    public int MaxLevel = 2;
-    public int StartLoopLevel;
-    [Header("Gameplay config")]
-    public int WinLevelMoney = 100;
-    public int PercentWinGiftPerLevel = 10;
+    [Space, HeaderLine("Level config")] public LevelLoopType levelLoopType;
+
+    public int maxLevel = 2;
+    public int startLoopLevel;
+
+    [Space, HeaderLine("Gameplay config")] public bool enableAdministrator = true;
+
+    public TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
+    public int winLevelMoney = 100;
+    public int percentWinGiftPerLevel = 10;
 }
 
 public enum LevelLoopType
 {
     NormalLoop,
     RandomLoop,
+}
+
+public enum TargetFrameRate
+{
+    ByDevice = -1,
+    Frame60 = 60,
+    Frame120 = 120,
+    Frame240 = 240
 }

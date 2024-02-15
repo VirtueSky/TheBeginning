@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PrimeTween;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
@@ -13,6 +14,7 @@ public class OffUI : MonoBehaviour
 
     private void OnEnable()
     {
+        GetComponentUI();
         isOffUIVariable.AddListener(Setup);
         Setup(isOffUIVariable.Value);
     }
