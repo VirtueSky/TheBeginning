@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using PrimeTween;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
@@ -32,7 +31,7 @@ public class OffUI : MonoBehaviour
             graphic.Alpha(isOff ? 0 : 1, 0);
         }
     }
-#if UNITY_EDITOR
+
     [Button]
     void GetComponentUI()
     {
@@ -46,7 +45,7 @@ public class OffUI : MonoBehaviour
             }
         }
     }
-
+#if UNITY_EDITOR
     private void Reset()
     {
         GetComponentUI();

@@ -1338,7 +1338,6 @@ GameObject:
   - component: {fileID: 756918302851769985}
   - component: {fileID: 756918302859479393}
   - component: {fileID: 1020086157003376528}
-  - component: {fileID: 2349898362573968194}
   - component: {fileID: 652836041985312285}
   m_Layer: 0
   m_Name: SimplePeople_Man_Business_Brown
@@ -1410,19 +1409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Animator: {fileID: 756918302859479393}
   _ActionOnDisable: 0
---- !u!114 &2349898362573968194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756918302852201121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db29341a26a3479d8049f30d15cf94c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animancer: {fileID: 1020086157003376528}
 --- !u!114 &652836041985312285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1435,7 +1421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba93646767eaa648bb847e7ebce459f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playAnimByAnimancer: {fileID: 2349898362573968194}
+  animancerComponent: {fileID: 1020086157003376528}
   idle:
     _FadeDuration: 0.25
     _Events:
@@ -2188,8 +2174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45dd11d646118348b4f2e994976c4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevelVariable: {fileID: 11400000, guid: 0831a7fe584c5b14992d9b60208b5160,
-    type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
 --- !u!1001 &7516544412685454116
 PrefabInstance:
