@@ -1,11 +1,11 @@
-using System;
 using Animancer;
 using UnityEngine;
 using VirtueSky.Events;
+using VirtueSky.Misc;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] PlayAnimByAnimancer playAnimByAnimancer;
+    [SerializeField] private AnimancerComponent animancerComponent;
     [SerializeField] private ClipTransition idle;
     [SerializeField] private ClipTransition run;
     [SerializeField] private ClipTransition walk;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayAnimCharacter(string animName)
     {
-        playAnimByAnimancer.PlayAnim(GetClipTransition(animName));
+        animancerComponent.PlayAnim(GetClipTransition(animName));
     }
 
     public ClipTransition GetClipTransition(string animName)
