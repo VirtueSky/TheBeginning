@@ -13,7 +13,7 @@ public class TheBeginningWindow : EditorWindow
     private GameConfig _gameConfig;
     private Vector2 _scrollPosition;
 
-    [MenuItem("The Beginning/Open GameConfig %G")]
+    [MenuItem("The Beginning/Open GameConfig %`")]
     public static void OpenGameConfigWindow()
     {
         GameConfig gameConfig = AssetUtils.FindAssetAtFolder<GameConfig>(new string[] { "Assets" }).FirstOrDefault();
