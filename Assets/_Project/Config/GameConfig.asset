@@ -15,7 +15,7 @@ MonoBehaviour:
   levelLoopType: 0
   maxLevel: 2
   startLoopLevel: 0
-  enableAdministrator: 0
+  enableAdministrator: 1
   targetFrameRate: 60
   winLevelMoney: 100
   percentWinGiftPerLevel: 10

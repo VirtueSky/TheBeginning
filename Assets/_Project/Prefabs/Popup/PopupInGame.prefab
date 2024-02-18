@@ -2721,9 +2721,18 @@ MonoBehaviour:
   useShowAnimation: 0
   showAnimationType: 0
   durationShowPopup: 0
+  showMovePopup: 0
+  offsetShowMove: 0
+  scaleFromShow: {x: 0.5, y: 0.5, z: 0.5}
+  eulerAngleShowFrom: {x: 0, y: 180, z: 0}
+  pointShowPos: {fileID: 0}
   useHideAnimation: 0
   hideAnimationType: 0
   durationHidePopup: 0
+  hideMovePopup: 0
+  offsetHideMove: 0
+  scaleFromHide: {x: 0, y: 0, z: 0}
+  pointHidePos: {fileID: 0}
   LevelText: {fileID: 5242133268829020740}
   LevelTypeText: {fileID: 4088022423889664445}
   replayEvent: {fileID: 11400000, guid: 89e0f5f9de74ebd479ff2d6cb05894e3, type: 2}
@@ -2735,8 +2744,6 @@ MonoBehaviour:
   playAnimCharacterEvent: {fileID: 11400000, guid: a7632e21ca2f4c644a5d462eea3b18b5,
     type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
-  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
-  isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
 --- !u!114 &9141098031787605229
 MonoBehaviour:
   m_ObjectHideFlags: 0

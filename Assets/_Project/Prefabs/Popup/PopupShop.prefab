@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09edf4ad864147a9bd2de10bb1a5c654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   ConformX: 1
   ConformY: 1
   Logging: 0
@@ -295,13 +296,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
-  UseAnimation: 0
-  Background: {fileID: 0}
-  Container: {fileID: 0}
-  UseShowAnimation: 0
-  ShowAnimationType: 0
-  UseHideAnimation: 0
-  HideAnimationType: 0
+  useAnimation: 0
+  background: {fileID: 0}
+  container: {fileID: 0}
+  useShowAnimation: 0
+  showAnimationType: 0
+  durationShowPopup: 0.5
+  showMovePopup: 0
+  offsetShowMove: 0
+  scaleFromShow: {x: 0.5, y: 0.5, z: 0.5}
+  eulerAngleShowFrom: {x: 0, y: 180, z: 0}
+  pointShowPos: {fileID: 0}
+  useHideAnimation: 0
+  hideAnimationType: 0
+  durationHidePopup: 0.5
+  hideMovePopup: 0
+  offsetHideMove: 0
+  scaleFromHide: {x: 0, y: 0, z: 0}
+  pointHidePos: {fileID: 0}
 --- !u!1 &7536292437439048616
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,8 +448,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 86e93bd274a5742328e32f5f6fb45cdf, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &8722397669771440195
 GameObject:
   m_ObjectHideFlags: 0

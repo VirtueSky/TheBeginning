@@ -397,6 +397,8 @@ MonoBehaviour:
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
   useAnimation: 0
+  background: {fileID: 0}
+  container: {fileID: 0}
   useShowAnimation: 0
   showAnimationType: 0
   durationShowPopup: 0

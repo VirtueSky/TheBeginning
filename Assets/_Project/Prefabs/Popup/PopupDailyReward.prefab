@@ -2107,6 +2107,8 @@ MonoBehaviour:
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
   useAnimation: 1
+  background: {fileID: 87697190871830783}
+  container: {fileID: 65604307107627601}
   useShowAnimation: 1
   showAnimationType: 2
   durationShowPopup: 0.5
