@@ -5,10 +5,10 @@ using VirtueSky.Variables;
 
 public class PopupHome : UIPopup
 {
-    [SerializeField] private StringEvent changeSceneEvent;
     [SerializeField] private GameObject buttonAdmin;
     [SerializeField] private Vector3Variable posInOutPopupAdmin;
     [SerializeField] private GameConfig gameConfig;
+    [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
 
     protected override void OnBeforeShow()
     {
@@ -18,7 +18,7 @@ public class PopupHome : UIPopup
 
     public void OnClickStartGame()
     {
-        changeSceneEvent.Raise(Constant.GAME_SCENE);
+        callPlayCurrentLevelEvent.Raise();
     }
 
     public void OnClickSetting()

@@ -418,6 +418,8 @@ MonoBehaviour:
   buttonAdmin: {fileID: 7501070212512654100}
   posInOutPopupAdmin: {fileID: 11400000, guid: 2d22aacd171c2614bb668288eddf283c, type: 2}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  callPlayCurrentLevelEvent: {fileID: 11400000, guid: 2728698185b78224ea0bf86a5e6b2455,
+    type: 2}
 --- !u!1 &7501070212512654100
 GameObject:
   m_ObjectHideFlags: 0

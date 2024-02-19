@@ -2736,7 +2736,8 @@ MonoBehaviour:
   LevelText: {fileID: 5242133268829020740}
   LevelTypeText: {fileID: 4088022423889664445}
   replayEvent: {fileID: 11400000, guid: 89e0f5f9de74ebd479ff2d6cb05894e3, type: 2}
-  changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
+  callReturnHomeEvent: {fileID: 11400000, guid: 72e1278f13c74f54aba93f103dcb68b0,
+    type: 2}
   nextLevelEvent: {fileID: 11400000, guid: 7a6969beee2c34a49a706b403a8a6e31, type: 2}
   backLevelEvent: {fileID: 11400000, guid: 9cc98c82176f3fa4e9684e9f20c64999, type: 2}
   winLevelEvent: {fileID: 11400000, guid: 8bb823675099e1844a9226562cd403df, type: 2}

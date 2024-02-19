@@ -3,6 +3,7 @@ using System.Linq;
 using TheBeginning.AppControl;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
@@ -18,8 +19,7 @@ public class PopupInGame : UIPopup
     [HeaderLine(Constant.SO_Event)] [SerializeField]
     private EventNoParam replayEvent;
 
-    [SerializeField] private StringEvent changeSceneEvent;
-
+    [SerializeField] private EventNoParam callReturnHomeEvent;
     [SerializeField] private EventNoParam nextLevelEvent;
 
     [SerializeField] private EventNoParam backLevelEvent;
@@ -56,7 +56,7 @@ public class PopupInGame : UIPopup
 
     public void OnClickHome()
     {
-        changeSceneEvent.Raise(Constant.HOME_SCENE);
+        callReturnHomeEvent.Raise();
     }
 
     public void OnClickReplay()

@@ -5,9 +5,10 @@ using Debug = System.Diagnostics.Debug;
 
 public class LevelController : MonoBehaviour
 {
-    [ReadOnly] public Level currentLevel;
+    [ReadOnly] [SerializeField] private Level currentLevel;
     [SerializeField] private IntegerVariable currentIndexLevel;
     [SerializeField] private GameConfig gameConfig;
+    public Level CurrentLevel => currentLevel;
 
     public void PrepareLevel()
     {
@@ -42,7 +43,12 @@ public class LevelController : MonoBehaviour
 
         Level level = GetLevelByIndex(indexLevel);
         currentLevel = Instantiate(level);
-        currentLevel.gameObject.SetActive(false);
+        ActiveCurrentLevel(false);
+    }
+
+    public void ActiveCurrentLevel(bool active)
+    {
+        currentLevel.gameObject.SetActive(active);
     }
 
     public Level GetLevelByIndex(int indexLevel)
