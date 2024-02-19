@@ -67,14 +67,7 @@ public class TheBeginningWindow : EditorWindow
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("The Beginning/Open Scene/Home Scene %F3")]
-    public static void OpenHomeScene()
-    {
-        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.HOME_SCENE}.unity");
-        Debug.Log($"<color=Green>Change scene succeed</color>");
-    }
-
-    [MenuItem("The Beginning/Open Scene/Game Scene %F4")]
+    [MenuItem("The Beginning/Open Scene/Game Scene %F3")]
     public static void OpenGameScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAME_SCENE}.unity");
