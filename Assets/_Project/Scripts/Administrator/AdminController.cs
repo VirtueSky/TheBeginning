@@ -27,6 +27,8 @@ public class AdminController : MonoBehaviour
     [SerializeField] private TMP_InputField inputFieldLevel;
     [SerializeField] private Button btnNextLevel;
     [SerializeField] private Button btnPrevLevel;
+    [SerializeField] private Button btnWinLevel;
+    [SerializeField] private Button btnLoseLevel;
     [SerializeField] private Button btnJumpToLevel;
     [SerializeField] private Button btnEnterCurrency;
     [SerializeField] private Button btnAddCurrency;
@@ -51,6 +53,8 @@ public class AdminController : MonoBehaviour
     [SerializeField] private GameStateVariable gameStateVariable;
     [SerializeField] private EventNoParam callNextLevelEvent;
     [SerializeField] private EventNoParam callPreviousLevelEvent;
+    [SerializeField] private FloatEvent callWinLevelEvent;
+    [SerializeField] private FloatEvent callLoseLevelEvent;
 
     private void Awake()
     {
@@ -74,6 +78,8 @@ public class AdminController : MonoBehaviour
         btnShowHideAdmin.onClick.AddListener(OnClickShowHideAdmin);
         btnNextLevel.onClick.AddListener(OnClickNextLevel);
         btnPrevLevel.onClick.AddListener(OnClickPreviousLevel);
+        btnWinLevel.onClick.AddListener(OnClickWinLevel);
+        btnLoseLevel.onClick.AddListener(OnClickLoseLevel);
         // toggle
         toggleOffUI.onValueChanged.AddListener(OnChangeOffUI);
         toggleIsTesting.onValueChanged.AddListener(OnChangeOffIsTesting);
@@ -97,6 +103,8 @@ public class AdminController : MonoBehaviour
         btnShowHideAdmin.onClick.RemoveListener(OnClickShowHideAdmin);
         btnNextLevel.onClick.RemoveListener(OnClickNextLevel);
         btnPrevLevel.onClick.RemoveListener(OnClickPreviousLevel);
+        btnWinLevel.onClick.RemoveListener(OnClickWinLevel);
+        btnLoseLevel.onClick.RemoveListener(OnClickLoseLevel);
         // toggle
         toggleOffUI.onValueChanged.RemoveListener(OnChangeOffUI);
         toggleIsTesting.onValueChanged.RemoveListener(OnChangeOffIsTesting);
@@ -126,9 +134,11 @@ public class AdminController : MonoBehaviour
 
         btnNextLevel.gameObject.SetActive(gameStateVariable.Value == GameState.PlayingGame);
         btnPrevLevel.gameObject.SetActive(gameStateVariable.Value == GameState.PlayingGame);
+        btnWinLevel.gameObject.SetActive(gameStateVariable.Value == GameState.PlayingGame);
+        btnLoseLevel.gameObject.SetActive(gameStateVariable.Value == GameState.PlayingGame);
     }
 
-    public void OnClickJumpToLevel()
+     void OnClickJumpToLevel()
     {
         if (inputFieldLevel.text != "")
         {
@@ -139,7 +149,7 @@ public class AdminController : MonoBehaviour
         callPlayCurrentLevelEvent.Raise();
     }
 
-    public void OnClickEnterCurrency()
+     void OnClickEnterCurrency()
     {
         if (inputFieldCurrency.text != "")
         {
@@ -149,32 +159,32 @@ public class AdminController : MonoBehaviour
         inputFieldCurrency.text = "";
     }
 
-    public void OnClickAdd10000Coin()
+     void OnClickAdd10000Coin()
     {
         currencyVariable.Value += 10000;
     }
 
-    public void OnClickShowBanner()
+     void OnClickShowBanner()
     {
         AppControlAds.ShowBanner();
     }
 
-    public void OnClickHideBanner()
+     void OnClickHideBanner()
     {
         AppControlAds.HideBanner();
     }
 
-    public void OnClickShowInter()
+     void OnClickShowInter()
     {
         AppControlAds.ShowInterstitial();
     }
 
-    public void OnClickShowReward()
+     void OnClickShowReward()
     {
         AppControlAds.ShowReward();
     }
 
-    public void OnClickUnlockAllSkins()
+     void OnClickUnlockAllSkins()
     {
         itemConfig.UnlockAllSkins();
     }
@@ -189,37 +199,47 @@ public class AdminController : MonoBehaviour
         callPreviousLevelEvent.Raise();
     }
 
-    public void OnChangeOffIsTesting(bool isOn)
+    void OnClickWinLevel()
+    {
+        callWinLevelEvent.Raise(1.5f);
+    }
+
+    void OnClickLoseLevel()
+    {
+        callLoseLevelEvent.Raise(1.5f);
+    }
+
+     void OnChangeOffIsTesting(bool isOn)
     {
         isTestingVariable.Value = isOn;
     }
 
-    public void OnChangeOffInter(bool isOn)
+     void OnChangeOffInter(bool isOn)
     {
         isOffInterAds.Value = isOn;
     }
 
-    public void OnChangeOffReward(bool isOn)
+     void OnChangeOffReward(bool isOn)
     {
         isOffRewardAds.Value = isOn;
     }
 
-    public void OnChangeOffBanner(bool isOn)
+     void OnChangeOffBanner(bool isOn)
     {
         isOffBannerAds.Value = isOn;
     }
 
-    public void OnChangeOffUI(bool isOn)
+     void OnChangeOffUI(bool isOn)
     {
         isOffUIVariable.Value = isOn;
     }
 
-    public void OnClickModifyConsent()
+     void OnClickModifyConsent()
     {
         showConsentOption.Raise();
     }
 
-    public void OnClickShowHideAdmin()
+     void OnClickShowHideAdmin()
     {
         if (isShow)
         {
