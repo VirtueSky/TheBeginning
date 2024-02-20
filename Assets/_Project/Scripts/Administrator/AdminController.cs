@@ -166,22 +166,22 @@ public class AdminController : MonoBehaviour
 
      void OnClickShowBanner()
     {
-        AppControlAds.ShowBanner();
+        AppControlAds.AdUnitBanner.Show();
     }
 
      void OnClickHideBanner()
     {
-        AppControlAds.HideBanner();
+        AppControlAds.AdUnitBanner.Destroy();
     }
 
      void OnClickShowInter()
     {
-        AppControlAds.ShowInterstitial();
+        AppControlAds.AdUnitInter.Show();
     }
 
      void OnClickShowReward()
     {
-        AppControlAds.ShowReward();
+        AppControlAds.AdUnitReward.Show();
     }
 
      void OnClickUnlockAllSkins()

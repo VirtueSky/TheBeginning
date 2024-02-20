@@ -3997,7 +3997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hide Reward
+  m_text: Show Reward
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d15ab71442963c47b22b47460111e35, type: 2}
   m_sharedMaterial: {fileID: 3604630249188092411, guid: 8d15ab71442963c47b22b47460111e35,
