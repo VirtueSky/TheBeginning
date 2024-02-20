@@ -6385,7 +6385,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
-  isMotion: 1
+  isMotion: 0
   easingTypes: 15
   scale: 0.9
   isShrugOver: 0
