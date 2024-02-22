@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a309b01705464ada9f25949218237230, type: 3}
+  m_Script: {fileID: 11500000, guid: 797820d819bc40e585a07f1deeb9d3ce, type: 3}
   m_Name: play_sfx_event
   m_EditorClassIdentifier: 
-  id: play_sfx_event
+  id: 
   description: 

@@ -747,8 +747,8 @@ MonoBehaviour:
   eventResumeSfx: {fileID: 11400000, guid: 0c9c0ba53c2191b4b88fc7790baa18d7, type: 2}
   eventFinishSfx: {fileID: 11400000, guid: bdca07e605f03dd4fbc27aee541d6af7, type: 2}
   eventStopAllSfx: {fileID: 11400000, guid: c33040d4a44945c498c80a7b6b86dea9, type: 2}
-  musicVolume: {fileID: 11400000, guid: ccb25c5ccf4e8924db7fb73d222ce616, type: 2}
-  sfxVolume: {fileID: 11400000, guid: 83171e3aba8056847a4bdefe1c1337e3, type: 2}
+  musicVolume: {fileID: 11400000, guid: a2515349c2fd2954ea4a7402e6ae7a56, type: 2}
+  sfxVolume: {fileID: 11400000, guid: d20f4bfda1887fd49927d5a7d74a8c37, type: 2}
 --- !u!1 &5214855709318237048
 GameObject:
   m_ObjectHideFlags: 0
