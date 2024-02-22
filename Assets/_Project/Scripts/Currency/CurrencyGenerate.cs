@@ -4,12 +4,10 @@ using System.Threading.Tasks;
 using PrimeTween;
 using UnityEngine;
 using VirtueSky.Core;
-using VirtueSky.ObjectPooling;
 using Random = UnityEngine.Random;
 
 public class CurrencyGenerate : BaseMono
 {
-    [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Vector3 from = Vector3.zero;
     [SerializeField] private GameObject to;
     [SerializeField] private int numberCoin;
@@ -20,7 +18,8 @@ public class CurrencyGenerate : BaseMono
     [SerializeField] private Ease easeTarget;
     [SerializeField] private float scale = 1;
     [SerializeField] private float offsetNear = 1;
-    [SerializeField] private Pools pools;
+    [SerializeField] private CurrencyPool currencyPool;
+
     private System.Action moveOneCoinDone;
     private bool isScaleIconTo = false;
 
@@ -53,7 +52,7 @@ public class CurrencyGenerate : BaseMono
         for (int i = 0; i < this.numberCoin; i++)
         {
             await Task.Delay(Random.Range(0, delay));
-            GameObject coin = pools.Spawn(coinPrefab, transform);
+            GameObject coin = currencyPool.Spawn(transform);
             coin.transform.localScale = Vector3.one * scale;
             coinsActive.Add(coin);
             coin.transform.position = from;
@@ -70,7 +69,7 @@ public class CurrencyGenerate : BaseMono
         MoveToTarget(coin, () =>
         {
             coinsActive.Remove(coin);
-            pools.Despawn(coin);
+            currencyPool.DeSpawn(coin);
             if (!isScaleIconTo)
             {
                 isScaleIconTo = true;
@@ -112,9 +111,6 @@ public class CurrencyGenerate : BaseMono
         Vector3 currentScale = Vector3.one;
         Vector3 nextScale = currentScale + new Vector3(.1f, .1f, .1f);
         to.transform.DOScale(nextScale, durationTarget).SetEase(Ease.OutBack)
-            .OnComplete((() =>
-            {
-                to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack);
-            }));
+            .OnComplete((() => { to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack); }));
     }
 }
