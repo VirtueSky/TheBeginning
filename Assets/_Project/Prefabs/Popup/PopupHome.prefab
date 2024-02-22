@@ -414,7 +414,8 @@ MonoBehaviour:
   offsetHideMove: 0
   scaleFromHide: {x: 0, y: 0, z: 0}
   pointHidePos: {fileID: 0}
-  posInOutPopupAdmin: {fileID: 11400000, guid: 2d22aacd171c2614bb668288eddf283c, type: 2}
+  playMusicEvent: {fileID: 11400000, guid: 18db66017d2e88f458ea458ee4d3c244, type: 2}
+  musicHome: {fileID: 11400000, guid: e46a0c3dbf97eec40afc67e6f154643e, type: 2}
   callPlayCurrentLevelEvent: {fileID: 11400000, guid: 2728698185b78224ea0bf86a5e6b2455,
     type: 2}
 --- !u!1 &8069124292181931594

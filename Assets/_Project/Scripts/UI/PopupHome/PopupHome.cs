@@ -1,16 +1,19 @@
 using TheBeginning.AppControl;
 using UnityEngine;
+using UnityEngine.Serialization;
+using VirtueSky.Audio;
 using VirtueSky.Events;
-using VirtueSky.Variables;
 
 public class PopupHome : UIPopup
 {
-    [SerializeField] private Vector3Variable posInOutPopupAdmin;
+    [SerializeField] private EventAudioHandle playMusicEvent;
+    [SerializeField] private SoundData musicHome;
     [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
 
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
+        playMusicEvent.Raise(musicHome);
     }
 
     public void OnClickStartGame()

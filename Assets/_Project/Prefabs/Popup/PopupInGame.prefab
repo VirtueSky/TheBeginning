@@ -1009,7 +1009,6 @@ MonoBehaviour:
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   IsShowByTesting: 1
   IsShowByLevel: 0
-  IsShowByTime: 0
   DelayShowTime: 0
   currentLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6,
     type: 2}
@@ -1396,7 +1395,6 @@ MonoBehaviour:
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   IsShowByTesting: 1
   IsShowByLevel: 0
-  IsShowByTime: 0
   DelayShowTime: 0
   currentLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6,
     type: 2}
@@ -2509,7 +2507,6 @@ MonoBehaviour:
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   IsShowByTesting: 1
   IsShowByLevel: 0
-  IsShowByTime: 0
   DelayShowTime: 0
   currentLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6,
     type: 2}
@@ -2814,6 +2811,8 @@ MonoBehaviour:
   playAnimCharacterEvent: {fileID: 11400000, guid: a7632e21ca2f4c644a5d462eea3b18b5,
     type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
+  playMusicEvent: {fileID: 11400000, guid: 18db66017d2e88f458ea458ee4d3c244, type: 2}
+  musicInGame: {fileID: 11400000, guid: c721873213756ea45af30421766d418f, type: 2}
 --- !u!114 &9141098031787605229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3041,7 +3040,6 @@ MonoBehaviour:
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   IsShowByTesting: 1
   IsShowByLevel: 0
-  IsShowByTime: 0
   DelayShowTime: 0
   currentLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6,
     type: 2}
