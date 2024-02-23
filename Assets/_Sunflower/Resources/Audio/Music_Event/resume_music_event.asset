@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8ea13bce9145d098ed6b23efa482fa, type: 3}
   m_Name: resume_music_event
   m_EditorClassIdentifier: 
-  id: 
+  id: resume_music_event
   description: 

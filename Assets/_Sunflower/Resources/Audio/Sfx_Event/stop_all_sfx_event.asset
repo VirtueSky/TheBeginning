@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93775b3394ad4d82bdc5ccec6da042a8, type: 3}
   m_Name: stop_all_sfx_event
   m_EditorClassIdentifier: 
-  id: 
+  id: stop_all_sfx_event
   description: 

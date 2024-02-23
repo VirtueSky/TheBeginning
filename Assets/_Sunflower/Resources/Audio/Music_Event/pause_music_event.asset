@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6afe7f83f7204cc4863081a953b272fd, type: 3}
   m_Name: pause_music_event
   m_EditorClassIdentifier: 
-  id: 
+  id: pause_music_event
   description: 
