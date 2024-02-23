@@ -1,4 +1,3 @@
-using System;
 using CodeStage.AdvancedFPSCounter;
 using PrimeTween;
 using TheBeginning.AppControl;
@@ -10,7 +9,9 @@ using VirtueSky.Variables;
 
 public class GameManager : MonoBehaviour
 {
-    [HeaderLine(Constant.Normal_Attribute)]
+    [HeaderLine(Constant.Normal_Attribute)] [ReadOnly] [SerializeField]
+    private GameState gameState;
+
     public LevelController levelController;
 
     [SerializeField] private LogEventFirebaseOneParam logEventFirebaseStartLevel;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EventLevel eventSkipLevel;
     [SerializeField] private EventLevel eventReplayLevel;
 
+    [SerializeField] private EventNoParam callReturnHome;
     [SerializeField] private EventNoParam callReplayLevelEvent;
     [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
     [SerializeField] private EventNoParam callNextLevelEvent;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
         callPrepareLevelEvent.AddListener(PrepareLevel);
         callWinLevelEvent.AddListener(OnWinGame);
         callLoseLevelEvent.AddListener(OnLoseGame);
+        callReturnHome.AddListener(ReturnHome);
     }
 
     private void OnDisable()
@@ -63,30 +66,37 @@ public class GameManager : MonoBehaviour
         callPrepareLevelEvent.RemoveListener(PrepareLevel);
         callWinLevelEvent.RemoveListener(OnWinGame);
         callLoseLevelEvent.RemoveListener(OnLoseGame);
+        callReturnHome.RemoveListener(ReturnHome);
     }
 
     void Start()
     {
-        PlayCurrentLevel();
+        ReturnHome();
+    }
+
+    void ReturnHome()
+    {
+        GameState = GameState.Lobby;
+        AppControlPopup.Show<PopupHome>();
+        PrepareLevel();
     }
 
     public void PlayCurrentLevel()
     {
-        PrepareLevel();
         StartGame();
         AppControlPopup.Show<PopupInGame>();
     }
 
     public void PrepareLevel()
     {
-        gameStateVariable.Value = GameState.PrepareGame;
+        GameState = GameState.PrepareGame;
         levelController.PrepareLevel();
     }
 
     public void ReplayGame()
     {
-        eventReplayLevel.Raise(levelController.currentLevel);
-        logEventFirebaseReplayLevel.LogEvent(levelController.currentLevel.name);
+        eventReplayLevel.Raise(levelController.CurrentLevel);
+        logEventFirebaseReplayLevel.LogEvent(levelController.CurrentLevel.name);
         PrepareLevel();
         StartGame();
         AppControlPopup.Show<PopupInGame>();
@@ -105,7 +115,7 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        eventSkipLevel.Raise(levelController.currentLevel);
+        eventSkipLevel.Raise(levelController.CurrentLevel);
         indexLevelVariable.Value++;
         PrepareLevel();
         StartGame();
@@ -113,21 +123,21 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        gameStateVariable.Value = GameState.PlayingGame;
-        eventStartLevel.Raise(levelController.currentLevel);
-        levelController.currentLevel.gameObject.SetActive(true);
-        logEventFirebaseStartLevel.LogEvent(levelController.currentLevel.name);
+        GameState = GameState.PlayingGame;
+        eventStartLevel.Raise(levelController.CurrentLevel);
+        levelController.ActiveCurrentLevel(true);
+        logEventFirebaseStartLevel.LogEvent(levelController.CurrentLevel.name);
     }
 
     public void OnWinGame(float delayPopupShowTime = 2.5f)
     {
-        if (gameStateVariable.Value == GameState.WaitingResult ||
-            gameStateVariable.Value == GameState.LoseGame ||
-            gameStateVariable.Value == GameState.WinGame) return;
+        if (GameState == GameState.WaitingResult ||
+            GameState == GameState.LoseGame ||
+            GameState == GameState.WinGame) return;
 
-        gameStateVariable.Value = GameState.WinGame;
-        eventWinLevel.Raise(levelController.currentLevel);
-        logEventFirebaseWinLevel.LogEvent(levelController.currentLevel.name);
+        GameState = GameState.WinGame;
+        eventWinLevel.Raise(levelController.CurrentLevel);
+        logEventFirebaseWinLevel.LogEvent(levelController.CurrentLevel.name);
         Tween.Delay(delayPopupShowTime, () =>
         {
             indexLevelVariable.Value++;
@@ -138,12 +148,12 @@ public class GameManager : MonoBehaviour
 
     public void OnLoseGame(float delayPopupShowTime = 2.5f)
     {
-        if (gameStateVariable.Value == GameState.WaitingResult ||
-            gameStateVariable.Value == GameState.LoseGame ||
-            gameStateVariable.Value == GameState.WinGame) return;
-        gameStateVariable.Value = GameState.LoseGame;
-        eventLoseLevel.Raise(levelController.currentLevel);
-        logEventFirebaseLoseLevel.LogEvent(levelController.currentLevel.name);
+        if (GameState == GameState.WaitingResult ||
+            GameState == GameState.LoseGame ||
+            GameState == GameState.WinGame) return;
+        GameState = GameState.LoseGame;
+        eventLoseLevel.Raise(levelController.CurrentLevel);
+        logEventFirebaseLoseLevel.LogEvent(levelController.CurrentLevel.name);
         Tween.Delay(delayPopupShowTime, () =>
         {
             AppControlPopup.Show<PopupLose>();
@@ -155,6 +165,16 @@ public class GameManager : MonoBehaviour
     {
         AFpsCounter.enabled = !AFpsCounter.isActiveAndEnabled;
     }
+
+    private GameState GameState
+    {
+        get => gameState;
+        set
+        {
+            gameState = value;
+            gameStateVariable.Value = gameState;
+        }
+    }
 }
 
 public enum GameState
@@ -164,4 +184,5 @@ public enum GameState
     WaitingResult,
     LoseGame,
     WinGame,
+    Lobby
 }

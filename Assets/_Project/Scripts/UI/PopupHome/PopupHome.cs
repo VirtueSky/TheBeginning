@@ -1,24 +1,24 @@
 using TheBeginning.AppControl;
 using UnityEngine;
+using UnityEngine.Serialization;
+using VirtueSky.Audio;
 using VirtueSky.Events;
-using VirtueSky.Variables;
 
 public class PopupHome : UIPopup
 {
-    [SerializeField] private StringEvent changeSceneEvent;
-    [SerializeField] private GameObject buttonAdmin;
-    [SerializeField] private Vector3Variable posInOutPopupAdmin;
-    [SerializeField] private GameConfig gameConfig;
+    [SerializeField] private EventAudioHandle playMusicEvent;
+    [SerializeField] private SoundData musicHome;
+    [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
 
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
-        buttonAdmin.SetActive(gameConfig.enableAdministrator);
+        playMusicEvent.Raise(musicHome);
     }
 
     public void OnClickStartGame()
     {
-        changeSceneEvent.Raise(Constant.GAME_SCENE);
+        callPlayCurrentLevelEvent.Raise();
     }
 
     public void OnClickSetting()
@@ -39,11 +39,5 @@ public class PopupHome : UIPopup
     public void OnClickTest()
     {
         AppControlPopup.Show<PopupTest>(false);
-    }
-
-    public void OnClickOpenAdministrator()
-    {
-        posInOutPopupAdmin.Value = buttonAdmin.transform.position;
-        AppControlPopup.Show<PopupAdministrator>(false);
     }
 }

@@ -515,7 +515,7 @@ MonoBehaviour:
   SwitchText: {fileID: 0}
   TimeSwitching: 0.5
   musicChangedVariable: {fileID: 0}
-  soundFxChangeVariable: {fileID: 11400000, guid: 83171e3aba8056847a4bdefe1c1337e3,
+  soundFxChangeVariable: {fileID: 11400000, guid: d20f4bfda1887fd49927d5a7d74a8c37,
     type: 2}
 --- !u!114 &1722925637005679728
 MonoBehaviour:
@@ -1917,7 +1917,7 @@ MonoBehaviour:
   OnPos: {fileID: 7872452235639505778}
   SwitchText: {fileID: 0}
   TimeSwitching: 0.5
-  musicChangedVariable: {fileID: 11400000, guid: ccb25c5ccf4e8924db7fb73d222ce616,
+  musicChangedVariable: {fileID: 11400000, guid: a2515349c2fd2954ea4a7402e6ae7a56,
     type: 2}
   soundFxChangeVariable: {fileID: 0}
 --- !u!114 &7559086734630463595
@@ -2121,6 +2121,8 @@ MonoBehaviour:
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
   useAnimation: 1
+  background: {fileID: 6631244465714846239}
+  container: {fileID: 8315578149655763889}
   useShowAnimation: 1
   showAnimationType: 0
   durationShowPopup: 0.5

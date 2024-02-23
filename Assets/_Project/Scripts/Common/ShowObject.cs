@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using PrimeTween;
 using TheBeginning.UserData;
@@ -13,7 +14,6 @@ public class ShowObject : MonoBehaviour
     [SerializeField] private BooleanVariable isTestingVariable;
     public bool IsShowByTesting;
     public bool IsShowByLevel;
-    public bool IsShowByTime;
     public float DelayShowTime;
     [SerializeField] private IntegerVariable currentLevelVariable;
     [ShowIf(nameof(IsShowByLevel))] public List<int> LevelsShow;
@@ -21,15 +21,7 @@ public class ShowObject : MonoBehaviour
 
     [ShowIf("IsShowByTime")] [ReadOnly] public string ShowID;
 
-    [ShowIf("IsShowByTime")]
-    [Button]
-    public void RandomShowID()
-    {
-        if (ShowID == null || ShowID == "")
-        {
-            // ShowID = Ulid.NewUlid().ToString();
-        }
-    }
+    
 
     private bool IsLevelInLevelsShow()
     {
@@ -46,23 +38,43 @@ public class ShowObject : MonoBehaviour
 
     private bool EnableToShow()
     {
-        bool testingCondition = !IsShowByTesting || (IsShowByTesting && isTestingVariable);
+        bool testingCondition = !IsShowByTesting || (IsShowByTesting && isTestingVariable.Value);
         bool levelCondition = !IsShowByLevel || (IsShowByLevel && IsLevelInLevelsShow());
-        bool timeCondition = !IsShowByTime || (IsShowByTime && UserData.GetNumberShowGameObject(ShowID) <= MaxTimeShow);
-        return testingCondition && levelCondition && timeCondition;
+        return testingCondition && levelCondition;
     }
 
+    private void Awake()
+    {
+        isTestingVariable.AddListener(SetupByIsTesting);
+        currentLevelVariable.AddListener(SetupByIndexLevel);
+    }
+    private void OnDestroy()
+    {
+        isTestingVariable.RemoveListener(SetupByIsTesting);
+        currentLevelVariable.RemoveListener(SetupByIndexLevel);
+    }
     public void OnEnable()
     {
         Setup();
+       
     }
+
+    void SetupByIsTesting(bool isActive)
+    {
+        Setup();
+    }
+
+    void SetupByIndexLevel(int level)
+    {
+        Setup();
+    }
+   
 
     public void Setup()
     {
         if (DelayShowTime > 0) gameObject.SetActive(false);
         DOTween.Sequence().AppendInterval(DelayShowTime).AppendCallback(() =>
         {
-            if (IsShowByTime) UserData.IncreaseNumberShowGameObject(ShowID);
             gameObject.SetActive(EnableToShow());
         });
     }

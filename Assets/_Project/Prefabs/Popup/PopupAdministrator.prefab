@@ -4577,7 +4577,6 @@ MonoBehaviour:
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   currencyVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
-  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
   itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
   showConsentOption: {fileID: 11400000, guid: f99127449c94a47ab94c5711cbd2d030, type: 2}
   gdpr_required_variable: {fileID: 11400000, guid: bde677442bb2c4d4da0a4f33b464e1d3,

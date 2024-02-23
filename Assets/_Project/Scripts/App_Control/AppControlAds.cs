@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using VirtueSky.Ads;
 
 namespace TheBeginning.AppControl
 {
@@ -16,6 +17,10 @@ namespace TheBeginning.AppControl
 
             AppControlAds._adsManager = adsManager;
         }
+
+        public static AdUnitVariable AdUnitBanner => _adsManager.AdUnitBanner;
+        public static AdUnitVariable AdUnitInter => _adsManager.AdUnitInter;
+        public static AdUnitVariable AdUnitReward => _adsManager.AdUnitReward;
 
         public static void ShowInterstitial(Action completeCallback = null, Action displayCallback = null)
         {

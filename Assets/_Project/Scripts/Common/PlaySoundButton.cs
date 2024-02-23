@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using VirtueSky.Audio;
 using VirtueSky.Core;
 using VirtueSky.Events;
@@ -7,7 +6,7 @@ using VirtueSky.Events;
 public class PlaySoundButton : BaseMono
 {
     [SerializeField] private ClickButtonEvent clickButtonEvent;
-    [SerializeField] private EventAudioHandle playSoundButton;
+    [SerializeField] private PlaySfxEvent playSoundButton;
     [SerializeField] private SoundData soundClickButton;
 
     private void Start()

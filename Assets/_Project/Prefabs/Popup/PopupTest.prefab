@@ -270,8 +270,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &2095996410933782235
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,8 +410,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &2936710964182617724
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,8 +549,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &3637725861184919916
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,8 +689,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &4556708511744555964
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,8 +829,11 @@ MonoBehaviour:
         m_CallState: 2
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   isMotion: 1
-  ease: 15
+  easingTypes: 15
   scale: 0.9
+  isShrugOver: 0
+  timeShrug: 0.2
+  strength: 0.2
 --- !u!1 &4865862106690828279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,15 +1660,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: -7875144206898530341}
   canvas: {fileID: 1788165637488831168}
-  UseAnimation: 0
-  Background: {fileID: 0}
-  Container: {fileID: 0}
-  UseShowAnimation: 0
-  ShowAnimationType: 0
-  UseHideAnimation: 0
-  HideAnimationType: 0
+  useAnimation: 0
+  background: {fileID: 0}
+  container: {fileID: 0}
+  useShowAnimation: 0
+  showAnimationType: 0
+  durationShowPopup: 0.5
+  showMovePopup: 0
+  offsetShowMove: 0
+  scaleFromShow: {x: 0.5, y: 0.5, z: 0.5}
+  eulerAngleShowFrom: {x: 0, y: 180, z: 0}
+  pointShowPos: {fileID: 0}
+  useHideAnimation: 0
+  hideAnimationType: 0
+  durationHidePopup: 0.5
+  hideMovePopup: 0
+  offsetHideMove: 0
+  scaleFromHide: {x: 0, y: 0, z: 0}
+  pointHidePos: {fileID: 0}
   textNotice: {fileID: 5278373313522493436}
-  adManagerVariable: {fileID: 11400000, guid: a09dff64275e9934ea74d91d93dd35a9, type: 2}
   currencyVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
   banner: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
   inter: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}

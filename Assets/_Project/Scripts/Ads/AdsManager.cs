@@ -40,7 +40,9 @@ public class AdsManager : BaseMono
     [SerializeField] private AdUnitVariable inter;
 
     [SerializeField] private AdUnitVariable reward;
-
+    public AdUnitVariable AdUnitBanner => banner;
+    public AdUnitVariable AdUnitInter => inter;
+    public AdUnitVariable AdUnitReward => reward;
 
     private int adsCounter;
     private float timePlay;

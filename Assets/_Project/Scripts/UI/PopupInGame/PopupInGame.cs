@@ -3,6 +3,8 @@ using System.Linq;
 using TheBeginning.AppControl;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
+using VirtueSky.Audio;
 using VirtueSky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
@@ -12,25 +14,24 @@ public class PopupInGame : UIPopup
     [HeaderLine(Constant.Normal_Attribute)]
     public TextMeshProUGUI LevelText;
 
-
     public TextMeshProUGUI LevelTypeText;
 
     [HeaderLine(Constant.SO_Event)] [SerializeField]
     private EventNoParam replayEvent;
 
-    [SerializeField] private StringEvent changeSceneEvent;
-
+    [SerializeField] private EventNoParam callReturnHomeEvent;
     [SerializeField] private EventNoParam nextLevelEvent;
-
     [SerializeField] private EventNoParam backLevelEvent;
-
     [SerializeField] private FloatEvent winLevelEvent;
-
     [SerializeField] private FloatEvent loseLevelEvent;
     [SerializeField] private StringEvent playAnimCharacterEvent;
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable indexLevelVariable;
+
+    [HeaderLine("Audio")] [SerializeField] private EventAudioHandle playMusicEvent;
+
+    [SerializeField] private SoundData musicInGame;
 
     private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
 
@@ -40,6 +41,7 @@ public class PopupInGame : UIPopup
         base.OnBeforeShow();
         Setup(indexLevelVariable.Value);
         indexLevelVariable.AddListener(Setup);
+        playMusicEvent.Raise(musicInGame);
     }
 
     protected override void OnBeforeHide()
@@ -56,7 +58,7 @@ public class PopupInGame : UIPopup
 
     public void OnClickHome()
     {
-        changeSceneEvent.Raise(Constant.HOME_SCENE);
+        callReturnHomeEvent.Raise();
     }
 
     public void OnClickReplay()

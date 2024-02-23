@@ -34,15 +34,16 @@ public class LoadingManager : BaseMono
             fetchFirebaseRemoteConfigCompletedEvent.AddListener(FirebaseRemoteConfigInitialized);
         }
     }
-   public override void OnDisable()
-      {
-          base.OnDisable();
-          if (fetchFirebaseRemoteConfigCompletedEvent != null)
-          {
-              fetchFirebaseRemoteConfigCompletedEvent.RemoveListener(FirebaseRemoteConfigInitialized);
-          }
-      }
-  
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        if (fetchFirebaseRemoteConfigCompletedEvent != null)
+        {
+            fetchFirebaseRemoteConfigCompletedEvent.RemoveListener(FirebaseRemoteConfigInitialized);
+        }
+    }
+
 
     private void Init()
     {
@@ -62,7 +63,7 @@ public class LoadingManager : BaseMono
             await UniTask.WaitUntil(() => fetchFirebaseRemoteConfigCompleted);
         }
 
-        changeSceneEvent.Raise(Constant.HOME_SCENE);
+        changeSceneEvent.Raise(Constant.GAME_SCENE);
     }
 
     void FirebaseRemoteConfigInitialized()
