@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04035b55bf6d4056848898fcc6217886, type: 3}
   m_Name: music_volume
   m_EditorClassIdentifier: 
-  id: music_volume
+  id: 
   description: 
-  initializeValue: 1
-  isSavable: 1
+  initializeValue: 0
+  isSavable: 0
   isSaveInStorageImmediately: 0
-  isRaiseEvent: 1
+  isRaiseEvent: 0

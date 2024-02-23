@@ -15,7 +15,7 @@ public class CurrencyCounter : MonoBehaviour
     public CurrencyGenerate CurrencyGenerate;
     [SerializeField] IntegerVariable currencyTotalVariable;
 
-    [Header("Sound")] [SerializeField] public EventAudioHandle playSoundFx;
+    [Header("Sound")] [SerializeField] public PlaySfxEvent playSoundFx;
     [SerializeField] private SoundData soundCoinMove;
 
 
@@ -84,7 +84,10 @@ public class CurrencyCounter : MonoBehaviour
         }
 
         int totalValue = (currentCurrencyValue + nextAmountValue);
-        DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate: true).AppendCallback(() => { CurrencyAmountText.text = totalValue.ToString(); })
+        DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate: true).AppendCallback(() =>
+            {
+                CurrencyAmountText.text = totalValue.ToString();
+            })
             .AppendCallback(() => { CurrencyTextCount(totalValue, nextAmountValue, stepCount - 1); });
     }
 }

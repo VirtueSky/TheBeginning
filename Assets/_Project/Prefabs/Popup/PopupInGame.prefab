@@ -2811,8 +2811,8 @@ MonoBehaviour:
   playAnimCharacterEvent: {fileID: 11400000, guid: a7632e21ca2f4c644a5d462eea3b18b5,
     type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
-  playMusicEvent: {fileID: 11400000, guid: 18db66017d2e88f458ea458ee4d3c244, type: 2}
-  musicInGame: {fileID: 11400000, guid: c721873213756ea45af30421766d418f, type: 2}
+  playMusicEvent: {fileID: 11400000, guid: 2f4f06310dd5bc84f80499d277f922ca, type: 2}
+  musicInGame: {fileID: 11400000, guid: 28f015a092265f64e9548644c56e7d43, type: 2}
 --- !u!114 &9141098031787605229
 MonoBehaviour:
   m_ObjectHideFlags: 0

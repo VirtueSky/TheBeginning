@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: sfx_volume
   description: 
-  initializeValue: 1
-  isSavable: 1
+  initializeValue: 0
+  isSavable: 0
   isSaveInStorageImmediately: 0
-  isRaiseEvent: 1
+  isRaiseEvent: 0

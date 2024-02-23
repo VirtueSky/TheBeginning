@@ -17,7 +17,7 @@ MonoBehaviour:
   loop: 1
   volume: 1
   isMusicFadeVolume: 1
-  fadeInDuration: 0.3
-  fadeOutDuration: 0.3
+  fadeInDuration: 0.5
+  fadeOutDuration: 0.5
   audioClips:
   - {fileID: 8300000, guid: 25f8f8c9fa0184b489d507976499f0a9, type: 3}
