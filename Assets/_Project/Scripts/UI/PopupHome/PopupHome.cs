@@ -1,12 +1,11 @@
 using TheBeginning.AppControl;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Audio;
 using VirtueSky.Events;
 
 public class PopupHome : UIPopup
 {
-    [SerializeField] private EventAudioHandle playMusicEvent;
+    [SerializeField] private PlayMusicEvent playMusicEvent;
     [SerializeField] private SoundData musicHome;
     [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
 

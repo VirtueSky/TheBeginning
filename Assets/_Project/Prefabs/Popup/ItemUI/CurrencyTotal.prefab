@@ -221,8 +221,8 @@ MonoBehaviour:
   CurrencyGenerate: {fileID: 8067335738139792805}
   currencyTotalVariable: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f,
     type: 2}
-  playSoundFx: {fileID: 11400000, guid: 8b2f9f4ed3cbd03488b0a0bb69849430, type: 2}
-  soundCoinMove: {fileID: 11400000, guid: b4bdc93dc03c4184dbf2735208d1e528, type: 2}
+  playSoundFx: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
+  soundCoinMove: {fileID: 11400000, guid: 725e2d43de9f05f438f1701a53390ca1, type: 2}
 --- !u!1 &7525439484679414412
 GameObject:
   m_ObjectHideFlags: 0
