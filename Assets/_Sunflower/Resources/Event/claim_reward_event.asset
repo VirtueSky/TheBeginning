@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719558c56beb4a8d98cf058fadf5455a, type: 3}
   m_Name: claim_reward_event
   m_EditorClassIdentifier: 
-  id: claim_reward_event 1
+  id: claim_reward_event
   description: 

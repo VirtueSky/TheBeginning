@@ -651,7 +651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 393689797402902294}
-  - component: {fileID: 5178752255676833884}
+  - component: {fileID: 1723015840126733603}
   - component: {fileID: 1723015840126733602}
   - component: {fileID: 496302012187942110}
   m_Layer: 0
@@ -675,8 +675,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: audio_manager
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
-  playSoundButton: {fileID: 11400000, guid: 8b2f9f4ed3cbd03488b0a0bb69849430, type: 2}
-  soundClickButton: {fileID: 11400000, guid: 3d6d3959376a08a43a8b1ca2ad5a0eb1, type: 2}
+  playSoundButton: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
+  soundClickButton: {fileID: 11400000, guid: 9d60ab45b0d57a94092e6ba29fdcc6af, type: 2}
+--- !u!114 &1723015840126733603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584050282081457044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e25e7d80544a1d83bfd260713b1796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: audio_manager
+  isDontDestroyOnLoad: 0
+  soundComponentPool: {fileID: 11400000, guid: 3f552051a4d54054192af9ffc30c929e, type: 2}
+  eventPlayMusic: {fileID: 11400000, guid: 2f4f06310dd5bc84f80499d277f922ca, type: 2}
+  eventStopMusic: {fileID: 11400000, guid: ee9801e62b463ad43bf2d085e75f7dab, type: 2}
+  eventPauseMusic: {fileID: 11400000, guid: f1306e0105bce854389f2fb5a8901d1b, type: 2}
+  eventResumeMusic: {fileID: 11400000, guid: 4b8b03597efdb2441a59b1f6ed21cd03, type: 2}
+  eventPlaySfx: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
+  eventStopSfx: {fileID: 11400000, guid: 0564f5531abebe04b9d39a76ae921750, type: 2}
+  eventPauseSfx: {fileID: 11400000, guid: 3dabfbc30212b5b46a47d9dc7696d109, type: 2}
+  eventResumeSfx: {fileID: 11400000, guid: dd8101c62926a414899efa4a6eb017cb, type: 2}
+  eventFinishSfx: {fileID: 11400000, guid: f4d3acfd736b3de4fa6e35c6c8a3cacc, type: 2}
+  eventStopAllSfx: {fileID: 11400000, guid: 5542f5af4a6e69e418ba805130c31881, type: 2}
+  musicVolume: {fileID: 11400000, guid: 5e5e673d521437542a9cc1dc118ae486, type: 2}
+  sfxVolume: {fileID: 11400000, guid: 70a0552aacfee3c45a634aa5cb9ba272, type: 2}
 --- !u!4 &3527657169019653263
 Transform:
   m_ObjectHideFlags: 0
@@ -722,33 +749,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &5178752255676833884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584050282081457044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82e25e7d80544a1d83bfd260713b1796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: audio_manager
-  isDontDestroyOnLoad: 0
-  soundComponentPool: {fileID: 11400000, guid: 3f552051a4d54054192af9ffc30c929e, type: 2}
-  eventPlayMusic: {fileID: 11400000, guid: 18db66017d2e88f458ea458ee4d3c244, type: 2}
-  eventStopMusic: {fileID: 11400000, guid: 78b9bae2e8340f24f88db7900b1db679, type: 2}
-  eventPauseMusic: {fileID: 11400000, guid: 6fa90b9d3e05ba7448a8d37af622948f, type: 2}
-  eventResumeMusic: {fileID: 11400000, guid: ca82985a47eb10e42b8ab6e5dad7a0ad, type: 2}
-  eventPlaySfx: {fileID: 11400000, guid: 8b2f9f4ed3cbd03488b0a0bb69849430, type: 2}
-  eventStopSfx: {fileID: 11400000, guid: 5d6a7766c0c40f443b23d9237dd1f4c0, type: 2}
-  eventPauseSfx: {fileID: 11400000, guid: 0914720bbffdfb4499ab77faa9ecec41, type: 2}
-  eventResumeSfx: {fileID: 11400000, guid: 0c9c0ba53c2191b4b88fc7790baa18d7, type: 2}
-  eventFinishSfx: {fileID: 11400000, guid: bdca07e605f03dd4fbc27aee541d6af7, type: 2}
-  eventStopAllSfx: {fileID: 11400000, guid: c33040d4a44945c498c80a7b6b86dea9, type: 2}
-  musicVolume: {fileID: 11400000, guid: a2515349c2fd2954ea4a7402e6ae7a56, type: 2}
-  sfxVolume: {fileID: 11400000, guid: d20f4bfda1887fd49927d5a7d74a8c37, type: 2}
 --- !u!1 &5214855709318237048
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +787,7 @@ MonoBehaviour:
     visualEffectType: 0
   - effectList: []
     visualEffectType: 0
-  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
+  pools: {fileID: 0}
 --- !u!1001 &6268509514467123668
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -29,7 +29,7 @@ public class PopupInGame : UIPopup
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable indexLevelVariable;
 
-    [HeaderLine("Audio")] [SerializeField] private EventAudioHandle playMusicEvent;
+    [HeaderLine("Audio")] [SerializeField] private PlayMusicEvent playMusicEvent;
 
     [SerializeField] private SoundData musicInGame;
 
