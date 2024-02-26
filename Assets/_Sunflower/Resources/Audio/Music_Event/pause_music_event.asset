@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: pause_music_event
   description: 
+  enableDebugField: 0
