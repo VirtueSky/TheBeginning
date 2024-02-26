@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69920a2e5b00475c8b3ef12220c0d857, type: 3}
   m_Name: resume_sfx_event
   m_EditorClassIdentifier: 
-  id: 
+  id: resume_sfx_event
   description: 
+  enableDebugField: 0
+  valueDebug: {fileID: 0}

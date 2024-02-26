@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a62aa8ea2ab43eda9340c8c4f73ef33, type: 3}
   m_Name: play_music_event
   m_EditorClassIdentifier: 
-  id: 
+  id: play_music_event
   description: 
+  enableDebugField: 0
+  valueDebug: {fileID: 0}

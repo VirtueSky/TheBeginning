@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: currency_total_variable
   description: 
+  enableDebugField: 0
+  valueDebug: 0
   initializeValue: 0
-  isSavable: 1
-  isSaveInStorageImmediately: 1
+  isSetData: 1
+  isSaveData: 1
   isRaiseEvent: 1

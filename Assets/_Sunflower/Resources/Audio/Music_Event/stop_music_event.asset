@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f802843e01846d5b770835f611fe93f, type: 3}
   m_Name: stop_music_event
   m_EditorClassIdentifier: 
-  id: 
+  id: stop_music_event
   description: 
+  enableDebugField: 0

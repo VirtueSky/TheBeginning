@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: is_off_banner_ads_variables
   description: 
+  enableDebugField: 0
+  valueDebug: 0
   initializeValue: 0
-  isSavable: 1
-  isSaveInStorageImmediately: 0
+  isSetData: 1
+  isSaveData: 0
   isRaiseEvent: 1
