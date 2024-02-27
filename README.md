@@ -3,4 +3,4 @@
   
 Description: Gamebase for mobile hyper casual, casual game 
 
-- Use [ScriptableObject Architecture](https://github.com/VirtueSky/sunflower) 
+- Use [sunflower](https://github.com/VirtueSky/sunflower) package
