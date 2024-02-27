@@ -22,9 +22,15 @@ public class PopupDailyReward : UIPopup
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
-        // PopupController.Instance.Show<PopupUI>();
+        claimRewardEvent.AddListener(Setup);
         ResetDailyReward();
         Setup();
+    }
+
+    protected override void OnBeforeHide()
+    {
+        base.OnBeforeHide();
+        claimRewardEvent.RemoveListener(Setup);
     }
 
     public void ResetDailyReward()
@@ -34,18 +40,6 @@ public class PopupDailyReward : UIPopup
             UserData.DailyRewardDayIndex = 1;
             UserData.IsStartLoopingDailyReward = true;
         }
-    }
-
-    protected override void OnBeforeHide()
-    {
-        base.OnBeforeHide();
-        //PopupController.Instance.HideAll();
-        //PopupController.Instance.Show<PopupHome>();
-        // if (!PopupController.Instance.Get<PopupHome>().isActiveAndEnabled)
-        // {
-        //     GameManager.Instance.gameState = GameState.PlayingGame;
-        //     PopupController.Instance.Hide<PopupUI>();
-        // }
     }
 
     private bool IsCurrentItem(int index)
@@ -66,7 +60,7 @@ public class PopupDailyReward : UIPopup
         for (var i = 0; i < 7; i++)
         {
             var item = DailyRewardItems[i];
-            item.SetUp(this, i + 7 * week);
+            item.SetUp(i + 7 * week);
             if (IsCurrentItem(item.dayIndex)) CurrentItem = item;
         }
 
@@ -92,12 +86,12 @@ public class PopupDailyReward : UIPopup
 
     public void OnClickBtnClaimX5Video()
     {
-        AppControlAds.ShowReward(() => { CurrentItem.OnClaim(true); });
+        AppControlAds.ShowReward(() => { CurrentItem.OnClaim(true, () => claimRewardEvent.Raise()); });
     }
 
     public void OnClickBtnClaim()
     {
-        CurrentItem.OnClaim();
+        CurrentItem.OnClaim(false, () => claimRewardEvent.Raise());
     }
 
     public void OnClickNextDay()
@@ -105,6 +99,5 @@ public class PopupDailyReward : UIPopup
         UserData.LastDailyRewardClaimed = DateTime.Now.AddDays(-1).ToString();
         ResetDailyReward();
         Setup();
-        //Observer.OnNotifying?.Invoke();
     }
 }

@@ -25,14 +25,12 @@ public class DailyRewardItem : MonoBehaviour
     private int coinValue;
     private DailyRewardItemState dailyRewardItemState;
     private DailyRewardData dailyRewardData;
-    private PopupDailyReward popupDailyReward;
     public DailyRewardItemState DailyRewardItemState => dailyRewardItemState;
 
     public DailyRewardData DailyRewardData => dailyRewardData;
 
-    public void SetUp(PopupDailyReward popup, int i)
+    public void SetUp(int i)
     {
-        popupDailyReward = popup;
         dayIndex = i + 1;
         SetUpData();
         SetUpUI(i);
@@ -121,7 +119,7 @@ public class DailyRewardItem : MonoBehaviour
         }
     }
 
-    public void OnClaim(bool isClaimX5 = false)
+    public void OnClaim(bool isClaimX5 = false, Action claimCompleted = null)
     {
         // Save datas
         UserData.LastDailyRewardClaimed = DateTime.Now.ToString();
@@ -141,8 +139,7 @@ public class DailyRewardItem : MonoBehaviour
                 break;
         }
 
-        //Reset Items
-        popupDailyReward.Setup();
+        claimCompleted?.Invoke();
     }
 }
 
