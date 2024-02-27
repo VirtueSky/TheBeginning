@@ -11,6 +11,7 @@ using VirtueSky.Threading.Tasks;
 using Unity.Advertisement.IosSupport;
 #endif
 
+[EditorIcon("GameManager")]
 public class LoadingManager : BaseMono
 {
     [HeaderLine("Attributes")] public Image progressBar;

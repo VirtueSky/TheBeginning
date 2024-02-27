@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73210c27d59443e98587672c9deb339, type: 3}
   m_Name: spawn_effect_event
   m_EditorClassIdentifier: 
-  id: spawn_effect_event
+  id: 
   description: 
+  enableDebugField: 0
+  valueDebug:
+    visualEffectType: 0
+    parent: {fileID: 0}
+    position: {x: 0, y: 0, z: 0}
+    localScale: {x: 0, y: 0, z: 0}
+    isDestroyedOnEnd: 0
+    timeDestroy: 0

@@ -2,12 +2,14 @@ using CodeStage.AdvancedFPSCounter;
 using PrimeTween;
 using TheBeginning.AppControl;
 using UnityEngine;
+using VirtueSky.Core;
 using VirtueSky.Events;
 using VirtueSky.FirebaseTraking;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
-public class GameManager : MonoBehaviour
+[EditorIcon("GameManager")]
+public class GameManager : BaseMono
 {
     [HeaderLine(Constant.Normal_Attribute)] [ReadOnly] [SerializeField]
     private GameState gameState;
@@ -45,8 +47,9 @@ public class GameManager : MonoBehaviour
 
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 
-    private void OnEnable()
+    public override void OnEnable()
     {
+        base.OnEnable();
         callPlayCurrentLevelEvent.AddListener(PlayCurrentLevel);
         callReplayLevelEvent.AddListener(ReplayGame);
         callNextLevelEvent.AddListener(NextLevel);
@@ -57,8 +60,9 @@ public class GameManager : MonoBehaviour
         callReturnHome.AddListener(ReturnHome);
     }
 
-    private void OnDisable()
+    public override void OnDisable()
     {
+        base.OnDisable();
         callPlayCurrentLevelEvent.RemoveListener(PlayCurrentLevel);
         callReplayLevelEvent.RemoveListener(ReplayGame);
         callNextLevelEvent.RemoveListener(NextLevel);
