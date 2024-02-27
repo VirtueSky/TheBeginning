@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
 using VirtueSky.Events;
+using VirtueSky.Inspector;
 
 [CreateAssetMenu(menuName = "Event Custom/Spawn Effect Event", fileName = "spawn_effect_event")]
+[EditorIcon("scriptable_event")]
 public class SpawnEffectEvent : BaseEvent<SpawnEffectData>
 {
 }

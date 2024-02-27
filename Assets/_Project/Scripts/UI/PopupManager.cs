@@ -4,9 +4,11 @@ using System;
 using TheBeginning.AppControl;
 using UnityEditor;
 using UnityEngine.UI;
+using VirtueSky.Core;
 using VirtueSky.Inspector;
 
-public class PopupManager : MonoBehaviour
+[EditorIcon("Generator")]
+public class PopupManager : BaseMono
 {
     [HeaderLine(Constant.Environment)] [SerializeField]
     private Transform parentContainer;

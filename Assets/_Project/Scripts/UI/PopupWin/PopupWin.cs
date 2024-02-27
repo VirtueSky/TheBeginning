@@ -25,14 +25,12 @@ public class PopupWin : UIPopup
     private EventNoParam playCurrentLevelEvent;
 
     [SerializeField] private Vector3Event generateCoinEvent;
-    [SerializeField] private EventNoParam claimRewardEvent;
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable currencyTotalVariable;
 
     private float percent = 0;
 
-    //   private Tween tween;
     public int MoneyWin => gameConfig.winLevelMoney;
 
 
@@ -117,7 +115,6 @@ public class PopupWin : UIPopup
         BonusArrowHandler.MoveObject.StopMoving();
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
-        claimRewardEvent.Raise();
         Tween.Delay(1.2f, () =>
         {
             Hide();

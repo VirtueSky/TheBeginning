@@ -16,6 +16,7 @@ public class AdminController : MonoBehaviour
     [SerializeField] private RectTransform container;
     [SerializeField] private GameObject holder;
     [SerializeField] private Button btnShowHideAdmin;
+    [SerializeField] private Image iconButtonShowAdmin;
     [SerializeField] private Sprite iconBtnShow;
     [SerializeField] private Sprite iconBtnHide;
     [SerializeField] private Toggle toggleOffUI;
@@ -138,7 +139,7 @@ public class AdminController : MonoBehaviour
         btnLoseLevel.gameObject.SetActive(gameStateVariable.Value == GameState.PlayingGame);
     }
 
-     void OnClickJumpToLevel()
+    void OnClickJumpToLevel()
     {
         if (inputFieldLevel.text != "")
         {
@@ -149,7 +150,7 @@ public class AdminController : MonoBehaviour
         callPlayCurrentLevelEvent.Raise();
     }
 
-     void OnClickEnterCurrency()
+    void OnClickEnterCurrency()
     {
         if (inputFieldCurrency.text != "")
         {
@@ -159,32 +160,32 @@ public class AdminController : MonoBehaviour
         inputFieldCurrency.text = "";
     }
 
-     void OnClickAdd10000Coin()
+    void OnClickAdd10000Coin()
     {
         currencyVariable.Value += 10000;
     }
 
-     void OnClickShowBanner()
+    void OnClickShowBanner()
     {
         AppControlAds.AdUnitBanner.Show();
     }
 
-     void OnClickHideBanner()
+    void OnClickHideBanner()
     {
         AppControlAds.AdUnitBanner.Destroy();
     }
 
-     void OnClickShowInter()
+    void OnClickShowInter()
     {
         AppControlAds.AdUnitInter.Show();
     }
 
-     void OnClickShowReward()
+    void OnClickShowReward()
     {
         AppControlAds.AdUnitReward.Show();
     }
 
-     void OnClickUnlockAllSkins()
+    void OnClickUnlockAllSkins()
     {
         itemConfig.UnlockAllSkins();
     }
@@ -209,37 +210,37 @@ public class AdminController : MonoBehaviour
         callLoseLevelEvent.Raise(1.5f);
     }
 
-     void OnChangeOffIsTesting(bool isOn)
+    void OnChangeOffIsTesting(bool isOn)
     {
         isTestingVariable.Value = isOn;
     }
 
-     void OnChangeOffInter(bool isOn)
+    void OnChangeOffInter(bool isOn)
     {
         isOffInterAds.Value = isOn;
     }
 
-     void OnChangeOffReward(bool isOn)
+    void OnChangeOffReward(bool isOn)
     {
         isOffRewardAds.Value = isOn;
     }
 
-     void OnChangeOffBanner(bool isOn)
+    void OnChangeOffBanner(bool isOn)
     {
         isOffBannerAds.Value = isOn;
     }
 
-     void OnChangeOffUI(bool isOn)
+    void OnChangeOffUI(bool isOn)
     {
         isOffUIVariable.Value = isOn;
     }
 
-     void OnClickModifyConsent()
+    void OnClickModifyConsent()
     {
         showConsentOption.Raise();
     }
 
-     void OnClickShowHideAdmin()
+    void OnClickShowHideAdmin()
     {
         if (isShow)
         {
@@ -256,10 +257,7 @@ public class AdminController : MonoBehaviour
         isShow = true;
         Refresh();
         holder.gameObject.SetActive(true);
-        Tween.UIAnchoredPositionX(container, 550, .25f).OnComplete(() =>
-        {
-            btnShowHideAdmin.GetComponent<Image>().sprite = iconBtnHide;
-        });
+        Tween.UIAnchoredPositionX(container, 550, .25f).OnComplete(() => { iconButtonShowAdmin.sprite = iconBtnHide; });
     }
 
     void Hide()
@@ -268,7 +266,7 @@ public class AdminController : MonoBehaviour
         Tween.UIAnchoredPositionX(container, 0, .25f).OnComplete(() =>
         {
             holder.gameObject.SetActive(false);
-            btnShowHideAdmin.GetComponent<Image>().sprite = iconBtnShow;
+            iconButtonShowAdmin.sprite = iconBtnShow;
         });
     }
 }

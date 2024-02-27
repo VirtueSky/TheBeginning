@@ -53,21 +53,21 @@ public class TheBeginningWindow : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-    [MenuItem("The Beginning/Open Scene/Launcher Scene %F1")]
+    [MenuItem("The Beginning/Open Scene/Launcher %F1")]
     public static void OpenLauncherScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("The Beginning/Open Scene/Service Scene %F2")]
+    [MenuItem("The Beginning/Open Scene/Service %F2")]
     public static void OpenServiceScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICE_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("The Beginning/Open Scene/Game Scene %F3")]
+    [MenuItem("The Beginning/Open Scene/Game %F3")]
     public static void OpenGameScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAME_SCENE}.unity");

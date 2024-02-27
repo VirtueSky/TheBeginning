@@ -9,16 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e73210c27d59443e98587672c9deb339, type: 3}
-  m_Name: spawn_effect_event
+  m_Script: {fileID: 11500000, guid: 719558c56beb4a8d98cf058fadf5455a, type: 3}
+  m_Name: claim_daily_reward_event
   m_EditorClassIdentifier: 
-  id: 
+  id: claim_daily_reward_event
   description: 
   enableDebugField: 0
-  valueDebug:
-    visualEffectType: 0
-    parent: {fileID: 0}
-    position: {x: 0, y: 0, z: 0}
-    localScale: {x: 0, y: 0, z: 0}
-    isDestroyedOnEnd: 0
-    timeDestroy: 0

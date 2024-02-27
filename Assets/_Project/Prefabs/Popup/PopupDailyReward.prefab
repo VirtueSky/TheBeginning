@@ -1305,7 +1305,6 @@ MonoBehaviour:
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   IsShowByTesting: 1
   IsShowByLevel: 0
-  IsShowByTime: 0
   DelayShowTime: 0
   currentLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6,
     type: 2}
@@ -2149,7 +2148,7 @@ MonoBehaviour:
   pointHidePos: {fileID: 0}
   BtnWatchVideo: {fileID: 2509353737946875765}
   BtnClaim: {fileID: 7151091472365318068}
-  claimRewardEvent: {fileID: 11400000, guid: ed15ee22acf35214292a644a474e7be2, type: 2}
+  claimRewardEvent: {fileID: 11400000, guid: b1fc40b863739b34d90bc5564d896832, type: 2}
   CurrentItem: {fileID: 0}
 --- !u!1 &7505682461934572134
 GameObject:

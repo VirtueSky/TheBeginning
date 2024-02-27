@@ -1,9 +1,11 @@
 using UnityEngine;
+using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 using Debug = System.Diagnostics.Debug;
 
-public class LevelController : MonoBehaviour
+[EditorIcon("Controller")]
+public class LevelController : BaseMono
 {
     [ReadOnly] [SerializeField] private Level currentLevel;
     [SerializeField] private IntegerVariable currentIndexLevel;
