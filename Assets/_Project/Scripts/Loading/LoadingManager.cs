@@ -7,6 +7,9 @@ using VirtueSky.Inspector;
 using VirtueSky.Core;
 using VirtueSky.Events;
 using VirtueSky.Threading.Tasks;
+#if UNITY_IOS
+using Unity.Advertisement.IosSupport;
+#endif
 
 public class LoadingManager : BaseMono
 {
@@ -47,6 +50,14 @@ public class LoadingManager : BaseMono
 
     private void Init()
     {
+#if UNITY_IOS
+        if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() ==
+            ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
+        {
+            ATTrackingStatusBinding.RequestAuthorizationTracking();
+        }
+#endif
+
         progressBar.fillAmount = 0;
         progressBar.DOFillAmount(1, timeLoading)
             .OnUpdate(progressBar,
