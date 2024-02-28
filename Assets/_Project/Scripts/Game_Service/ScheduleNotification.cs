@@ -13,4 +13,12 @@ public class ScheduleNotification : MonoBehaviour
             notification.Schedule();
         }
     }
+
+    public void SendNotification()
+    {
+        foreach (var notification in listNotificationVariable)
+        {
+            notification.Send();
+        }
+    }
 }
