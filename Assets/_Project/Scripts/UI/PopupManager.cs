@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 
-[EditorIcon("Generator")]
+[EditorIcon("icon_generator")]
 public class PopupManager : BaseMono
 {
     [HeaderLine(Constant.Environment)] [SerializeField]
