@@ -8,7 +8,7 @@ using VirtueSky.FirebaseTraking;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
-[EditorIcon("GameManager")]
+[EditorIcon("icon_gamemanager")]
 public class GameManager : BaseMono
 {
     [HeaderLine(Constant.Normal_Attribute)] [ReadOnly] [SerializeField]

@@ -7,7 +7,7 @@ using VirtueSky.Core;
 using VirtueSky.FirebaseTraking;
 using VirtueSky.Variables;
 
-[EditorIcon("GameManager")]
+[EditorIcon("icon_manager")]
 public class AdsManager : BaseMono
 {
     [HeaderLine(Constant.SO_Variable)] [SerializeField]

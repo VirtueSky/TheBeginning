@@ -4,7 +4,7 @@ using VirtueSky.Inspector;
 using VirtueSky.Variables;
 using Debug = System.Diagnostics.Debug;
 
-[EditorIcon("Controller")]
+[EditorIcon("icon_controller")]
 public class LevelController : BaseMono
 {
     [ReadOnly] [SerializeField] private Level currentLevel;
