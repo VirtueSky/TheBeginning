@@ -12,42 +12,63 @@ public class LevelController : BaseMono
     [ReadOnly] [SerializeField] private Level currentLevel;
     [SerializeField] private IntegerVariable currentIndexLevel;
     [SerializeField] private GameConfig gameConfig;
+    [SerializeField] private Transform levelHolder;
+
+    private Level nextLevel;
+    private Level previousLevel;
     public Level CurrentLevel => currentLevel;
 
-    public void PrepareLevel()
+
+    public async void PrepareLevel()
     {
-        GenerateLevel(currentIndexLevel.Value);
+        await GenerateLevel(currentIndexLevel.Value);
     }
 
-    public async UniTask GenerateLevel(int indexLevel)
+    public async UniTask GenerateLevel(int index)
     {
         if (currentLevel != null)
         {
             Destroy(currentLevel.gameObject);
         }
 
+        if (nextLevel == null)
+        {
+            Level levelTemp = await GetLevelByIndex(index);
+            currentLevel = Instantiate(levelTemp, levelHolder);
+            ActiveCurrentLevel(false);
+        }
+        else
+        {
+            Level levelTemp = nextLevel;
+            currentLevel = Instantiate(levelTemp, levelHolder);
+            ActiveCurrentLevel(false);
+        }
+
+        nextLevel = await GetLevelByIndex(index + 1);
+        previousLevel = await GetLevelByIndex(index - 1);
+    }
+
+    int HandleIndexLevel(int indexLevel)
+    {
         if (indexLevel > gameConfig.maxLevel)
         {
-            indexLevel = (indexLevel - gameConfig.startLoopLevel) %
-                         (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
-                         gameConfig.startLoopLevel;
+            return (indexLevel - gameConfig.startLoopLevel) %
+                   (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
+                   gameConfig.startLoopLevel;
         }
         else
         {
             if (gameConfig.levelLoopType == LevelLoopType.NormalLoop)
             {
-                indexLevel = (indexLevel - 1) % gameConfig.maxLevel + 1;
+                return (indexLevel - 1) % gameConfig.maxLevel + 1;
             }
             else if (gameConfig.levelLoopType == LevelLoopType.RandomLoop)
             {
-                indexLevel =
-                    UnityEngine.Random.Range(gameConfig.startLoopLevel, gameConfig.maxLevel);
+                return UnityEngine.Random.Range(gameConfig.startLoopLevel, gameConfig.maxLevel);
             }
         }
 
-        Level level = await GetLevelByIndex(indexLevel);
-        currentLevel = Instantiate(level);
-        ActiveCurrentLevel(false);
+        return 1;
     }
 
     public void ActiveCurrentLevel(bool active)
@@ -58,8 +79,8 @@ public class LevelController : BaseMono
 
     public async UniTask<Level> GetLevelByIndex(int indexLevel)
     {
-        var asyncOperationHandle = Addressables.LoadAssetAsync<GameObject>($"Levels/Level {indexLevel}");
-        await asyncOperationHandle;
+        int index = HandleIndexLevel(indexLevel);
+        var asyncOperationHandle = Addressables.LoadAssetAsync<GameObject>($"Levels/Level {index}");
         if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
         {
             return asyncOperationHandle.Result.GetComponent<Level>();

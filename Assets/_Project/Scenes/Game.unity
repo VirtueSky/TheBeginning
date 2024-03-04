@@ -193,6 +193,65 @@ PrefabInstance:
       propertyPath: id
       value: popup_manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[0]
+      value: 
+      objectReference: {fileID: 5900877145956595185, guid: f09001724e3f0b644aada44bd0a99cc2,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[1]
+      value: 
+      objectReference: {fileID: 1933832861120935608, guid: 24053abdae338bf4c8e1d0e5c120c4fa,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[2]
+      value: 
+      objectReference: {fileID: 4385920386591527244, guid: 9a1a13fe440d18d419a3a56c777eb016,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[3]
+      value: 
+      objectReference: {fileID: 5682861250151010794, guid: 0fc6bfe072f692047a72a93c72daa6d5,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[4]
+      value: 
+      objectReference: {fileID: 8541034256649808196, guid: 978822c5a74dfba4dab63a5a695a08fc,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[5]
+      value: 
+      objectReference: {fileID: 5600369039360957863, guid: 1bd72ebe47024c0428d207cb890f7d32,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[6]
+      value: 
+      objectReference: {fileID: 2915254623132364138, guid: 813a9cef4af4e4a4c91638583b5577d4,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[7]
+      value: 
+      objectReference: {fileID: 8175076033157189046, guid: 587f3ae9e6583c641af7334c3e7cd01e,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[8]
+      value: 
+      objectReference: {fileID: 7338174430931127897, guid: 0a7d626686eff674c9417735b945d004,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -429,6 +488,7 @@ MonoBehaviour:
   currentLevel: {fileID: 0}
   currentIndexLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  levelHolder: {fileID: 1245891407}
 --- !u!1 &1647375224
 GameObject:
   m_ObjectHideFlags: 0

@@ -87,6 +87,7 @@ public class GameManager : BaseMono
 
     public void PlayCurrentLevel()
     {
+        PrepareLevel();
         StartGame();
         AppControlPopup.Show<PopupInGame>();
     }

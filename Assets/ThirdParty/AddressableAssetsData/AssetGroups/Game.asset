@@ -22,6 +22,51 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f09001724e3f0b644aada44bd0a99cc2
+    m_Address: Assets/_Project/Prefabs/Popup/PopupDailyReward.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24053abdae338bf4c8e1d0e5c120c4fa
+    m_Address: Assets/_Project/Prefabs/Popup/PopupHome.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a1a13fe440d18d419a3a56c777eb016
+    m_Address: Assets/_Project/Prefabs/Popup/PopupIAP.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fc6bfe072f692047a72a93c72daa6d5
+    m_Address: Assets/_Project/Prefabs/Popup/PopupInGame.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 978822c5a74dfba4dab63a5a695a08fc
+    m_Address: Assets/_Project/Prefabs/Popup/PopupLose.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bd72ebe47024c0428d207cb890f7d32
+    m_Address: Assets/_Project/Prefabs/Popup/PopupSetting.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 813a9cef4af4e4a4c91638583b5577d4
+    m_Address: Assets/_Project/Prefabs/Popup/PopupShop.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 587f3ae9e6583c641af7334c3e7cd01e
+    m_Address: Assets/_Project/Prefabs/Popup/PopupTest.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a7d626686eff674c9417735b945d004
+    m_Address: Assets/_Project/Prefabs/Popup/PopupWin.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 59cbe146a3787e04fa9ac0f729070ea0, type: 2}
   m_SchemaSet:
