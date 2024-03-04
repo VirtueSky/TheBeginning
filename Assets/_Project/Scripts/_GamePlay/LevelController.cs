@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
+using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
-using Debug = System.Diagnostics.Debug;
 
 [EditorIcon("icon_controller")]
 public class LevelController : BaseMono
@@ -17,7 +19,7 @@ public class LevelController : BaseMono
         GenerateLevel(currentIndexLevel.Value);
     }
 
-    public void GenerateLevel(int indexLevel)
+    public async UniTask GenerateLevel(int indexLevel)
     {
         if (currentLevel != null)
         {
@@ -43,7 +45,7 @@ public class LevelController : BaseMono
             }
         }
 
-        Level level = GetLevelByIndex(indexLevel);
+        Level level = await GetLevelByIndex(indexLevel);
         currentLevel = Instantiate(level);
         ActiveCurrentLevel(false);
     }
@@ -53,10 +55,19 @@ public class LevelController : BaseMono
         currentLevel.gameObject.SetActive(active);
     }
 
-    public Level GetLevelByIndex(int indexLevel)
+
+    public async UniTask<Level> GetLevelByIndex(int indexLevel)
     {
-        var levelGo = Resources.Load($"Levels/Level {indexLevel}") as GameObject;
-        Debug.Assert(levelGo != null, nameof(levelGo) + " != null");
-        return levelGo.GetComponent<Level>();
+        var asyncOperationHandle = Addressables.LoadAssetAsync<GameObject>($"Levels/Level {indexLevel}");
+        await asyncOperationHandle;
+        if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
+        {
+            return asyncOperationHandle.Result.GetComponent<Level>();
+        }
+        else
+        {
+            Debug.LogError($"Failed to load level {indexLevel}");
+            return null;
+        }
     }
 }

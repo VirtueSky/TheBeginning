@@ -18,7 +18,6 @@ public class Constant
     // Scene
     public const string LAUNCHER_SCENE = "Launcher";
     public const string GAME_SCENE = "Game";
-    public const string HOME_SCENE = "Home";
     public const string SERVICE_SCENE = "Service";
 
     // Playfab

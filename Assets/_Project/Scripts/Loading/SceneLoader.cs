@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using VirtueSky.Core;
 using VirtueSky.Events;
@@ -19,24 +20,6 @@ public class SceneLoader : BaseMono
         base.OnDisable();
         changeSceneEvent.RemoveListener(ChangeScene);
     }
-    // public void Load(LoadSceneData data)
-    // {
-    //     if (data.isWaiting)
-    //     {
-    //         _operation = SceneManager.LoadSceneAsync(data.sceneName, data.loadSceneMode);
-    //         _operation.allowSceneActivation = false;
-    //         StartCoroutine(Wait(data.timeLoad, data.loadCondition));
-    //     }
-    //     else
-    //     {
-    //         SceneManager.LoadScene(data.sceneName, data.loadSceneMode);
-    //     }
-    // }
-    //
-    // public void Unload(string sceneName)
-    // {
-    //     SceneManager.UnloadScene(sceneName);
-    // }
 
     public void ChangeScene(string sceneName)
     {
@@ -48,26 +31,14 @@ public class SceneLoader : BaseMono
             }
         }
 
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive).completed += operation =>
+        Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive).Completed += handle =>
         {
-            if (operation.isDone)
+            if (handle.IsDone)
             {
                 SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
             }
         };
     }
-
-
-    // IEnumerator Wait(float time, Func<bool> condition)
-    // {
-    //     yield return new WaitForSeconds(time);
-    //     if (condition != null)
-    //     {
-    //         yield return new WaitUntil(condition);
-    //     }
-    //
-    //     _operation.allowSceneActivation = true;
-    // }
 
     private Scene[] GetAllLoadedScene()
     {

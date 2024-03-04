@@ -10,20 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Levels
+  m_Name: Game
   m_EditorClassIdentifier: 
-  m_GroupName: Levels
+  m_GroupName: Game
   m_Data:
     m_SerializedData: []
-  m_GUID: 65b063ad514273549945d57d1cdae9e2
+  m_GUID: c7007528576a64c4e97ee58ae71ffdb5
   m_SerializeEntries:
-  - m_GUID: f6775d9c9e42e83488540c32e69e4d51
-    m_Address: Levels/Level 1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9f406b3dbd50943bcac4e20bbc4568a6
-    m_Address: Levels/Level 2
+  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
+    m_Address: Game
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -31,5 +26,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 59cbe146a3787e04fa9ac0f729070ea0, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: cf09a592364456547bef0b3c658dd01d, type: 2}
-    - {fileID: 11400000, guid: b971d09737bb1d24d887f63f0f093471, type: 2}
+    - {fileID: 11400000, guid: 6af915e2aa325d14a9896532d442270c, type: 2}
+    - {fileID: 11400000, guid: f4d9da49bb67c0142946605bf4b526db, type: 2}

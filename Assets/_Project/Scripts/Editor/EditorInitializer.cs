@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using VirtueSky.Threading.Tasks;
 
@@ -14,10 +15,10 @@ public static class EditorInitializer
             case Constant.LAUNCHER_SCENE:
                 return;
             case Constant.SERVICE_SCENE:
-                await SceneManager.LoadSceneAsync(Constant.LAUNCHER_SCENE);
+                await Addressables.LoadSceneAsync(Constant.LAUNCHER_SCENE);
                 break;
             case Constant.GAME_SCENE:
-                await SceneManager.LoadSceneAsync(Constant.LAUNCHER_SCENE);
+                await Addressables.LoadSceneAsync(Constant.LAUNCHER_SCENE);
                 break;
         }
     }

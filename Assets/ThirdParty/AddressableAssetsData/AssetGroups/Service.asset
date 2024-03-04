@@ -10,20 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Levels
+  m_Name: Service
   m_EditorClassIdentifier: 
-  m_GroupName: Levels
+  m_GroupName: Service
   m_Data:
     m_SerializedData: []
-  m_GUID: 65b063ad514273549945d57d1cdae9e2
+  m_GUID: 08d7ac561ba39c54fbc054f759197a35
   m_SerializeEntries:
-  - m_GUID: f6775d9c9e42e83488540c32e69e4d51
-    m_Address: Levels/Level 1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9f406b3dbd50943bcac4e20bbc4568a6
-    m_Address: Levels/Level 2
+  - m_GUID: 8b02d6586149d8341bf4fa37b905dd5a
+    m_Address: Service
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -31,5 +26,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 59cbe146a3787e04fa9ac0f729070ea0, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: cf09a592364456547bef0b3c658dd01d, type: 2}
-    - {fileID: 11400000, guid: b971d09737bb1d24d887f63f0f093471, type: 2}
+    - {fileID: 11400000, guid: fa1b0e97d80a8b44d96351ddb65a5faf, type: 2}
+    - {fileID: 11400000, guid: 27b3c44b7d72e3b45b10bb9f04cc2fdc, type: 2}
