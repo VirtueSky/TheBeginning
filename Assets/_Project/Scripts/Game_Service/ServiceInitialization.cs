@@ -4,7 +4,7 @@ using VirtueSky.Vibration;
 
 namespace TheBeginning.Services
 {
-    public class InitService : MonoBehaviour
+    public class ServiceInitialization : MonoBehaviour
     {
         [SerializeField] private Pools pools;
         [SerializeField] private GameConfig gameConfig;

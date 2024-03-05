@@ -350,14 +350,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448091007}
-  - component: {fileID: 1448091010}
+  - component: {fileID: 1448091019}
   - component: {fileID: 1448091014}
   - component: {fileID: 1448091015}
   - component: {fileID: 1448091013}
   - component: {fileID: 1448091012}
   - component: {fileID: 1448091016}
-  - component: {fileID: 1448091017}
   - component: {fileID: 1448091018}
+  - component: {fileID: 1448091017}
   m_Layer: 0
   m_Name: Init_Service
   m_TagString: Untagged
@@ -380,21 +380,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1448091010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448091006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fc7d5bd1c41db4092f76ebf446ad18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
-  itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
 --- !u!114 &1448091012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,6 +555,21 @@ MonoBehaviour:
     type: 2}
   changePreventDisplayAppOpenEvent: {fileID: 11400000, guid: 79bb6a658a49caf419b315ee96940768,
     type: 2}
+--- !u!114 &1448091019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448091006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc0fb8471604fb48b4d2d72687368bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
+  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
 --- !u!4 &393689797402902294
 Transform:
   m_ObjectHideFlags: 0
