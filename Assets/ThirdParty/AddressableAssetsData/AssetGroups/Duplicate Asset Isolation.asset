@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: b4f525bfbacc43947ad3165a7cfdb733
+  m_GUID: 06bf5c4e7261ce947bed2c1ce7be2a9f
   m_SerializeEntries:
   - m_GUID: 4b75fe61160713244bd8c8bcf4ebecc6
     m_Address: Assets/_Sunflower/Scriptable/Variable/index_level_variable.asset
@@ -108,7 +108,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f99127449c94a47ab94c5711cbd2d030
-    m_Address: Assets/_Sunflower/Scriptable/GDPR/show_form_consent_event.asset
+    m_Address: Assets/_Sunflower/Scriptable/GDPR/show_form_consent_success_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -192,8 +192,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6d4181221526fb843905ee98636c6378
-    m_Address: Assets/_Sunflower/Scriptable/Event/Level/event_lose_level.asset
+  - m_GUID: e4f33772c12513144943e9ba3ac161f5
+    m_Address: Assets/_Sunflower/Scriptable/Event/Level/Level_Generate/event_get_previous_level.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -212,13 +212,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 70a0552aacfee3c45a634aa5cb9ba272
-    m_Address: Assets/_Sunflower/Scriptable/Audio/Volume_Change/sfx_volume.asset
+  - m_GUID: a23d4b373bb58e04fb8e85b3237c3797
+    m_Address: Assets/_Sunflower/Scriptable/Event/Level/Level_Generate/event_load_level.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 908fbb9a98122f44383205d2a2aaf245
-    m_Address: Assets/_Sunflower/Scriptable/Event/Level/event_win_level.asset
+  - m_GUID: 70a0552aacfee3c45a634aa5cb9ba272
+    m_Address: Assets/_Sunflower/Scriptable/Audio/Volume_Change/sfx_volume.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -227,8 +227,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e96f0ac661d9264dbdb066c74f8ffd8
+    m_Address: Assets/_Sunflower/Scriptable/Event/Level/Level_Generate/event_get_current_level.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e5e673d521437542a9cc1dc118ae486
     m_Address: Assets/_Sunflower/Scriptable/Audio/Volume_Change/music_volume.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb1d28ed953dba1439f42e31764bd580
+    m_Address: Assets/_Sunflower/Scriptable/Variable/ads_counter_variable.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
