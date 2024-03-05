@@ -116,7 +116,7 @@ public class AdminController : MonoBehaviour
 
     void SetupDefault()
     {
-        Hide();
+        Init();
         Refresh();
     }
 
@@ -268,5 +268,13 @@ public class AdminController : MonoBehaviour
             holder.gameObject.SetActive(false);
             iconButtonShowAdmin.sprite = iconBtnShow;
         });
+    }
+
+    void Init()
+    {
+        isShow = false;
+        container.anchoredPosition = Vector2.zero;
+        holder.gameObject.SetActive(false);
+        iconButtonShowAdmin.sprite = iconBtnShow;
     }
 }

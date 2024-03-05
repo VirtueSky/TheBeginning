@@ -11,7 +11,9 @@ using VirtueSky.Variables;
 public class AdsManager : BaseMono
 {
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    private GameStateVariable gameStateVariable;
+    private IntegerVariable adsCounterVariable;
+
+    [SerializeField] private GameStateVariable gameStateVariable;
 
     [SerializeField] private IntegerVariable indexLevelVariable;
     [SerializeField] private BooleanVariable isOffInterAdsVariable;
@@ -45,7 +47,6 @@ public class AdsManager : BaseMono
     public AdUnitVariable AdUnitInter => inter;
     public AdUnitVariable AdUnitReward => reward;
 
-    private int adsCounter;
     private float timePlay;
 
     private void Start()
@@ -63,21 +64,16 @@ public class AdsManager : BaseMono
         }
     }
 
-    public void AdsCounter(Level level)
-    {
-        adsCounter++;
-    }
-
     public void ResetCounter()
     {
-        adsCounter = 0;
+        adsCounterVariable.Value = 0;
         timePlay = 0;
     }
 
     bool IsEnableToShowInter()
     {
         return indexLevelVariable.Value > remoteConfigLevelTurnOnInterstitial.Value &&
-               adsCounter >= remoteConfigInterstitialCappingLevelVariable.Value &&
+               adsCounterVariable.Value >= remoteConfigInterstitialCappingLevelVariable.Value &&
                timePlay >= remoteConfigInterstitialCappingTimeVariable.Value && !isOffInterAdsVariable.Value &&
                remoteConfigOnOffInterstitial.Value;
     }
@@ -123,16 +119,19 @@ public class AdsManager : BaseMono
                 {
                     completeCallback?.Invoke();
                     logEventShowInterCompleted.LogEvent();
+                    ResetCounter();
                 }).OnDisplayed(displayCallback);
             }
             else
             {
                 completeCallback?.Invoke();
+                ResetCounter();
             }
         }
         else
         {
             completeCallback?.Invoke();
+            ResetCounter();
         }
     }
 

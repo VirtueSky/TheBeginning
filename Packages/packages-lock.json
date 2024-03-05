@@ -55,11 +55,11 @@
       "dependencies": {}
     },
     "com.unity.addressables": {
-      "version": "1.21.19",
+      "version": "1.21.20",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.scriptablebuildpipeline": "1.21.21",
+        "com.unity.scriptablebuildpipeline": "1.21.22",
         "com.unity.modules.assetbundle": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
@@ -103,7 +103,7 @@
     },
     "com.unity.collections": {
       "version": "2.1.4",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.8.4",
@@ -185,7 +185,7 @@
     },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.4",
-      "depth": 3,
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -211,7 +211,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "1.21.21",
+      "version": "1.21.22",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -294,14 +294,15 @@
       "hash": "5b2093e8217f8f0d2dd431483ca23872288a1b0d"
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.5.0",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.5.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.serialization": "3.1.1",
+        "com.unity.collections": "2.1.4",
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "cf0610a18d003a997d2955a97a5e985702690e8b"
+      "hash": "cfe6fd73909098266e34b2174a26930e4e07eebe"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

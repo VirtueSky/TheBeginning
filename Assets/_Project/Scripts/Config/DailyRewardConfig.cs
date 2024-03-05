@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VirtueSky.Inspector;
 
-[CreateAssetMenu(fileName = "DailyRewardConfig", menuName = "ScriptableObject/DailyRewardConfig")]
+[CreateAssetMenu(fileName = "DailyRewardConfig", menuName = "Config/DailyRewardConfig")]
 public class DailyRewardConfig : ScriptableObject
 {
     public List<DailyRewardData> DailyRewardDatas;

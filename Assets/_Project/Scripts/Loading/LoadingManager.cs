@@ -1,6 +1,7 @@
 using PrimeTween;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
@@ -68,7 +69,7 @@ public class LoadingManager : BaseMono
 
     private async void LoadScene()
     {
-        await SceneManager.LoadSceneAsync(Constant.SERVICE_SCENE, LoadSceneMode.Additive);
+        await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE, LoadSceneMode.Additive);
         await UniTask.WaitUntil(() => flagDoneProgress);
         if (isWaitingFetchRemoteConfig)
         {

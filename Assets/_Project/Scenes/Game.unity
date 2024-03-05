@@ -193,6 +193,65 @@ PrefabInstance:
       propertyPath: id
       value: popup_manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[0]
+      value: 
+      objectReference: {fileID: 5900877145956595185, guid: f09001724e3f0b644aada44bd0a99cc2,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[1]
+      value: 
+      objectReference: {fileID: 1933832861120935608, guid: 24053abdae338bf4c8e1d0e5c120c4fa,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[2]
+      value: 
+      objectReference: {fileID: 4385920386591527244, guid: 9a1a13fe440d18d419a3a56c777eb016,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[3]
+      value: 
+      objectReference: {fileID: 5682861250151010794, guid: 0fc6bfe072f692047a72a93c72daa6d5,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[4]
+      value: 
+      objectReference: {fileID: 8541034256649808196, guid: 978822c5a74dfba4dab63a5a695a08fc,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[5]
+      value: 
+      objectReference: {fileID: 5600369039360957863, guid: 1bd72ebe47024c0428d207cb890f7d32,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[6]
+      value: 
+      objectReference: {fileID: 2915254623132364138, guid: 813a9cef4af4e4a4c91638583b5577d4,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[7]
+      value: 
+      objectReference: {fileID: 8175076033157189046, guid: 587f3ae9e6583c641af7334c3e7cd01e,
+        type: 3}
+    - target: {fileID: 4140054341117511292, guid: 0c01a2bb26c285542b44f4c9134dcb88,
+        type: 3}
+      propertyPath: listPopups.Array.data[8]
+      value: 
+      objectReference: {fileID: 7338174430931127897, guid: 0a7d626686eff674c9417735b945d004,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -390,9 +449,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1245891407}
-  - component: {fileID: 1245891408}
   m_Layer: 0
-  m_Name: LevelController
+  m_Name: LevelHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,22 +471,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1245891408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245891406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5b6357f158348438bbc6989a60eaa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: level_controller
-  currentLevel: {fileID: 0}
-  currentIndexLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
 --- !u!1 &1647375224
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +550,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: game_manager
   gameState: 0
-  levelController: {fileID: 1245891408}
   logEventFirebaseStartLevel: {fileID: 11400000, guid: 077f321971d6a034c8f3b664920dd79a,
     type: 2}
   logEventFirebaseReplayLevel: {fileID: 11400000, guid: 8b5c8a497352dbc4099ca6a8e9da3172,
@@ -516,6 +557,12 @@ MonoBehaviour:
   logEventFirebaseWinLevel: {fileID: 11400000, guid: 12238c38129a9ce469528907303d54ff,
     type: 2}
   logEventFirebaseLoseLevel: {fileID: 11400000, guid: 6f4f5bfc74bea854289cf1793d8fcc51,
+    type: 2}
+  levelHolder: {fileID: 1245891407}
+  eventLoadLevel: {fileID: 11400000, guid: a23d4b373bb58e04fb8e85b3237c3797, type: 2}
+  eventGetCurrentLevel: {fileID: 11400000, guid: 7e96f0ac661d9264dbdb066c74f8ffd8,
+    type: 2}
+  eventGetPreviousLevel: {fileID: 11400000, guid: e4f33772c12513144943e9ba3ac161f5,
     type: 2}
   eventWinLevel: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
   eventLoseLevel: {fileID: 11400000, guid: 6d4181221526fb843905ee98636c6378, type: 2}
@@ -529,17 +576,16 @@ MonoBehaviour:
     type: 2}
   callNextLevelEvent: {fileID: 11400000, guid: 7a6969beee2c34a49a706b403a8a6e31, type: 2}
   callBackLevelEvent: {fileID: 11400000, guid: 9cc98c82176f3fa4e9684e9f20c64999, type: 2}
-  callPrepareLevelEvent: {fileID: 11400000, guid: 266e937667bbf014cb2949d2c1602d9f,
-    type: 2}
   callWinLevelEvent: {fileID: 11400000, guid: 8bb823675099e1844a9226562cd403df, type: 2}
   callLoseLevelEvent: {fileID: 11400000, guid: 737e2b8f8e70c1445be0bbabb38d77b5, type: 2}
   gameStateVariable: {fileID: 11400000, guid: 00d1914409592564ea7ca3f861a30d8e, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
+  adsCounterVariable: {fileID: 11400000, guid: fb1d28ed953dba1439f42e31764bd580, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1647375225}
   - {fileID: 184129159}
-  - {fileID: 1245891407}
   - {fileID: 2095473173}
+  - {fileID: 1245891407}
