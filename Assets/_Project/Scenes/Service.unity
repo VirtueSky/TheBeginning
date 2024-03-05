@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 1448091012}
   - component: {fileID: 1448091016}
   - component: {fileID: 1448091017}
+  - component: {fileID: 1448091018}
   m_Layer: 0
   m_Name: Init_Service
   m_TagString: Untagged
@@ -547,6 +548,28 @@ MonoBehaviour:
   visualEffectConfig: {fileID: 11400000, guid: e6191c42750a4db49b793497b673f618, type: 2}
   pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
   spawnEffectEvent: {fileID: 11400000, guid: 5809c9924b572894ab3ad0e21a06e422, type: 2}
+--- !u!114 &1448091018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448091006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80248d204b22674aa29ee9bc08e5df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: init__service
+  dontDestroyOnLoad: 0
+  iapSetting: {fileID: 11400000, guid: 9d539fdcaff383f468a4ac25104fdee6, type: 2}
+  eventIapProduct: {fileID: 11400000, guid: ce692001d2d0ce244af9d180ea93ae0d, type: 2}
+  eventIsPurchaseProduct: {fileID: 11400000, guid: 684c4806cb2f7a64c91920d1be5f09f8,
+    type: 2}
+  eventIapTrackingRevenue: {fileID: 11400000, guid: dffdc672cb5b1ad48a29502169e016e0,
+    type: 2}
+  changePreventDisplayAppOpenEvent: {fileID: 11400000, guid: 79bb6a658a49caf419b315ee96940768,
+    type: 2}
 --- !u!4 &393689797402902294
 Transform:
   m_ObjectHideFlags: 0
@@ -584,7 +607,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   adSetting: {fileID: 11400000, guid: fb5f51310080b45ef93d6e2ffe38be83, type: 2}
-  changePreventDisplayAppOpenEvent: {fileID: 0}
+  changePreventDisplayAppOpenEvent: {fileID: 11400000, guid: 79bb6a658a49caf419b315ee96940768,
+    type: 2}
   isGDPRCanRequestAds: {fileID: 11400000, guid: 5fddd6d47ae504305897c67e9eacf43a,
     type: 2}
   isPrivacyRequiredGDPR: {fileID: 11400000, guid: bde677442bb2c4d4da0a4f33b464e1d3,
