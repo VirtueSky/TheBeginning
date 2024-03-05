@@ -103,7 +103,7 @@
     },
     "com.unity.collections": {
       "version": "2.1.4",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.8.4",
@@ -185,7 +185,7 @@
     },
     "com.unity.nuget.mono-cecil": {
       "version": "1.11.4",
-      "depth": 3,
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -294,14 +294,15 @@
       "hash": "5b2093e8217f8f0d2dd431483ca23872288a1b0d"
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.5.1",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.5.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.serialization": "3.1.1",
+        "com.unity.collections": "2.1.4",
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "933c72528c86d19b432e8eafe8637cebdddad282"
+      "hash": "cfe6fd73909098266e34b2174a26930e4e07eebe"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
