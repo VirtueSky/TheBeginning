@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719558c56beb4a8d98cf058fadf5455a, type: 3}
-  m_Name: call_prepare_level_event
+  m_Script: {fileID: 11500000, guid: acdd72f6da1447388505d980e5ce9e77, type: 3}
+  m_Name: event_get_previous_level
   m_EditorClassIdentifier: 
-  id: call_prepare_level_event
+  id: 
   description: 
+  valueResult: {fileID: 0}

@@ -449,9 +449,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1245891407}
-  - component: {fileID: 1245891408}
   m_Layer: 0
-  m_Name: LevelController
+  m_Name: LevelHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,23 +471,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1245891408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1245891406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5b6357f158348438bbc6989a60eaa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: level_controller
-  currentLevel: {fileID: 0}
-  currentIndexLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
-  levelHolder: {fileID: 1245891407}
 --- !u!1 &1647375224
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +550,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: game_manager
   gameState: 0
-  levelController: {fileID: 1245891408}
   logEventFirebaseStartLevel: {fileID: 11400000, guid: 077f321971d6a034c8f3b664920dd79a,
     type: 2}
   logEventFirebaseReplayLevel: {fileID: 11400000, guid: 8b5c8a497352dbc4099ca6a8e9da3172,
@@ -576,6 +557,12 @@ MonoBehaviour:
   logEventFirebaseWinLevel: {fileID: 11400000, guid: 12238c38129a9ce469528907303d54ff,
     type: 2}
   logEventFirebaseLoseLevel: {fileID: 11400000, guid: 6f4f5bfc74bea854289cf1793d8fcc51,
+    type: 2}
+  levelHolder: {fileID: 1245891407}
+  eventLoadLevel: {fileID: 11400000, guid: a23d4b373bb58e04fb8e85b3237c3797, type: 2}
+  eventGetCurrentLevel: {fileID: 11400000, guid: 7e96f0ac661d9264dbdb066c74f8ffd8,
+    type: 2}
+  eventGetPreviousLevel: {fileID: 11400000, guid: e4f33772c12513144943e9ba3ac161f5,
     type: 2}
   eventWinLevel: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
   eventLoseLevel: {fileID: 11400000, guid: 6d4181221526fb843905ee98636c6378, type: 2}
@@ -601,5 +588,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1647375225}
   - {fileID: 184129159}
-  - {fileID: 1245891407}
   - {fileID: 2095473173}
+  - {fileID: 1245891407}

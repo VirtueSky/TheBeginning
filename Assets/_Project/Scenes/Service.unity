@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 1448091015}
   - component: {fileID: 1448091013}
   - component: {fileID: 1448091012}
+  - component: {fileID: 1448091016}
   m_Layer: 0
   m_Name: Init_Service
   m_TagString: Untagged
@@ -538,6 +539,28 @@ MonoBehaviour:
     resultBoolValue: 0
     intValue: {fileID: 11400000, guid: 3c8cef2000c154815a4803a2bf4827eb, type: 2}
     resultIntValue: 0
+--- !u!114 &1448091016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448091006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5b6357f158348438bbc6989a60eaa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: init__service
+  currentLevel: {fileID: 0}
+  previousLevel: {fileID: 0}
+  currentIndexLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
+  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  eventLoadLevel: {fileID: 11400000, guid: a23d4b373bb58e04fb8e85b3237c3797, type: 2}
+  eventGetCurrentLevel: {fileID: 11400000, guid: 7e96f0ac661d9264dbdb066c74f8ffd8,
+    type: 2}
+  eventGetPreviousLevel: {fileID: 11400000, guid: e4f33772c12513144943e9ba3ac161f5,
+    type: 2}
 --- !u!4 &393689797402902294
 Transform:
   m_ObjectHideFlags: 0
@@ -591,6 +614,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    valueDebug: {fileID: 0}
   - event: {fileID: 11400000, guid: 6d4181221526fb843905ee98636c6378, type: 2}
     response:
       m_PersistentCalls:
@@ -607,6 +631,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    valueDebug: {fileID: 0}
 --- !u!114 &1056884952167355909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,6 +774,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    valueDebug:
+      visualEffectType: 0
+      parent: {fileID: 0}
+      position: {x: 0, y: 0, z: 0}
+      localScale: {x: 0, y: 0, z: 0}
+      isDestroyedOnEnd: 0
+      timeDestroy: 0
 --- !u!1 &5214855709318237048
 GameObject:
   m_ObjectHideFlags: 0
