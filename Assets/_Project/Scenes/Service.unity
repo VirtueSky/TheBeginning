@@ -206,37 +206,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1 &472687390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 472687391}
-  m_Layer: 0
-  m_Name: IapManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &472687391
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472687390}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &532783272
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +356,7 @@ GameObject:
   - component: {fileID: 1448091013}
   - component: {fileID: 1448091012}
   - component: {fileID: 1448091016}
+  - component: {fileID: 1448091017}
   m_Layer: 0
   m_Name: Init_Service
   m_TagString: Untagged
@@ -561,6 +531,22 @@ MonoBehaviour:
     type: 2}
   eventGetPreviousLevel: {fileID: 11400000, guid: e4f33772c12513144943e9ba3ac161f5,
     type: 2}
+--- !u!114 &1448091017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448091006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd6ce0fa49039144a943032090c0d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: init__service
+  visualEffectConfig: {fileID: 11400000, guid: e6191c42750a4db49b793497b673f618, type: 2}
+  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
+  spawnEffectEvent: {fileID: 11400000, guid: 5809c9924b572894ab3ad0e21a06e422, type: 2}
 --- !u!4 &393689797402902294
 Transform:
   m_ObjectHideFlags: 0
@@ -584,54 +570,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584050282081457044}
   m_Enabled: 1
---- !u!114 &552348297740434887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8529543361276852135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010ec6b1c9e5b914fa3d8310726cdb93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bindingListener: 0
-  listEventResponseDatas:
-  - event: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6988278956425269674}
-          m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-          m_MethodName: AdsCounter
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    valueDebug: {fileID: 0}
-  - event: {fileID: 11400000, guid: 6d4181221526fb843905ee98636c6378, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6988278956425269674}
-          m_TargetAssemblyTypeName: AdsManager, Assembly-CSharp
-          m_MethodName: AdsCounter
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    valueDebug: {fileID: 0}
 --- !u!114 &1056884952167355909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,97 +667,6 @@ MonoBehaviour:
   eventStopAllSfx: {fileID: 11400000, guid: 5542f5af4a6e69e418ba805130c31881, type: 2}
   musicVolume: {fileID: 11400000, guid: 5e5e673d521437542a9cc1dc118ae486, type: 2}
   sfxVolume: {fileID: 11400000, guid: 70a0552aacfee3c45a634aa5cb9ba272, type: 2}
---- !u!4 &3527657169019653263
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5214855709318237048}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5135600487565357095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5214855709318237048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65f89ccbd2c5c41e4a1ea4f3aed0a94f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bindingListener: 0
-  listEventResponseDatas:
-  - event: {fileID: 11400000, guid: 5809c9924b572894ab3ad0e21a06e422, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5244693994061029298}
-          m_TargetAssemblyTypeName: VisualEffectsManager, Assembly-CSharp
-          m_MethodName: SpawnEffect
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    valueDebug:
-      visualEffectType: 0
-      parent: {fileID: 0}
-      position: {x: 0, y: 0, z: 0}
-      localScale: {x: 0, y: 0, z: 0}
-      isDestroyedOnEnd: 0
-      timeDestroy: 0
---- !u!1 &5214855709318237048
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3527657169019653263}
-  - component: {fileID: 5244693994061029298}
-  - component: {fileID: 5135600487565357095}
-  m_Layer: 0
-  m_Name: EffectsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &5244693994061029298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5214855709318237048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd6ce0fa49039144a943032090c0d77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: effects_manager
-  visualEffectDatas:
-  - effectList: []
-    visualEffectType: 0
-  - effectList: []
-    visualEffectType: 0
-  - effectList: []
-    visualEffectType: 0
-  pools: {fileID: 0}
 --- !u!1001 &6268509514467123668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1551,6 +1398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: ads_manager
+  adsCounterVariable: {fileID: 11400000, guid: fb1d28ed953dba1439f42e31764bd580, type: 2}
   gameStateVariable: {fileID: 11400000, guid: 00d1914409592564ea7ca3f861a30d8e, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   isOffInterAdsVariable: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f,
@@ -1599,7 +1447,6 @@ GameObject:
   - component: {fileID: 1462405470488005943}
   - component: {fileID: 6988278956425269674}
   - component: {fileID: 1056884952167355909}
-  - component: {fileID: 552348297740434887}
   - component: {fileID: 8529543361276852136}
   m_Layer: 0
   m_Name: AdsManager
@@ -1644,7 +1491,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1448091007}
   - {fileID: 1462405470488005943}
-  - {fileID: 472687391}
   - {fileID: 393689797402902294}
-  - {fileID: 3527657169019653263}
   - {fileID: 532783273}

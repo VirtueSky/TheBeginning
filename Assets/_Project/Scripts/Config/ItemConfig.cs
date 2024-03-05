@@ -5,7 +5,7 @@ using UnityEngine;
 using VirtueSky.Inspector;
 using Random = UnityEngine.Random;
 
-[CreateAssetMenu(fileName = "ItemConfig", menuName = "ScriptableObject/ItemConfig")]
+[CreateAssetMenu(fileName = "ItemConfig", menuName = "Config/ItemConfig")]
 public class ItemConfig : ScriptableObject
 {
     [SerializeField] private List<ItemData> listItemData;
@@ -67,8 +67,10 @@ public class ItemIdentity
 public class ItemData : ItemIdentity
 {
     public BuyType buyType;
-     public Sprite shopIcon;
-    [ShowIf(nameof(buyType), BuyType.BuyCoin)] public int coinValue;
+    public Sprite shopIcon;
+
+    [ShowIf(nameof(buyType), BuyType.BuyCoin)]
+    public int coinValue;
 
     public void ClaimItem()
     {

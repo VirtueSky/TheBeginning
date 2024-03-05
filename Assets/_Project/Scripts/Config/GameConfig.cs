@@ -2,7 +2,7 @@ using UnityEngine;
 using VirtueSky.Inspector;
 using VirtueSky.Utils;
 
-[CreateAssetMenu(fileName = "GameConfig", menuName = "ScriptableObject/GameConfig")]
+[CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
 public class GameConfig : ScriptableObject
 {
     [Space, HeaderLine("Level config")] public LevelLoopType levelLoopType;

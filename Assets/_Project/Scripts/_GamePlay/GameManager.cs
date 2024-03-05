@@ -26,20 +26,16 @@ public class GameManager : BaseMono
 
     [SerializeField] private EventGetCurrentLevel eventGetCurrentLevel;
     [SerializeField] private EventGetPreviousLevel eventGetPreviousLevel;
-
     [SerializeField] private EventLevel eventWinLevel;
-
     [SerializeField] private EventLevel eventLoseLevel;
     [SerializeField] private EventLevel eventStartLevel;
     [SerializeField] private EventLevel eventSkipLevel;
     [SerializeField] private EventLevel eventReplayLevel;
-
     [SerializeField] private EventNoParam callReturnHome;
     [SerializeField] private EventNoParam callReplayLevelEvent;
     [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
     [SerializeField] private EventNoParam callNextLevelEvent;
     [SerializeField] private EventNoParam callBackLevelEvent;
-    [SerializeField] private EventNoParam callPrepareLevelEvent;
     [SerializeField] private FloatEvent callWinLevelEvent;
     [SerializeField] private FloatEvent callLoseLevelEvent;
 
@@ -48,6 +44,7 @@ public class GameManager : BaseMono
     private GameStateVariable gameStateVariable;
 
     [SerializeField] private IntegerVariable indexLevelVariable;
+    [SerializeField] private IntegerVariable adsCounterVariable;
 
 
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
@@ -138,9 +135,9 @@ public class GameManager : BaseMono
         if (GameState == GameState.WaitingResult ||
             GameState == GameState.LoseGame ||
             GameState == GameState.WinGame) return;
-
         GameState = GameState.WinGame;
         eventWinLevel.Raise(eventGetCurrentLevel.Raise());
+        adsCounterVariable.Value++;
         logEventFirebaseWinLevel.LogEvent(eventGetCurrentLevel.Raise().name);
         Tween.Delay(delayPopupShowTime, () =>
         {
@@ -158,6 +155,7 @@ public class GameManager : BaseMono
             GameState == GameState.WinGame) return;
         GameState = GameState.LoseGame;
         eventLoseLevel.Raise(eventGetCurrentLevel.Raise());
+        adsCounterVariable.Value++;
         logEventFirebaseLoseLevel.LogEvent(eventGetCurrentLevel.Raise().name);
         Tween.Delay(delayPopupShowTime, () =>
         {
