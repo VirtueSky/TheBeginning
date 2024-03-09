@@ -22,11 +22,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a7632e21ca2f4c644a5d462eea3b18b5
-    m_Address: Assets/_Example/3D/play_anim_charactor_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0414325cc03918d47bedc3751f7127d6
     m_Address: Assets/_Project/Fonts/TMP_LilitaOne_Stroke.asset
     m_ReadOnly: 0
