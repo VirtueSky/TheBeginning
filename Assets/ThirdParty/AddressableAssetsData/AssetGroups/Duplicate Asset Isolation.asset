@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: a225e61e99ed0dc4d80aaa723f974df5
+  m_GUID: 681e18b01e7afd143916e3d7cf60b665
   m_SerializeEntries:
   - m_GUID: 4b75fe61160713244bd8c8bcf4ebecc6
     m_Address: Assets/_Sunflower/Scriptable/Variable/index_level_variable.asset
