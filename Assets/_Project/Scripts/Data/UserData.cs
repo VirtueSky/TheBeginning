@@ -60,7 +60,20 @@ namespace TheBeginning.UserData
 
         public static bool IsClaimedTodayDailyReward()
         {
-            return (int)(DateTime.Now - DateTime.Parse(LastDailyRewardClaimed)).TotalDays == 0;
+            DateTime date = DateTime.Now;
+            if (!string.IsNullOrEmpty(LastDailyRewardClaimed))
+            {
+                try
+                {
+                    date = DateTime.Parse(LastDailyRewardClaimed);
+                }
+                catch (Exception)
+                {
+                    date = DateTime.Now;
+                }
+            }
+
+            return (int)(DateTime.Now - date).TotalDays == 0;
         }
 
         public static bool IsStartLoopingDailyReward
@@ -94,34 +107,6 @@ namespace TheBeginning.UserData
         {
             get => Get(Constant.TOTAL_CLAIM_DAILY_REWARD, 0);
             set => Set(Constant.TOTAL_CLAIM_DAILY_REWARD, value);
-        }
-
-        #endregion
-
-        #region PLAYFAB_DATA
-
-        public static string PlayfabLoginId
-        {
-            get => Get(Constant.PLAYFAB_LOGIN_ID, string.Empty);
-            set => Set(Constant.PLAYFAB_LOGIN_ID, value);
-        }
-
-        public static string PlayerName
-        {
-            get => Get(Constant.PLAYER_NAME, string.Empty);
-            set => Set(Constant.PLAYER_NAME, value);
-        }
-
-        public static string PlayerId
-        {
-            get => Get(Constant.PLAYER_ID, string.Empty);
-            set => Set(Constant.PLAYER_ID, value);
-        }
-
-        public static string PlayerCountryCode
-        {
-            get => Get(Constant.PLAYER_COUNTRY_CODE, string.Empty);
-            set => Set(Constant.PLAYER_COUNTRY_CODE, value);
         }
 
         #endregion
