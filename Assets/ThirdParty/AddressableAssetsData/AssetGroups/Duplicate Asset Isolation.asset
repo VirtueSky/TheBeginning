@@ -15,10 +15,60 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 681e18b01e7afd143916e3d7cf60b665
+  m_GUID: 25ec7d6d1127af3459e2e44547597660
   m_SerializeEntries:
+  - m_GUID: 1749cf3ef0603a5408d0a513560f046f
+    m_Address: Assets/_Project/_Example/Event/play_portal_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5594ea3dc3aa5dc40bbb2702eebe98fa
+    m_Address: Assets/_Project/_Example/Event/play_hoverboard_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ba93f38cfff7ad4b8a41a8ad7f8f786
+    m_Address: Assets/_Project/_Example/Event/play_walk_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9670bb384dca73b4387d1b7435367618
+    m_Address: Assets/_Project/_Example/Event/play_death_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a7b070819d09e64eb4247af3d02174f
+    m_Address: Assets/_Project/_Example/Event/play_jump_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce355927a8b169147936c51a320a96f5
+    m_Address: Assets/_Project/_Example/Event/play_idle_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83aa9826f5813bb48a01e8770fb9b564
+    m_Address: Assets/_Project/_Example/Event/add_shoot_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd84d185682a2854f8a7968ee5d8bf8e
+    m_Address: Assets/_Project/_Example/Event/play_run_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf67e36321de89f4b9d0062c8d6a5f22
+    m_Address: Assets/_Project/_Example/Event/play_shoot_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b75fe61160713244bd8c8bcf4ebecc6
     m_Address: Assets/_Sunflower/Scriptable/Variable/index_level_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8b47f732f214a74ea2758c176b166be
+    m_Address: Assets/_Sunflower/Scriptable/Audio/Sfx_Event/play_sfx_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -199,11 +249,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 863862f250bdb42ccaba78e46eb83840
     m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobRewardVariable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f8b47f732f214a74ea2758c176b166be
-    m_Address: Assets/_Sunflower/Scriptable/Audio/Sfx_Event/play_sfx_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
