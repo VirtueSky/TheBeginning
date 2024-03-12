@@ -35,7 +35,7 @@ public class LevelLoader : BaseMono
     public async UniTask<Level> LoadLevel()
     {
         int index = HandleIndexLevel(currentIndexLevel.Value);
-        var result = await Addressables.LoadAssetAsync<GameObject>($"Levels/Level {index}");
+        var result = await Addressables.LoadAssetAsync<GameObject>($"{gameConfig.keyLoadLevel} {index}");
         if (currentLevel != null) previousLevel = currentLevel;
         currentLevel = result.GetComponent<Level>();
         return currentLevel;
