@@ -1,3 +1,4 @@
+using PrimeTween;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.ObjectPooling;
@@ -26,7 +27,10 @@ public class VisualEffectsSpawner : BaseMono
             effect.transform.localScale =
                 (data.localScale == default) ? Vector3.one : data.localScale;
 
-            if (data.isDestroyedOnEnd) Destroy(effect, data.timeDestroy);
+            if (data.isDestroyedOnEnd)
+            {
+                Tween.Delay(data.timeDestroy, () => pools.DeSpawn(effect));
+            }
         }
     }
 }
