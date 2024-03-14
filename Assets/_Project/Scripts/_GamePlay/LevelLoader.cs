@@ -36,7 +36,17 @@ public class LevelLoader : BaseMono
     {
         int index = HandleIndexLevel(currentIndexLevel.Value);
         var result = await Addressables.LoadAssetAsync<GameObject>($"{gameConfig.keyLoadLevel} {index}");
-        if (currentLevel != null) previousLevel = currentLevel;
+        if (currentLevel != null)
+        {
+            previousLevel = currentLevel;
+        }
+        else
+        {
+            int indexPrev = HandleIndexLevel(currentIndexLevel.Value - 1);
+            var resultPre = await Addressables.LoadAssetAsync<GameObject>($"{gameConfig.keyLoadLevel} {indexPrev}");
+            previousLevel = resultPre.GetComponent<Level>();
+        }
+
         currentLevel = result.GetComponent<Level>();
         return currentLevel;
     }
