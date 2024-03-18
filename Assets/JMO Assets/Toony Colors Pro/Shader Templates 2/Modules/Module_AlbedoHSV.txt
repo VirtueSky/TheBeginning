@@ -1,10 +1,10 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 // Shader Generator Module: Albedo HSV
 
 #FEATURES
-mult	lbl="Albedo HSV"			kw=Off|,Hue Saturation Value|ALBEDO_HSV,Saturation Only (faster)|ALBEDO_HSV_GRAYSCALE			tt="Adds Hue, Saturation, Value controls to the albedo property"
+mult	lbl="Albedo HSV"		kw=Off|,Hue Saturation Value|ALBEDO_HSV,Saturation Only (faster)|ALBEDO_HSV_SATURATION			tt="Adds Hue, Saturation, Value controls to the albedo property"
 sngl	lbl="Mask"				kw=ALBEDO_HSV_MASK		indent		needs=ALBEDO_HSV											tt="Mask the Albedo HSV change (see the Shader Properties tab to change the masking value)"
 #END
 
@@ -13,10 +13,10 @@ sngl	lbl="Mask"				kw=ALBEDO_HSV_MASK		indent		needs=ALBEDO_HSV											tt="Ma
 #PROPERTIES_NEW
 /// IF ALBEDO_HSV
 	float	Albedo Hue				fragment, imp(range, label = "Hue", variable = "_HSV_H", default = 0, min = -180, max = 180)
-	float	Albedo Saturation		fragment, imp(range, label = "Saturation", variable = "_HSV_S", default = 0, min = -1, max = 1)
+	float	Albedo Saturation		fragment, imp(range, label = "Saturation", variable = "_HSV_S", default = 1, min = 0, max = 1)
 	float	Albedo Value			fragment, imp(range, label = "Value", variable = "_HSV_V", default = 0, min = -1, max = 1)
 /// ELIF ALBEDO_HSV_SATURATION
-	float	Albedo Saturation Only	fragment, imp(range, label = "Albedo Saturation", variable = "_HSV_S", default = 0, min = -1, max = 1)
+	float	Albedo Saturation Only	fragment, imp(range, label = "Albedo Saturation", variable = "_HSV_S", default = 1, min = 0, max = 1)
 ///
 /// IF (ALBEDO_HSV || ALBEDO_HSV_SATURATION) && ALBEDO_HSV_MASK
 	float	Albedo HSV Mask			fragment, imp(shader_property_ref, reference = Albedo, swizzle = A)

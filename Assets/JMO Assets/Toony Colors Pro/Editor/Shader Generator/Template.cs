@@ -1,5 +1,5 @@
 ﻿// Toony Colors Pro 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 using System;
 using System.Collections.Generic;
@@ -388,6 +388,7 @@ namespace ToonyColorsPro
 					var newTemplateLines = new List<string>();
 					Dictionary<string, Module> modules = new Dictionary<string, Module>();
 					var usedModulesVariables = new HashSet<Module>();
+					var usedModulesVariablesOutsideCBuffer = new HashSet<Module>();
 					var usedModulesFunctions = new HashSet<Module>();
 					var usedModulesInput = new HashSet<Module>();
 					for (int i = 0; i < originalTextLines.Length; i++)
@@ -527,6 +528,18 @@ namespace ToonyColorsPro
 									}
 								}
 							}
+							else if (tag.StartsWith("VARIABLES_OUTSIDE_CBUFFER:"))
+							{
+								//Print Variables line from specific module
+								foreach (var module in modules.Values)
+								{
+									if (module.name == moduleName)
+									{
+										AddRangeWithIndent(newTemplateLines, module.VariablesOutsideCBuffer, indent);
+										usedModulesVariablesOutsideCBuffer.Add(module);
+									}
+								}
+							}
 							else if (tag == "VARIABLES")
 							{
 								//Print all Variables lines from all modules
@@ -535,6 +548,17 @@ namespace ToonyColorsPro
 									if (!usedModulesVariables.Contains(module))
 									{
 										AddRangeWithIndent(newTemplateLines, module.Variables, indent);
+									}
+								}
+							}
+							else if (tag == "VARIABLES_OUTSIDE_CBUFFER")
+							{
+								//Print all Variables lines from all modules
+								foreach (var module in modules.Values)
+								{
+									if (!usedModulesVariablesOutsideCBuffer.Contains(module))
+									{
+										AddRangeWithIndent(newTemplateLines, module.VariablesOutsideCBuffer, indent);
 									}
 								}
 							}

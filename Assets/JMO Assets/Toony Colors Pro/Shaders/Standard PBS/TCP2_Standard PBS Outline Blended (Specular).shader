@@ -80,6 +80,8 @@ Shader "Hidden/Toony Colors Pro 2/Standard PBS Outline Blended (Specular)"
 		_NormalsSource ("Outline Normals Source", Float) = 0
 		[TCP2MaterialKeywordEnumNoPrefix(Full XYZ, TCP2_UV_NORMALS_FULL, Compressed XY, _, Compressed ZW, TCP2_UV_NORMALS_ZW)]
 		_NormalsUVType ("UV Data Type", Float) = 0
+
+		[HideInInspector] _EnableOutline ("Enable Outline", Float) = 0
 	}
 
 	CGINCLUDE
@@ -390,6 +392,9 @@ Shader "Hidden/Toony Colors Pro 2/Standard PBS Outline Blended (Specular)"
 			#pragma shader_feature _ _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
 			#pragma shader_feature ___ _DETAIL_MULX2
 
+			#ifndef UNITY_PASS_META
+				#define UNITY_PASS_META
+			#endif
 			#include "UnityStandardMeta.cginc"
 			ENDCG
 		}

@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using System.IO;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 // General helper functions for TCP2
 
@@ -54,11 +55,21 @@ namespace ToonyColorsPro
 #if UNITY_5_4_OR_NEWER
 			public static float ScreenWidthRetina { get { return Screen.width/EditorGUIUtility.pixelsPerPoint; } }
 #else
-	static public float ScreenWidthRetina { get { return Screen.width; } }
+			static public float ScreenWidthRetina { get { return Screen.width; } }
 #endif
 
 			//--------------------------------------------------------------------------------------------------------------------------------
 			// CUSTOM INSPECTOR UTILS
+
+			internal static bool IsUsingURP()
+			{
+#if UNITY_2019_3_OR_NEWER
+				var renderPipeline = GraphicsSettings.currentRenderPipeline;
+#else
+				var renderPipeline = GraphicsSettings.renderPipelineAsset;
+#endif
+				return renderPipeline != null && renderPipeline.GetType().Name.Contains("Universal");
+			}
 
 			public static bool HasKeywords(List<string> list, params string[] keywords)
 			{
@@ -291,7 +302,7 @@ namespace ToonyColorsPro
 #if UNITY_EDITOR_WIN
 					return readmePathFull.Replace(ToSystemSlashPath(Application.dataPath), "Assets").Replace(@"\", "/");
 #else
-			return readmePathFull.Replace(ToSystemSlashPath(Application.dataPath), "Assets");
+					return readmePathFull.Replace(ToSystemSlashPath(Application.dataPath), "Assets");
 #endif
 				}
 				return readmePathFull;
@@ -471,11 +482,11 @@ namespace ToonyColorsPro
 				}
 
 #if DONT_ALTER_NORMALS
-		//Debug: don't alter normals to see if converting into colors/tangents/uv2 works correctly
-		for(int i = 0; i < newMesh.vertexCount; i++)
-		{
-			averageNormals[i] = newMesh.normals[i];
-		}
+				//Debug: don't alter normals to see if converting into colors/tangents/uv2 works correctly
+				for(int i = 0; i < newMesh.vertexCount; i++)
+				{
+					averageNormals[i] = newMesh.normals[i];
+				}
 #endif
 
 				//--------------------------------
@@ -608,173 +619,6 @@ namespace ToonyColorsPro
 				}
 			}
 
-			//--------------------------------------------------------------------------------------------------------------------------------
-			// SHADER PACKING/UNPACKING
-
-			public class PackedFile
-			{
-				public PackedFile(string _path, string _content)
-				{
-					mPath = _path;
-					content = _content;
-				}
-
-				private string mPath;
-				public string path
-				{
-					get
-					{
-#if UNITY_EDITOR_WIN
-						return mPath;
-#else
-				return this.mPath.Replace(@"\","/");
-#endif
-					}
-				}
-				public string content { get; private set; }
-			}
-
-			//Get a PackedFile from a system file path
-			public static PackedFile PackFile(string windowsPath)
-			{
-				if (!File.Exists(windowsPath))
-				{
-					EditorApplication.Beep();
-					Debug.LogError("[TCP2 PackFile] File doesn't exist:" + windowsPath);
-					return null;
-				}
-
-				//Get properties
-				// Content
-				var content = File.ReadAllText(windowsPath, Encoding.UTF8);
-				content = content.Replace("\r\n", "\n");
-				// File relative path
-				var tcpRoot = FindReadmePath();
-				if (tcpRoot == null)
-				{
-					EditorApplication.Beep();
-					Debug.LogError("[TCP2 PackFile] Can't find TCP2 Readme file!\nCan't determine root folder to pack/unpack files.");
-					return null;
-				}
-				tcpRoot = ToSystemSlashPath(tcpRoot);
-				var relativePath = windowsPath.Replace(tcpRoot, "");
-
-				var pf = new PackedFile(relativePath, content);
-				return pf;
-			}
-
-			//Create an archive of PackedFile
-			public static void CreateArchive(PackedFile[] packedFiles, string outputFile)
-			{
-				if (packedFiles == null || packedFiles.Length == 0)
-				{
-					EditorApplication.Beep();
-					Debug.LogError("[TCP2 PackFile] No file to pack!");
-					return;
-				}
-
-				var sbIndex = new StringBuilder();
-				var sbContent = new StringBuilder();
-
-				sbIndex.AppendLine("# TCP2 PACKED SHADERS");
-				var lineCursor = 0;
-				foreach (var pf in packedFiles)
-				{
-					sbContent.Append(pf.content);
-					sbIndex.AppendLine(pf.path + ";" + lineCursor + ";" + pf.content.Length);   // PATH ; START ; LENGTH
-					lineCursor += pf.content.Length;
-				}
-
-				var archiveContent = sbIndex.ToString().Replace("\r\n", "\n") + "###\n" + sbContent.ToString().Replace("\r\n", "\n");
-
-				var fullPath = Application.dataPath + "/" + outputFile;
-				var directory = Path.GetDirectoryName(fullPath);
-				if (!Directory.Exists(directory))
-				{
-					Directory.CreateDirectory(directory);
-				}
-				File.WriteAllText(fullPath, archiveContent);
-				AssetDatabase.Refresh();
-				Debug.Log("[TCP2 CreateArchive] Created archive:\n" + fullPath);
-			}
-
-			//Extract an archive into an array of PackedFile
-			public static PackedFile[] ExtractArchive(string archivePath, string filter = null)
-			{
-				var archive = File.ReadAllText(archivePath);
-				archive = archive.Replace("\r\n", "\n");
-				var archiveLines = File.ReadAllLines(archivePath);
-
-				if (archiveLines[0] != "# TCP2 PACKED SHADERS")
-				{
-					EditorApplication.Beep();
-					Debug.LogError("[TCP2 ExtractArchive] Invalid TCP2 archive:\n" + archivePath);
-					return null;
-				}
-
-				//Find offset
-				var offset = archive.IndexOf("###") + 4;
-				if (offset < 20)
-				{
-					Debug.LogError("[TCP2 ExtractArchive] Invalid TCP2 archive:\n" + archivePath);
-					return null;
-				}
-
-				var tcpRoot = FindReadmePath();
-				var packedFilesList = new List<PackedFile>();
-				for (var line = 1; line < archiveLines.Length; line++)
-				{
-					//Index end, start content parsing
-					if (archiveLines[line].StartsWith("#"))
-					{
-						break;
-					}
-
-					var shaderIndex = archiveLines[line].Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-					if (shaderIndex.Length != 3)
-					{
-						EditorApplication.Beep();
-						Debug.LogError("[TCP2 ExtractArchive] Invalid format in TCP2 archive, at line " + line + ":\n" + archivePath);
-						return null;
-					}
-
-					//Get data
-					var relativePath = shaderIndex[0];
-					var start = int.Parse(shaderIndex[1]);
-					var length = int.Parse(shaderIndex[2]);
-					//Get content
-					var content = archive.Substring(offset + start, length);
-
-					//Skip if file already extracted
-					if (File.Exists(tcpRoot + relativePath))
-					{
-						continue;
-					}
-
-					//Filter?
-					if (!string.IsNullOrEmpty(filter))
-					{
-						var filters = filter.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
-						var skip = false;
-						foreach (var f in filters)
-						{
-							if (!relativePath.ToLower().Contains(f.ToLower()))
-							{
-								skip = true;
-								break;
-							}
-						}
-						if (skip)
-							continue;
-					}
-
-					//Add File
-					packedFilesList.Add(new PackedFile(relativePath, content));
-				}
-
-				return packedFilesList.ToArray();
-			}
-
 			public static string UnityRelativeToSystemPath(string path)
 			{
 				var sysPath = path;
@@ -791,7 +635,7 @@ namespace ToonyColorsPro
 #if UNITY_EDITOR_WIN
 				return path.Replace("/", @"\");
 #else
-		return path;
+				return path;
 #endif
 			}
 

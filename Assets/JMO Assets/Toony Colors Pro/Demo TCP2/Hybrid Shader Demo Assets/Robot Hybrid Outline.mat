@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Robot Hybrid Outline
-  m_Shader: {fileID: 4800000, guid: ef3178aabaab247448c46c904e37bf43, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: df5bb027d94a6c44bb32b3c31ec1303f,
+    type: 3}
   m_ShaderKeywords: TCP2_RAMP_CRISP TCP2_RIM_LIGHTING TCP2_SHADOW_LIGHT_COLOR TCP2_SPECULAR
     TCP2_TANGENT_AS_NORMALS TCP2_UV_NORMALS_FULL
   m_LightmapFlags: 4
@@ -109,6 +110,7 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineLightingType: 0
     - _OutlineLightingTypeURP: 0
+    - _OutlineMaxWidth: 1
     - _OutlineMinWidth: 1
     - _OutlinePixelSizeType: 0
     - _OutlineTextureLOD: 5

@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 // Shader Generator Module: Reflection
 // NOTE: 'REFLECTION_SHADER_FEATURE' has to be defined in the Template file
@@ -24,7 +24,7 @@ sngl	lbl="Fresnel Reflections"		kw=REFLECTION_FRESNEL		needsOr=PLANAR_REFLECTION
 /// IF PLANAR_REFLECTION && BUMP
 		float		Planar Normals Influence	lighting, imp(range, label = "Reflection Normal Influence", default = 0.1, min = 0, max = 1)
 ///
-/// IF REFLECTION_FRESNEL
+/// IF REFLECTION_FRESNEL && HAS_REFLECTIONS
 		float		Fresnel Min			lighting, imp(range, label = "Fresnel Min", default = 0.0, min = 0, max = 2)
 		float		Fresnel Max			lighting, imp(range, label = "Fresnel Max", default = 1.5, min = 0, max = 2)
 ///
@@ -33,15 +33,21 @@ sngl	lbl="Fresnel Reflections"		kw=REFLECTION_FRESNEL		needsOr=PLANAR_REFLECTION
 //================================================================
 
 #KEYWORDS
+/// IF PLANAR_REFLECTION || REFLECTION_CUBEMAP || GLOSSY_REFLECTIONS
+	feature_on		HAS_REFLECTIONS
+///
 /// IF REFLECTION_CUBEMAP
 	feature_on		USE_WORLD_NORMAL_FRAGMENT
 	feature_on		USE_VIEW_DIRECTION_FRAGMENT
 ///
-/// IF REFLECTION_FRESNEL
+/// IF REFLECTION_FRESNEL && HAS_REFLECTIONS
 	feature_on		USE_NDV_FRAGMENT
 ///
 /// IF PLANAR_REFLECTION
 	feature_on		USE_SCREEN_POSITION_FRAGMENT
+///
+/// IF BUMP && PLANAR_REFLECTION
+	feature_on		USE_NORMAL_TANGENT_SPACE_LIGHTING
 ///
 #END
 
@@ -62,7 +68,7 @@ sngl	lbl="Fresnel Reflections"		kw=REFLECTION_FRESNEL		needsOr=PLANAR_REFLECTION
 	///
 		[HideInInspector] _ReflectionTex ("Planar Reflection RenderTexture", 2D) = "white" {}
 ///
-/// IF REFLECTION_FRESNEL
+/// IF REFLECTION_FRESNEL && HAS_REFLECTIONS
 		[[PROP:Fresnel Min]]
 		[[PROP:Fresnel Max]]
 ///
@@ -70,7 +76,7 @@ sngl	lbl="Fresnel Reflections"		kw=REFLECTION_FRESNEL		needsOr=PLANAR_REFLECTION
 
 //================================================================
 
-#VARIABLES
+#VARIABLES_OUTSIDE_CBUFFER
 /// IF REFLECTION_CUBEMAP
 	samplerCUBE _Cube;
 ///
@@ -109,16 +115,26 @@ sngl	lbl="Fresnel Reflections"		kw=REFLECTION_FRESNEL		needsOr=PLANAR_REFLECTION
 ///
 /// IF PLANAR_REFLECTION
 	/// IF BUMP
+		/// IF BUMP_SHADER_FEATURE
+		#if defined(_NORMALMAP)
+		///
 		float2 planarReflectionCoords = (screenPosition.xy + (normalTangentSpace.xy * [[VALUE:Planar Normals Influence]])) / screenPosition.w;
 		reflectionColor.rgb += tex2D(_ReflectionTex, planarReflectionCoords).rgb;
-	/// ELSE
+		/// IF BUMP_SHADER_FEATURE
+		#else
+		///
+	///
+	/// IF !BUMP || (BUMP && BUMP_SHADER_FEATURE)
 		reflectionColor.rgb += tex2D(_ReflectionTex, screenPosition.xy / screenPosition.w).rgb;
+		/// IF BUMP_SHADER_FEATURE
+		#endif
+		///
 	///
 ///
 /// IF (REFLECTION_CUBEMAP || PLANAR_REFLECTION) && REFLECTION_SHADER_FEATURE
 		#endif
 ///
-/// IF REFLECTION_FRESNEL
+/// IF REFLECTION_FRESNEL && HAS_REFLECTIONS
 		half fresnelMin = [[VALUE:Fresnel Min]];
 		half fresnelMax = [[VALUE:Fresnel Max]];
 		half fresnelTerm = smoothstep(fresnelMin, fresnelMax, 1 - ndv);

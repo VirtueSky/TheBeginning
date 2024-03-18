@@ -63,6 +63,8 @@ Shader "Toony Colors Pro 2/Standard PBS"
 		[PowerSlider(3)] _RimStrength("Fresnel Strength", Range(0, 2)) = 0.5
 		_RimMin("Fresnel Ramp Min", Range(0, 1)) = 0.6
 		_RimMax("Fresnel Ramp Max", Range(0, 1)) = 0.85
+
+		[HideInInspector] _EnableOutline ("Enable Outline", Float) = 0
 	}
 
 	CGINCLUDE
@@ -365,6 +367,9 @@ Shader "Toony Colors Pro 2/Standard PBS"
 			#pragma shader_feature _ _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
 			#pragma shader_feature ___ _DETAIL_MULX2
 
+			#ifndef UNITY_PASS_META
+				#define UNITY_PASS_META
+			#endif
 			#include "UnityStandardMeta.cginc"
 			ENDCG
 		}

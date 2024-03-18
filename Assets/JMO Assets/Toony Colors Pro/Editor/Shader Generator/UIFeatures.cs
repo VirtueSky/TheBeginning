@@ -1,5 +1,5 @@
 // Toony Colors Pro 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 using System;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace ToonyColorsPro
 
 		internal class UIFeature
 		{
-			protected const float LABEL_WIDTH = 210f;
+			const float LABEL_WIDTH = 240f;
 			static Rect LastPositionInline;
 			static float LastLowerBoundY;
 			static float LastIndentY;

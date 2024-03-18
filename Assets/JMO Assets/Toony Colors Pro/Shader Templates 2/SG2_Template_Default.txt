@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 #NAME=Default
 #ID=TEMPLATE_DEFAULT
@@ -15,6 +15,7 @@ Triplanar Sampling
 HSV
 Screen Space UV
 Hash Functions
+Dithering
 
 # lighting:
 Ramp Shading
@@ -143,6 +144,7 @@ sngl	lbl="Alpha Testing (Cutout)"	kw=ALPHA_TESTING			help="featuresreference/tra
 sngl	lbl="Alpha to Coverage"			kw=ALPHA_TO_COVERAGE		needs=ALPHA_TESTING							indent		tt="Enables Alpha to Coverage, which allows MSAA anti-aliasing to be used with alpha testing"
 sngl	lbl="Disable alpha sharpening"	kw=ALPHA_TO_COVERAGE_RAW	needs=ALPHA_TESTING,ALPHA_TO_COVERAGE		indent=2	tt="Disables screen-space alpha sharpening, which is used to get proper anti-aliasing with Alpha to Coverage"
 sngl	lbl="Transparency Dithering"	kw=ALPHA_TESTING_DITHERING	needs=ALPHA_TESTING							indent		tt="Enables dithering for alpha testing, i.e. making the transparency transition pixel by pixel in screen space"
+mult	lbl="Dithering Pattern"			kw=Procedural 4x4 Pixels|,Procedural 8x8 Pixels|ALPHA_DITHER_8x8,Lookup Texture|ALPHA_DITHER_TEXTURE	indent=2	needs=ALPHA_TESTING,ALPHA_TESTING_DITHERING	tt="The dithering pattern to use, either calculated with maths or using a lookup texture."
 ---
 sngl		lbl="Dithered Shadows"		kw=DITHERED_SHADOWS			tt="Enables dithered shadows for transparent materials"
 dd_end
@@ -174,6 +176,7 @@ subh	lbl="Misc"
 sngl	lbl="Enable Fog"				kw=ENABLE_FOG												tt="Disables Unity Fog support.  Can help if you run out of vertex interpolators and don't need fog."
 sngl	lbl="Enable Lightmaps"			kw=ENABLE_LIGHTMAPS											tt="Enable lightmap support (Dynamic/Baked GI support)"
 sngl	lbl="Enable LPPV"				kw=ENABLE_LPPV												tt="Enable Light Probe Proxy Volume support"
+sngl	lbl="Enable LOD Dither Crossfade"	kw=ENABLE_DITHER_LOD									tt="Enable Dither Crossfade support for transition between LOD levels"
 flag	lbl="Disable Vertex Lighting"	kw=novertexlights		block="pragma_surface_shader"		tt="Disable vertex lights and spherical harmonics (light probes)"
 sngl	lbl="Disable Dynamic Batching"	kw=DISABLE_BATCHING											tt="Disable dynamic batching support for this shader"
 space	space=4
@@ -205,7 +208,7 @@ dd_end
 #PROPERTIES_NEW
 header		Main Properties
 /// IF !CUSTOM_ALBEDO
-color_rgba	Albedo				fragment, imp(texture, label = "Albedo", variable = "_MainTex", default = white, tiling_offset = true, global = true)
+color_rgba	Albedo				fragment, imp(texture, label = "Albedo", variable = "_MainTex", drawer = "[MainTexture]", default = white, tiling_offset = true, global = true)
 ///
 [[MODULE:PROPERTIES_NEW:AlbedoHSV]]
 color_rgba	Main Color			fragment, imp(color, label = "Color", variable = "_Color", default = (1,1,1,1)), help = "An adjustable color multiplied with the final albedo color.  Set it to a white color constant if you don't plan on using it, to improve the shader performance."
@@ -214,7 +217,9 @@ float		Alpha				fragment, imp(shader_property_ref, reference = Albedo, swizzle =
 ///
 /// IF ALPHA_TESTING
 	/// IF ALPHA_TESTING_DITHERING
+		/// IF ALPHA_DITHER_TEXTURE
 float		Dithering Texture	fragment, imp(texture, label = "Alpha Dithering", variable = "_DitherTex", default = gray, uv_screenspace = true, scale_texel = true)
+		///
 	/// ELSE
 float		Cutoff				fragment, imp(range, label = "Alpha Cutoff", default = 0.5, min = 0, max = 1), help = "The threshold value at which point pixels are discarded when using alpha testing (cutout)"
 	///
@@ -363,6 +368,11 @@ header		Misc
 /// ELSE
 	flag_off		nofog
 ///
+/// IF ENABLE_DITHER_LOD
+	flag_on			dithercrossfade
+/// ELSE
+	flag_off		dithercrossfade
+///
 /// IF UNITY_5_6
 	/// IF !ENABLE_LPPV
 		flag_on		nolppv
@@ -405,6 +415,11 @@ header		Misc
 # features
 /// IF GLOSSY_REFLECTIONS
 	feature_on		USE_VIEW_DIRECTION_FRAGMENT
+///
+
+/// IF ALPHA_TESTING && ALPHA_TESTING_DITHERING && !ALPHA_DITHER_TEXTURE
+	feature_on		USE_DITHERING_FUNCTION
+	feature_on		USE_SCREEN_POSITION_FRAGMENT
 ///
 
 /// IF USE_NDV_VERTEX
@@ -526,7 +541,9 @@ Shader "@%SHADER_NAME%@"
 		[[MODULE:PROPERTIES_BLOCK:AlbedoHSV]]
 /// IF ALPHA_TESTING
 	/// IF ALPHA_TESTING_DITHERING
+		/// IF ALPHA_DITHER_TEXTURE
 		[[PROP:Dithering Texture]]
+		///
 	/// ELSE
 		[[PROP:Cutoff]]
 	///
@@ -732,6 +749,7 @@ Shader "@%SHADER_NAME%@"
 		float4 _CustomTime;
 ///
 		[[VARIABLES_OUTSIDE_CBUFFER_INCLUDE]]
+		[[MODULE:VARIABLES_OUTSIDE_CBUFFER]]
 		[[VARIABLES_INCLUDE]]
 
 		[[INJECTION_POINT:Variables/Outside CBuffer]]
@@ -744,6 +762,13 @@ Shader "@%SHADER_NAME%@"
 		[[MODULE:FUNCTIONS]]
 
 		[[INJECTION_POINT:Functions]]
+
+	#if_not_empty
+		// Curved World 2020
+	#start_not_empty_block
+		[[MODULE:SHADER_FEATURES_BLOCK:CurvedWorld]]
+	#end_not_empty_block
+	#end_not_empty
 
 		ENDCG
 
@@ -912,7 +937,15 @@ Shader "@%SHADER_NAME%@"
 	/// IF ALPHA_TESTING
 			// Alpha Testing
 		/// IF ALPHA_TESTING_DITHERING
+			/// IF ALPHA_DITHER_TEXTURE
 			half cutoffValue = [[VALUE:Dithering Texture]];
+			/// ELIF ALPHA_DITHER_8x8
+			float2 ditherUV = (input.screenPosition.xy / input.screenPosition.w) * _ScreenParams.xy;
+			half cutoffValue = Dither8x8(ditherUV.xy);
+			/// ELSE
+			float2 ditherUV = (input.screenPosition.xy / input.screenPosition.w) * _ScreenParams.xy;
+			half cutoffValue = Dither4x4(ditherUV.xy);
+			///
 		/// ELSE
 			half cutoffValue = [[VALUE:Cutoff]];
 		///
@@ -962,13 +995,27 @@ Shader "@%SHADER_NAME%@"
 			[[INJECTION_POINT:Outline Pass/Shader States]]
 
 			CGPROGRAM
+
 			#pragma vertex vertex_outline
 			#pragma fragment fragment_outline
+
+			#pragma target @%SHADER_TARGET%@
+
 			#pragma multi_compile _ TCP2_COLORS_AS_NORMALS TCP2_TANGENT_AS_NORMALS TCP2_UV1_AS_NORMALS TCP2_UV2_AS_NORMALS TCP2_UV3_AS_NORMALS TCP2_UV4_AS_NORMALS
 			#pragma multi_compile _ TCP2_UV_NORMALS_FULL TCP2_UV_NORMALS_ZW
 			#pragma multi_compile_instancing
 			[[GPU_INSTANCING_OPTIONS]]
-			#pragma target @%SHADER_TARGET%@
+			
+	#if_not_empty
+			//--------------------------------------
+			// Toony Colors Pro 2 keywords
+	#start_not_empty_block
+			[[MODULE:SHADER_FEATURES_BLOCK:Wind]]
+			[[MODULE:SHADER_FEATURES_BLOCK:Dissolve]]
+			[[MODULE:SHADER_FEATURES_BLOCK:Vertex Displacement]]
+	#end_not_empty_block
+	#end_not_empty
+
 			ENDCG
 		}
 ///
@@ -1415,13 +1462,6 @@ Shader "@%SHADER_NAME%@"
 	#end_not_empty_block
 	#end_not_empty
 
-	#if_not_empty
-		// Curved World 2020
-	#start_not_empty_block
-		[[MODULE:SHADER_FEATURES_BLOCK:CurvedWorld]]
-	#end_not_empty_block
-	#end_not_empty
-
 		//================================================================
 		// STRUCTS
 
@@ -1530,7 +1570,7 @@ Shader "@%SHADER_NAME%@"
 			half ndv;
 			half ndvRaw;
 ///
-/// IF BUMP
+/// IF USE_NORMAL_TANGENT_SPACE_LIGHTING
 			float3 normalTS;
 ///
 
@@ -1707,7 +1747,7 @@ Shader "@%SHADER_NAME%@"
 			#if defined(_NORMALMAP)
 	///
 			[[MODULE:FRAGMENT:Normal Mapping:BUMP_SAMPLE()]]
-			[[MODULE:FRAGMENT:Texture Blending:BUMP(normalMap)]]
+			[[MODULE:FRAGMENT:Texture Blending:BUMP()]]
 			[[MODULE:FRAGMENT:Normal Mapping:UNPACK_BUMP_SURFACE(output.Normal, output.normalTS)]]
 
 	/// IF BUMP_SHADER_FEATURE
@@ -1754,7 +1794,15 @@ Shader "@%SHADER_NAME%@"
 /// IF ALPHA_TESTING
 			// Alpha Testing
 	/// IF ALPHA_TESTING_DITHERING
+		/// IF ALPHA_DITHER_TEXTURE
 			half cutoffValue = [[VALUE:Dithering Texture]];
+		/// ELIF ALPHA_DITHER_8x8
+			float2 ditherUV = (input.screenPosition.xy / input.screenPosition.w) * _ScreenParams.xy;
+			half cutoffValue = Dither8x8(ditherUV.xy);
+		/// ELSE
+			float2 ditherUV = (input.screenPosition.xy / input.screenPosition.w) * _ScreenParams.xy;
+			half cutoffValue = Dither4x4(ditherUV.xy);
+		///
 	/// ELSE
 			half cutoffValue = [[VALUE:Cutoff]];
 	///
@@ -2212,6 +2260,7 @@ Shader "@%SHADER_NAME%@"
 			#pragma multi_compile_instancing
 			[[GPU_INSTANCING_OPTIONS]]
 			[[MODULE:SHADER_FEATURES_BLOCK:Dissolve]]
+			[[MODULE:SHADER_FEATURES_BLOCK:Vertex Displacement]]
 			ENDCG
 		}
 ///
@@ -2292,6 +2341,7 @@ Shader "@%SHADER_NAME%@"
 		#end_not_empty
 
 			[[MODULE:SHADER_FEATURES_BLOCK:Dissolve]]
+			[[MODULE:SHADER_FEATURES_BLOCK:Vertex Displacement]]
 
 			[[INJECTION_POINT:Shadow Caster Pass/Pragma]]
 

@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 // Shader Generator Module: MatCap
 
@@ -16,6 +16,7 @@ sngl	lbl="Make Optional"				kw=MATCAP_SHADER_FEATURE													needsOr=MATCAP_
 /// IF MATCAP
 		header		MatCap
 		color		MatCap Color			fragment, imp(color, label = "MatCap Color", default = (1, 1, 1, 1))
+		color		MatCap Texture			fragment, imp(texture, label = "MatCap (RGB)", variable = "_MatCapTex", drawer = "[NoScaleOffset]", locked_uv = true, default = gray)
 	/// IF MATCAP_BLEND
 		float		MatCap Blend Factor		fragment, imp(shader_property_ref, reference = Albedo, swizzle = A), help = "The blending factor determining the blending between the original Albedo and the MatCap color.  0 = albedo, 1 = MatCap color"
 	///
@@ -50,13 +51,7 @@ sngl	lbl="Make Optional"				kw=MATCAP_SHADER_FEATURE													needsOr=MATCAP_
 	/// IF MATCAP_SHADER_FEATURE
 		[Toggle(TCP2_MATCAP)] _UseMatCap ("Enable MatCap", Float) = 0
 	///
-	/// IF MATCAP_ADD
-		[NoScaleOffset] _MatCapTex ("MatCap (RGB)", 2D) = "black" {}
-	/// ELIF MATCAP_MULT
-		[NoScaleOffset] _MatCapTex ("MatCap (RGB)", 2D) = "white" {}
-	/// ELIF MATCAP_BLEND
-		[NoScaleOffset] _MatCapTex ("MatCap (RGB)", 2D) = "gray" {}
-	///
+		[[PROP:MatCap Texture]]
 		[[PROP:MatCap Color]]
 	/// IF MATCAP_BLEND
 		[[PROP:MatCap Blend Factor]]
@@ -68,9 +63,6 @@ sngl	lbl="Make Optional"				kw=MATCAP_SHADER_FEATURE													needsOr=MATCAP_
 //================================================================
 
 #VARIABLES
-/// IF MATCAP
-	sampler2D _MatCapTex;
-///
 #END
 
 //================================================================
@@ -113,10 +105,10 @@ sngl	lbl="Make Optional"				kw=MATCAP_SHADER_FEATURE													needsOr=MATCAP_
 	///
 	/// IF MATCAP_PIXEL && BUMP
 		half2 capCoord = mul((float3x3)UNITY_MATRIX_V, worldNormal).xy * 0.5 + 0.5;
-		fixed3 matcap = tex2D(_MatCapTex, capCoord).rgb * [[VALUE:MatCap Color]];
 	/// ELSE
-		fixed3 matcap = tex2D(_MatCapTex, input.[[INPUT_VALUE:matcap]]).rgb * [[VALUE:MatCap Color]];
+		half2 capCoord = input.[[INPUT_VALUE:matcap]];
 	///
+		half3 matcap = [[SAMPLE_VALUE_SHADER_PROPERTY:MatCap Texture(uv:capCoord)]] * [[VALUE:MatCap Color]];
 	/// IF MATCAP_MULT
 		albedo *= matcap;
 	/// ELIF MATCAP_ADD

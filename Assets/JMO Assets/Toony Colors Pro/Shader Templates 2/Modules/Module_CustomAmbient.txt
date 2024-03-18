@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 // Shader Generator Module: Custom Ambient
 
@@ -48,12 +48,12 @@ mult	lbl="Space"					kw=World Space|,View Space|DIRAMBIENT_VIEW		needs=DIRAMBIEN
 	half3 DirAmbient (half3 normal)
 	{
 		fixed3 retColor =
-			saturate( normal.x * _TCP2_AMBIENT_RIGHT) +
-			saturate(-normal.x * _TCP2_AMBIENT_LEFT) +
-			saturate( normal.y * _TCP2_AMBIENT_TOP) +
-			saturate(-normal.y * _TCP2_AMBIENT_BOTTOM) +
-			saturate( normal.z * _TCP2_AMBIENT_FRONT) +
-			saturate(-normal.z * _TCP2_AMBIENT_BACK);
+			saturate( normal.x * _TCP2_AMBIENT_RIGHT.rgb) +
+			saturate(-normal.x * _TCP2_AMBIENT_LEFT.rgb) +
+			saturate( normal.y * _TCP2_AMBIENT_TOP.rgb) +
+			saturate(-normal.y * _TCP2_AMBIENT_BOTTOM.rgb) +
+			saturate( normal.z * _TCP2_AMBIENT_FRONT.rgb) +
+			saturate(-normal.z * _TCP2_AMBIENT_BACK.rgb);
 		return retColor * 2.0;
 	}
 ///
@@ -61,10 +61,13 @@ mult	lbl="Space"					kw=World Space|,View Space|DIRAMBIENT_VIEW		needs=DIRAMBIEN
 
 //================================================================
 
-#VARIABLES
+#VARIABLES_OUTSIDE_CBUFFER
 /// IF CUBE_AMBIENT
 	samplerCUBE _AmbientCube;
 ///
+#END
+
+#VARIABLES
 /// IF DIRAMBIENT
 	fixed4 _TCP2_AMBIENT_RIGHT;
 	fixed4 _TCP2_AMBIENT_LEFT;
