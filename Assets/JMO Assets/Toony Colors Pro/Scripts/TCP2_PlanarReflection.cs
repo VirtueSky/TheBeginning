@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -35,6 +35,7 @@ namespace ToonyColorsPro
 
 			[Space]
 			public bool applyBlur = false;
+			public Shader blurShader;
 			[Range(1,4)] public int blurIterations = 1;
 			[Range(1,8)] public float blurDistance = 1;
 			
@@ -195,9 +196,18 @@ namespace ToonyColorsPro
 
 			void UpdateCommandBuffer()
 			{
+				if (commandBufferBlur != null)
+				{
+					ClearCommandBuffer();
+				}
+
+				if (!applyBlur)
+				{
+					return;
+				}
+
 				if (blurMaterial == null)
 				{
-					var blurShader = Shader.Find("Hidden/TCP2 Gaussian Blur Filter");
 					if (blurShader == null)
 					{
 						Debug.LogError("[TCP2 Planar Reflection] Can't find Gaussian Blur Filter shader!", this.gameObject);
@@ -216,16 +226,6 @@ namespace ToonyColorsPro
 				}
 
 				if (reflectionCamera == null)
-				{
-					return;
-				}
-
-				if (commandBufferBlur != null)
-				{
-					ClearCommandBuffer();
-				}
-
-				if (!applyBlur)
 				{
 					return;
 				}
@@ -424,10 +424,14 @@ namespace ToonyColorsPro
 						reflectionCamera.targetTexture = reflectionDepthRenderTexture;
 						reflectionCamera.RenderWithShader(reflectionDepthShader, null);
 						reflectionCamera.targetTexture = prevTarget;
-						
+
 						blurMaterial.SetFloat(ShaderID_ReflectivePlaneY, this.transform.position.y + clipPlaneOffset);
 						blurMaterial.SetFloat(ShaderID_ReflectionDepthRange, blurDepthRange);
 						blurMaterial.SetFloat(ShaderID_UseReflectionDepth, 1);
+					}
+					else if (applyBlur && !useBlurDepth)
+					{
+						blurMaterial.SetFloat(ShaderID_UseReflectionDepth, 0);
 					}
 					else
 					{
@@ -436,10 +440,8 @@ namespace ToonyColorsPro
 							reflectionDepthRenderTexture.Release();
 							reflectionDepthRenderTexture = null;
 						}
-						
-						blurMaterial.SetFloat(ShaderID_UseReflectionDepth, 0);
 					}
-					
+
 					reflectionCamera.Render();
 				}
 

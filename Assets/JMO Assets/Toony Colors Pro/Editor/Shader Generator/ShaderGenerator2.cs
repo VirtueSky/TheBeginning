@@ -1,5 +1,5 @@
 // Toony Colors Pro 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace ToonyColorsPro
 		{
 			public static bool DebugMode = false;
 
-			internal const string TCP2_VERSION = "2.8.0";
+			internal const string TCP2_VERSION = "2.9.6";
 			internal const string DOCUMENTATION_URL = "https://jeanmoreno.com/unity/toonycolorspro/doc/shader_generator_2";
 			internal const string OUTPUT_PATH = "/JMO Assets/Toony Colors Pro/Shaders Generated/";
 
@@ -555,9 +555,16 @@ namespace ToonyColorsPro
 
 				if (GUILayout.Button(TCP2_GUI.TempContent("Reload"), EditorStyles.miniButton, GUILayout.ExpandWidth(false)))
 				{
-					//Twice to prevent bug with used variable names
-					LoadNewTemplate(template.textAsset);
-					LoadNewTemplate(template.textAsset);
+					if (currentShader != null)
+					{
+						LoadCurrentConfigFromShader(currentShader);
+					}
+					else
+					{
+						//Twice to prevent bug with used variable names
+						LoadNewTemplate(template.textAsset);
+						LoadNewTemplate(template.textAsset);
+					}
 				}
 
 				EditorGUILayout.EndHorizontal();
@@ -662,7 +669,7 @@ namespace ToonyColorsPro
 				{
 					EditorGUILayout.BeginHorizontal();
 					currentConfig.Filename = EditorGUILayout.TextField(TCP2_GUI.TempContent("Filename", "The filename for the generated shader." + (ProjectOptions.data.AutoNames ? "" : "\nYou can input your own by disabling the auto-filename option in the options below.")), currentConfig.Filename);
-					currentConfig.Filename = Regex.Replace(currentConfig.Filename, @"[^a-zA-Z0-9 _!/]", "");
+					currentConfig.Filename = Regex.Replace(currentConfig.Filename, "[/?<>\\:*|\"]", "");
 					GUILayout.Label(".shader", GUILayout.Width(50f));
 					EditorGUILayout.EndHorizontal();
 				}
@@ -1860,6 +1867,19 @@ namespace ToonyColorsPro
 								{
 									cmp = impMpTex.LinkedCustomMaterialProperty;
 								}
+
+								var impCc = imp as ShaderProperty.Imp_CustomCode;
+								if (impCc != null)
+								{
+									foreach (var customMaterialProperty in config.CustomMaterialProperties)
+									{
+										if (impCc.code.Contains(customMaterialProperty.PropertyName) || impCc.prependCode.Contains(customMaterialProperty.PropertyName))
+										{
+											cmp = customMaterialProperty;
+											break;
+										}
+									}
+								}
 							}
 							
 							if (cmp != null)
@@ -2106,6 +2126,21 @@ namespace ToonyColorsPro
 						var processedCustomMaterialProperties = new HashSet<ShaderProperty.CustomMaterialProperty>();
 						foreach (var sp in shaderPropertiesAndClones)
 						{
+							bool isUsedInFragment = sp.Program == ShaderProperty.ProgramType.Fragment;
+							// If Material Layer source (or contrast/noise), find if any of the properties that use it is used in Fragment shader
+							if (sp.isMaterialLayerProperty)
+							{
+								foreach (var sp2 in shaderPropertiesAndClones)
+								{
+									if (sp2.Program == ShaderProperty.ProgramType.Fragment
+									    && sp2.linkedMaterialLayers.Contains(sp.materialLayerUid))
+									{
+										isUsedInFragment = true;
+										break;
+									}
+								}
+							}
+
 							foreach (var imp in sp.implementations)
 							{
 								var vertexUvImp = imp as ShaderProperty.Imp_VertexTexcoord;
@@ -2113,7 +2148,7 @@ namespace ToonyColorsPro
 								{
 									AddUvChannelUsage(usedUvChannelsVertex, vertexUvImp.TexcoordChannel, 2);
 
-									if (sp.Program == ShaderProperty.ProgramType.Fragment)
+									if (isUsedInFragment)
 									{
 										int dimensions = 2;
 										if (vertexUvImp.Channels.Contains("W"))
@@ -2165,7 +2200,7 @@ namespace ToonyColorsPro
 								{
 									AddUvChannelUsage(usedUvChannelsVertex, textureImp.UvChannel, 2);
 
-									if (sp.Program == ShaderProperty.ProgramType.Fragment || isCustomMaterialPropertyFragment)
+									if (isUsedInFragment || isCustomMaterialPropertyFragment)
 									{
 										AddUvChannelUsage(usedUvChannelsFragment, textureImp.UvChannel, 2);
 									}
@@ -2298,7 +2333,7 @@ namespace ToonyColorsPro
 							}
 							else
 							{
-								Debug.LogError(ErrorMsg("No match for '<b>PROP:" + propName + "'</b>"));
+								Debug.LogError(ErrorMsg("No match for '<b>PROP:" + propName + "'</b>\nLine " + templateLines[i].lineNumber + ": " + line));
 							}
 						}
 						//output code to declare texture coordinates and necessary vertex-to-fragment variables, packed as float4 (for v2f struct)
@@ -2555,7 +2590,7 @@ namespace ToonyColorsPro
 											if (isOutsideCBuffer)
 											{
 												string declarations = sp.PrintVariableDeclareOutsideCBuffer(indent);
-												if (!string.IsNullOrEmpty(declarations))
+												if (!string.IsNullOrWhiteSpace(declarations))
 												{
 													tempString += declarations + "\n";
 												}
@@ -2563,7 +2598,7 @@ namespace ToonyColorsPro
 											else
 											{
 												string declarations = sp.PrintVariableDeclare(false, indent);
-												if (!string.IsNullOrEmpty(declarations) && !cgIncludeShaderProperties.Contains(sp))
+												if (!string.IsNullOrWhiteSpace(declarations) && !cgIncludeShaderProperties.Contains(sp))
 												{
 													tempString += declarations + "\n";
 													cgIncludeShaderProperties.Add(sp);
@@ -2584,7 +2619,7 @@ namespace ToonyColorsPro
 												}
 
 												var prop = sp.PrintVariableDeclare(false, indent);
-												if (!string.IsNullOrEmpty(prop))
+												if (!string.IsNullOrWhiteSpace(prop))
 												{
 													tempString += prop + "\n";
 												}
@@ -2685,7 +2720,7 @@ namespace ToonyColorsPro
 										foreach (var sp in allUsedShaderProperties)
 										{
 											var prop = sp.PrintVariableDeclare(true, indentPlusOne);
-											if (!string.IsNullOrEmpty(prop) && !cgIncludeShaderProperties.Contains(sp))
+											if (!string.IsNullOrWhiteSpace(prop) && !cgIncludeShaderProperties.Contains(sp))
 											{
 												tempString += indentPlusOne + prop + "\n";
 												cgIncludeShaderProperties.Add(sp);
@@ -2705,7 +2740,7 @@ namespace ToonyColorsPro
 												}
 
 												var prop = sp.PrintVariableDeclare(true, indentPlusOne);
-												if (!string.IsNullOrEmpty(prop))
+												if (!string.IsNullOrWhiteSpace(prop))
 												{
 													tempString += indentPlusOne + prop + "\n";
 												}
@@ -3271,17 +3306,6 @@ namespace ToonyColorsPro
 				// Code Injection replace blocks:
 				CodeInjectionManager.instance.ProcessReplaceBlocks(stringBuilder);
 
-				if (!skipSerializationData)
-				{
-					// Add serialized data
-					stringBuilder.AppendLine(config.GetSerializedData());
-
-					// Calculate hash
-					string normalizedLineEndings = stringBuilder.ToString().Replace("\r\n", "\n");
-					var hash = GetHash(normalizedLineEndings);
-					stringBuilder.AppendLine(string.Format(Config.kHashPrefix + hash + Config.kHashSuffix));
-				}
-
 				// Convert line endings to current OS format
 				stringBuilder.Replace("\r\n", "\n");
 				stringBuilder.Replace("\n", Environment.NewLine);
@@ -3293,13 +3317,27 @@ namespace ToonyColorsPro
 				stringBuilder.Replace("shader_feature_local_vertex", "shader_feature");
 				
 				stringBuilder.Replace("multi_compile_fragment", "multi_compile");
-				// stringBuilder.Replace("multi_compile_vertex", "multi_compile");
+				stringBuilder.Replace("multi_compile_vertex", "multi_compile");
+				stringBuilder.Replace("multi_compile_local_fragment", "multi_compile");
+				stringBuilder.Replace("multi_compile_local_vertex", "multi_compile");
 #elif !UNITY_2020_3_OR_NEWER
 				// program keyword suffix not supported before Unity 2020.3
 				stringBuilder.Replace("shader_feature_local_fragment", "shader_feature_local");
 				stringBuilder.Replace("shader_feature_local_vertex", "shader_feature_local");
+				stringBuilder.Replace("multi_compile_local_fragment", "multi_compile_local");
 				stringBuilder.Replace("multi_compile_fragment", "multi_compile");
 #endif
+
+				if (!skipSerializationData)
+				{
+					// Add serialized data
+					stringBuilder.AppendLine(config.GetSerializedData());
+
+					// Calculate hash
+					string normalizedLineEndings = stringBuilder.ToString().Replace("\r\n", "\n");
+					var hash = GetHash(normalizedLineEndings);
+					stringBuilder.AppendLine(string.Format(Config.kHashPrefix + hash + Config.kHashSuffix));
+				}
 
 				var sourceCode = stringBuilder.ToString();
 

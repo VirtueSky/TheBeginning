@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 // Shader Generator Module: NoTile Sampling
 // Algorithm to prevent repetitiveness of textures
@@ -146,9 +146,14 @@
 #VARIABLES
 /// IF NOTILE_SAMPLING
 	// Non-repeating tiling
-	sampler2D _NoTileNoiseTex;
 	float4 _NoTileNoiseTex_TexelSize;
+///
+#END
 
+#VARIABLES_OUTSIDE_CBUFFER
+/// IF NOTILE_SAMPLING
+	// Non-repeating tiling
+	sampler2D _NoTileNoiseTex;
 ///
 #END
 

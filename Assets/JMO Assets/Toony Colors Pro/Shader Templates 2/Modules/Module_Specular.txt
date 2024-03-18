@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 // Shader Generator Module: Specular
 
@@ -130,7 +130,7 @@ sngl	lbl="Make Optional"			kw=SPECULAR_SHADER_FEATURE															needs=SPECUL
 
 //================================================================
 
-#VARIABLES
+#VARIABLES_OUTSIDE_CBUFFER
 /// IF SPECULAR_RAMP && (SPEC_LEGACY || SPECULAR_ANISOTROPIC)
 	sampler2D _SpecularRamp;
 ///
@@ -301,7 +301,7 @@ sngl	lbl="Make Optional"			kw=SPECULAR_SHADER_FEATURE															needs=SPECUL
 		/// ELIF SPECULAR_TOON
 		float spec = smoothstep([[VALUE:Specular Toon Size]] + [[VALUE:Specular Toon Smoothness]], [[VALUE:Specular Toon Size]] - [[VALUE:Specular Toon Smoothness]],1 - (ndh / (1+[[VALUE:Specular Toon Smoothness]])));
 		/// ELSE
-		float spec = pow(ndh, [[VALUE:Specular Smoothness]] * 128.0);
+		float spec = pow(ndh, 1e-4h + [[VALUE:Specular Smoothness]] * 128.0);
 		///
 		/// IF SPECULAR_TOON_BAND
 		spec = floor(spec * [[VALUE:Specular Toon Bands]]) / [[VALUE:Specular Toon Bands]];

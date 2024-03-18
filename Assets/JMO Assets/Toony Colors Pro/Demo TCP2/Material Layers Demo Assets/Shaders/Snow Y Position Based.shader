@@ -1,5 +1,5 @@
 ﻿// Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 Shader "Toony Colors Pro 2/Examples/Material Layers/Snow (Y Position Based)"
 {

@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 //#define DEBUG_MODE
 
@@ -20,7 +20,7 @@ namespace ToonyColorsPro
 		{
 			//--------------------------------------------------------------------------------------------------
 
-			[MenuItem(Menu.MENU_PATH + "Shader Generator 1 (legacy)", false, 500)]
+			[MenuItem(Menu.MENU_PATH + "Shader Generator 1 (legacy)", false, 501)]
 			static void OpenTool()
 			{
 				GetWindowTCP2();

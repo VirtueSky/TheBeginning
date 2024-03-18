@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 // Shader Generator Module: Texture Blending
 
@@ -238,7 +238,7 @@ warning	msgType=info					needs=TEXTURE_BLENDING					lbl="The <b>Material Layer</
 ///
 #END
 
-#FRAGMENT:BUMP(float4 normalMap)
+#FRAGMENT:BUMP
 /// IF TEXTURE_BLENDING && TEXBLEND_BUMP && BUMP
 
 		// Texture Blending: normal maps

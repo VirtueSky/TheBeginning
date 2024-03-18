@@ -1,15 +1,17 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 //Enable this to display the default Inspector (in case the custom Inspector is broken)
 //#define SHOW_DEFAULT_INSPECTOR
 
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using ToonyColorsPro.Utilities;
 using System.IO;
 using System.Text.RegularExpressions;
+using ToonyColorsPro.CustomShaderImporter;
 using UnityEngine.Rendering;
 
 // Custom material inspector for generated shader
@@ -31,7 +33,7 @@ namespace ToonyColorsPro
 			const string PROP_OUTLINE_LAST = "_IndirectIntensityOutline";
 			const string PASS_OUTLINE_URP = "Outline";
 			const string PASS_OUTLINE_BUILTIN = "Always";
-			const string OUTLINE_URP_DOCUMENTATION = "https://jeanmoreno.com/unity/toonycolorspro/doc/shader_generator_2#templates/lwrp/urp/outlineandsilhouettepassesinurp";
+			const string OUTLINE_URP_DOCUMENTATION = "https://jeanmoreno.com/unity/toonycolorspro/doc/shader_generator_2#templates/urp/outlineandsilhouettepassesinurp";
 
 			public enum RenderingMode
 			{
@@ -147,12 +149,23 @@ namespace ToonyColorsPro
 						{
 							lastTimestamp = shaderImporter.assetTimeStamp;
 						}
-						//remove 'Assets' and replace with OS path
-						path = Application.dataPath + path.Substring(6);
-						//convert to cross-platform path
-						path = path.Replace('/', Path.DirectorySeparatorChar);
-						//open file for reading
-						var lines = File.ReadAllLines(path);
+
+						// Get source code lines to parse comment-based inspector
+						string[] lines;
+						if (shaderImporter != null && shaderImporter is TCP2_ShaderImporter)
+						{
+							// .tcp2shader file, parse the generated source for comment-based inspector
+							lines = ((TCP2_ShaderImporter) shaderImporter).shaderSourceCode.Split(new string[] {"\r", "\n"}, StringSplitOptions.None);
+						}
+						else
+						{
+							//remove 'Assets' and replace with OS path
+							path = Application.dataPath + path.Substring(6);
+							//convert to cross-platform path
+							path = path.Replace('/', Path.DirectorySeparatorChar);
+							//open file for reading
+							lines = File.ReadAllLines(path);
+						}
 
 						bool insideProperties = false;
 						//regex pattern to find properties, as they need to be counted so that
@@ -322,6 +335,7 @@ namespace ToonyColorsPro
 			{
 				bool needsOutline = newShader.name.Contains("Outline") && newShader.name.Contains("Hybrid");
 				UpdateOutlineProp(material, needsOutline);
+				initialized = false;
 				base.AssignNewShaderToMaterial(material, oldShader, newShader);
 			}
 
@@ -349,9 +363,14 @@ namespace ToonyColorsPro
 				if (Event.current.type == EventType.Repaint)
 				{
 					bool force = (shaderImporter != null && shaderImporter.assetTimeStamp != lastTimestamp);
+					bool wasInitialized = initialized;
 					Initialize(materialEditor, properties, force);
-					
-					materialEditor.Repaint();
+
+					if (!wasInitialized)
+					{
+						GUIUtility.ExitGUI();
+						return;
+					}
 				}
 
 				var shader = (materialEditor.target as Material).shader;
@@ -458,13 +477,17 @@ namespace ToonyColorsPro
 
 				GUILayout.Space(EditorGUIUtility.standardVerticalSpacing);
 
-				EditorGUIUtility.labelWidth = labelWidth - 50;
-				materialEditor.LightmapEmissionFlagsProperty(0, System.Array.Exists(_materialEditor.targets, t =>
+				bool missingEmission = System.Array.Exists(_materialEditor.targets, t => t != null && !((Material)t).HasProperty("_EmissionColor"));
+				if (!missingEmission)
 				{
-					var mat = t as Material;
-					return mat != null && mat.IsKeywordEnabled("_EMISSION");
-				}));
-				EditorGUIUtility.labelWidth = labelWidth;
+					EditorGUIUtility.labelWidth = labelWidth - 50;
+					materialEditor.LightmapEmissionFlagsProperty(0, System.Array.Exists(_materialEditor.targets, t =>
+					{
+						var mat = t as Material;
+						return mat != null && mat.HasProperty("_EmissionColor") && mat.IsKeywordEnabled("_EMISSION");
+					}));
+					EditorGUIUtility.labelWidth = labelWidth;
+				}
 				materialEditor.RenderQueueField();
 				materialEditor.EnableInstancingField();
 			}
@@ -518,11 +541,18 @@ namespace ToonyColorsPro
 
 						if (needsOutline && !hasOutline)
 						{
-							mat.shader = Shader.Find(mat.shader.name + " Outline");
+							var outlineShader = Shader.Find(mat.shader.name + " Outline");
+							if (outlineShader == null)
+							{
+								outlineShader = Shader.Find(mat.shader.name + " (Outline)");
+							}
+							mat.shader = outlineShader;
+							initialized = false;
 						}
 						else if (!needsOutline && hasOutline)
 						{
-							mat.shader = Shader.Find(mat.shader.name.Replace(" Outline", ""));
+							mat.shader = Shader.Find(mat.shader.name.Replace(" Outline", "").Replace(" (Outline)", ""));
+							initialized = false;
 						}
 					}
 				});
@@ -891,7 +921,9 @@ namespace ToonyColorsPro
 						}
 					}
 					else
-						propValue = m.GetFloat(property);
+					{
+						propValue = m.HasProperty(property) ? m.GetFloat(property) : 0;
+					}
 
 					switch (op)
 					{

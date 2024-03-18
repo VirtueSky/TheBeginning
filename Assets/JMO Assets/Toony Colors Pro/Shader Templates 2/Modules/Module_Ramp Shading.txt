@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 // Shader Generator Module: Ramp Shading
 
@@ -308,7 +308,7 @@ mult	lbl="Lights"				kw=All Lights|,Main Light|WRAPPED_LIGHTING_MAIN_LIGHT,Other
 
 //================================================================
 
-#VARIABLES
+#VARIABLES_OUTSIDE_CBUFFER
 /// IF TEXTURE_RAMP
 		sampler2D _Ramp;
 	/// IF RAMP_MAIN_OTHER

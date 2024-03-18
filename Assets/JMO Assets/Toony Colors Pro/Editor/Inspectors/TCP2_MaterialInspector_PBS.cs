@@ -1,5 +1,5 @@
 // Toony Colors Pro+Mobile 2
-// (c) 2014-2021 Jean Moreno
+// (c) 2014-2023 Jean Moreno
 
 using System;
 using System.Linq;
@@ -321,8 +321,9 @@ internal class TCP2_MaterialInspector_PBS : ShaderGUI
 			//----------------------------------------------------------------
 			//    TOONY COLORS PRO 2
 
-			var useOutline = (m_MaterialEditor.target as Material).shaderKeywords.Contains("OUTLINES");
-			var useOutlineBlended = (m_MaterialEditor.target as Material).shaderKeywords.Contains("OUTLINE_BLENDING");
+			int outlineType = (int)((Material)m_MaterialEditor.target).GetFloat("_EnableOutline");
+			var useOutline = outlineType >= 1;
+			var useOutlineBlended = outlineType == 2;
 
 			var hasOutlineShader = tcp2_outlineWidth != null;
 			var hasOutlineBlendedShader = tcp2_srcBlendOutline != null;
@@ -476,23 +477,7 @@ internal class TCP2_MaterialInspector_PBS : ShaderGUI
 		EditorGUIUtility.labelWidth = labelWidth;
 	}
 
-	void UpdateOutlineNormalsKeyword(int index)
-	{
-		var selectedKeyword = outlineNormalsKeywords[index];
-
-		foreach (var obj in m_MaterialEditor.targets)
-		{
-			if (obj is Material)
-			{
-				var m = obj as Material;
-				foreach (var kw in outlineNormalsKeywords)
-					m.DisableKeyword(kw);
-				m.EnableKeyword(selectedKeyword);
-			}
-		}
-	}
-
-	internal void DetermineWorkflow(MaterialProperty[] props)
+	void DetermineWorkflow(MaterialProperty[] props)
 	{
 		if (FindProperty("_SpecGlossMap", props, false) != null && FindProperty("_SpecColor", props, false) != null)
 			m_WorkflowMode = WorkflowMode.Specular;
@@ -791,15 +776,12 @@ internal class TCP2_MaterialInspector_PBS : ShaderGUI
 			{
 				if (obj is Material)
 				{
-					if (blendedOutline)
-						(obj as Material).EnableKeyword("OUTLINE_BLENDING");
+					if (useOutline && blendedOutline)
+						(obj as Material).SetFloat("_EnableOutline", 2);
+					else if (useOutline)
+						(obj as Material).SetFloat("_EnableOutline", 1);
 					else
-						(obj as Material).DisableKeyword("OUTLINE_BLENDING");
-
-					if (useOutline)
-						(obj as Material).EnableKeyword("OUTLINES");
-					else
-						(obj as Material).DisableKeyword("OUTLINES");
+						(obj as Material).SetFloat("_EnableOutline", 0);
 				}
 			}
 
