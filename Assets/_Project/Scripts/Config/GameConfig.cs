@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 using VirtueSky.Utils;
 
 [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
 public class GameConfig : ScriptableObject
 {
-    [Space, HeaderLine("Level config")] public LevelLoopType levelLoopType;
+    [FormerlySerializedAs("levelLoopType")] [Space, HeaderLine("Level config")]
+    public LevelNextType levelNextType;
 
     public int maxLevel = 2;
     public int startLoopLevel;
@@ -18,10 +20,10 @@ public class GameConfig : ScriptableObject
     public int percentWinGiftPerLevel = 10;
 }
 
-public enum LevelLoopType
+public enum LevelNextType
 {
-    NormalLoop,
-    RandomLoop,
+    NormalNext,
+    RandomNext,
 }
 
 public enum TargetFrameRate

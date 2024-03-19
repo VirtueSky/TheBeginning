@@ -10,21 +10,12 @@ public class Constant
     public const string TOTAL_CLAIM_DAILY_REWARD = "TOTAL_CLAIM_DAILY_REWARD";
     public const string IS_OFF_INTER_ADS = "IS_OFF_INTER_ADS";
 
-    // Sound
-    public const string BACKGROUND_SOUND_STATE = "BACKGROUND_SOUND_STATE";
-    public const string FX_SOUND_STATE = "FX_SOUND_STATE";
-    public const string VIBRATE_STATE = "VIBRATE_STATE";
 
     // Scene
     public const string LAUNCHER_SCENE = "Launcher";
     public const string GAME_SCENE = "Game";
     public const string SERVICE_SCENE = "Service";
 
-    // Playfab
-    public const string PLAYFAB_LOGIN_ID = "PLAYFAB_LOGIN_ID";
-    public const string PLAYER_ID = "PLAYER_ID";
-    public const string PLAYER_NAME = "PLAYER_NAME";
-    public const string PLAYER_COUNTRY_CODE = "PLAYER_COUNTRY_CODE";
 
     // Game Data
     public const string CURRENCY_TOTAL = "CURRENCY_TOTAL";
