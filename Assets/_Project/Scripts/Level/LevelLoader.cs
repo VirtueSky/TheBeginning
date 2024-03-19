@@ -60,17 +60,10 @@ public class LevelLoader : BaseMono
                    gameConfig.startLoopLevel;
         }
 
-        if (indexLevel > 0 && indexLevel < gameConfig.maxLevel)
+        if (indexLevel > 0 && indexLevel <= gameConfig.maxLevel)
         {
-            if (gameConfig.levelNextType == LevelNextType.NormalNext)
-            {
-                return (indexLevel - 1) % gameConfig.maxLevel + 1;
-            }
-
-            if (gameConfig.levelNextType == LevelNextType.RandomNext)
-            {
-                return UnityEngine.Random.Range(gameConfig.startLoopLevel, gameConfig.maxLevel);
-            }
+            //return (indexLevel - 1) % gameConfig.maxLevel + 1;
+            return indexLevel;
         }
 
         if (indexLevel == 0)
