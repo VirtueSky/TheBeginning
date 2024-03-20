@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using PrimeTween;
 using UnityEngine;
 using VirtueSky.Core;
+using VirtueSky.Threading.Tasks;
 using Random = UnityEngine.Random;
 
 public class CurrencyGenerate : BaseMono
@@ -39,7 +39,7 @@ public class CurrencyGenerate : BaseMono
     {
     }
 
-    public async void GenerateCoin(System.Action moveOneCoinDone, System.Action moveAllCoinDone,
+    public async void GenerateCoin(Action moveOneCoinDone, Action moveAllCoinDone,
         GameObject to = null,
         int numberCoin = -1)
     {
@@ -51,7 +51,7 @@ public class CurrencyGenerate : BaseMono
 
         for (int i = 0; i < this.numberCoin; i++)
         {
-            await Task.Delay(Random.Range(0, delay));
+            await UniTask.Delay(Random.Range(0, delay));
             GameObject coin = currencyPool.Spawn(transform);
             coin.transform.localScale = Vector3.one * scale;
             coinsActive.Add(coin);
@@ -64,7 +64,7 @@ public class CurrencyGenerate : BaseMono
         }
     }
 
-    private void MoveCoin(GameObject coin, System.Action moveAllCoinDone)
+    private void MoveCoin(GameObject coin, Action moveAllCoinDone)
     {
         MoveToTarget(coin, () =>
         {
