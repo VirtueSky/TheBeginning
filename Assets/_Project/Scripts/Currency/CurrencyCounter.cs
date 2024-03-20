@@ -1,10 +1,7 @@
-using System;
 using PrimeTween;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Audio;
-using VirtueSky.Events;
 using VirtueSky.Variables;
 
 public class CurrencyCounter : MonoBehaviour
