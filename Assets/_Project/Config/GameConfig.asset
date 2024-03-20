@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c6dd8ae2ee1da4db653e7719b669f5, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  levelLoopType: 0
-  maxLevel: 2
+  maxLevel: 3
   startLoopLevel: 1
+  keyLoadLevel: Levels/Level
   enableAdministrator: 1
   targetFrameRate: 60
   winLevelMoney: 100

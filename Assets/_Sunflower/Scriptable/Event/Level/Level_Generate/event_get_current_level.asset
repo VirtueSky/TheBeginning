@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1104d4321538450a8fbce5e5a1b98bda, type: 3}
   m_Name: event_get_current_level
   m_EditorClassIdentifier: 
-  id: 
+  id: event_get_current_level
   description: 
   valueResult: {fileID: 0}

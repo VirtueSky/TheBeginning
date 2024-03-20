@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdd72f6da1447388505d980e5ce9e77, type: 3}
   m_Name: event_get_previous_level
   m_EditorClassIdentifier: 
-  id: 
+  id: event_get_previous_level
   description: 
   valueResult: {fileID: 0}
