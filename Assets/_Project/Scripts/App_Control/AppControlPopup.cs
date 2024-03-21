@@ -6,6 +6,11 @@ namespace TheBeginning.AppControl
     {
         private static PopupManager _popupManager;
 
+        public static bool IsPopupManagerReady()
+        {
+            return _popupManager != null;
+        }
+
         public static void Init(PopupManager popupManager)
         {
             if (_popupManager != null)
@@ -47,6 +52,28 @@ namespace TheBeginning.AppControl
             }
 
             _popupManager.HideAll();
+        }
+
+        public static void Get<T>()
+        {
+            if (_popupManager == null)
+            {
+                Debug.LogError("Please Init AppControlPopup before use");
+                return;
+            }
+
+            _popupManager.Get<T>();
+        }
+
+        public static bool IsPopupReady<T>()
+        {
+            if (_popupManager == null)
+            {
+                Debug.LogError("Please Init AppControlPopup before use");
+                return false;
+            }
+
+            return _popupManager.IsPopupReady<T>();
         }
     }
 }

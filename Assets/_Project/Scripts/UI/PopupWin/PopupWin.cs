@@ -3,6 +3,7 @@ using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
@@ -27,7 +28,7 @@ public class PopupWin : UIPopup
     [SerializeField] private Vector3Event generateCoinEvent;
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    private IntegerVariable currencyTotalVariable;
+    private IntegerVariable currentCoin;
 
     private float percent = 0;
 
@@ -111,7 +112,7 @@ public class PopupWin : UIPopup
     public void GetRewardAds()
     {
         generateCoinEvent.Raise(BtnRewardAds.transform.position);
-        currencyTotalVariable.Value += MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus;
+        currentCoin.Value += MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus;
         BonusArrowHandler.MoveObject.StopMoving();
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
@@ -125,7 +126,7 @@ public class PopupWin : UIPopup
     public void OnClickContinue()
     {
         generateCoinEvent.Raise(BtnTapToContinue.transform.position);
-        currencyTotalVariable.Value += MoneyWin;
+        currentCoin.Value += MoneyWin;
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
         Tween.Delay(1.2f, () =>

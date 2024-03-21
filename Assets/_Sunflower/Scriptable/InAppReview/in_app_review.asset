@@ -9,14 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e2751cf33a439b997c1f79b966df48, type: 3}
-  m_Name: currency_total_variable
+  m_Script: {fileID: 11500000, guid: 538a395c127744f089e6bdf4a887a5f6, type: 3}
+  m_Name: in_app_review
   m_EditorClassIdentifier: 
-  id: currency_total_variable
-  description: 
-  enableDebugField: 0
-  valueDebug: 0
-  initializeValue: 0
-  isSetData: 1
-  isSaveData: 1
-  isRaiseEvent: 1

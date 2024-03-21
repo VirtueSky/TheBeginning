@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 using VirtueSky.Inspector;
-using VirtueSky.Utils;
 
 [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
 public class GameConfig : ScriptableObject
@@ -15,6 +14,12 @@ public class GameConfig : ScriptableObject
     public TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
     public int winLevelMoney = 100;
     public int percentWinGiftPerLevel = 10;
+
+    [Space, HeaderLine("Require Internet")]
+    public bool enableRequireInternet = false;
+
+    public float timeDelayCheckInternet = 5;
+    public float timeLoopCheckInternet = .5f;
 }
 
 

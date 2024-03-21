@@ -2,6 +2,7 @@ using System;
 using TheBeginning.UserData;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
@@ -16,7 +17,7 @@ public class DailyRewardItem : MonoBehaviour
     public Image backgroundClaim;
     public Image backgroundCanNotClaim;
     public Image iconItem;
-    [SerializeField] private IntegerVariable currencyTotalVariable;
+    [SerializeField] private IntegerVariable currentCoin;
 
     [SerializeField] private Vector3Event generateCoinEvent;
     [SerializeField] private DailyRewardConfig dailyRewardConfig;
@@ -131,7 +132,7 @@ public class DailyRewardItem : MonoBehaviour
         {
             case DailyRewardType.Currency:
                 generateCoinEvent.Raise(this.gameObject.transform.position);
-                currencyTotalVariable.Value += coinValue * (isClaimX5 ? 5 : 1);
+                currentCoin.Value += coinValue * (isClaimX5 ? 5 : 1);
                 break;
             case DailyRewardType.Skin:
                 //shopItemData.IsUnlocked = true;

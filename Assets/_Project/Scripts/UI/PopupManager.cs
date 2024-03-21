@@ -83,6 +83,21 @@ public class PopupManager : BaseMono
         }
     }
 
+    public UIPopup Get<T>()
+    {
+        if (_container.TryGetValue(typeof(T), out UIPopup popup))
+        {
+            return popup;
+        }
+
+        return null;
+    }
+
+    public bool IsPopupReady<T>()
+    {
+        return _container.ContainsKey(typeof(T));
+    }
+
     public void HideAll()
     {
         foreach (var popup in _container.Values)

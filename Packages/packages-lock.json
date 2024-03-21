@@ -30,6 +30,13 @@
       },
       "hash": "3b8069f4b91cc05329147c372446cd5b54e0f5dd"
     },
+    "com.google.android.appbundle": {
+      "version": "https://github.com/google-unity/android-app-bundle.git#1.9.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "949f3b068fea450d96de8fc2a30def2d3de92315"
+    },
     "com.google.external-dependency-manager": {
       "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.177",
       "depth": 0,
@@ -63,6 +70,35 @@
         "com.google.firebase.app": "11.6.0"
       },
       "hash": "1691034f00b4d117325825b2ef7dd1d22d862f0b"
+    },
+    "com.google.play.common": {
+      "version": "https://github.com/google-unity/google-play-common.git#1.8.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.google.android.appbundle": "1.9.0"
+      },
+      "hash": "a909962873db0f3a24bb48869e2a6e1f5fef34a6"
+    },
+    "com.google.play.core": {
+      "version": "https://github.com/google-unity/google-play-core.git#1.8.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.google.android.appbundle": "1.9.0",
+        "com.google.external-dependency-manager": "1.2.172"
+      },
+      "hash": "6a97548b7d97bdd78b2ba2c2941f856b5e2dc98c"
+    },
+    "com.google.play.review": {
+      "version": "https://github.com/google-unity/in-app-review.git#1.8.1",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.google.play.common": "1.8.1",
+        "com.google.play.core": "1.8.1"
+      },
+      "hash": "039118f280938f9770ed4efcf04b5bf030981e7e"
     },
     "com.unity.2d.common": {
       "version": "8.0.2",

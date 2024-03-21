@@ -19,3 +19,6 @@ MonoBehaviour:
   targetFrameRate: 60
   winLevelMoney: 100
   percentWinGiftPerLevel: 10
+  enableRequireInternet: 1
+  timeDelayCheckInternet: 5
+  timeLoopCheckInternet: 0.25

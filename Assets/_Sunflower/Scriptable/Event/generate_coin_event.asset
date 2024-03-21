@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3867b4398e66904418b240cae2fdf141, type: 3}
-  m_Name: currency_pool
+  m_Script: {fileID: 11500000, guid: 6204d80d69a942eeae93eff39c44aa91, type: 3}
+  m_Name: generate_coin_event
   m_EditorClassIdentifier: 
-  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
-  prefab: {fileID: 6793577256207356087, guid: c16f53179d9a79242b8f3649594b682b, type: 3}
-  numberPreSpawn: 0
+  id: generate_coin_event
+  description: 
+  valueDebug: {x: 0, y: 0, z: 0}

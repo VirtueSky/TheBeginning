@@ -5,7 +5,7 @@ using VirtueSky.Inspector;
 using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
-[EditorIcon("icon_controller")]
+[EditorIcon("icon_controller"), HideMonoScript]
 public class LevelLoader : BaseMono
 {
     [ReadOnly] [SerializeField] private Level currentLevel;

@@ -4,6 +4,12 @@ namespace TheBeginning.UserData
 {
     public partial struct UserData
     {
+        // public static int CurrentCoin
+        // {
+        //     get => Get(Constant.CURRENT_COIN, 0);
+        //     set => Set(Constant.CURRENT_COIN, value);
+        // }
+
         public static bool IsFirstOpenGame
         {
             get => Get(Constant.IS_FIRST_OPEN_GAME, 0) == 1;
