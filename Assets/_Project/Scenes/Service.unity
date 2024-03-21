@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 524850874}
   - component: {fileID: 524850873}
   - component: {fileID: 524850872}
+  - component: {fileID: 524850876}
   m_Layer: 0
   m_Name: Initialization
   m_TagString: Untagged
@@ -306,6 +307,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
+--- !u!114 &524850876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524850868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f358e15a7c94c079139d0aefa6c6a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
 --- !u!1 &532783272
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,11 +816,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serviceInitializations:
+  - {fileID: 524850876}
+  - {fileID: 524850873}
   - {fileID: 524850875}
-  - {fileID: 524850872}
   - {fileID: 524850871}
   - {fileID: 524850874}
-  - {fileID: 524850873}
+  - {fileID: 524850872}
 --- !u!1001 &6268509514467123668
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ namespace TheBeginning.Services
             }
         }
 #if UNITY_EDITOR
-        [ContextMenu("GetServiceInitialization")]
+        [Button]
         void GetServiceInitialization()
         {
             serviceInitializations = FindObjectsByType<ServiceInitialization>(FindObjectsSortMode.None);
