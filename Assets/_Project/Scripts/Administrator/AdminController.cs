@@ -3,6 +3,7 @@ using PrimeTween;
 using TheBeginning.AppControl;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Events;
 using VirtueSky.Inspector;
@@ -45,7 +46,7 @@ public class AdminController : MonoBehaviour
     [SerializeField] private BooleanVariable isOffRewardAds;
     [SerializeField] private BooleanVariable isTestingVariable;
     [SerializeField] private IntegerVariable indexLevelVariable;
-    [SerializeField] private IntegerVariable currencyVariable;
+    [SerializeField] private IntegerVariable currentCoin;
     [SerializeField] private ItemConfig itemConfig;
     [SerializeField] private GameConfig gameConfig;
     [SerializeField] private EventNoParam showConsentOption;
@@ -154,7 +155,7 @@ public class AdminController : MonoBehaviour
     {
         if (inputFieldCurrency.text != "")
         {
-            currencyVariable.Value = int.Parse(inputFieldCurrency.text);
+            currentCoin.Value = int.Parse(inputFieldCurrency.text);
         }
 
         inputFieldCurrency.text = "";
@@ -162,7 +163,7 @@ public class AdminController : MonoBehaviour
 
     void OnClickAdd10000Coin()
     {
-        currencyVariable.Value += 10000;
+        currentCoin.Value += 10000;
     }
 
     void OnClickShowBanner()

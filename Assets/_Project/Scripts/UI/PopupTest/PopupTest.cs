@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Ads;
 using VirtueSky.Events;
 using VirtueSky.Variables;
@@ -9,23 +10,24 @@ using VirtueSky.Variables;
 public class PopupTest : UIPopup
 {
     public TextMeshProUGUI textNotice;
-    public IntegerVariable currencyVariable;
+    public IntegerVariable currentCoin;
 
     [Header("Unit variables")] public AdUnitVariable banner;
     public AdUnitVariable inter;
     public AdUnitVariable reward;
+
     public void ShowBanner()
     {
         LogMessage("Show Banner");
-       // adManagerVariable.Value.ShowBanner();
-       banner.Show();
+        // adManagerVariable.Value.ShowBanner();
+        banner.Show();
     }
 
     public void HideBanner()
     {
         LogMessage("Hide Banner");
-       // adManagerVariable.Value.HideBanner();
-       banner.Destroy();
+        // adManagerVariable.Value.HideBanner();
+        banner.Destroy();
     }
 
     public void ShowRewards()
@@ -40,12 +42,9 @@ public class PopupTest : UIPopup
         // });
         reward.Show().OnCompleted(() =>
         {
-            currencyVariable.Value += 100;
+            currentCoin.Value += 100;
             LogMessage("Reward Completed");
-        }).OnSkipped(() =>
-        {
-            LogMessage("Skip reward");
-        });
+        }).OnSkipped(() => { LogMessage("Skip reward"); });
     }
 
     public void ShowInterAds()
@@ -54,10 +53,7 @@ public class PopupTest : UIPopup
         // {
         //     LogMessage("Interstitial completed");
         // });
-        inter.Show().OnCompleted(() =>
-        {
-            LogMessage("Interstitial completed");
-        });
+        inter.Show().OnCompleted(() => { LogMessage("Interstitial completed"); });
     }
 
     public void LogMessage(string message)

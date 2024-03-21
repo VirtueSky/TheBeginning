@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6204d80d69a942eeae93eff39c44aa91, type: 3}
-  m_Name: generate_currency_event
+  m_Script: {fileID: 11500000, guid: c1e2751cf33a439b997c1f79b966df48, type: 3}
+  m_Name: current_coin_variable
   m_EditorClassIdentifier: 
-  id: generate_currency_event
+  id: current_coin_variable
   description: 
+  valueDebug: 0
+  initializeValue: 0
+  isSetData: 1
+  isSaveData: 1
+  isRaiseEvent: 1

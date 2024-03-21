@@ -1,6 +1,7 @@
 using PrimeTween;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Audio;
 using VirtueSky.Variables;
 
@@ -10,34 +11,34 @@ public class CoinUpdater : MonoBehaviour
     public int StepCount = 10;
     public float DelayTime = .01f;
     public CoinGenerate coinGenerate;
-    [SerializeField] IntegerVariable currencyTotalVariable;
+    [SerializeField] IntegerVariable currentCoin;
 
     [Header("Sound")] [SerializeField] public PlaySfxEvent playSoundFx;
     [SerializeField] private SoundData soundCoinMove;
 
 
-    private int currentCoin;
+    private int _currentCoin;
 
     private void OnEnable()
     {
-        currencyTotalVariable.AddListener(UpdateCoinAmountText);
-        CurrencyAmountText.text = currencyTotalVariable.Value.ToString();
+        currentCoin.AddListener(UpdateCoinAmountText);
+        CurrencyAmountText.text = currentCoin.Value.ToString();
         SaveCurrentCoin();
     }
 
     private void OnDisable()
     {
-        currencyTotalVariable.RemoveListener(UpdateCoinAmountText);
+        currentCoin.RemoveListener(UpdateCoinAmountText);
     }
 
     private void SaveCurrentCoin()
     {
-        currentCoin = currencyTotalVariable.Value;
+        _currentCoin = currentCoin.Value;
     }
 
     public void UpdateCoinAmountText(int value)
     {
-        if (currencyTotalVariable.Value > currentCoin)
+        if (currentCoin.Value > _currentCoin)
         {
             IncreaseCoin();
         }
@@ -57,7 +58,7 @@ public class CoinUpdater : MonoBehaviour
                 isFirstMove = true;
                 playSoundFx.Raise(soundCoinMove);
                 int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-                int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
+                int nextAmount = (currentCoin.Value - currentCurrencyAmount) / StepCount;
                 int step = StepCount;
                 CoinTextCount(currentCurrencyAmount, nextAmount, step);
             }
@@ -67,7 +68,7 @@ public class CoinUpdater : MonoBehaviour
     private void DecreaseCoin()
     {
         int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-        int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
+        int nextAmount = (currentCoin.Value - currentCurrencyAmount) / StepCount;
         int step = StepCount;
         CoinTextCount(currentCurrencyAmount, nextAmount, step);
         SaveCurrentCoin();
@@ -77,7 +78,7 @@ public class CoinUpdater : MonoBehaviour
     {
         if (stepCount == 0)
         {
-            CurrencyAmountText.text = currencyTotalVariable.Value.ToString();
+            CurrencyAmountText.text = currentCoin.Value.ToString();
             return;
         }
 
