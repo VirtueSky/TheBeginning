@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 191429953054370172}
   - component: {fileID: 2562162494848240777}
   m_Layer: 0
-  m_Name: CurrencyPrefab
+  m_Name: IconCoinPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,12 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: currency_prefab
-  pools: {fileID: 11400000, guid: 54b427add8aa14d84ac865264917c011, type: 2}
-  ticker: {fileID: 11400000, guid: e338ea7c95576499daf5ba30bc871118, type: 2}
-  earlyTick: 0
-  tick: 0
-  lateTick: 0
-  fixedTick: 1
   ignoreTimeScale: 0
   speed: 10
   rotateX: 0

@@ -4,12 +4,12 @@ using UnityEngine;
 using VirtueSky.Audio;
 using VirtueSky.Variables;
 
-public class CurrencyCounter : MonoBehaviour
+public class CoinUpdater : MonoBehaviour
 {
     public TextMeshProUGUI CurrencyAmountText;
     public int StepCount = 10;
     public float DelayTime = .01f;
-    public CurrencyGenerate CurrencyGenerate;
+    public CoinGenerate coinGenerate;
     [SerializeField] IntegerVariable currencyTotalVariable;
 
     [Header("Sound")] [SerializeField] public PlaySfxEvent playSoundFx;
@@ -50,7 +50,7 @@ public class CurrencyCounter : MonoBehaviour
     private void IncreaseCurrency()
     {
         bool isFirstMove = false;
-        CurrencyGenerate.GenerateCoin(() =>
+        coinGenerate.GenerateCoin(() =>
         {
             if (!isFirstMove)
             {
@@ -61,7 +61,7 @@ public class CurrencyCounter : MonoBehaviour
                 int step = StepCount;
                 CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
             }
-        }, () => { });
+        }, () => { SaveCurrency(); });
     }
 
     private void DecreaseCurrency()
@@ -70,6 +70,7 @@ public class CurrencyCounter : MonoBehaviour
         int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
         int step = StepCount;
         CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
+        SaveCurrency();
     }
 
     private void CurrencyTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)

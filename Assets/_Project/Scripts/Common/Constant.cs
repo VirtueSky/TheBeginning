@@ -18,7 +18,7 @@ public class Constant
 
 
     // Game Data
-    public const string CURRENCY_TOTAL = "CURRENCY_TOTAL";
+    public const string CURRENT_COIN = "CURRENT_COIN";
     public const string INDEX_LEVEL_CURRENT = "INDEX_LEVEL_CURRENT";
     public const string PROGRESS_AMOUNT = "PROGRESS_AMOUNT";
     public const string UNLOCK_ITEM = "UNLOCK_ITEM";

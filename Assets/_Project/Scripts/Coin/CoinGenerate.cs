@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using PrimeTween;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Core;
 using VirtueSky.Threading.Tasks;
 using Random = UnityEngine.Random;
 
-public class CurrencyGenerate : BaseMono
+public class CoinGenerate : BaseMono
 {
     [SerializeField] private Vector3 from = Vector3.zero;
     [SerializeField] private GameObject to;
@@ -18,7 +19,9 @@ public class CurrencyGenerate : BaseMono
     [SerializeField] private Ease easeTarget;
     [SerializeField] private float scale = 1;
     [SerializeField] private float offsetNear = 1;
-    [SerializeField] private CurrencyPool currencyPool;
+
+    [FormerlySerializedAs("currencyPool")] [SerializeField]
+    private CoinPool coinPool;
 
     private System.Action moveOneCoinDone;
     private bool isScaleIconTo = false;
@@ -52,7 +55,7 @@ public class CurrencyGenerate : BaseMono
         for (int i = 0; i < this.numberCoin; i++)
         {
             await UniTask.Delay(Random.Range(0, delay));
-            GameObject coin = currencyPool.Spawn(transform);
+            GameObject coin = coinPool.Spawn(transform);
             coin.transform.localScale = Vector3.one * scale;
             coinsActive.Add(coin);
             coin.transform.position = from;
@@ -69,7 +72,7 @@ public class CurrencyGenerate : BaseMono
         MoveToTarget(coin, () =>
         {
             coinsActive.Remove(coin);
-            currencyPool.DeSpawn(coin);
+            coinPool.DeSpawn(coin);
             if (!isScaleIconTo)
             {
                 isScaleIconTo = true;

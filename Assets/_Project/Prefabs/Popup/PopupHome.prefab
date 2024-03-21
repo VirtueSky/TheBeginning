@@ -340,7 +340,7 @@ RectTransform:
   - {fileID: 1962539476856349319}
   - {fileID: 6882514774316202404}
   - {fileID: 1362427209109632736}
-  - {fileID: 3520267082071811890}
+  - {fileID: 6710071038225402705}
   m_Father: {fileID: 7370416450938019889}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -853,7 +853,7 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
---- !u!1001 &231667863271482623
+--- !u!1001 &7994868994823702684
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -964,16 +964,16 @@ PrefabInstance:
     - target: {fileID: 7735359813405760995, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
         type: 3}
       propertyPath: m_Name
-      value: CurrencyTotal
+      value: Coin_Group
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ece1524dd9c0dd43acf5cd0a3982069, type: 3}
---- !u!224 &3520267082071811890 stripped
+--- !u!224 &6710071038225402705 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3741801841614095309, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
     type: 3}
-  m_PrefabInstance: {fileID: 231667863271482623}
+  m_PrefabInstance: {fileID: 7994868994823702684}
   m_PrefabAsset: {fileID: 0}
