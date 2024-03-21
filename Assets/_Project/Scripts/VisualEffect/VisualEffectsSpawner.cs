@@ -1,9 +1,10 @@
 using PrimeTween;
 using UnityEngine;
 using VirtueSky.Core;
+using VirtueSky.Inspector;
 using VirtueSky.ObjectPooling;
 
-
+[HideMonoScript]
 public class VisualEffectsSpawner : BaseMono
 {
     [SerializeField] private VisualEffectConfig visualEffectConfig;

@@ -8,6 +8,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-process:2.4.1' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:17
     implementation 'com.google.android.gms:play-services-ads:22.3.0' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7
     implementation 'com.google.android.gms:play-services-base:18.2.0' // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:17
+    implementation 'com.google.android.play:core-common:2.0.0' // Packages/com.google.play.core/Editor/Dependencies.xml:3
+    implementation 'com.google.android.play:review:2.0.0' // Packages/com.google.play.review/Editor/Dependencies.xml:3
     implementation 'com.google.android.ump:user-messaging-platform:2.1.0' // Assets/GoogleMobileAds/Editor/GoogleUmpDependencies.xml:7
     implementation 'com.google.firebase:firebase-analytics:21.3.0' // Packages/com.google.firebase.analytics/Firebase/Editor/AnalyticsDependencies.xml:13
     implementation 'com.google.firebase:firebase-analytics-unity:11.6.0' // Packages/com.google.firebase.analytics/Firebase/Editor/AnalyticsDependencies.xml:18

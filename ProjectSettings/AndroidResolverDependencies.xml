@@ -4,6 +4,8 @@
     <package>androidx.lifecycle:lifecycle-process:2.4.1</package>
     <package>com.google.android.gms:play-services-ads:22.3.0</package>
     <package>com.google.android.gms:play-services-base:18.2.0</package>
+    <package>com.google.android.play:core-common:2.0.0</package>
+    <package>com.google.android.play:review:2.0.0</package>
     <package>com.google.android.ump:user-messaging-platform:2.1.0</package>
     <package>com.google.firebase:firebase-analytics:21.3.0</package>
     <package>com.google.firebase:firebase-analytics-unity:11.6.0</package>
