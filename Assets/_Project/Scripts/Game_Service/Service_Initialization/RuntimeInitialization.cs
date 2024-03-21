@@ -7,7 +7,7 @@ namespace TheBeginning.Services
     public class RuntimeInitialization : MonoBehaviour
     {
         [SerializeField] private ServiceInitialization[] serviceInitializations;
-        private void Awake()
+        private void Start()
         {
             foreach (var serviceInitialization in serviceInitializations)
             {
