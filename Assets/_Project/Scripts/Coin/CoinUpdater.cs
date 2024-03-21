@@ -20,34 +20,34 @@ public class CoinUpdater : MonoBehaviour
 
     private void OnEnable()
     {
-        currencyTotalVariable.AddListener(UpdateCurrencyAmountText);
+        currencyTotalVariable.AddListener(UpdateCoinAmountText);
         CurrencyAmountText.text = currencyTotalVariable.Value.ToString();
-        SaveCurrency();
+        SaveCurrentCoin();
     }
 
     private void OnDisable()
     {
-        currencyTotalVariable.RemoveListener(UpdateCurrencyAmountText);
+        currencyTotalVariable.RemoveListener(UpdateCoinAmountText);
     }
 
-    private void SaveCurrency()
+    private void SaveCurrentCoin()
     {
         currentCoin = currencyTotalVariable.Value;
     }
 
-    public void UpdateCurrencyAmountText(int value)
+    public void UpdateCoinAmountText(int value)
     {
         if (currencyTotalVariable.Value > currentCoin)
         {
-            IncreaseCurrency();
+            IncreaseCoin();
         }
         else
         {
-            DecreaseCurrency();
+            DecreaseCoin();
         }
     }
 
-    private void IncreaseCurrency()
+    private void IncreaseCoin()
     {
         bool isFirstMove = false;
         coinGenerate.GenerateCoin(() =>
@@ -59,21 +59,21 @@ public class CoinUpdater : MonoBehaviour
                 int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
                 int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
                 int step = StepCount;
-                CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
+                CoinTextCount(currentCurrencyAmount, nextAmount, step);
             }
-        }, () => { SaveCurrency(); });
+        }, () => { SaveCurrentCoin(); });
     }
 
-    private void DecreaseCurrency()
+    private void DecreaseCoin()
     {
         int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
         int nextAmount = (currencyTotalVariable.Value - currentCurrencyAmount) / StepCount;
         int step = StepCount;
-        CurrencyTextCount(currentCurrencyAmount, nextAmount, step);
-        SaveCurrency();
+        CoinTextCount(currentCurrencyAmount, nextAmount, step);
+        SaveCurrentCoin();
     }
 
-    private void CurrencyTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)
+    private void CoinTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)
     {
         if (stepCount == 0)
         {
@@ -86,6 +86,6 @@ public class CoinUpdater : MonoBehaviour
             {
                 CurrencyAmountText.text = totalValue.ToString();
             })
-            .AppendCallback(() => { CurrencyTextCount(totalValue, nextAmountValue, stepCount - 1); });
+            .AppendCallback(() => { CoinTextCount(totalValue, nextAmountValue, stepCount - 1); });
     }
 }
