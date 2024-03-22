@@ -1,5 +1,5 @@
-using TheBeginning.AppControl;
 using UnityEngine;
+using VirtueSky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
 
@@ -9,6 +9,7 @@ namespace TheBeginning.Services
     public class RequireInternetInitialization : ServiceInitialization
     {
         [SerializeField] private GameConfig gameConfig;
+        [SerializeField] private BooleanEvent showRequireInternetEvent;
 
         public override void Initialization()
         {
@@ -21,14 +22,8 @@ namespace TheBeginning.Services
 
         void RequireInternet()
         {
-            Common.CheckInternetConnection(() =>
-                {
-                    if (AppControlPopup.IsPopupReady<PopupRequireInternet>())
-                    {
-                        AppControlPopup.Hide<PopupRequireInternet>();
-                    }
-                },
-                () => { AppControlPopup.Show<PopupRequireInternet>(false); });
+            Common.CheckInternetConnection(() => { showRequireInternetEvent.Raise(false); },
+                () => { showRequireInternetEvent.Raise(true); });
         }
     }
 }
