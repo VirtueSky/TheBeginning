@@ -82,6 +82,7 @@ public class GameManager : BaseMono
     {
         GameState = GameState.Lobby;
         AppControlPopup.Show<PopupHome>();
+        levelHolder.ClearTransform();
     }
 
     public void PlayCurrentLevel()
