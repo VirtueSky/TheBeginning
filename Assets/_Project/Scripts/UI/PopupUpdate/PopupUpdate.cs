@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using VirtueSky.Variables;
 
 public class PopupUpdate : UIPopup
@@ -8,6 +10,13 @@ public class PopupUpdate : UIPopup
     [SerializeField] private TextMeshProUGUI textVersion;
     [SerializeField] private StringVariable contentUpdateVariable;
     [SerializeField] private StringVariable versionUpdateVariable;
+    [SerializeField] private BooleanVariable dontShowAgainPopupUpdate;
+    [SerializeField] private Toggle toggleShowAgain;
+
+    private void Start()
+    {
+        toggleShowAgain.isOn = false;
+    }
 
     protected override void OnBeforeShow()
     {
@@ -19,5 +28,10 @@ public class PopupUpdate : UIPopup
     {
         textContent.text = contentUpdateVariable.Value;
         textVersion.text = versionUpdateVariable.Value;
+    }
+
+    public void OnChangeValueShowAgain()
+    {
+        dontShowAgainPopupUpdate.Value = toggleShowAgain.isOn;
     }
 }

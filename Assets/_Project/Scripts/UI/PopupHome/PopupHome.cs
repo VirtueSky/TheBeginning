@@ -1,7 +1,7 @@
+using PrimeTween;
 using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Audio;
 using VirtueSky.Events;
 using VirtueSky.Variables;
@@ -15,6 +15,9 @@ public class PopupHome : UIPopup
     [SerializeField] private EventNoParam claimDailyRewardEvent;
     [SerializeField] private GameConfig gameConfig;
     [SerializeField] private StringVariable versionUpdateVariable;
+    [SerializeField] private BooleanVariable dontShowAgainPopupUpdate;
+    private Tween tween;
+
 
     protected override void OnBeforeShow()
     {
@@ -22,12 +25,19 @@ public class PopupHome : UIPopup
         claimDailyRewardEvent.AddListener(SetupNoticeDailyReward);
         playMusicEvent.Raise(musicHome);
         SetupNoticeDailyReward();
+    }
+
+    protected override void OnAfterShow()
+    {
+        base.OnAfterShow();
         ShowPopupUpdate();
     }
+
 
     protected override void OnBeforeHide()
     {
         base.OnBeforeHide();
+        tween.Stop();
         claimDailyRewardEvent.RemoveListener(SetupNoticeDailyReward);
     }
 
@@ -63,12 +73,15 @@ public class PopupHome : UIPopup
 
     void ShowPopupUpdate()
     {
-        if (gameConfig.enableShowPopupUpdate)
+        if (gameConfig.enableShowPopupUpdate && !dontShowAgainPopupUpdate.Value)
         {
-            if (!versionUpdateVariable.Value.Equals(Application.version))
+            tween = Tween.Delay(0.5f, () =>
             {
-                AppControlPopup.Show<PopupUpdate>(false);
-            }
+                if (!versionUpdateVariable.Value.Equals(Application.version))
+                {
+                    AppControlPopup.Show<PopupUpdate>(false);
+                }
+            });
         }
     }
 }

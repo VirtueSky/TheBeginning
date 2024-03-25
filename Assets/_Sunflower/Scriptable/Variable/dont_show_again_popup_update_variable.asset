@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac78349e5fc985d48b9901f74f86c69c, type: 3}
-  m_Name: rmc_content_update_variable
+  m_Script: {fileID: 11500000, guid: 8612af88fd55455ab06a565de64186b9, type: 3}
+  m_Name: dont_show_again_popup_update_variable
   m_EditorClassIdentifier: 
-  id: rmc_content_update_variable
+  id: dont_show_again_popup_update_variable
   description: 
-  valueDebug: 
-  initializeValue: Update Content Game
+  valueDebug: 0
+  initializeValue: 0
   isSetData: 0
   isSaveData: 0
   isRaiseEvent: 0
-  currentValue: Update Level
+  currentValue: 0

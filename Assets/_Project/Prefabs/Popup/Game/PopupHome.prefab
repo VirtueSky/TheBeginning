@@ -517,7 +517,8 @@ MonoBehaviour:
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   versionUpdateVariable: {fileID: 11400000, guid: 094c02312d382eb459d6d7e67cb08e2d,
     type: 2}
-  test: {fileID: 11400000, guid: 23a4d1b0c67734e99a0108751888caf0, type: 2}
+  dontShowAgainPopupUpdate: {fileID: 11400000, guid: cf7683b35a61db244a60b89f969ca3c6,
+    type: 2}
 --- !u!1 &8069124292181931594
 GameObject:
   m_ObjectHideFlags: 0
