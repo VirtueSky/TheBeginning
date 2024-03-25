@@ -2,7 +2,7 @@
   "dependencies": {
     "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
     "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
-    "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.177",
+    "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.179",
     "com.google.firebase.analytics": "https://github.com/firebase-unity/firebase-analytics.git#11.6.0",
     "com.google.firebase.app": "https://github.com/firebase-unity/firebase-app.git#11.6.0",
     "com.google.firebase.remote-config": "https://github.com/firebase-unity/firebase-remote-config.git#11.6.0",
@@ -26,7 +26,7 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
-    "com.virtuesky.sunflower": "https://github.com/VirtueSky/sunflower.git#2.5.7",
+    "com.virtuesky.sunflower": "https://github.com/VirtueSky/sunflower.git#2.5.8",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

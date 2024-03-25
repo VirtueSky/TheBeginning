@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 
 [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
@@ -20,6 +19,9 @@ public class GameConfig : ScriptableObject
 
     public float timeDelayCheckInternet = 5;
     public float timeLoopCheckInternet = .5f;
+
+    [Space, HeaderLine("Show Popup Update")]
+    public bool enableShowPopupUpdate = false;
 }
 
 

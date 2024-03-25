@@ -22,3 +22,4 @@ MonoBehaviour:
   enableRequireInternet: 1
   timeDelayCheckInternet: 5
   timeLoopCheckInternet: 0.25
+  enableShowPopupUpdate: 1

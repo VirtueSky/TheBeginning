@@ -671,6 +671,22 @@ MonoBehaviour:
     resultBoolValue: 0
     intValue: {fileID: 11400000, guid: 3c8cef2000c154815a4803a2bf4827eb, type: 2}
     resultIntValue: 0
+  - key: RMC_VERSION_UPDATE
+    typeRemoteConfigData: 0
+    stringValue: {fileID: 11400000, guid: 094c02312d382eb459d6d7e67cb08e2d, type: 2}
+    resultStringValue: 
+    boolValue: {fileID: 11400000, guid: 11634eeb370a441ec945f46de0a769b9, type: 2}
+    resultBoolValue: 0
+    intValue: {fileID: 11400000, guid: 3c8cef2000c154815a4803a2bf4827eb, type: 2}
+    resultIntValue: 0
+  - key: RMC_CONTENT_UPDATE
+    typeRemoteConfigData: 0
+    stringValue: {fileID: 11400000, guid: 8e0034f049fc87042a3fa05b87482f91, type: 2}
+    resultStringValue: 
+    boolValue: {fileID: 11400000, guid: 11634eeb370a441ec945f46de0a769b9, type: 2}
+    resultBoolValue: 0
+    intValue: {fileID: 11400000, guid: 3c8cef2000c154815a4803a2bf4827eb, type: 2}
+    resultIntValue: 0
 --- !u!114 &1448091016
 MonoBehaviour:
   m_ObjectHideFlags: 0
