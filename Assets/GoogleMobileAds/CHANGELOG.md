@@ -1,4 +1,75 @@
 Google Mobile Ads Unity Plugin Change Log
+**************
+Version 9.0.0
+**************
+
+- Removed `SameAppKeyEnabled` in `RequestConfiguration`. Use `PublisherFirstPartyIdEnabled` instead.
+- Removed `ServerSideVerificationOptions.Builder`. Use `ServerSideVerificationOptions` directly.
+- Removed `RequestConfiguration.Builder`. Use `RequestConfiguration` directly.
+- Removed `AdRequest.Builder`. Use `AdRequest` directly.
+- Removed `AdErrorEventArgs`. Use `AdError` directly.
+- Removed `AppOpenAd.Load` API that takes a `ScreenOrientation` parameter.
+- Made `AdValueEventArgs` Obsolete. Use `AdValue` directly.
+- Made `AdFailedToLoadEventArgs` Obsolete. Use `LoadAdError` directly.
+- Updated Google Mobile Ads SDK dependency to use v11.2.0 on iOS.
+- Updated the Android User Messaging Platform dependency version to 2.2.0.
+- Added the `NativeOverlayAd` class to fetch and display native ads using templates.
+- Using `CFPreferences` APIs for `ApplicationPreferences` instead of `NSUserDefaults` on iOS.
+
+Built and tested with:
+- Google Mobile Ads Android SDK 23.0.0
+- Google Mobile Ads iOS SDK 11.2.0
+- Google User Messaging Platform 2.2.0
+- External Dependency Manager for Unity 1.2.179
+
+**************
+Version 8.7.0
+**************
+
+- Added PublisherPrivacyPersonalizationState property accessible via RequestConfiguration.
+- Added PublisherFirstPartyIdEnabled property in RequestConfiguration.
+- Deprecated SameAppKeyEnabled in RequestConfiguration. Use PublisherFirstPartyIdEnabled instead.
+- Added ApplicationPreferences GetString and GetInt APIs.
+- Fixed [#3048] by applying accurate path for gradle scripts on Windows.
+- Updated Google Mobile Ads SDK dependency to use v22.6.0 on Android.
+- Updated Google Mobile Ads SDK dependency to use v10.14 on iOS.
+
+Built and tested with:
+- Google Mobile Ads Android SDK 22.6.0
+- Google Mobile Ads iOS SDK 10.14
+- Google User Messaging Platform 2.1.0
+- External Dependency Manager for Unity 1.2.177
+
+**************
+Version 8.6.0
+**************
+
+- Fixed [#3007] by aligning the PrivacyOptionsRequirementStatus Enum on iOS with Android Plugin.
+- Fixed [#2930] for Projects using Android Gradle Plugin less than 4.2.2.
+- Added Editor Options to toggle adding packagingOptions to gradle files to pick the first occurrence of META-INF/kotlinx_coroutines_core.version file.
+- Added Editor Options to enable removing the property tag from the Android Manifest of the GMA Android SDK. This is enabled by default for projects using Android Gradle Plugin version 4.2.1 and lower.
+- Updated Google Mobile Ads SDK dependency to use v22.5.0 on Android.
+- Updated Google Mobile Ads SDK dependency to use v10.13 on iOS.
+
+Built and tested with:
+- Google Mobile Ads Android SDK 22.5.0
+- Google Mobile Ads iOS SDK 10.13
+- Google User Messaging Platform 2.1.0
+- External Dependency Manager for Unity 1.2.177
+
+**************
+Version 8.5.3
+**************
+
+- Fixed "cannot find symbol" error when building the Android bridge project using gradle.
+- Fixed [#2930] by pinning the Google Mobile Ads SDK dependency to use v22.3.0 on Android.
+- Fixed [#2974] ConsentInformation.Update() wasn't working as expected on consecutive requests.
+
+Built and tested with:
+- Google Mobile Ads Android SDK 22.3.0
+- Google Mobile Ads iOS SDK 10.9
+- Google User Messaging Platform 2.1.0
+- External Dependency Manager for Unity 1.2.176
 
 **************
 Version 8.5.2
@@ -6,6 +77,7 @@ Version 8.5.2
 
 - Fixed AndroidJavaException when using AdManagerAdRequest custom targeting.
 - Fixed [#2826] "No such proxy method" error within GoogleMobileAds.Ump.
+- Updated Google Mobile Ads SDK dependency to use v22.3.0 on Android.
 
 Built and tested with:
 - Google Mobile Ads Android SDK 22.3.0

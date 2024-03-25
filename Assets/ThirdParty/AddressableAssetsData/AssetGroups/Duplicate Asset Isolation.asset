@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 68e54b49139a5dc4db4baae4c1d9f2da
+  m_GUID: 6717427f353309741a4f168718da53db
   m_SerializeEntries:
   - m_GUID: 1749cf3ef0603a5408d0a513560f046f
     m_Address: Assets/_Project/_Example/Event/play_portal_event.asset
@@ -163,7 +163,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6a4bbc0399fafde4bb1c4007bbfb6d9f
-    m_Address: Assets/_Sunflower/Scriptable/Variable/currency_total_variable.asset
+    m_Address: Assets/_Sunflower/Scriptable/Variable/current_coin_variable.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -229,6 +229,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a40e92ec88aa74d7e91ac7ac63811d29
     m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_blue.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f6b1e844d596d549bc5761e32eeeec3
+    m_Address: Assets/_Sunflower/Scriptable/Event/show_require_internet_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e0034f049fc87042a3fa05b87482f91
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_content_update_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 094c02312d382eb459d6d7e67cb08e2d
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_version_update_variable.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
