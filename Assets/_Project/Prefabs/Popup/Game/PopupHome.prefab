@@ -514,6 +514,10 @@ MonoBehaviour:
   noticeDailyReward: {fileID: 5732926270582141118}
   claimDailyRewardEvent: {fileID: 11400000, guid: b1fc40b863739b34d90bc5564d896832,
     type: 2}
+  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  versionUpdateVariable: {fileID: 11400000, guid: 094c02312d382eb459d6d7e67cb08e2d,
+    type: 2}
+  test: {fileID: 11400000, guid: 23a4d1b0c67734e99a0108751888caf0, type: 2}
 --- !u!1 &8069124292181931594
 GameObject:
   m_ObjectHideFlags: 0

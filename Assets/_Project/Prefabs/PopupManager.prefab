@@ -59,6 +59,7 @@ MonoBehaviour:
   - {fileID: 5600369039360957863, guid: 1bd72ebe47024c0428d207cb890f7d32, type: 3}
   - {fileID: 2915254623132364138, guid: 813a9cef4af4e4a4c91638583b5577d4, type: 3}
   - {fileID: 8175076033157189046, guid: 587f3ae9e6583c641af7334c3e7cd01e, type: 3}
+  - {fileID: 6632636489167983820, guid: 33564cfb5492c2744b95ea6eea22c111, type: 3}
   - {fileID: 7338174430931127897, guid: 0a7d626686eff674c9417735b945d004, type: 3}
   pathPopup: Assets/_Project/Prefabs/Popup/
 --- !u!1 &7735207672015544293

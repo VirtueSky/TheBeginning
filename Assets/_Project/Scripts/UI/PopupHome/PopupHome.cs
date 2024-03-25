@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using VirtueSky.Audio;
 using VirtueSky.Events;
+using VirtueSky.Variables;
 
 public class PopupHome : UIPopup
 {
@@ -12,6 +13,8 @@ public class PopupHome : UIPopup
     [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
     [SerializeField] private GameObject noticeDailyReward;
     [SerializeField] private EventNoParam claimDailyRewardEvent;
+    [SerializeField] private GameConfig gameConfig;
+    [SerializeField] private StringVariable versionUpdateVariable;
 
     protected override void OnBeforeShow()
     {
@@ -19,6 +22,7 @@ public class PopupHome : UIPopup
         claimDailyRewardEvent.AddListener(SetupNoticeDailyReward);
         playMusicEvent.Raise(musicHome);
         SetupNoticeDailyReward();
+        ShowPopupUpdate();
     }
 
     protected override void OnBeforeHide()
@@ -55,5 +59,16 @@ public class PopupHome : UIPopup
     public void OnClickTest()
     {
         AppControlPopup.Show<PopupTest>(false);
+    }
+
+    void ShowPopupUpdate()
+    {
+        if (gameConfig.enableShowPopupUpdate)
+        {
+            if (!versionUpdateVariable.Value.Equals(Application.version))
+            {
+                AppControlPopup.Show<PopupUpdate>(false);
+            }
+        }
     }
 }
