@@ -14,9 +14,8 @@ public class PlaySoundButton : BaseMono
         clickButtonEvent.AddListener(OnClickButton);
     }
 
-    public override void OnDestroy()
+    private void OnDestroy()
     {
-        base.OnDestroy();
         clickButtonEvent.RemoveListener(OnClickButton);
     }
 
