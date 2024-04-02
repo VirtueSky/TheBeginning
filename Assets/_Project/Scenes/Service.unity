@@ -268,8 +268,9 @@ MonoBehaviour:
   textNoti: {fileID: 1987660212}
   container: {fileID: 1020902105}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
-  posYShow: -125
-  posYHide: 125
+  posYShow: -150
+  posYHide: 150
+  timeMove: 0.7
   showNotificationInGameEvent: {fileID: 11400000, guid: cd73ca7a44674384aa18fd3f412eeee3,
     type: 2}
 --- !u!1 &524850868

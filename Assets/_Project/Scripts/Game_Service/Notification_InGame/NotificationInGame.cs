@@ -11,6 +11,7 @@ public class NotificationInGame : BaseMono
     [SerializeField] private GameConfig gameConfig;
     [SerializeField] private float posYShow = -125;
     [SerializeField] private float posYHide = 125;
+    [SerializeField] private float timeMove = .5f;
     [SerializeField] private StringEvent showNotificationInGameEvent;
     private bool isShow = false;
 
@@ -37,7 +38,7 @@ public class NotificationInGame : BaseMono
         isShow = true;
         gameObject.SetActive(true);
         textNoti.text = _textNoti;
-        Tween.UIAnchoredPositionY(container, posYShow, 0.5f, Ease.OutBack).OnComplete(() =>
+        Tween.UIAnchoredPositionY(container, posYShow, timeMove, Ease.OutBack).OnComplete(() =>
         {
             App.Delay(gameConfig.timeDelayHideNotificationInGame, () => { Hide(); });
         });
@@ -47,7 +48,7 @@ public class NotificationInGame : BaseMono
     {
         if (!isShow) return;
         isShow = false;
-        Tween.UIAnchoredPositionY(container, posYHide, 0.5f, Ease.InBack).OnComplete(() =>
+        Tween.UIAnchoredPositionY(container, posYHide, timeMove, Ease.InBack).OnComplete(() =>
         {
             gameObject.SetActive(false);
         });

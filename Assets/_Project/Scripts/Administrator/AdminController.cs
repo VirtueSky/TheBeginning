@@ -258,13 +258,16 @@ public class AdminController : MonoBehaviour
         isShow = true;
         Refresh();
         holder.gameObject.SetActive(true);
-        Tween.UIAnchoredPositionX(container, 550, .25f).OnComplete(() => { iconButtonShowAdmin.sprite = iconBtnHide; });
+        Tween.UIAnchoredPositionX(container, 550, .5f, Ease.OutBack).OnComplete(() =>
+        {
+            iconButtonShowAdmin.sprite = iconBtnHide;
+        });
     }
 
     void Hide()
     {
         isShow = false;
-        Tween.UIAnchoredPositionX(container, 0, .25f).OnComplete(() =>
+        Tween.UIAnchoredPositionX(container, 0, .5f, Ease.InBack).OnComplete(() =>
         {
             holder.gameObject.SetActive(false);
             iconButtonShowAdmin.sprite = iconBtnShow;
