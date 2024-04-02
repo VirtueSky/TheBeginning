@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8246f1f4b93f5c4daa109adb11eaadb, type: 3}
+  m_Name: notification_in_game_pool
+  m_EditorClassIdentifier: 
+  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
+  prefab: {fileID: 0}
+  numberPreSpawn: 0

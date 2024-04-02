@@ -1,8 +1,10 @@
+using System;
 using PrimeTween;
 using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using UnityEngine;
 using VirtueSky.Audio;
+using VirtueSky.Core;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
@@ -16,8 +18,13 @@ public class PopupHome : UIPopup
     [SerializeField] private GameConfig gameConfig;
     [SerializeField] private StringVariable versionUpdateVariable;
     [SerializeField] private BooleanVariable dontShowAgainPopupUpdate;
+    [SerializeField] private StringEvent showNotificationInGameEvent;
     private Tween tween;
 
+    private void Start()
+    {
+        App.Delay(1.0f, () => { showNotificationInGameEvent.Raise("Welcome TheBeginning"); });
+    }
 
     protected override void OnBeforeShow()
     {

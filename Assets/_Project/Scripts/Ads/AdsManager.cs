@@ -4,6 +4,7 @@ using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
+using VirtueSky.Events;
 using VirtueSky.FirebaseTraking;
 using VirtueSky.Variables;
 
@@ -19,6 +20,9 @@ public class AdsManager : BaseMono
     [SerializeField] private BooleanVariable isOffInterAdsVariable;
     [SerializeField] private BooleanVariable isOffBannerVariable;
     [SerializeField] private BooleanVariable isOffRewardVariable;
+
+    [HeaderLine(Constant.SO_Event)] [SerializeField]
+    private StringEvent showNotificationInGameEvent;
 
     [Space] [HeaderLine("Firebase Remote Config")] [SerializeField]
     private IntegerVariable remoteConfigLevelTurnOnInterstitial;
@@ -158,12 +162,14 @@ public class AdsManager : BaseMono
             }
             else
             {
-                completeCallback?.Invoke();
+                //completeCallback?.Invoke();
+                showNotificationInGameEvent.Raise("Reward ads not ready");
             }
         }
         else
         {
-            completeCallback?.Invoke();
+            showNotificationInGameEvent.Raise("Reward ads not ready");
+            //completeCallback?.Invoke();
         }
     }
 }
