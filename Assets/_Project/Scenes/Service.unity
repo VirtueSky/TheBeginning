@@ -270,7 +270,6 @@ MonoBehaviour:
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   posYShow: -125
   posYHide: 125
-  timeDelayHide: 1
   showNotificationInGameEvent: {fileID: 11400000, guid: cd73ca7a44674384aa18fd3f412eeee3,
     type: 2}
 --- !u!1 &524850868
@@ -1014,6 +1013,8 @@ MonoBehaviour:
   isOffBannerVariable: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183,
     type: 2}
   isOffRewardVariable: {fileID: 11400000, guid: 9b82d09936466b04aa6e3bdc42405b50,
+    type: 2}
+  showNotificationInGameEvent: {fileID: 11400000, guid: cd73ca7a44674384aa18fd3f412eeee3,
     type: 2}
   remoteConfigLevelTurnOnInterstitial: {fileID: 11400000, guid: 9d24fb49e00e040a08c84af0e948f99d,
     type: 2}
