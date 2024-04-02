@@ -14,6 +14,11 @@ public class GameConfig : ScriptableObject
     public int winLevelMoney = 100;
     public int percentWinGiftPerLevel = 10;
 
+    [Space, HeaderLine("Notification In Game")]
+    public bool enableNotificationInGame = true;
+
+    public float timeDelayHideNotificationInGame = 1.0f;
+
     [Space, HeaderLine("Require Internet")]
     public bool enableRequireInternet = false;
 
