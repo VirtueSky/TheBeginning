@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using PrimeTween;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
+using VirtueSky.Misc;
 using VirtueSky.Variables;
 
 public class OffUI : MonoBehaviour
@@ -28,7 +28,7 @@ public class OffUI : MonoBehaviour
         if (listGraphics.Count == 0) return;
         foreach (var graphic in listGraphics)
         {
-            graphic.Alpha(isOff ? 0 : 1, 0);
+            graphic.SetAlpha(isOff ? 0 : 1);
         }
     }
 
