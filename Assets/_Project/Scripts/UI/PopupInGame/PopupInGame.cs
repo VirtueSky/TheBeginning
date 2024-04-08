@@ -73,7 +73,7 @@ public class PopupInGame : UIPopup
 
     public void OnClickSkip()
     {
-        AppControlAds.ShowReward(() => { nextLevelEvent.Raise(); });
+        nextLevelEvent.Raise();
     }
 
     public void OnClickLose()
