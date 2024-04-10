@@ -6,7 +6,6 @@ public class GameConfig : ScriptableObject
 {
     [Space, HeaderLine("Level config")] public int maxLevel = 2;
     public int startLoopLevel;
-    public string keyLoadLevel = "Levels/Level";
 
     [Space, HeaderLine("Gameplay config")] public bool enableAdministrator = true;
 
