@@ -15,7 +15,8 @@ MonoBehaviour:
   id: rmc_version_update_variable
   description: 
   valueDebug: 
-  initializeValue: 1.1
+  initializeValue: 1.0
   isSetData: 0
   isSaveData: 0
   isRaiseEvent: 0
+  currentValue: 1.1
