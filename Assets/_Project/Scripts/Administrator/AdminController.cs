@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using VirtueSky.Ads;
 using VirtueSky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
@@ -178,12 +179,20 @@ public class AdminController : MonoBehaviour
 
     void OnClickShowInter()
     {
-        AppControlAds.AdUnitInter.Show();
+        AppControlAds.AdUnitInter.Show().OnCompleted(() =>
+        {
+            Debug.Log("inter completed");
+            currentCoin.Value += 10;
+        });
     }
 
     void OnClickShowReward()
     {
-        AppControlAds.AdUnitReward.Show();
+        AppControlAds.AdUnitReward.Show().OnCompleted(() =>
+        {
+            Debug.Log("reward completed");
+            currentCoin.Value += 20;
+        }).OnClosed(() => { Debug.Log("reward closed"); });
     }
 
     void OnClickUnlockAllSkins()

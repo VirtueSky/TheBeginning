@@ -7,20 +7,22 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:759919814051:android:d64ed8ef4f05105c88a616",
+        "mobilesdk_app_id": "1:759919814051:ios:767c12a9fde6e2e988a616",
         "android_client_info": {
           "package_name": "com.thebeginning.test"
         }
       },
-      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDyqS9g1EsHhz9GJ53QrZEeNncsRxzhtjg"
+          "current_key": "AIzaSyC472hUs7YcqBE4KZa8hmlWsVoEUSetVPc"
         }
       ],
       "services": {
+        "analytics_service": {
+          "status": 0
+        },
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "status": 1
         }
       }
     }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ac8fce1cfb4b09805621d419310150, type: 3}
   m_Name: AdmobBannerVariable
   m_EditorClassIdentifier: 
-  androidId: ca-app-pub-3940256099942544/6300978111
+  iOSId: ca-app-pub-3940256099942544/2934735716
   size: 5
   position: 0
   useCollapsible: 1

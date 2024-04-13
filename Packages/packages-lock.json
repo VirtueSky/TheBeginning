@@ -45,31 +45,31 @@
       "hash": "66fd0c1b84d72ec9ac32e2eece65f2630b4b262e"
     },
     "com.google.firebase.analytics": {
-      "version": "https://github.com/firebase-unity/firebase-analytics.git#11.6.0",
+      "version": "https://github.com/firebase-unity/firebase-analytics.git#11.8.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.google.firebase.app": "11.6.0"
+        "com.google.firebase.app": "11.8.1"
       },
-      "hash": "544319d7f5d7d08584b671e1cd38ab5953d49b5b"
+      "hash": "b89fc7b80c2159846012c3a2c69673160d562f64"
     },
     "com.google.firebase.app": {
-      "version": "https://github.com/firebase-unity/firebase-app.git#11.6.0",
+      "version": "https://github.com/firebase-unity/firebase-app.git#11.8.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.google.external-dependency-manager": "1.2.177"
       },
-      "hash": "7ce22fc8eea927e34dea24a37c6a35def7ce5271"
+      "hash": "041c9721cc159eba00551c47b213ad1b63e8e069"
     },
     "com.google.firebase.remote-config": {
-      "version": "https://github.com/firebase-unity/firebase-remote-config.git#11.6.0",
+      "version": "https://github.com/firebase-unity/firebase-remote-config.git#11.8.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.google.firebase.app": "11.6.0"
+        "com.google.firebase.app": "11.8.1"
       },
-      "hash": "1691034f00b4d117325825b2ef7dd1d22d862f0b"
+      "hash": "d115e0f596450404902a629272bb61d60b0cab01"
     },
     "com.google.play.common": {
       "version": "https://github.com/google-unity/google-play-common.git#1.8.2",

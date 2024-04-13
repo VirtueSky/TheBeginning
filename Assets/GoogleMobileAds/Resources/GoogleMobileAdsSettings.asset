@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoogleMobileAdsSettings
   m_EditorClassIdentifier: 
   adMobAndroidAppId: ca-app-pub-3940256099942544~3347511713
-  adMobIOSAppId: 
+  adMobIOSAppId: ca-app-pub-3940256099942544~3347511713
   delayAppMeasurementInit: 1
   enableKotlinXCoroutinesPackagingOption: 0
   optimizeInitialization: 0

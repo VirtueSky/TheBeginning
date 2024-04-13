@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04367785ed74ad986055150f5961286, type: 3}
   m_Name: AdmobInterVariable
   m_EditorClassIdentifier: 
-  androidId: ca-app-pub-3940256099942544/1033173712
+  iOSId: ca-app-pub-3940256099942544/4411468910
