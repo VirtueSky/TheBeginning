@@ -20,7 +20,7 @@ MonoBehaviour:
   percentWinGiftPerLevel: 10
   enableNotificationInGame: 1
   timeDelayHideNotificationInGame: 1
-  enableRequireInternet: 0
+  enableRequireInternet: 1
   timeDelayCheckInternet: 5
   timeLoopCheckInternet: 0.25
   enableShowPopupUpdate: 1
