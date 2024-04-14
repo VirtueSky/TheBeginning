@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using PrimeTween;
 using UnityEngine;
+using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
@@ -68,9 +68,6 @@ public class ShowObject : MonoBehaviour
     public void Setup()
     {
         if (DelayShowTime > 0) gameObject.SetActive(false);
-        DOTween.Sequence().AppendInterval(DelayShowTime).AppendCallback(() =>
-        {
-            gameObject.SetActive(EnableToShow());
-        });
+        App.Delay(DelayShowTime, () => { gameObject.SetActive(EnableToShow()); });
     }
 }
