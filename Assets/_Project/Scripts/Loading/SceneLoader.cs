@@ -31,12 +31,10 @@ public class SceneLoader : BaseMono
             {
                 if (Utility.sceneHolder.ContainsKey(scene.name))
                 {
-                    if (Utility.sceneHolder.ContainsKey(scene.name))
-                    {
-                        Addressables.UnloadSceneAsync(Utility.sceneHolder[scene.name]);
-                        Utility.sceneHolder.Remove(scene.name);
-                    }
+                    Addressables.UnloadSceneAsync(Utility.sceneHolder[scene.name]);
+                    Utility.sceneHolder.Remove(scene.name);
                 }
+
                 else
                 {
                     SceneManager.UnloadSceneAsync(scene);
