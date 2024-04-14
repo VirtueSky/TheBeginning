@@ -7,7 +7,7 @@ namespace VirtueSky.Component
     [RequireComponent(typeof(Camera))]
     public class CameraShakerComponent : BaseMono
     {
-        [SerializeField] private Camera camera;
+        [SerializeField] private Camera cameraShaker;
         [SerializeField] private float durationPosition = .3f;
         [SerializeField] private float durationRotation = .3f;
         [SerializeField] private Vector3 positionStrength;
@@ -17,23 +17,23 @@ namespace VirtueSky.Component
         public void CameraShake()
         {
             tween.Complete();
-            tween = camera.DOShakePosition(durationPosition, positionStrength);
-            tween = camera.DOShakeRotation(durationRotation, rotationStrength);
+            tween = cameraShaker.DOShakePosition(durationPosition, positionStrength);
+            tween = cameraShaker.DOShakeRotation(durationRotation, rotationStrength);
         }
 
         public void CameraShake(float _durationPosition, float _durationRotation, Vector3 _positionStrength,
             Vector3 _rotationStrength)
         {
             tween.Complete();
-            tween = camera.DOShakePosition(_durationPosition, _positionStrength);
-            tween = camera.DOShakeRotation(_durationRotation, _rotationStrength);
+            tween = cameraShaker.DOShakePosition(_durationPosition, _positionStrength);
+            tween = cameraShaker.DOShakeRotation(_durationRotation, _rotationStrength);
         }
 #if UNITY_EDITOR
         private void Reset()
         {
-            if (camera == null)
+            if (cameraShaker == null)
             {
-                camera = GetComponent<Camera>();
+                cameraShaker = GetComponent<Camera>();
             }
         }
 #endif

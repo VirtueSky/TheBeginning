@@ -1,14 +1,9 @@
-using System;
 using System.Collections.Generic;
 using PrimeTween;
-using TheBeginning.UserData;
 using UnityEngine;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
-// [DeclareHorizontalGroup("horizontal")]
-// [DeclareVerticalGroup("horizontal/vars")]
-// [DeclareVerticalGroup("horizontal/buttons")]
 public class ShowObject : MonoBehaviour
 {
     [SerializeField] private BooleanVariable isTestingVariable;
@@ -21,7 +16,6 @@ public class ShowObject : MonoBehaviour
 
     [ShowIf("IsShowByTime")] [ReadOnly] public string ShowID;
 
-    
 
     private bool IsLevelInLevelsShow()
     {
@@ -48,15 +42,16 @@ public class ShowObject : MonoBehaviour
         isTestingVariable.AddListener(SetupByIsTesting);
         currentLevelVariable.AddListener(SetupByIndexLevel);
     }
+
     private void OnDestroy()
     {
         isTestingVariable.RemoveListener(SetupByIsTesting);
         currentLevelVariable.RemoveListener(SetupByIndexLevel);
     }
+
     public void OnEnable()
     {
         Setup();
-       
     }
 
     void SetupByIsTesting(bool isActive)
@@ -68,7 +63,7 @@ public class ShowObject : MonoBehaviour
     {
         Setup();
     }
-   
+
 
     public void Setup()
     {

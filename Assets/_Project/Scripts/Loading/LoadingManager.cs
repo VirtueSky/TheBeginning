@@ -1,7 +1,10 @@
 using PrimeTween;
+using TheBeginning;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
@@ -69,7 +72,7 @@ public class LoadingManager : BaseMono
 
     private async void LoadScene()
     {
-        await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE, LoadSceneMode.Additive);
+        Addressables.LoadSceneAsync(Constant.SERVICE_SCENE, LoadSceneMode.Additive).Completed += OnServiceLoaded;
         await UniTask.WaitUntil(() => flagDoneProgress);
         if (isWaitingFetchRemoteConfig)
         {
@@ -82,5 +85,15 @@ public class LoadingManager : BaseMono
     void FirebaseRemoteConfigInitialized()
     {
         fetchFirebaseRemoteConfigCompleted = true;
+    }
+
+    void OnServiceLoaded(AsyncOperationHandle<SceneInstance> scene)
+    {
+        if (scene.Status == AsyncOperationStatus.Succeeded)
+        {
+            string sceneName = scene.Result.Scene.name;
+            Utility.sceneHolder.Add(sceneName, scene);
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+        }
     }
 }

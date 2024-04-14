@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.SceneManagement;
 using VirtueSky.Core;
 using VirtueSky.Events;
-
+using TheBeginning;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 public class SceneLoader : BaseMono
 {
@@ -27,17 +29,32 @@ public class SceneLoader : BaseMono
         {
             if (!scene.name.Equals(Constant.SERVICE_SCENE))
             {
-                SceneManager.UnloadScene(scene.name);
+                if (Utility.sceneHolder.ContainsKey(scene.name))
+                {
+                    if (Utility.sceneHolder.ContainsKey(scene.name))
+                    {
+                        Addressables.UnloadSceneAsync(Utility.sceneHolder[scene.name]);
+                        Utility.sceneHolder.Remove(scene.name);
+                    }
+                }
+                else
+                {
+                    SceneManager.UnloadSceneAsync(scene);
+                }
             }
         }
 
-        Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive).Completed += handle =>
+        Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive).Completed += OnAdditiveSceneLoaded;
+    }
+
+    void OnAdditiveSceneLoaded(AsyncOperationHandle<SceneInstance> scene)
+    {
+        if (scene.Status == AsyncOperationStatus.Succeeded)
         {
-            if (handle.IsDone)
-            {
-                SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
-            }
-        };
+            string sceneName = scene.Result.Scene.name;
+            Utility.sceneHolder.Add(sceneName, scene);
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+        }
     }
 
     private Scene[] GetAllLoadedScene()
