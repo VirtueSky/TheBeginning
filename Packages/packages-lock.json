@@ -333,8 +333,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.6",
-      "depth": 0,
+      "version": "3.0.8",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
@@ -363,15 +363,16 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.6.3",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.6.4",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.serialization": "3.1.1",
         "com.unity.collections": "2.1.4",
-        "com.unity.textmeshpro": "3.0.6"
+        "com.unity.textmeshpro": "3.0.8",
+        "com.unity.addressables": "1.21.20"
       },
-      "hash": "671999b9ec793671cbfdb9f41566f6bdb40534c8"
+      "hash": "affe6dd8d5e90eb09fc98b7cd3ec42dbc0187acc"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

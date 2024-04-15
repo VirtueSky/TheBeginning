@@ -3,7 +3,6 @@ using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
@@ -85,12 +84,6 @@ public class PopupWin : UIPopup
         Tween.Delay(2f, () => { BtnTapToContinue.SetActive(true); });
     }
 
-
-    protected override void OnBeforeHide()
-    {
-        base.OnBeforeHide();
-        //  PopupController.Instance.Hide<PopupUI>();
-    }
 
     public void Setup()
     {

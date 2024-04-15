@@ -1,9 +1,7 @@
-using System;
 using PrimeTween;
 using TheBeginning.AppControl;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Events;
 using VirtueSky.Inspector;
