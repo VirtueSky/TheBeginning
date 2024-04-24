@@ -4,7 +4,7 @@ using TheBeginning.AppControl;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Events;
-using VirtueSky.FirebaseTraking;
+using VirtueSky.FirebaseTracking;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
 using VirtueSky.Variables;

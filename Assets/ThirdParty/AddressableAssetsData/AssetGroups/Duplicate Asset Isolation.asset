@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 6c094d37866e50b47a843c6c6b1dc00f
+  m_GUID: da8fdd7333101674181eb0dbdba8ca41
   m_SerializeEntries:
   - m_GUID: 1749cf3ef0603a5408d0a513560f046f
     m_Address: Assets/_Project/_Example/Event/play_portal_event.asset
@@ -77,13 +77,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 728967541f883204f8066926561c2768
-    m_Address: Assets/_Sunflower/Scriptable/Event/change_scene_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a0d2faf94e1685747b597406f55265d9
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/fetch_remote_config_completed_event.asset
+  - m_GUID: 90e7fdd9a40bfdc4c89ff31f239a25c2
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/is_fetch_remote_config_completed.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

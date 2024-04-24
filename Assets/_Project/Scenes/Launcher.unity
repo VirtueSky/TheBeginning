@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -324,7 +324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &805633148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,9 +882,7 @@ MonoBehaviour:
   progressBar: {fileID: 1926659687}
   loadingText: {fileID: 1603526854}
   timeLoading: 2
-  isWaitingFetchRemoteConfig: 0
-  changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
-  fetchFirebaseRemoteConfigCompletedEvent: {fileID: 11400000, guid: a0d2faf94e1685747b597406f55265d9,
+  isFetchRemoteConfigCompleted: {fileID: 11400000, guid: 90e7fdd9a40bfdc4c89ff31f239a25c2,
     type: 2}
 --- !u!4 &1885131756
 Transform:

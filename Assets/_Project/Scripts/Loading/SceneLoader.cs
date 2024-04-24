@@ -34,11 +34,6 @@ public class SceneLoader : BaseMono
                     Addressables.UnloadSceneAsync(Utility.sceneHolder[scene.name]);
                     Utility.sceneHolder.Remove(scene.name);
                 }
-
-                else
-                {
-                    SceneManager.UnloadSceneAsync(scene);
-                }
             }
         }
 
