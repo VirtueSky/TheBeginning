@@ -27,8 +27,7 @@ public class Level : BaseMono
     [Button]
     private void StartLevel()
     {
-        indexLevelVariable.Value = Common.GetNumberInAString(gameObject.name);
-
+        indexLevelVariable.Value = gameObject.name.GetNumberInAString();
         EditorApplication.isPlaying = true;
     }
 #endif
