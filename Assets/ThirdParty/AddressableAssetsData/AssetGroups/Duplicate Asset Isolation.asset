@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 3fa326ccad8f18141b275d42b0de4ea6
+  m_GUID: f2905ef52c2492648bb277c3b987cb75
   m_SerializeEntries:
   - m_GUID: 1749cf3ef0603a5408d0a513560f046f
     m_Address: Assets/_Project/_Example/Event/play_portal_event.asset
@@ -222,6 +222,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61aa56bcc96c74e4ebf0b19fa8413dfd
+    m_Address: Assets/_Sunflower/Scriptable/Event/ClickButtonEvent.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a40e92ec88aa74d7e91ac7ac63811d29
     m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_blue.png
     m_ReadOnly: 0
@@ -304,6 +309,26 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 418b5efd79ff44f5f837f5ca52f4d4fc
     m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobBannerVariable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 908fbb9a98122f44383205d2a2aaf245
+    m_Address: Assets/_Sunflower/Scriptable/Event/Level/event_win_level.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d4181221526fb843905ee98636c6378
+    m_Address: Assets/_Sunflower/Scriptable/Event/Level/event_lose_level.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72e1278f13c74f54aba93f103dcb68b0
+    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_return_home_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89e0f5f9de74ebd479ff2d6cb05894e3
+    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_replay_level_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

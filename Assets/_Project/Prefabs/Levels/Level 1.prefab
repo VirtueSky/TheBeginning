@@ -46,7 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45dd11d646118348b4f2e994976c4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: level 1
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
+  eventGetTransformCurrentLevel: {fileID: 11400000, guid: b7d25fe3446d71f4fa51d3f3160c98c7,
+    type: 2}
 --- !u!1 &5199060027154176177
 GameObject:
   m_ObjectHideFlags: 0
