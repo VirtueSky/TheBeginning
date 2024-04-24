@@ -5,7 +5,7 @@ using VirtueSky.Ads;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
 using VirtueSky.Events;
-using VirtueSky.FirebaseTraking;
+using VirtueSky.FirebaseTracking;
 using VirtueSky.Variables;
 
 [EditorIcon("icon_manager"), HideMonoScript]

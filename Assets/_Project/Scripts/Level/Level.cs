@@ -1,26 +1,33 @@
-using TheBeginning.AppControl;
 using UnityEditor;
 using UnityEngine;
+using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
 using VirtueSky.Variables;
 
-public class Level : MonoBehaviour
+public class Level : BaseMono
 {
     [SerializeField] private IntegerVariable indexLevelVariable;
+    [SerializeField] private EventGetTransformCurrentLevel eventGetTransformCurrentLevel;
+    public Transform GetTransform() => transform;
 
-    private void Start()
+    public override void OnEnable()
     {
-        AppControlCurrentLevel.Init(this);
+        base.OnEnable();
+        eventGetTransformCurrentLevel.AddListener(GetTransform);
     }
 
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        eventGetTransformCurrentLevel.RemoveListener(GetTransform);
+    }
 
 #if UNITY_EDITOR
     [Button]
     private void StartLevel()
     {
-        indexLevelVariable.Value = Common.GetNumberInAString(gameObject.name);
-
+        indexLevelVariable.Value = gameObject.name.GetNumberInAString();
         EditorApplication.isPlaying = true;
     }
 #endif

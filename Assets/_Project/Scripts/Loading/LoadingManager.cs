@@ -9,8 +9,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
-using VirtueSky.Events;
 using VirtueSky.Threading.Tasks;
+using VirtueSky.Variables;
 #if UNITY_IOS
 using Unity.Advertisement.IosSupport;
 #endif
@@ -22,9 +22,7 @@ public class LoadingManager : BaseMono
     public TextMeshProUGUI loadingText;
 
     [Range(0.1f, 10f)] public float timeLoading = 5f;
-    [SerializeField] bool isWaitingFetchRemoteConfig = false;
-    [SerializeField] private StringEvent changeSceneEvent;
-    [SerializeField] private EventNoParam fetchFirebaseRemoteConfigCompletedEvent;
+    [SerializeField] private BooleanVariable isFetchRemoteConfigCompleted;
     private bool flagDoneProgress;
     private bool fetchFirebaseRemoteConfigCompleted = false;
 
@@ -32,24 +30,6 @@ public class LoadingManager : BaseMono
     {
         Init();
         LoadScene();
-    }
-
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        if (fetchFirebaseRemoteConfigCompletedEvent != null)
-        {
-            fetchFirebaseRemoteConfigCompletedEvent.AddListener(FirebaseRemoteConfigInitialized);
-        }
-    }
-
-    public override void OnDisable()
-    {
-        base.OnDisable();
-        if (fetchFirebaseRemoteConfigCompletedEvent != null)
-        {
-            fetchFirebaseRemoteConfigCompletedEvent.RemoveListener(FirebaseRemoteConfigInitialized);
-        }
     }
 
 
@@ -72,20 +52,17 @@ public class LoadingManager : BaseMono
 
     private async void LoadScene()
     {
-        Addressables.LoadSceneAsync(Constant.SERVICE_SCENE, LoadSceneMode.Additive).Completed += OnServiceLoaded;
         await UniTask.WaitUntil(() => flagDoneProgress);
-        if (isWaitingFetchRemoteConfig)
+        await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE);
+
+        if (isFetchRemoteConfigCompleted != null)
         {
-            await UniTask.WaitUntil(() => fetchFirebaseRemoteConfigCompleted);
+            await UniTask.WaitUntil(() => isFetchRemoteConfigCompleted.Value);
         }
 
-        changeSceneEvent.Raise(Constant.GAME_SCENE);
+        Addressables.LoadSceneAsync(Constant.GAME_SCENE, LoadSceneMode.Additive).Completed += OnServiceLoaded;
     }
 
-    void FirebaseRemoteConfigInitialized()
-    {
-        fetchFirebaseRemoteConfigCompleted = true;
-    }
 
     void OnServiceLoaded(AsyncOperationHandle<SceneInstance> scene)
     {

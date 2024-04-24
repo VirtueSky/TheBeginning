@@ -619,6 +619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dependencyStatus: 7
+  isFetchRemoteConfigCompleted: {fileID: 11400000, guid: 90e7fdd9a40bfdc4c89ff31f239a25c2,
+    type: 2}
   fetchRemoteConfigCompleted: {fileID: 11400000, guid: a0d2faf94e1685747b597406f55265d9,
     type: 2}
   listRemoteConfigData:

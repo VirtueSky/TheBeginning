@@ -10,7 +10,6 @@ namespace GoogleMobileAds.Editor
 
         SerializedProperty _appIdAndroid;
         SerializedProperty _appIdiOS;
-        SerializedProperty _delayAppMeasurement;
         SerializedProperty _enableKotlinXCoroutinesPackagingOption;
         SerializedProperty _optimizeInitialization;
         SerializedProperty _optimizeAdLoading;
@@ -28,7 +27,6 @@ namespace GoogleMobileAds.Editor
         {
             _appIdAndroid = serializedObject.FindProperty("adMobAndroidAppId");
             _appIdiOS = serializedObject.FindProperty("adMobIOSAppId");
-            _delayAppMeasurement = serializedObject.FindProperty("delayAppMeasurementInit");
             _enableKotlinXCoroutinesPackagingOption =
                 serializedObject.FindProperty("enableKotlinXCoroutinesPackagingOption");
             _optimizeInitialization = serializedObject.FindProperty("optimizeInitialization");
@@ -52,6 +50,7 @@ namespace GoogleMobileAds.Editor
               return;
             }
 
+            EditorGUIUtility.labelWidth = 60.0f;
             EditorGUILayout.LabelField("Google Mobile Ads App ID", EditorStyles.boldLabel);
             EditorGUI.indentLevel++;
 
@@ -66,6 +65,7 @@ namespace GoogleMobileAds.Editor
             EditorGUI.indentLevel--;
             EditorGUILayout.Separator();
 
+            EditorGUIUtility.labelWidth = 325.0f;
             EditorGUILayout.LabelField("Android settings", EditorStyles.boldLabel);
             EditorGUI.indentLevel++;
 
@@ -115,23 +115,7 @@ namespace GoogleMobileAds.Editor
             EditorGUI.indentLevel--;
             EditorGUILayout.Separator();
 
-            EditorGUILayout.LabelField("AdMob-specific settings", EditorStyles.boldLabel);
-            EditorGUI.indentLevel++;
-
-            EditorGUI.BeginChangeCheck();
-
-            EditorGUILayout.PropertyField(_delayAppMeasurement,
-                                          new GUIContent("Delay app measurement"));
-
-            if (settings.DelayAppMeasurementInit) {
-                EditorGUILayout.HelpBox(
-                        "Delays app measurement until you explicitly initialize the Mobile Ads SDK or load an ad.",
-                        MessageType.Info);
-            }
-
-            EditorGUI.indentLevel--;
-            EditorGUILayout.Separator();
-
+            EditorGUIUtility.labelWidth = 205.0f;
             EditorGUILayout.LabelField("UMP-specific settings", EditorStyles.boldLabel);
             EditorGUI.indentLevel++;
 
