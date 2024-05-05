@@ -874,6 +874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: btn__start
+  playOnAwake: 1
   timeDelay: 0
   offsetScale: 0.1
   timeScale: 0.7

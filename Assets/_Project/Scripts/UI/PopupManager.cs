@@ -34,7 +34,7 @@ public class PopupManager : BaseMono
         _container.TryGetValue(typeof(T), out UIPopup popup);
         if (popup == null)
         {
-            var obj = await Addressables.LoadAssetAsync<GameObject>(typeof(T).ToString());
+            var obj = await Addressables.LoadAssetAsync<GameObject>(GetKeyPopup(typeof(T).ToString()));
             var popupPrefab = obj.GetComponent<UIPopup>();
             if (popupPrefab != null)
             {
@@ -105,6 +105,19 @@ public class PopupManager : BaseMono
             {
                 popup.Hide();
             }
+        }
+    }
+
+    string GetKeyPopup(string fullName)
+    {
+        int index = fullName.LastIndexOf('.');
+        if (index != -1)
+        {
+            return fullName.Substring(index + 1).Trim();
+        }
+        else
+        {
+            return fullName;
         }
     }
 }

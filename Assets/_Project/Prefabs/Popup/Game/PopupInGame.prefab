@@ -1679,8 +1679,6 @@ MonoBehaviour:
   currentLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6,
     type: 2}
   LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
 --- !u!1 &3268204137957227887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1866,8 +1864,6 @@ MonoBehaviour:
   currentLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6,
     type: 2}
   LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
 --- !u!1 &3367251185126199968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3579,8 +3575,6 @@ MonoBehaviour:
   currentLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6,
     type: 2}
   LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
 --- !u!1 &6474571918559701299
 GameObject:
   m_ObjectHideFlags: 0
@@ -4048,8 +4042,6 @@ MonoBehaviour:
   backLevelEvent: {fileID: 11400000, guid: 9cc98c82176f3fa4e9684e9f20c64999, type: 2}
   winLevelEvent: {fileID: 11400000, guid: 8bb823675099e1844a9226562cd403df, type: 2}
   loseLevelEvent: {fileID: 11400000, guid: 737e2b8f8e70c1445be0bbabb38d77b5, type: 2}
-  playAnimCharacterEvent: {fileID: 11400000, guid: a7632e21ca2f4c644a5d462eea3b18b5,
-    type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   playMusicEvent: {fileID: 11400000, guid: 2f4f06310dd5bc84f80499d277f922ca, type: 2}
   musicInGame: {fileID: 11400000, guid: 28f015a092265f64e9548644c56e7d43, type: 2}
@@ -4286,8 +4278,6 @@ MonoBehaviour:
   currentLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6,
     type: 2}
   LevelsShow: 
-  MaxTimeShow: 0
-  ShowID: 
 --- !u!1 &8237990191992935865
 GameObject:
   m_ObjectHideFlags: 0
