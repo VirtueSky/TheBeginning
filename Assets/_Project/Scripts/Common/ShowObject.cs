@@ -12,9 +12,6 @@ public class ShowObject : MonoBehaviour
     public float DelayShowTime;
     [SerializeField] private IntegerVariable currentLevelVariable;
     [ShowIf(nameof(IsShowByLevel))] public List<int> LevelsShow;
-    [ShowIf("IsShowByTime")] public int MaxTimeShow;
-
-    [ShowIf("IsShowByTime")] [ReadOnly] public string ShowID;
 
 
     private bool IsLevelInLevelsShow()

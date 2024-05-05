@@ -148,6 +148,7 @@ MonoBehaviour:
   id: currency_spawner
   from: {x: 0, y: 0, z: 0}
   to: {fileID: 4161812952250122941}
+  holder: {fileID: 3741801841614095309}
   numberCoin: 20
   delay: 20
   durationNear: 0.5

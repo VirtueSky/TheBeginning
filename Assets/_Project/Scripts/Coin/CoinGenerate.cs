@@ -11,6 +11,7 @@ public class CoinGenerate : BaseMono
 {
     [SerializeField] private Vector3 from = Vector3.zero;
     [SerializeField] private GameObject to;
+    [SerializeField] private Transform holder;
     [SerializeField] private int numberCoin;
     [SerializeField] private int delay;
     [SerializeField] private float durationNear;
@@ -27,6 +28,12 @@ public class CoinGenerate : BaseMono
     private bool isScaleIconTo = false;
 
     private List<GameObject> coinsActive = new List<GameObject>();
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        SetFrom(holder.position);
+    }
 
     public void SetFrom(Vector3 from)
     {
@@ -55,7 +62,7 @@ public class CoinGenerate : BaseMono
         for (int i = 0; i < this.numberCoin; i++)
         {
             await UniTask.Delay(Random.Range(0, delay));
-            GameObject coin = coinPool.Spawn(transform);
+            GameObject coin = coinPool.Spawn(holder);
             coin.transform.localScale = Vector3.one * scale;
             coinsActive.Add(coin);
             coin.transform.position = from;
@@ -84,7 +91,7 @@ public class CoinGenerate : BaseMono
             {
                 moveAllCoinDone?.Invoke();
 
-                from = Vector3.zero;
+                SetFrom(holder.position);
             }
         });
     }
