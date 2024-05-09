@@ -45,10 +45,6 @@ public class CoinGenerate : BaseMono
         this.to = to;
     }
 
-    private void Start()
-    {
-    }
-
     public async void GenerateCoin(Action moveOneCoinDone, Action moveAllCoinDone,
         GameObject to = null,
         int numberCoin = -1)
