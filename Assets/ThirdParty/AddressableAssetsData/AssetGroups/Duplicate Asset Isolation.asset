@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: da8fdd7333101674181eb0dbdba8ca41
+  m_GUID: ab08431fa1fe6c948b1daca2c2c7aac7
   m_SerializeEntries:
   - m_GUID: 1749cf3ef0603a5408d0a513560f046f
     m_Address: Assets/_Project/_Example/Event/play_portal_event.asset

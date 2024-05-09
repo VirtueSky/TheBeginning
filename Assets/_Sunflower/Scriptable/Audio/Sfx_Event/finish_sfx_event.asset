@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae25ae930684ca48408572b4079a12b, type: 3}
   m_Name: finish_sfx_event
   m_EditorClassIdentifier: 
-  id: finish_sfx_event
+  id: 
   description: 
-  enableDebugField: 0
-  valueDebug: {fileID: 0}

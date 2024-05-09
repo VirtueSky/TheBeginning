@@ -14,5 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: pause_sfx_event
   description: 
-  enableDebugField: 0
-  valueDebug: {fileID: 0}

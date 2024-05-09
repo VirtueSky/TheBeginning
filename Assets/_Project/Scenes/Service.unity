@@ -621,8 +621,6 @@ MonoBehaviour:
   dependencyStatus: 7
   isFetchRemoteConfigCompleted: {fileID: 11400000, guid: 90e7fdd9a40bfdc4c89ff31f239a25c2,
     type: 2}
-  fetchRemoteConfigCompleted: {fileID: 11400000, guid: a0d2faf94e1685747b597406f55265d9,
-    type: 2}
   listRemoteConfigData:
   - key: RMC_INTER_CAPPING_LEVEL
     typeRemoteConfigData: 2
@@ -746,7 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e25e7d80544a1d83bfd260713b1796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: init__service
+  id: service
   isDontDestroyOnLoad: 0
   soundComponentPool: {fileID: 11400000, guid: 3f552051a4d54054192af9ffc30c929e, type: 2}
   audioHolder: {fileID: 1221707768}

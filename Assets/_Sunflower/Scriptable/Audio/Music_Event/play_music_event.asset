@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: play_music_event
   description: 
-  enableDebugField: 0
   valueDebug: {fileID: 0}
