@@ -36,7 +36,7 @@ public class SceneLoader : BaseMono
                 }
                 else
                 {
-                    SceneManager.UnloadSceneAsync(sceneName);
+                    SceneManager.UnloadSceneAsync(scene);
                 }
             }
         }
