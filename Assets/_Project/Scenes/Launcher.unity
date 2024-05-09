@@ -882,6 +882,7 @@ MonoBehaviour:
   progressBar: {fileID: 1926659687}
   loadingText: {fileID: 1603526854}
   timeLoading: 2
+  changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
   isFetchRemoteConfigCompleted: {fileID: 11400000, guid: 90e7fdd9a40bfdc4c89ff31f239a25c2,
     type: 2}
 --- !u!4 &1885131756

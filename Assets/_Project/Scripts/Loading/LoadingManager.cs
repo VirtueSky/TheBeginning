@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
+using VirtueSky.Events;
 using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 #if UNITY_IOS
@@ -22,6 +23,7 @@ public class LoadingManager : BaseMono
     public TextMeshProUGUI loadingText;
 
     [Range(0.1f, 10f)] public float timeLoading = 5f;
+    [SerializeField] private StringEvent changeSceneEvent;
     [SerializeField] private BooleanVariable isFetchRemoteConfigCompleted;
     private bool flagDoneProgress;
     private bool fetchFirebaseRemoteConfigCompleted = false;
@@ -52,15 +54,16 @@ public class LoadingManager : BaseMono
 
     private async void LoadScene()
     {
+        await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE, LoadSceneMode.Additive);
         await UniTask.WaitUntil(() => flagDoneProgress);
-        await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE);
 
         if (isFetchRemoteConfigCompleted != null)
         {
             await UniTask.WaitUntil(() => isFetchRemoteConfigCompleted.Value);
         }
 
-        Addressables.LoadSceneAsync(Constant.GAME_SCENE, LoadSceneMode.Additive).Completed += OnServiceLoaded;
+        // Addressables.LoadSceneAsync(Constant.GAME_SCENE, LoadSceneMode.Additive).Completed += OnServiceLoaded;
+        changeSceneEvent.Raise(Constant.GAME_SCENE);
     }
 
 
