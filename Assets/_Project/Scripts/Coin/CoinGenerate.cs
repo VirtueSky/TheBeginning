@@ -54,8 +54,6 @@ public class CoinGenerate : BaseMono
         int numberCoin = -1)
     {
         isScaleIconTo = false;
-        this.moveOneCoinDone = moveOneCoinDone;
-        //this.moveAllCoinDone = moveAllCoinDone;
         this.to = to == null ? this.to : to;
         this.numberCoin = numberCoin < 0 ? this.numberCoin : numberCoin;
 
@@ -66,36 +64,27 @@ public class CoinGenerate : BaseMono
             coin.transform.localScale = Vector3.one * scale;
             coinsActive.Add(coin);
             coin.transform.position = from;
-            MoveCoin(coin, moveAllCoinDone);
-            // if (i == numberCoin - 1)
-            // {
-            //     Observer.CoinMove?.Invoke();
-            // }
+
+            MoveToTarget(coin, () =>
+            {
+                coinsActive.Remove(coin);
+                coinPool.DeSpawn(coin);
+                if (!isScaleIconTo)
+                {
+                    isScaleIconTo = true;
+                    ScaleIconTo();
+                }
+
+                moveOneCoinDone?.Invoke();
+                if (coinsActive.Count == 0)
+                {
+                    moveAllCoinDone?.Invoke();
+
+                    SetFrom(holder.position);
+                }
+            });
         }
     }
-
-    private void MoveCoin(GameObject coin, Action moveAllCoinDone)
-    {
-        MoveToTarget(coin, () =>
-        {
-            coinsActive.Remove(coin);
-            coinPool.DeSpawn(coin);
-            if (!isScaleIconTo)
-            {
-                isScaleIconTo = true;
-                ScaleIconTo();
-            }
-
-            moveOneCoinDone?.Invoke();
-            if (coinsActive.Count == 0)
-            {
-                moveAllCoinDone?.Invoke();
-
-                SetFrom(holder.position);
-            }
-        });
-    }
-
 
     private void MoveToTarget(GameObject coin, Action completed)
     {
