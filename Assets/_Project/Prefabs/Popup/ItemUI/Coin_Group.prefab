@@ -85,8 +85,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3964082956100256311}
   - component: {fileID: 7519663561285704667}
-  - component: {fileID: 740892255442810708}
-  - component: {fileID: 8872061274587461735}
   m_Layer: 5
   m_Name: CoinBar
   m_TagString: Untagged
@@ -129,66 +127,17 @@ MonoBehaviour:
   CurrencyAmountText: {fileID: 8100701126856239942}
   StepCount: 10
   DelayTime: 0.02
-  coinGenerate: {fileID: 740892255442810708}
+  iconCoin: {fileID: 4161812952250122941}
   currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
   playSoundFx: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
   soundCoinMove: {fileID: 11400000, guid: 725e2d43de9f05f438f1701a53390ca1, type: 2}
---- !u!114 &740892255442810708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7111552140030416314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ceb034d373ad4c43a89725401e504c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: currency_spawner
-  from: {x: 0, y: 0, z: 0}
-  to: {fileID: 4161812952250122941}
-  holder: {fileID: 3741801841614095309}
-  numberCoin: 20
-  delay: 20
-  durationNear: 0.5
-  durationTarget: 0.5
-  easeNear: 12
-  easeTarget: 21
-  scale: 0.5
-  offsetNear: 1
-  coinPool: {fileID: 11400000, guid: 12540318c57f24744861de1b49dc1265, type: 2}
---- !u!114 &8872061274587461735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7111552140030416314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 287ec16a80e0470794dd652b0c2636c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bindingListener: 0
-  listEventResponseDatas:
-  - event: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
-    response:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 740892255442810708}
-          m_TargetAssemblyTypeName: CoinGenerate, Assembly-CSharp
-          m_MethodName: SetFrom
-          m_Mode: 0
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    valueDebug: {x: 0, y: 0, z: 0}
+  moveOneCoinDone: {fileID: 11400000, guid: 941474e3dc9ef89499f1c226fb6952e1, type: 2}
+  moveAllCoinDone: {fileID: 11400000, guid: b82c7998cf398094dba18b8bf2d7b029, type: 2}
+  decreaseCoinEvent: {fileID: 11400000, guid: 0b4384f237bdfa34cb719450451e4501, type: 2}
+  addTargetToCoinGenerateEvent: {fileID: 11400000, guid: 8cd14f2af6322eb448e5edbcf68800e4,
+    type: 2}
+  removeTargetToCoinGenerateEvent: {fileID: 11400000, guid: 0c88aad4312c95f48850bb5b8c6468df,
+    type: 2}
 --- !u!1 &7525439484679414412
 GameObject:
   m_ObjectHideFlags: 0

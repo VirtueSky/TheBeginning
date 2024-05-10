@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using PrimeTween;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Core;
+using VirtueSky.Events;
 using VirtueSky.Threading.Tasks;
+using VirtueSky.Variables;
 using Random = UnityEngine.Random;
 
 public class CoinGenerate : BaseMono
 {
-    [SerializeField] private Vector3 from = Vector3.zero;
-    [SerializeField] private GameObject to;
     [SerializeField] private Transform holder;
     [SerializeField] private int numberCoin;
     [SerializeField] private int delay;
@@ -20,19 +20,59 @@ public class CoinGenerate : BaseMono
     [SerializeField] private Ease easeTarget;
     [SerializeField] private float scale = 1;
     [SerializeField] private float offsetNear = 1;
+    [SerializeField] private Vector3Event setFromCoinEvent;
+    [SerializeField] private AddTargetToCoinGenerateEvent addTargetToCoinGenerateEvent;
+    [SerializeField] private RemoveTargetToCoinGenerateEvent removeTargetToCoinGenerateEvent;
+    [SerializeField] private EventNoParam moveOneCoinDone;
+    [SerializeField] private EventNoParam moveAllCoinDone;
+    [SerializeField] private EventNoParam decreaseCoinEvent;
+    [SerializeField] private IntegerVariable currentCoin;
 
-    [FormerlySerializedAs("currencyPool")] [SerializeField]
-    private CoinPool coinPool;
+    [SerializeField] private CoinPool coinPool;
 
-    private System.Action moveOneCoinDone;
     private bool isScaleIconTo = false;
-
+    private Vector3 from;
+    private GameObject to;
     private List<GameObject> coinsActive = new List<GameObject>();
+    private List<GameObject> listTo = new List<GameObject>();
+    private int cacheCurrentCoin;
 
     public override void OnEnable()
     {
         base.OnEnable();
+        currentCoin.AddListener(HandleGenerateCoin);
+        setFromCoinEvent.AddListener(SetFrom);
+        addTargetToCoinGenerateEvent.AddListener(AddTo);
+        removeTargetToCoinGenerateEvent.AddListener(RemoveTo);
         SetFrom(holder.position);
+        SaveCache();
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        currentCoin.RemoveListener(HandleGenerateCoin);
+        setFromCoinEvent.RemoveListener(SetFrom);
+        addTargetToCoinGenerateEvent.RemoveListener(AddTo);
+        removeTargetToCoinGenerateEvent.RemoveListener(RemoveTo);
+    }
+
+    private void SaveCache()
+    {
+        cacheCurrentCoin = currentCoin.Value;
+    }
+
+    private void HandleGenerateCoin(int value)
+    {
+        if (currentCoin.Value > cacheCurrentCoin)
+        {
+            GenerateCoin();
+        }
+        else
+        {
+            decreaseCoinEvent.Raise();
+            SaveCache();
+        }
     }
 
     public void SetFrom(Vector3 from)
@@ -40,20 +80,26 @@ public class CoinGenerate : BaseMono
         this.from = from;
     }
 
-    public void SetToGameObject(GameObject to)
+    public void AddTo(GameObject obj)
     {
-        this.to = to;
+        listTo.Add(obj);
     }
 
-    public async void GenerateCoin(Action moveOneCoinDone, Action moveAllCoinDone,
-        GameObject to = null,
-        int numberCoin = -1)
+    public void RemoveTo(GameObject obj)
+    {
+        listTo.Remove(obj);
+    }
+
+    private GameObject GetTo()
+    {
+        return listTo.Last();
+    }
+
+
+    public async void GenerateCoin()
     {
         isScaleIconTo = false;
-        this.to = to == null ? this.to : to;
-        this.numberCoin = numberCoin < 0 ? this.numberCoin : numberCoin;
-
-        for (int i = 0; i < this.numberCoin; i++)
+        for (int i = 0; i < numberCoin; i++)
         {
             await UniTask.Delay(Random.Range(0, delay));
             GameObject coin = coinPool.Spawn(holder);
@@ -71,11 +117,11 @@ public class CoinGenerate : BaseMono
                     ScaleIconTo();
                 }
 
-                moveOneCoinDone?.Invoke();
+                moveOneCoinDone.Raise();
                 if (coinsActive.Count == 0)
                 {
-                    moveAllCoinDone?.Invoke();
-
+                    moveAllCoinDone.Raise();
+                    SaveCache();
                     SetFrom(holder.position);
                 }
             });
@@ -91,7 +137,7 @@ public class CoinGenerate : BaseMono
             .OnComplete(
                 () =>
                 {
-                    coin.transform.DOMove(to.transform.position, durationTarget).SetEase(easeTarget)
+                    coin.transform.DOMove(GetTo().transform.position, durationTarget).SetEase(easeTarget)
                         .OnComplete(completed);
                 });
     }
@@ -105,7 +151,7 @@ public class CoinGenerate : BaseMono
     {
         Vector3 currentScale = Vector3.one;
         Vector3 nextScale = currentScale + new Vector3(.1f, .1f, .1f);
-        to.transform.DOScale(nextScale, durationTarget).SetEase(Ease.OutBack)
-            .OnComplete((() => { to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack); }));
+        GetTo().transform.DOScale(nextScale, durationTarget).SetEase(Ease.OutBack)
+            .OnComplete((() => { GetTo().transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack); }));
     }
 }

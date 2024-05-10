@@ -2,6 +2,7 @@ using PrimeTween;
 using TMPro;
 using UnityEngine;
 using VirtueSky.Audio;
+using VirtueSky.Events;
 using VirtueSky.Variables;
 
 public class CoinUpdater : MonoBehaviour
@@ -9,59 +10,53 @@ public class CoinUpdater : MonoBehaviour
     public TextMeshProUGUI CurrencyAmountText;
     public int StepCount = 10;
     public float DelayTime = .01f;
-    public CoinGenerate coinGenerate;
+    [SerializeField] private GameObject iconCoin;
     [SerializeField] IntegerVariable currentCoin;
 
     [Header("Sound")] [SerializeField] public PlaySfxEvent playSoundFx;
     [SerializeField] private SoundData soundCoinMove;
-
+    [SerializeField] private EventNoParam moveOneCoinDone;
+    [SerializeField] private EventNoParam moveAllCoinDone;
+    [SerializeField] private EventNoParam decreaseCoinEvent;
+    [SerializeField] private AddTargetToCoinGenerateEvent addTargetToCoinGenerateEvent;
+    [SerializeField] private RemoveTargetToCoinGenerateEvent removeTargetToCoinGenerateEvent;
 
     private int _currentCoin;
+    bool isFirsCoinMoveDone = false;
 
     private void OnEnable()
     {
-        currentCoin.AddListener(UpdateCoinAmountText);
+        moveOneCoinDone.AddListener(MoveOnCoinDone);
+        decreaseCoinEvent.AddListener(DecreaseCoin);
+        moveAllCoinDone.AddListener(MoveAllCoinDone);
+        addTargetToCoinGenerateEvent.Raise(iconCoin);
         CurrencyAmountText.text = currentCoin.Value.ToString();
-        SaveCurrentCoin();
     }
 
     private void OnDisable()
     {
-        currentCoin.RemoveListener(UpdateCoinAmountText);
+        moveOneCoinDone.RemoveListener(MoveOnCoinDone);
+        moveAllCoinDone.RemoveListener(MoveAllCoinDone);
+        decreaseCoinEvent.RemoveListener(DecreaseCoin);
+        removeTargetToCoinGenerateEvent.Raise(iconCoin);
     }
 
-    private void SaveCurrentCoin()
+    void MoveOnCoinDone()
     {
-        _currentCoin = currentCoin.Value;
-    }
-
-    public void UpdateCoinAmountText(int value)
-    {
-        if (currentCoin.Value > _currentCoin)
+        if (!isFirsCoinMoveDone)
         {
-            IncreaseCoin();
+            isFirsCoinMoveDone = true;
+            playSoundFx.Raise(soundCoinMove);
+            int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
+            int nextAmount = (currentCoin.Value - currentCurrencyAmount) / StepCount;
+            int step = StepCount;
+            CoinTextCount(currentCurrencyAmount, nextAmount, step);
         }
-        else
-        {
-            DecreaseCoin();
-        }
     }
 
-    private void IncreaseCoin()
+    void MoveAllCoinDone()
     {
-        bool isFirstMove = false;
-        coinGenerate.GenerateCoin(() =>
-        {
-            if (!isFirstMove)
-            {
-                isFirstMove = true;
-                playSoundFx.Raise(soundCoinMove);
-                int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-                int nextAmount = (currentCoin.Value - currentCurrencyAmount) / StepCount;
-                int step = StepCount;
-                CoinTextCount(currentCurrencyAmount, nextAmount, step);
-            }
-        }, () => { SaveCurrentCoin(); });
+        isFirsCoinMoveDone = false;
     }
 
     private void DecreaseCoin()
@@ -70,7 +65,7 @@ public class CoinUpdater : MonoBehaviour
         int nextAmount = (currentCoin.Value - currentCurrencyAmount) / StepCount;
         int step = StepCount;
         CoinTextCount(currentCurrencyAmount, nextAmount, step);
-        SaveCurrentCoin();
+        //SaveCurrentCoin();
     }
 
     private void CoinTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)
