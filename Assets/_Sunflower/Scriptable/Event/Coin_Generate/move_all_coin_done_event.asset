@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6204d80d69a942eeae93eff39c44aa91, type: 3}
-  m_Name: generate_coin_event
+  m_Script: {fileID: 11500000, guid: 719558c56beb4a8d98cf058fadf5455a, type: 3}
+  m_Name: move_all_coin_done_event
   m_EditorClassIdentifier: 
-  id: generate_coin_event
+  id: move_all_coin_done_event
   description: 
-  valueDebug: {x: 0, y: 0, z: 0}
