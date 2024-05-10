@@ -13,20 +13,17 @@ public class CoinUpdater : MonoBehaviour
     [SerializeField] private GameObject iconCoin;
     [SerializeField] IntegerVariable currentCoin;
 
-    [Header("Sound")] [SerializeField] public PlaySfxEvent playSoundFx;
-    [SerializeField] private SoundData soundCoinMove;
     [SerializeField] private EventNoParam moveOneCoinDone;
     [SerializeField] private EventNoParam moveAllCoinDone;
     [SerializeField] private EventNoParam decreaseCoinEvent;
     [SerializeField] private AddTargetToCoinGenerateEvent addTargetToCoinGenerateEvent;
     [SerializeField] private RemoveTargetToCoinGenerateEvent removeTargetToCoinGenerateEvent;
 
-    private int _currentCoin;
     bool isFirsCoinMoveDone = false;
 
     private void OnEnable()
     {
-        moveOneCoinDone.AddListener(MoveOnCoinDone);
+        moveOneCoinDone.AddListener(MoveOneCoinDone);
         decreaseCoinEvent.AddListener(DecreaseCoin);
         moveAllCoinDone.AddListener(MoveAllCoinDone);
         addTargetToCoinGenerateEvent.Raise(iconCoin);
@@ -35,18 +32,17 @@ public class CoinUpdater : MonoBehaviour
 
     private void OnDisable()
     {
-        moveOneCoinDone.RemoveListener(MoveOnCoinDone);
+        moveOneCoinDone.RemoveListener(MoveOneCoinDone);
         moveAllCoinDone.RemoveListener(MoveAllCoinDone);
         decreaseCoinEvent.RemoveListener(DecreaseCoin);
         removeTargetToCoinGenerateEvent.Raise(iconCoin);
     }
 
-    void MoveOnCoinDone()
+    void MoveOneCoinDone()
     {
         if (!isFirsCoinMoveDone)
         {
             isFirsCoinMoveDone = true;
-            playSoundFx.Raise(soundCoinMove);
             int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
             int nextAmount = (currentCoin.Value - currentCurrencyAmount) / StepCount;
             int step = StepCount;
@@ -65,7 +61,6 @@ public class CoinUpdater : MonoBehaviour
         int nextAmount = (currentCoin.Value - currentCurrencyAmount) / StepCount;
         int step = StepCount;
         CoinTextCount(currentCurrencyAmount, nextAmount, step);
-        //SaveCurrentCoin();
     }
 
     private void CoinTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)

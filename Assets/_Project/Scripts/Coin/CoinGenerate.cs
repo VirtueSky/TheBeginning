@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PrimeTween;
 using UnityEngine;
+using VirtueSky.Audio;
 using VirtueSky.Core;
 using VirtueSky.Events;
 using VirtueSky.Threading.Tasks;
@@ -27,8 +28,9 @@ public class CoinGenerate : BaseMono
     [SerializeField] private EventNoParam moveAllCoinDone;
     [SerializeField] private EventNoParam decreaseCoinEvent;
     [SerializeField] private IntegerVariable currentCoin;
-
     [SerializeField] private CoinPool coinPool;
+    [Header("Sound")] [SerializeField] public PlaySfxEvent playSoundFx;
+    [SerializeField] private SoundData soundCoinMove;
 
     private bool isScaleIconTo = false;
     private Vector3 from;
@@ -114,6 +116,7 @@ public class CoinGenerate : BaseMono
                 if (!isScaleIconTo)
                 {
                     isScaleIconTo = true;
+                    playSoundFx.Raise(soundCoinMove);
                     ScaleIconTo();
                 }
 

@@ -68,3 +68,5 @@ MonoBehaviour:
   decreaseCoinEvent: {fileID: 11400000, guid: 0b4384f237bdfa34cb719450451e4501, type: 2}
   currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
   coinPool: {fileID: 11400000, guid: 12540318c57f24744861de1b49dc1265, type: 2}
+  playSoundFx: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
+  soundCoinMove: {fileID: 11400000, guid: 725e2d43de9f05f438f1701a53390ca1, type: 2}
