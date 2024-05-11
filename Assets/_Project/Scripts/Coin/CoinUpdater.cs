@@ -16,8 +16,8 @@ public class CoinUpdater : MonoBehaviour
     [SerializeField] private EventNoParam moveOneCoinDone;
     [SerializeField] private EventNoParam moveAllCoinDone;
     [SerializeField] private EventNoParam decreaseCoinEvent;
-    [SerializeField] private AddTargetToCoinGenerateEvent addTargetToCoinGenerateEvent;
-    [SerializeField] private RemoveTargetToCoinGenerateEvent removeTargetToCoinGenerateEvent;
+    [SerializeField] private GameObjectEvent addTargetToCoinGenerateEvent;
+    [SerializeField] private GameObjectEvent removeTargetToCoinGenerateEvent;
 
     bool isFirsCoinMoveDone = false;
 

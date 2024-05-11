@@ -22,8 +22,8 @@ public class CoinGenerate : BaseMono
     [SerializeField] private float scale = 1;
     [SerializeField] private float offsetNear = 1;
     [SerializeField] private Vector3Event setFromCoinEvent;
-    [SerializeField] private AddTargetToCoinGenerateEvent addTargetToCoinGenerateEvent;
-    [SerializeField] private RemoveTargetToCoinGenerateEvent removeTargetToCoinGenerateEvent;
+    [SerializeField] private GameObjectEvent addTargetToCoinGenerateEvent;
+    [SerializeField] private GameObjectEvent removeTargetToCoinGenerateEvent;
     [SerializeField] private EventNoParam moveOneCoinDone;
     [SerializeField] private EventNoParam moveAllCoinDone;
     [SerializeField] private EventNoParam decreaseCoinEvent;
