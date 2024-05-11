@@ -129,14 +129,12 @@ MonoBehaviour:
   DelayTime: 0.02
   iconCoin: {fileID: 4161812952250122941}
   currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
-  playSoundFx: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
-  soundCoinMove: {fileID: 11400000, guid: 725e2d43de9f05f438f1701a53390ca1, type: 2}
   moveOneCoinDone: {fileID: 11400000, guid: 941474e3dc9ef89499f1c226fb6952e1, type: 2}
   moveAllCoinDone: {fileID: 11400000, guid: b82c7998cf398094dba18b8bf2d7b029, type: 2}
   decreaseCoinEvent: {fileID: 11400000, guid: 0b4384f237bdfa34cb719450451e4501, type: 2}
-  addTargetToCoinGenerateEvent: {fileID: 11400000, guid: 8cd14f2af6322eb448e5edbcf68800e4,
+  addTargetToCoinGenerateEvent: {fileID: 11400000, guid: 5536e1a745f504c7eb6f4f7b40ac0329,
     type: 2}
-  removeTargetToCoinGenerateEvent: {fileID: 11400000, guid: 0c88aad4312c95f48850bb5b8c6468df,
+  removeTargetToCoinGenerateEvent: {fileID: 11400000, guid: 8008196536e554abbb7d1ab3f83aab56,
     type: 2}
 --- !u!1 &7525439484679414412
 GameObject:

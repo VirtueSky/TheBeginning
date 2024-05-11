@@ -59,9 +59,9 @@ MonoBehaviour:
   scale: 0.5
   offsetNear: 1
   setFromCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
-  addTargetToCoinGenerateEvent: {fileID: 11400000, guid: 8cd14f2af6322eb448e5edbcf68800e4,
+  addTargetToCoinGenerateEvent: {fileID: 11400000, guid: 5536e1a745f504c7eb6f4f7b40ac0329,
     type: 2}
-  removeTargetToCoinGenerateEvent: {fileID: 11400000, guid: 0c88aad4312c95f48850bb5b8c6468df,
+  removeTargetToCoinGenerateEvent: {fileID: 11400000, guid: 8008196536e554abbb7d1ab3f83aab56,
     type: 2}
   moveOneCoinDone: {fileID: 11400000, guid: 941474e3dc9ef89499f1c226fb6952e1, type: 2}
   moveAllCoinDone: {fileID: 11400000, guid: b82c7998cf398094dba18b8bf2d7b029, type: 2}
