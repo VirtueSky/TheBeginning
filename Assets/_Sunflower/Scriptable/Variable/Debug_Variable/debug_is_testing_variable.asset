@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8612af88fd55455ab06a565de64186b9, type: 3}
   m_Name: debug_is_testing_variable
   m_EditorClassIdentifier: 
-  id: debug_is_testing_variable
   description: 
-  enableDebugField: 0
   valueDebug: 0
+  id: d7eb04288f3f94c0d8523b23c6adcb25
   initializeValue: 0
   isSetData: 1
   isSaveData: 0
   isRaiseEvent: 1
+  currentValue: 0
