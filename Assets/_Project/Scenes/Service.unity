@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -406,7 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e49d3628ff744fdbbb3309c61e6cd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: audio_holder
   clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
   playSoundButton: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
   soundClickButton: {fileID: 11400000, guid: 9d60ab45b0d57a94092e6ba29fdcc6af, type: 2}
@@ -590,7 +589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4cadfcc9c3540478d6f4e3511ffac6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: init__service
   notificationVariables:
   - {fileID: 11400000, guid: 968e6ecf0f1dc274e8b317a88339503b, type: 2}
 --- !u!114 &1448091014
@@ -605,7 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35d65dc1b9e463989d0cf530f259442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: init__service
   changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
 --- !u!114 &1448091015
 MonoBehaviour:
@@ -707,7 +704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5b6357f158348438bbc6989a60eaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: init__service
   currentLevel: {fileID: 0}
   previousLevel: {fileID: 0}
   currentIndexLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
@@ -729,7 +725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd6ce0fa49039144a943032090c0d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: init__service
   visualEffectConfig: {fileID: 11400000, guid: e6191c42750a4db49b793497b673f618, type: 2}
   pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
   spawnEffectEvent: {fileID: 11400000, guid: 5809c9924b572894ab3ad0e21a06e422, type: 2}
@@ -745,7 +740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e25e7d80544a1d83bfd260713b1796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: service
   isDontDestroyOnLoad: 0
   soundComponentPool: {fileID: 11400000, guid: 3f552051a4d54054192af9ffc30c929e, type: 2}
   audioHolder: {fileID: 1221707768}
@@ -797,7 +791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5578333549564b46bbe6b41f995ecdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: ads_manager
   adsCounterVariable: {fileID: 11400000, guid: fb1d28ed953dba1439f42e31764bd580, type: 2}
   gameStateVariable: {fileID: 11400000, guid: 00d1914409592564ea7ca3f861a30d8e, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
