@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
+using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
 public class PopupWin : UIPopup
@@ -25,11 +26,13 @@ public class PopupWin : UIPopup
     private EventNoParam playCurrentLevelEvent;
 
     [SerializeField] private Vector3Event generateCoinEvent;
+    [SerializeField] private EventNoParam moveAllCoinDone;
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable currentCoin;
 
     private float percent = 0;
+    private bool waitMoveAllCoinDone;
 
     public int MoneyWin => gameConfig.winLevelMoney;
 
@@ -79,11 +82,18 @@ public class PopupWin : UIPopup
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
+        waitMoveAllCoinDone = false;
+        moveAllCoinDone.AddListener(OnMoveAllCoinDone);
         Setup();
         SetupProgressBar();
         Tween.Delay(2f, () => { BtnTapToContinue.SetActive(true); });
     }
 
+    protected override void OnBeforeHide()
+    {
+        base.OnBeforeHide();
+        moveAllCoinDone.RemoveListener(OnMoveAllCoinDone);
+    }
 
     public void Setup()
     {
@@ -102,34 +112,35 @@ public class PopupWin : UIPopup
         });
     }
 
-    public void GetRewardAds()
+    public async void GetRewardAds()
     {
         generateCoinEvent.Raise(BtnRewardAds.transform.position);
         currentCoin.Value += MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus;
         BonusArrowHandler.MoveObject.StopMoving();
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
-        Tween.Delay(1.2f, () =>
-        {
-            Hide();
-            playCurrentLevelEvent.Raise();
-        });
+        await UniTask.WaitUntil(() => waitMoveAllCoinDone);
+        Hide();
+        playCurrentLevelEvent.Raise();
     }
 
-    public void OnClickContinue()
+    public async void OnClickContinue()
     {
         generateCoinEvent.Raise(BtnTapToContinue.transform.position);
         currentCoin.Value += MoneyWin;
         BtnRewardAds.SetActive(false);
         BtnTapToContinue.SetActive(false);
-        Tween.Delay(1.2f, () =>
-        {
-            playCurrentLevelEvent.Raise();
-            Hide();
-        });
+        await UniTask.WaitUntil(() => waitMoveAllCoinDone);
+        playCurrentLevelEvent.Raise();
+        Hide();
     }
 
     private void ReceiveGift()
     {
+    }
+
+    void OnMoveAllCoinDone()
+    {
+        waitMoveAllCoinDone = true;
     }
 }
