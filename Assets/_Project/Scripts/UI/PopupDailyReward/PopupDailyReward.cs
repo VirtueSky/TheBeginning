@@ -68,7 +68,7 @@ public class PopupDailyReward : UIPopup
         {
             if (CurrentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
             {
-                BtnWatchVideo.SetActive(CurrentItem.DailyRewardData.DailyRewardType == DailyRewardType.Currency);
+                BtnWatchVideo.SetActive(CurrentItem.DailyRewardData.dailyRewardType == DailyRewardType.Currency);
                 BtnClaim.SetActive(true);
             }
             else

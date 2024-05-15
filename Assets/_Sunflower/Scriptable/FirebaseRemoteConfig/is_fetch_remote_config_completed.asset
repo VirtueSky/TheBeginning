@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8612af88fd55455ab06a565de64186b9, type: 3}
   m_Name: is_fetch_remote_config_completed
   m_EditorClassIdentifier: 
-  id: so_bool_variables
   description: 
   valueDebug: 0
+  id: so_bool_variables
   initializeValue: 0
   isSetData: 0
   isSaveData: 0
   isRaiseEvent: 0
-  currentValue: 0
+  currentValue: 1
