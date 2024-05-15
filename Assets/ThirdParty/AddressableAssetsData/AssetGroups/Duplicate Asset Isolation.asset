@@ -187,11 +187,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 840413f1c26612449b52205cea05e970
-    m_Address: Assets/_Project/Textures/UI/Rank Sprite/leaderboard/leaderboard_whitebar.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd73ca7a44674384aa18fd3f412eeee3
     m_Address: Assets/_Sunflower/Scriptable/Event/show_notification_in_game_event.asset
     m_ReadOnly: 0
