@@ -85,16 +85,16 @@ public class CoinGenerate : BaseMono
     public void AddTo(GameObject obj)
     {
         listTo.Add(obj);
+        to = listTo.Last();
     }
 
     public void RemoveTo(GameObject obj)
     {
         listTo.Remove(obj);
-    }
-
-    private GameObject GetTo()
-    {
-        return listTo.Last();
+        if (listTo.Count > 0)
+        {
+            to = listTo.Last();
+        }
     }
 
 
@@ -140,7 +140,7 @@ public class CoinGenerate : BaseMono
             .OnComplete(
                 () =>
                 {
-                    coin.transform.DOMove(GetTo().transform.position, durationTarget).SetEase(easeTarget)
+                    coin.transform.DOMove(to.transform.position, durationTarget).SetEase(easeTarget)
                         .OnComplete(completed);
                 });
     }
@@ -154,7 +154,7 @@ public class CoinGenerate : BaseMono
     {
         Vector3 currentScale = Vector3.one;
         Vector3 nextScale = currentScale + new Vector3(.1f, .1f, .1f);
-        GetTo().transform.DOScale(nextScale, durationTarget).SetEase(Ease.OutBack)
-            .OnComplete((() => { GetTo().transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack); }));
+        to.transform.DOScale(nextScale, durationTarget).SetEase(Ease.OutBack)
+            .OnComplete((() => { to.transform.DOScale(currentScale, durationTarget / 2).SetEase(Ease.InBack); }));
     }
 }
