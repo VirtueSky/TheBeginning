@@ -57,23 +57,12 @@ public class PopupDailyReward : UIPopup
             if (IsCurrentItem(item.dayIndex)) CurrentItem = item;
         }
 
-        if (CurrentItem)
+        BtnWatchVideo.SetActive(false);
+        BtnClaim.SetActive(false);
+        if (CurrentItem && CurrentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
         {
-            if (CurrentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
-            {
-                BtnWatchVideo.SetActive(CurrentItem.DailyRewardData.dailyRewardType == DailyRewardType.Currency);
-                BtnClaim.SetActive(true);
-            }
-            else
-            {
-                BtnWatchVideo.SetActive(false);
-                BtnClaim.SetActive(false);
-            }
-        }
-        else
-        {
-            BtnWatchVideo.SetActive(false);
-            BtnClaim.SetActive(false);
+            BtnWatchVideo.SetActive(CurrentItem.DailyRewardData.dailyRewardType == DailyRewardType.Coin);
+            BtnClaim.SetActive(true);
         }
     }
 
