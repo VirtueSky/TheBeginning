@@ -22,15 +22,8 @@ public class PopupDailyReward : UIPopup
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
-        claimRewardEvent.AddListener(Setup);
         ResetDailyReward();
         Setup();
-    }
-
-    protected override void OnBeforeHide()
-    {
-        base.OnBeforeHide();
-        claimRewardEvent.RemoveListener(Setup);
     }
 
     public void ResetDailyReward()
@@ -86,12 +79,23 @@ public class PopupDailyReward : UIPopup
 
     public void OnClickBtnClaimX5Video()
     {
-        AppControlAds.ShowReward(() => { CurrentItem.OnClaim(true, () => claimRewardEvent.Raise()); });
+        AppControlAds.ShowReward(() =>
+        {
+            CurrentItem.OnClaim(true, () =>
+            {
+                claimRewardEvent.Raise();
+                Setup();
+            });
+        });
     }
 
     public void OnClickBtnClaim()
     {
-        CurrentItem.OnClaim(false, () => claimRewardEvent.Raise());
+        CurrentItem.OnClaim(false, () =>
+        {
+            claimRewardEvent.Raise();
+            Setup();
+        });
     }
 
     public void OnClickNextDay()
