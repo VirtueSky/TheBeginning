@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474a3bbd13954ce3abb782ceec59e692, type: 3}
   m_Name: music_home
   m_EditorClassIdentifier: 
-  id: music_home
   description: 
   loop: 1
   volume: 1

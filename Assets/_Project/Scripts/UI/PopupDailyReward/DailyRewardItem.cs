@@ -52,12 +52,12 @@ public class DailyRewardItem : MonoBehaviour
     {
         // Setup data
         dailyRewardData = UserData.IsStartLoopingDailyReward
-            ? dailyRewardConfig.DailyRewardDatasLoop[dayIndex - 1]
-            : dailyRewardConfig.DailyRewardDatas[dayIndex - 1];
+            ? dailyRewardConfig.ListDailyRewardDataLoop[dayIndex - 1]
+            : dailyRewardConfig.ListDailyRewardData[dayIndex - 1];
 
         coinValue = dailyRewardData.value;
         // Setup states
-        if (dailyRewardData.dailyRewardType == DailyRewardType.Currency)
+        if (dailyRewardData.dailyRewardType == DailyRewardType.Coin)
         {
         }
         else if (dailyRewardData.dailyRewardType == DailyRewardType.Skin)
@@ -94,26 +94,20 @@ public class DailyRewardItem : MonoBehaviour
         switch (dailyRewardItemState)
         {
             case DailyRewardItemState.Claimed:
-                //backgroundClaim.gameObject.SetActive(false);
                 backgroundCanNotClaim.gameObject.SetActive(true);
                 greenTick.gameObject.SetActive(true);
                 break;
             case DailyRewardItemState.ReadyToClaim:
                 //backgroundClaim.gameObject.SetActive(true);
-                backgroundCanNotClaim.gameObject.SetActive(false);
-                greenTick.gameObject.SetActive(false);
                 break;
             case DailyRewardItemState.NotClaim:
                 iconLock.gameObject.SetActive(true);
-                //backgroundClaim.gameObject.SetActive(false);
-                backgroundCanNotClaim.gameObject.SetActive(false);
-                greenTick.gameObject.SetActive(false);
                 break;
         }
 
         switch (dailyRewardData.dailyRewardType)
         {
-            case DailyRewardType.Currency:
+            case DailyRewardType.Coin:
                 textValue.gameObject.SetActive(true);
                 iconItem.sprite = dailyRewardData.icon;
                 iconItem.SetNativeSize();
@@ -135,13 +129,12 @@ public class DailyRewardItem : MonoBehaviour
         // Claim by type
         switch (dailyRewardData.dailyRewardType)
         {
-            case DailyRewardType.Currency:
+            case DailyRewardType.Coin:
                 generateCoinEvent.Raise(this.gameObject.transform.position);
                 currentCoin.Value += coinValue * (isClaimX5 ? 5 : 1);
                 break;
             case DailyRewardType.Skin:
-                //shopItemData.IsUnlocked = true;
-                //Data.CurrentEquippedSkin = shopItemData.Id;
+
                 break;
         }
 

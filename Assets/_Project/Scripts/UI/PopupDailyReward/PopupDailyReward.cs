@@ -22,15 +22,8 @@ public class PopupDailyReward : UIPopup
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
-        claimRewardEvent.AddListener(Setup);
         ResetDailyReward();
         Setup();
-    }
-
-    protected override void OnBeforeHide()
-    {
-        base.OnBeforeHide();
-        claimRewardEvent.RemoveListener(Setup);
     }
 
     public void ResetDailyReward()
@@ -64,34 +57,34 @@ public class PopupDailyReward : UIPopup
             if (IsCurrentItem(item.dayIndex)) CurrentItem = item;
         }
 
-        if (CurrentItem)
+        BtnWatchVideo.SetActive(false);
+        BtnClaim.SetActive(false);
+        if (CurrentItem && CurrentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
         {
-            if (CurrentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
-            {
-                BtnWatchVideo.SetActive(CurrentItem.DailyRewardData.dailyRewardType == DailyRewardType.Currency);
-                BtnClaim.SetActive(true);
-            }
-            else
-            {
-                BtnWatchVideo.SetActive(false);
-                BtnClaim.SetActive(false);
-            }
-        }
-        else
-        {
-            BtnWatchVideo.SetActive(false);
-            BtnClaim.SetActive(false);
+            BtnWatchVideo.SetActive(CurrentItem.DailyRewardData.dailyRewardType == DailyRewardType.Coin);
+            BtnClaim.SetActive(true);
         }
     }
 
     public void OnClickBtnClaimX5Video()
     {
-        AppControlAds.ShowReward(() => { CurrentItem.OnClaim(true, () => claimRewardEvent.Raise()); });
+        AppControlAds.ShowReward(() =>
+        {
+            CurrentItem.OnClaim(true, () =>
+            {
+                claimRewardEvent.Raise();
+                Setup();
+            });
+        });
     }
 
     public void OnClickBtnClaim()
     {
-        CurrentItem.OnClaim(false, () => claimRewardEvent.Raise());
+        CurrentItem.OnClaim(false, () =>
+        {
+            claimRewardEvent.Raise();
+            Setup();
+        });
     }
 
     public void OnClickNextDay()
