@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AdmobRewardVariable
   m_EditorClassIdentifier: 
   androidId: ca-app-pub-3940256099942544/5224354917
+  useTestId: 1

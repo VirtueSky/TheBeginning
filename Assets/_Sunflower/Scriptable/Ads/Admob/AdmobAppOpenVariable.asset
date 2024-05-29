@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: AdmobAppOpenVariable
   m_EditorClassIdentifier: 
   androidId: ca-app-pub-3940256099942544/3419835294
+  autoShow: 1
+  useTestId: 1
