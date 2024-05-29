@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8612af88fd55455ab06a565de64186b9, type: 3}
-  m_Name: debug_is_off_inter_ads_variable
+  m_Script: {fileID: 11500000, guid: e09883a9e2054c19929fd8b3292fa7d9, type: 3}
+  m_Name: time_counter_inter_ad_variable
   m_EditorClassIdentifier: 
   description: 
   valueDebug: 0
-  id: c24d9041b144240a1bc77ecec0a76660
+  id: a922fcba70520de4486468de077e96c2
   initializeValue: 0
-  isSetData: 1
+  isSetData: 0
   isSaveData: 0
-  isRaiseEvent: 1
+  isRaiseEvent: 0
   currentValue: 0
+  isClamped: 0
+  minMax: {x: 0, y: 100}
