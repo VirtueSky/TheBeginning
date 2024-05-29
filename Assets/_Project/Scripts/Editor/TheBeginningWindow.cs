@@ -13,7 +13,7 @@ public class TheBeginningWindow : EditorWindow
     private GameConfig _gameConfig;
     private Vector2 _scrollPosition;
 
-    [MenuItem("The Beginning/Open GameConfig %`")]
+    [MenuItem("The Beginning/Open GameConfig %`", priority = 1)]
     public static void OpenGameConfigWindow()
     {
         GameConfig gameConfig = AssetUtils.FindAssetAtFolder<GameConfig>(new string[] { "Assets" }).FirstOrDefault();
@@ -53,28 +53,28 @@ public class TheBeginningWindow : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-    [MenuItem("The Beginning/Open Scene/Launcher %F1")]
+    [MenuItem("The Beginning/Open Scene Launcher %F1", priority = 200)]
     public static void OpenLauncherScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("The Beginning/Open Scene/Service %F2")]
+    [MenuItem("The Beginning/Open Scene Service %F3", priority = 202)]
     public static void OpenServiceScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICE_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("The Beginning/Open Scene/Game %F3")]
+    [MenuItem("The Beginning/Open Scene Game %F2", priority = 201)]
     public static void OpenGameScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAME_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("The Beginning/Play Launcher")]
+    [MenuItem("The Beginning/Play Launcher", priority = 100)]
     public static void PlayLauncher()
     {
         OpenLauncherScene();

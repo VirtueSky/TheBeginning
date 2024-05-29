@@ -5,10 +5,9 @@
     "com.esotericsoftware.spine.spine-csharp": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-csharp/src#4.1",
     "com.esotericsoftware.spine.spine-unity": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-unity/Assets/Spine#4.1",
     "com.google.android.appbundle": "https://github.com/google-unity/android-app-bundle.git#1.9.0",
-    "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.179",
-    "com.google.firebase.analytics": "https://github.com/firebase-unity/firebase-analytics.git#11.9.0",
-    "com.google.firebase.app": "https://github.com/firebase-unity/firebase-app.git#11.9.0",
-    "com.google.firebase.remote-config": "https://github.com/firebase-unity/firebase-remote-config.git#11.9.0",
+    "com.google.firebase.analytics": "https://github.com/firebase-unity/firebase-analytics.git#12.0.0",
+    "com.google.firebase.app": "https://github.com/firebase-unity/firebase-app.git#12.0.0",
+    "com.google.firebase.remote-config": "https://github.com/firebase-unity/firebase-remote-config.git#12.0.0",
     "com.google.play.common": "https://github.com/google-unity/google-play-common.git#1.8.2",
     "com.google.play.core": "https://github.com/google-unity/google-play-core.git#1.8.2",
     "com.google.play.review": "https://github.com/google-unity/in-app-review.git#1.8.1",
@@ -32,7 +31,7 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
-    "com.virtuesky.sunflower": "https://github.com/VirtueSky/sunflower.git#2.7.0",
+    "com.virtuesky.sunflower": "https://github.com/VirtueSky/sunflower.git#2.7.3",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -63,6 +62,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.google.external-dependency-manager": "https://github.com/google-unity/external-dependency-manager.git#1.2.179"
   }
 }

@@ -45,31 +45,31 @@
       "hash": "66fd0c1b84d72ec9ac32e2eece65f2630b4b262e"
     },
     "com.google.firebase.analytics": {
-      "version": "https://github.com/firebase-unity/firebase-analytics.git#11.9.0",
+      "version": "https://github.com/firebase-unity/firebase-analytics.git#12.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.google.firebase.app": "11.9.0"
+        "com.google.firebase.app": "12.0.0"
       },
-      "hash": "07847943f9e7de1ef0f97ea8c90b29f915fe3343"
+      "hash": "35fa3059106f61fd11ae2612fc8b1c4dc0997ebd"
     },
     "com.google.firebase.app": {
-      "version": "https://github.com/firebase-unity/firebase-app.git#11.9.0",
+      "version": "https://github.com/firebase-unity/firebase-app.git#12.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.google.external-dependency-manager": "1.2.177"
       },
-      "hash": "3d26bd3c8a2c15ca59cef20b930bed4d1094a353"
+      "hash": "afb504235042fc1252ec0e8ffe161072b1c7e37f"
     },
     "com.google.firebase.remote-config": {
-      "version": "https://github.com/firebase-unity/firebase-remote-config.git#11.9.0",
+      "version": "https://github.com/firebase-unity/firebase-remote-config.git#12.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.google.firebase.app": "11.9.0"
+        "com.google.firebase.app": "12.0.0"
       },
-      "hash": "42ee23d82d7e15cd0f791d098b6b4e666eb301c6"
+      "hash": "88df2eb2bbc8e4d9e162f742722082fd66e676e1"
     },
     "com.google.play.common": {
       "version": "https://github.com/google-unity/google-play-common.git#1.8.2",
@@ -363,7 +363,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.7.0",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.7.3",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -372,7 +372,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "c68812b248f9eb201842050dbefbea8683e34a23"
+      "hash": "0a920228afef47d00e3866a37df1d175f6361759"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
