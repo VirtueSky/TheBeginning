@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 3fa4963c9c3b4ee468b61e84722fe359
+  m_GUID: ed6d1189d2a4fff4288e28e57e049fe9
   m_SerializeEntries:
   - m_GUID: 4b75fe61160713244bd8c8bcf4ebecc6
     m_Address: Assets/_Sunflower/Scriptable/Variable/index_level_variable.asset
@@ -302,8 +302,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3ef083670fcbbc1419ed97499a9d9ee3
-    m_Address: Assets/_Project/Textures/UI/Setting/setting_scrollbar.png
+  - m_GUID: 04da37cd8d26a7b42909787bbff3cc98
+    m_Address: Assets/_Project/Textures/UI/Common/leaderboard_whitebar.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
