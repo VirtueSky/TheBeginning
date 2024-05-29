@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TheBeginning.AppControl
 {
-    public struct AppControlPopup
+    public struct PopupControl
     {
         private static PopupManager _popupManager;
 
@@ -18,7 +18,7 @@ namespace TheBeginning.AppControl
                 UnityEngine.Object.Destroy(_popupManager);
             }
 
-            AppControlPopup._popupManager = popupManager;
+            PopupControl._popupManager = popupManager;
         }
 
         public static void Show<T>(bool isHideAll = true)

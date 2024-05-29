@@ -81,14 +81,14 @@ public class GameManager : BaseMono
     void ReturnHome()
     {
         GameState = GameState.Lobby;
-        AppControlPopup.Show<PopupHome>();
+        PopupControl.Show<PopupHome>();
         levelHolder.ClearTransform();
     }
 
     public void PlayCurrentLevel()
     {
         StartGame();
-        AppControlPopup.Show<PopupInGame>();
+        PopupControl.Show<PopupInGame>();
     }
 
     public void ReplayGame()
@@ -96,7 +96,7 @@ public class GameManager : BaseMono
         eventReplayLevel.Raise(eventGetCurrentLevel.Raise());
         logEventFirebaseReplayLevel.LogEvent(eventGetCurrentLevel.Raise().name);
         StartGame();
-        AppControlPopup.Show<PopupInGame>();
+        PopupControl.Show<PopupInGame>();
     }
 
     public void BackLevel()
@@ -144,8 +144,8 @@ public class GameManager : BaseMono
         {
             indexLevelVariable.Value++;
             eventLoadLevel.Raise();
-            AppControlPopup.Show<PopupWin>();
-            AppControlPopup.Hide<PopupInGame>();
+            PopupControl.Show<PopupWin>();
+            PopupControl.Hide<PopupInGame>();
         });
     }
 
@@ -160,8 +160,8 @@ public class GameManager : BaseMono
         logEventFirebaseLoseLevel.LogEvent(eventGetCurrentLevel.Raise().name);
         Tween.Delay(delayPopupShowTime, () =>
         {
-            AppControlPopup.Show<PopupLose>();
-            AppControlPopup.Hide<PopupInGame>();
+            PopupControl.Show<PopupLose>();
+            PopupControl.Hide<PopupInGame>();
         });
     }
 

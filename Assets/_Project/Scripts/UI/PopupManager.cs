@@ -26,7 +26,7 @@ public class PopupManager : BaseMono
     {
         Debug.Assert(cameraUI != null, "CameraUI != null");
         canvasScaler.matchWidthOrHeight = cameraUI.aspect > .6f ? 1 : 0;
-        AppControlPopup.Init(this);
+        PopupControl.Init(this);
     }
 
     public async void Show<T>(bool isHideAll = true)
