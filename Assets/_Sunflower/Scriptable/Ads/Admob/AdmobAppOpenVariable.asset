@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb8d284edcd4713bbddf482061bd612, type: 3}
   m_Name: AdmobAppOpenVariable
   m_EditorClassIdentifier: 
-  androidId: ca-app-pub-3940256099942544/3419835294
+  androidId: ca-app-pub-3940256099942544/9257395921
   autoShow: 1
-  useTestId: 1
+  useTestId: 0
