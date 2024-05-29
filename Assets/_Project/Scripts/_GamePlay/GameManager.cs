@@ -45,7 +45,7 @@ public class GameManager : BaseMono
 
     [SerializeField] private IntegerVariable indexLevelVariable;
     [SerializeField] private IntegerVariable adsCounterVariable;
-
+    [SerializeField] private FloatVariable timeCounterInterAdVariable;
 
     public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 
@@ -177,6 +177,15 @@ public class GameManager : BaseMono
         {
             gameState = value;
             gameStateVariable.Value = gameState;
+        }
+    }
+
+    public override void FixedTick()
+    {
+        base.FixedTick();
+        if (GameState == GameState.PlayingGame)
+        {
+            timeCounterInterAdVariable.Value += Time.deltaTime;
         }
     }
 }

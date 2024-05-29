@@ -4,6 +4,7 @@ using VirtueSky.Ads;
 using VirtueSky.Core;
 using VirtueSky.Events;
 using VirtueSky.FirebaseTracking;
+using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 [CreateAssetMenu(menuName = "Ads Variable/Reward Variable", fileName = "reward_ad_variable")]
@@ -14,10 +15,11 @@ public class RewardVariable : BaseSO
     [Space, SerializeField] private BooleanVariable isOffRewardVariable;
     [SerializeField] private StringEvent showNotificationInGameEvent;
 
-    [Space, Header("Log Event Firebase Analytic"), SerializeField]
+    [Space, HeaderLine("Log Event Firebase Analytic"), SerializeField]
     private LogEventFirebaseNoParam logEventRequestReward;
 
     [SerializeField] private LogEventFirebaseNoParam logEventShowRewardCompleted;
+    public AdUnitVariable AdUnitRewardVariable => rewardVariable;
 
     bool Condition()
     {
@@ -46,6 +48,7 @@ public class RewardVariable : BaseSO
             showNotificationInGameEvent.Raise("Reward ads not ready");
         }
     }
+
 
     void DelayHandle(Action action)
     {

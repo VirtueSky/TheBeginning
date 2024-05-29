@@ -55,6 +55,9 @@ public class AdminController : MonoBehaviour
     [SerializeField] private EventNoParam callPreviousLevelEvent;
     [SerializeField] private FloatEvent callWinLevelEvent;
     [SerializeField] private FloatEvent callLoseLevelEvent;
+    [SerializeField] private InterAdVariable interAdVariable;
+    [SerializeField] private RewardVariable rewardVariable;
+    [SerializeField] private BannerVariable bannerVariable;
 
     private void Awake()
     {
@@ -166,22 +169,22 @@ public class AdminController : MonoBehaviour
 
     void OnClickShowBanner()
     {
-        AppControlAds.AdUnitBanner.Show();
+        bannerVariable.ShowNoCondition();
     }
 
     void OnClickHideBanner()
     {
-        AppControlAds.AdUnitBanner.Destroy();
+        bannerVariable.Hide();
     }
 
     void OnClickShowInter()
     {
-        AppControlAds.AdUnitInter.Show();
+        interAdVariable.AdUnitInterVariable.Show();
     }
 
     void OnClickShowReward()
     {
-        AppControlAds.AdUnitReward.Show();
+        rewardVariable.AdUnitRewardVariable.Show();
     }
 
     void OnClickUnlockAllSkins()

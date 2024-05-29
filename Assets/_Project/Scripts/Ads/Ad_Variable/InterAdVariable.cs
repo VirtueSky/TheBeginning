@@ -3,6 +3,7 @@ using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Core;
 using VirtueSky.FirebaseTracking;
+using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 [CreateAssetMenu(menuName = "Ads Variable/Inter Variable", fileName = "inter_ad_variable")]
@@ -15,17 +16,18 @@ public class InterAdVariable : BaseSO
     [SerializeField] private IntegerVariable adsCounterVariable;
     [SerializeField] private FloatVariable timeCounterInterAds;
 
-    [Space, Header("Firebase Remote Config"), SerializeField]
+    [Space, HeaderLine("Firebase Remote Config"), SerializeField]
     private IntegerVariable remoteConfigLevelTurnOnInterstitial;
 
     [SerializeField] private IntegerVariable remoteConfigInterstitialCappingLevelVariable;
     [SerializeField] private IntegerVariable remoteConfigInterstitialCappingTimeVariable;
     [SerializeField] private BooleanVariable remoteConfigOnOffInterstitial;
 
-    [Space, Header("Log Event Firebase Analytic"), SerializeField]
+    [Space, HeaderLine("Log Event Firebase Analytic"), SerializeField]
     private LogEventFirebaseNoParam logEventRequestInter;
 
     [SerializeField] private LogEventFirebaseNoParam logEventShowInterCompleted;
+    public AdUnitVariable AdUnitInterVariable => interVariable;
 
     bool Condition()
     {
@@ -63,6 +65,7 @@ public class InterAdVariable : BaseSO
             ResetCounter();
         }
     }
+
 
     void DelayHandle(Action action)
     {

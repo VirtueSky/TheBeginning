@@ -31,6 +31,8 @@ public class PopupWin : UIPopup
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable currentCoin;
 
+    [SerializeField] private RewardVariable rewardVariable;
+
     private float percent = 0;
     private bool waitMoveAllCoinDone;
 
@@ -103,8 +105,8 @@ public class PopupWin : UIPopup
 
     public void OnClickAdsReward()
     {
-        if (AppControlAds.IsRewardReady()) BonusArrowHandler.MoveObject.StopMoving();
-        AppControlAds.ShowReward(() => { GetRewardAds(); }, null, null, () =>
+        if (rewardVariable.AdUnitRewardVariable.IsReady()) BonusArrowHandler.MoveObject.StopMoving();
+        rewardVariable.Show(() => { GetRewardAds(); }, () =>
         {
             BonusArrowHandler.MoveObject.ResumeMoving();
             BtnRewardAds.SetActive(true);
