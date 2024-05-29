@@ -60,22 +60,22 @@ public class PopupHome : UIPopup
 
     public void OnClickSetting()
     {
-        AppControlPopup.Show<PopupSetting>(false);
+        PopupControl.Show<PopupSetting>(false);
     }
 
     public void OnClickDailyReward()
     {
-        AppControlPopup.Show<PopupDailyReward>(false);
+        PopupControl.Show<PopupDailyReward>(false);
     }
 
     public void OnClickShop()
     {
-        AppControlPopup.Show<PopupShop>(false);
+        PopupControl.Show<PopupShop>(false);
     }
 
     public void OnClickTest()
     {
-        AppControlPopup.Show<PopupTest>(false);
+        PopupControl.Show<PopupTest>(false);
     }
 
     void ShowPopupUpdate()
@@ -86,7 +86,7 @@ public class PopupHome : UIPopup
             {
                 if (!versionUpdateVariable.Value.Equals(Application.version))
                 {
-                    AppControlPopup.Show<PopupUpdate>(false);
+                    PopupControl.Show<PopupUpdate>(false);
                 }
             });
         }

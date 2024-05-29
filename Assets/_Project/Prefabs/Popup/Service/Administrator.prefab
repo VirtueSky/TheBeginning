@@ -511,6 +511,9 @@ MonoBehaviour:
     type: 2}
   callWinLevelEvent: {fileID: 11400000, guid: 8bb823675099e1844a9226562cd403df, type: 2}
   callLoseLevelEvent: {fileID: 11400000, guid: 737e2b8f8e70c1445be0bbabb38d77b5, type: 2}
+  interAdVariable: {fileID: 11400000, guid: 88f7c202cefac3c4f9e29ffb5a85f62a, type: 2}
+  rewardVariable: {fileID: 11400000, guid: f9cbd7436c0fc7249915e5fd802ae174, type: 2}
+  bannerVariable: {fileID: 11400000, guid: 46fc363fb14ea9741a05bf4fc5750a64, type: 2}
 --- !u!1 &611984390817880100
 GameObject:
   m_ObjectHideFlags: 0

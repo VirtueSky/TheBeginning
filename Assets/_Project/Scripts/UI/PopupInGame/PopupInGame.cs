@@ -28,6 +28,8 @@ public class PopupInGame : UIPopup
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable indexLevelVariable;
 
+    [SerializeField] private InterAdVariable interAdVariable;
+
     [HeaderLine("Audio")] [SerializeField] private PlayMusicEvent playMusicEvent;
 
     [SerializeField] private SoundData musicInGame;
@@ -62,7 +64,7 @@ public class PopupInGame : UIPopup
 
     public void OnClickReplay()
     {
-        AppControlAds.ShowInterstitial(() => { replayEvent.Raise(); });
+        interAdVariable.Show(() => { replayEvent.Raise(); });
     }
 
     public void OnClickPrevious()

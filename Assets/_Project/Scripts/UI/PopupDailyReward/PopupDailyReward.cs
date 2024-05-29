@@ -16,6 +16,7 @@ public class PopupDailyReward : UIPopup
 
     public GameObject BtnClaim;
     [SerializeField] private EventNoParam claimRewardEvent;
+    [SerializeField] private RewardVariable rewardVariable;
     [ReadOnly] public DailyRewardItem CurrentItem;
     public List<DailyRewardItem> DailyRewardItems => GetComponentsInChildren<DailyRewardItem>().ToList();
 
@@ -68,7 +69,7 @@ public class PopupDailyReward : UIPopup
 
     public void OnClickBtnClaimX5Video()
     {
-        AppControlAds.ShowReward(() =>
+        rewardVariable.Show(() =>
         {
             CurrentItem.OnClaim(true, () =>
             {

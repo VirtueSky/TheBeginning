@@ -2220,6 +2220,7 @@ MonoBehaviour:
   BtnWatchVideo: {fileID: 2509353737946875765}
   BtnClaim: {fileID: 7151091472365318068}
   claimRewardEvent: {fileID: 11400000, guid: b1fc40b863739b34d90bc5564d896832, type: 2}
+  rewardVariable: {fileID: 11400000, guid: f9cbd7436c0fc7249915e5fd802ae174, type: 2}
   CurrentItem: {fileID: 0}
 --- !u!1 &7825645213151778321
 GameObject:
