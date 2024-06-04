@@ -3,7 +3,7 @@ using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Core;
 using VirtueSky.Events;
-using VirtueSky.FirebaseTracking;
+using VirtueSky.Tracking;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
@@ -16,9 +16,9 @@ public class RewardVariable : BaseSO
     [SerializeField] private StringEvent showNotificationInGameEvent;
 
     [Space, HeaderLine("Log Event Firebase Analytic"), SerializeField]
-    private LogEventFirebaseNoParam logEventRequestReward;
+    private TrackingFirebaseNoParam trackingFirebaseRequestReward;
 
-    [SerializeField] private LogEventFirebaseNoParam logEventShowRewardCompleted;
+    [SerializeField] private TrackingFirebaseNoParam trackingFirebaseShowRewardCompleted;
     public AdUnitVariable AdUnitRewardVariable => rewardVariable;
 
     bool Condition()
@@ -31,13 +31,13 @@ public class RewardVariable : BaseSO
     {
         if (Condition())
         {
-            logEventRequestReward.LogEvent();
+            trackingFirebaseRequestReward.TrackEvent();
             rewardVariable.Show().OnCompleted(() =>
                 {
                     DelayHandle(() =>
                     {
                         completeCallback?.Invoke();
-                        logEventShowRewardCompleted.LogEvent();
+                        trackingFirebaseShowRewardCompleted.TrackEvent();
                     });
                 }).OnDisplayed(displayCallback)
                 .OnClosed(() => DelayHandle(closeCallback))

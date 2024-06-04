@@ -28,7 +28,7 @@ MonoBehaviour:
     type: 2}
   remoteConfigOnOffInterstitial: {fileID: 11400000, guid: 421e94b54b54747f388ece41e49e03c6,
     type: 2}
-  logEventRequestInter: {fileID: 11400000, guid: 7be70904d601ae049a3e7c391bf9b8a0,
+  trackingFirebaseRequestInter: {fileID: 11400000, guid: 7be70904d601ae049a3e7c391bf9b8a0,
     type: 2}
-  logEventShowInterCompleted: {fileID: 11400000, guid: ba87dfc0db173264684b04d7e1ab239d,
+  trackingFirebaseShowInterCompleted: {fileID: 11400000, guid: ba87dfc0db173264684b04d7e1ab239d,
     type: 2}

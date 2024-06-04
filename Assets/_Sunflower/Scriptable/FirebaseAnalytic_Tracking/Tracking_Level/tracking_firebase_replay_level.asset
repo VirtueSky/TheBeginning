@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8b5edc0caef4a02a234b4d36a5a1c2a, type: 3}
-  m_Name: log_event_firebase_lose_level
+  m_Name: tracking_firebase_replay_level
   m_EditorClassIdentifier: 
-  eventName: OnLoseLevel
+  eventName: OnReplayLevel
   parameterName: level_name

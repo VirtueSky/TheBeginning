@@ -484,15 +484,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a5a202b7976fb49a2946d49c2b4187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: game_manager
   gameState: 0
-  logEventFirebaseStartLevel: {fileID: 11400000, guid: 077f321971d6a034c8f3b664920dd79a,
+  trackingFirebaseStartLevel: {fileID: 11400000, guid: 077f321971d6a034c8f3b664920dd79a,
     type: 2}
-  logEventFirebaseReplayLevel: {fileID: 11400000, guid: 8b5c8a497352dbc4099ca6a8e9da3172,
+  trackingFirebaseReplayLevel: {fileID: 11400000, guid: 8b5c8a497352dbc4099ca6a8e9da3172,
     type: 2}
-  logEventFirebaseWinLevel: {fileID: 11400000, guid: 12238c38129a9ce469528907303d54ff,
+  trackingFirebaseWinLevel: {fileID: 11400000, guid: 12238c38129a9ce469528907303d54ff,
     type: 2}
-  logEventFirebaseLoseLevel: {fileID: 11400000, guid: 6f4f5bfc74bea854289cf1793d8fcc51,
+  trackingFirebaseLoseLevel: {fileID: 11400000, guid: 6f4f5bfc74bea854289cf1793d8fcc51,
     type: 2}
   levelHolder: {fileID: 1245891407}
   eventLoadLevel: {fileID: 11400000, guid: a23d4b373bb58e04fb8e85b3237c3797, type: 2}
@@ -517,6 +516,8 @@ MonoBehaviour:
   gameStateVariable: {fileID: 11400000, guid: 00d1914409592564ea7ca3f861a30d8e, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   adsCounterVariable: {fileID: 11400000, guid: fb1d28ed953dba1439f42e31764bd580, type: 2}
+  timeCounterInterAdVariable: {fileID: 11400000, guid: a922fcba70520de4486468de077e96c2,
+    type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
