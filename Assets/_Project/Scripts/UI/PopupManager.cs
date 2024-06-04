@@ -3,7 +3,6 @@ using UnityEngine;
 using System;
 using TheBeginning.AppControl;
 using UnityEngine.AddressableAssets;
-using UnityEngine.UI;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.Threading.Tasks;
@@ -14,7 +13,6 @@ public class PopupManager : BaseMono
     [HeaderLine(Constant.Environment)] [SerializeField]
     private Transform parentContainer;
 
-    [SerializeField] private CanvasScaler canvasScaler;
     [SerializeField] private Camera cameraUI;
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
@@ -25,7 +23,6 @@ public class PopupManager : BaseMono
     private void Awake()
     {
         Debug.Assert(cameraUI != null, "CameraUI != null");
-        canvasScaler.matchWidthOrHeight = cameraUI.aspect > .6f ? 1 : 0;
         PopupControl.Init(this);
     }
 
