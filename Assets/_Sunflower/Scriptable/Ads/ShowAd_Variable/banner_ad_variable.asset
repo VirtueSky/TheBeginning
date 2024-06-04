@@ -19,5 +19,7 @@ MonoBehaviour:
     type: 2}
   remoteConfigOnOffBanner: {fileID: 11400000, guid: 656bf5dbd6eb94f4c9cebcd2a196bd11,
     type: 2}
-  logEventShowBanner: {fileID: 11400000, guid: 365179b152680ac43a296e15c48c16f2, type: 2}
-  logEventHideBanner: {fileID: 11400000, guid: 1246316147a4da84bb6feb9e27ac21e9, type: 2}
+  trackingFirebaseShowBanner: {fileID: 11400000, guid: 365179b152680ac43a296e15c48c16f2,
+    type: 2}
+  trackingFirebaseHideBanner: {fileID: 11400000, guid: 1246316147a4da84bb6feb9e27ac21e9,
+    type: 2}

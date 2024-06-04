@@ -4,9 +4,9 @@ using TheBeginning.AppControl;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Events;
-using VirtueSky.FirebaseTracking;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
+using VirtueSky.Tracking;
 using VirtueSky.Variables;
 
 [EditorIcon("icon_gamemanager")]
@@ -15,10 +15,10 @@ public class GameManager : BaseMono
     [HeaderLine(Constant.Normal_Attribute)] [ReadOnly] [SerializeField]
     private GameState gameState;
 
-    [SerializeField] private LogEventFirebaseOneParam logEventFirebaseStartLevel;
-    [SerializeField] private LogEventFirebaseOneParam logEventFirebaseReplayLevel;
-    [SerializeField] private LogEventFirebaseOneParam logEventFirebaseWinLevel;
-    [SerializeField] private LogEventFirebaseOneParam logEventFirebaseLoseLevel;
+    [SerializeField] private TrackingFirebaseOneParam trackingFirebaseStartLevel;
+    [SerializeField] private TrackingFirebaseOneParam trackingFirebaseReplayLevel;
+    [SerializeField] private TrackingFirebaseOneParam trackingFirebaseWinLevel;
+    [SerializeField] private TrackingFirebaseOneParam trackingFirebaseLoseLevel;
     [SerializeField] private Transform levelHolder;
 
     [HeaderLine(Constant.SO_Event)] [SerializeField]
@@ -94,7 +94,7 @@ public class GameManager : BaseMono
     public void ReplayGame()
     {
         eventReplayLevel.Raise(eventGetCurrentLevel.Raise());
-        logEventFirebaseReplayLevel.LogEvent(eventGetCurrentLevel.Raise().name);
+        trackingFirebaseLoseLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
         StartGame();
         PopupControl.Show<PopupInGame>();
     }
@@ -128,7 +128,7 @@ public class GameManager : BaseMono
         var currentLevelPrefab = eventGetCurrentLevel.Raise();
         levelHolder.ClearTransform();
         Instantiate(currentLevelPrefab, levelHolder, false);
-        logEventFirebaseStartLevel.LogEvent(eventGetCurrentLevel.Raise().name);
+        trackingFirebaseStartLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
     }
 
     public void OnWinGame(float delayPopupShowTime = 2.5f)
@@ -139,7 +139,7 @@ public class GameManager : BaseMono
         GameState = GameState.WinGame;
         eventWinLevel.Raise(eventGetCurrentLevel.Raise());
         adsCounterVariable.Value++;
-        logEventFirebaseWinLevel.LogEvent(eventGetCurrentLevel.Raise().name);
+        trackingFirebaseWinLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
         Tween.Delay(delayPopupShowTime, () =>
         {
             indexLevelVariable.Value++;
@@ -157,7 +157,7 @@ public class GameManager : BaseMono
         GameState = GameState.LoseGame;
         eventLoseLevel.Raise(eventGetCurrentLevel.Raise());
         adsCounterVariable.Value++;
-        logEventFirebaseLoseLevel.LogEvent(eventGetCurrentLevel.Raise().name);
+        trackingFirebaseLoseLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
         Tween.Delay(delayPopupShowTime, () =>
         {
             PopupControl.Show<PopupLose>();

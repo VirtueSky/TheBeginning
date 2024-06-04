@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7a9cb05e507c704597bcb479279eb59, type: 3}
-  m_Name: log_event_firebase_request_reward
+  m_Name: tracking_firebase_show_banner
   m_EditorClassIdentifier: 
-  eventName: On_Request_Reward
+  eventName: On_Show_Banner

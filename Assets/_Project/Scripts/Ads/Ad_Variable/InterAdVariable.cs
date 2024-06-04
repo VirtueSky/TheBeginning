@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Core;
-using VirtueSky.FirebaseTracking;
+using VirtueSky.Tracking;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
@@ -23,10 +23,10 @@ public class InterAdVariable : BaseSO
     [SerializeField] private IntegerVariable remoteConfigInterstitialCappingTimeVariable;
     [SerializeField] private BooleanVariable remoteConfigOnOffInterstitial;
 
-    [Space, HeaderLine("Log Event Firebase Analytic"), SerializeField]
-    private LogEventFirebaseNoParam logEventRequestInter;
+    [Space, HeaderLine("Track Firebase Analytic"), SerializeField]
+    private TrackingFirebaseNoParam trackingFirebaseRequestInter;
 
-    [SerializeField] private LogEventFirebaseNoParam logEventShowInterCompleted;
+    [SerializeField] private TrackingFirebaseNoParam trackingFirebaseShowInterCompleted;
     public AdUnitVariable AdUnitInterVariable => interVariable;
 
     bool Condition()
@@ -48,13 +48,13 @@ public class InterAdVariable : BaseSO
     {
         if (Condition())
         {
-            logEventRequestInter.LogEvent();
+            trackingFirebaseRequestInter.TrackEvent();
             interVariable.Show().OnCompleted(() =>
             {
                 DelayHandle(() =>
                 {
                     completeCallback?.Invoke();
-                    logEventShowInterCompleted.LogEvent();
+                    trackingFirebaseShowInterCompleted.TrackEvent();
                     ResetCounter();
                 });
             }).OnDisplayed(displayCallback);

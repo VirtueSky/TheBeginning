@@ -18,7 +18,7 @@ MonoBehaviour:
     type: 2}
   showNotificationInGameEvent: {fileID: 11400000, guid: cd73ca7a44674384aa18fd3f412eeee3,
     type: 2}
-  logEventRequestReward: {fileID: 11400000, guid: b91c2b3e7f3f00b438e54856c4523deb,
+  trackingFirebaseRequestReward: {fileID: 11400000, guid: b91c2b3e7f3f00b438e54856c4523deb,
     type: 2}
-  logEventShowRewardCompleted: {fileID: 11400000, guid: 5b8e3fd403b4ad44d99d8673194f90ef,
+  trackingFirebaseShowRewardCompleted: {fileID: 11400000, guid: 5b8e3fd403b4ad44d99d8673194f90ef,
     type: 2}

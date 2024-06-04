@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: ed6d1189d2a4fff4288e28e57e049fe9
+  m_GUID: a46ecb46be7da49fcb0cc9fd86b355e5
   m_SerializeEntries:
   - m_GUID: 4b75fe61160713244bd8c8bcf4ebecc6
     m_Address: Assets/_Sunflower/Scriptable/Variable/index_level_variable.asset
@@ -78,12 +78,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 365179b152680ac43a296e15c48c16f2
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_LogEvent/Log_Ads/log_event_firebase_show_banner.asset
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_show_banner.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1246316147a4da84bb6feb9e27ac21e9
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_LogEvent/Log_Ads/log_event_firebase_hide_banner.asset
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_hide_banner.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b91c2b3e7f3f00b438e54856c4523deb
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_LogEvent/Log_Ads/log_event_firebase_request_reward.asset
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_request_reward.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b8e3fd403b4ad44d99d8673194f90ef
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_LogEvent/Log_Ads/log_event_firebase_show_reward_completed.asset
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_show_reward_completed.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7be70904d601ae049a3e7c391bf9b8a0
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_LogEvent/Log_Ads/log_event_firebase_request_interstitial.asset
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_request_interstitial.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba87dfc0db173264684b04d7e1ab239d
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_LogEvent/Log_Ads/log_event_firebase_show_interstitial_completed.asset
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_show_interstitial_completed.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

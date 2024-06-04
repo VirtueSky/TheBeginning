@@ -1,7 +1,7 @@
 using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Core;
-using VirtueSky.FirebaseTracking;
+using VirtueSky.Tracking;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
@@ -15,10 +15,10 @@ public class BannerVariable : BaseSO
     [Space, HeaderLine("Firebase Remote Config"), SerializeField]
     private BooleanVariable remoteConfigOnOffBanner;
 
-    [Space, HeaderLine("Log Event Firebase Analytic"), SerializeField]
-    private LogEventFirebaseNoParam logEventShowBanner;
+    [Space, HeaderLine("Track Firebase Analytic"), SerializeField]
+    private TrackingFirebaseNoParam trackingFirebaseShowBanner;
 
-    [SerializeField] private LogEventFirebaseNoParam logEventHideBanner;
+    [SerializeField] private TrackingFirebaseNoParam trackingFirebaseHideBanner;
     public AdUnitVariable AdUnitBannerVariable => bannerVariable;
 
     bool Condition()
@@ -31,7 +31,7 @@ public class BannerVariable : BaseSO
         if (Condition())
         {
             bannerVariable.Show();
-            logEventShowBanner.LogEvent();
+            trackingFirebaseShowBanner.TrackEvent();
         }
     }
 
@@ -47,7 +47,7 @@ public class BannerVariable : BaseSO
                 break;
         }
 
-        logEventHideBanner.LogEvent();
+        trackingFirebaseHideBanner.TrackEvent();
     }
 
     public AdUnitVariable ShowNoCondition()
