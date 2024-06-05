@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   androidId: ca-app-pub-3940256099942544/9257395921
   autoShow: 1
-  useTestId: 0
+  useTestId: 1
