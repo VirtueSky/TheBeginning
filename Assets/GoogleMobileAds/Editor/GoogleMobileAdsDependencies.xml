@@ -10,12 +10,12 @@
         <repository>https://maven.google.com/</repository>
       </repositories>
     </androidPackage>
-        <androidPackage spec="androidx.lifecycle:lifecycle-common-java8:2.4.1">
+        <androidPackage spec="androidx.lifecycle:lifecycle-common-java8:2.8.1">
       <repositories>
         <repository>https://maven.google.com/</repository>
       </repositories>
     </androidPackage>
-    <androidPackage spec="androidx.lifecycle:lifecycle-process:2.4.1">
+    <androidPackage spec="androidx.lifecycle:lifecycle-process:2.8.1">
       <repositories>
         <repository>https://maven.google.com/</repository>
       </repositories>
