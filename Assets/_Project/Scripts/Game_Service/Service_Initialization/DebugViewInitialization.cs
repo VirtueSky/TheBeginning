@@ -33,7 +33,12 @@ namespace TheBeginning.Services
 
         public override void Initialization()
         {
-            if (!gameConfig.enableDebugView) return;
+            if (!gameConfig.enableDebugView)
+            {
+                debugViewSheet.gameObject.SetActive(false);
+                return;
+            }
+
             debugViewSheet.gameObject.SetActive(true);
             var initialPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning Debug");
             // add game page

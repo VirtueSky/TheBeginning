@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 45db017b2048cc44cb3e0268ac48a22d
+  m_GUID: 94e0b190c47b75c41aefece3cb3a6227
   m_SerializeEntries:
   - m_GUID: 4b75fe61160713244bd8c8bcf4ebecc6
     m_Address: Assets/_Sunflower/Scriptable/Variable/index_level_variable.asset
@@ -47,133 +47,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6af9d8621b13945d78f30c83cf9ea91c
-    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_yellow.png
+  - m_GUID: 6f6b1e844d596d549bc5761e32eeeec3
+    m_Address: Assets/_Sunflower/Scriptable/Event/show_require_internet_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 737e2b8f8e70c1445be0bbabb38d77b5
-    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_lose_level_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 46fc363fb14ea9741a05bf4fc5750a64
-    m_Address: Assets/_Sunflower/Scriptable/Ads/ShowAd_Variable/banner_ad_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 418b5efd79ff44f5f837f5ca52f4d4fc
-    m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobBannerVariable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 656bf5dbd6eb94f4c9cebcd2a196bd11
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_on_off_banner_ads_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 218f455279fda5943a72e32c7920c183
-    m_Address: Assets/_Sunflower/Scriptable/Variable/Debug_Variable/is_off_banner_ads_variables.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 365179b152680ac43a296e15c48c16f2
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_show_banner.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1246316147a4da84bb6feb9e27ac21e9
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_hide_banner.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fb5f51310080b45ef93d6e2ffe38be83
-    m_Address: Assets/_Sunflower/Scriptable/Ads/AdSetting.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 096fcfff50a4042bf8f96035a785af9c
-    m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobAppOpenVariable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6477d60c23e204e9e8fa57a6ed36d396
-    m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobRewardInterVariable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 863862f250bdb42ccaba78e46eb83840
-    m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobRewardVariable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 35958d726d97e43fba7d2a1717097d53
-    m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobInterVariable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7a6969beee2c34a49a706b403a8a6e31
-    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_next_level_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ce78dd93df74ee429d0387ef0feb3ce
-    m_Address: Assets/_Project/Textures/UI/Administrator/editor_btn_slide_close.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9b82d09936466b04aa6e3bdc42405b50
-    m_Address: Assets/_Sunflower/Scriptable/Variable/Debug_Variable/is_off_reward_ads_variables.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d7eb04288f3f94c0d8523b23c6adcb25
-    m_Address: Assets/_Sunflower/Scriptable/Variable/Debug_Variable/debug_is_testing_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8bb823675099e1844a9226562cd403df
-    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_win_level_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 427917e6f87d5f948933c3557fbc9ca7
-    m_Address: Assets/_Project/Textures/UI/Administrator/editor_btn_slide_open.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fc010066eec5ef24eb9fa923867c670f
-    m_Address: Assets/_Project/Config/GameConfig.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bf6201b4097e66c43983ff56f832ac35
-    m_Address: Assets/_Project/Config/ItemConfig.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bde677442bb2c4d4da0a4f33b464e1d3
-    m_Address: Assets/_Sunflower/Scriptable/GDPR/gdpr_privacy_required_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f99127449c94a47ab94c5711cbd2d030
-    m_Address: Assets/_Sunflower/Scriptable/GDPR/show_form_consent_success_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 00d1914409592564ea7ca3f861a30d8e
-    m_Address: Assets/_Sunflower/Scriptable/Variable/game_state_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f9cbd7436c0fc7249915e5fd802ae174
-    m_Address: Assets/_Sunflower/Scriptable/Ads/ShowAd_Variable/reward_ad_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b91c2b3e7f3f00b438e54856c4523deb
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_request_reward.asset
+  - m_GUID: 04da37cd8d26a7b42909787bbff3cc98
+    m_Address: Assets/_Project/Textures/UI/Common/leaderboard_whitebar.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -182,83 +62,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5b8e3fd403b4ad44d99d8673194f90ef
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_show_reward_completed.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6a4bbc0399fafde4bb1c4007bbfb6d9f
-    m_Address: Assets/_Sunflower/Scriptable/Variable/current_coin_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9cc98c82176f3fa4e9684e9f20c64999
-    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_back_level_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 03cbff122fde4534d9072e647621b894
-    m_Address: Assets/_Sunflower/Scriptable/Variable/Debug_Variable/is_off_ui_variables.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 88f7c202cefac3c4f9e29ffb5a85f62a
-    m_Address: Assets/_Sunflower/Scriptable/Ads/ShowAd_Variable/inter_ad_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fb1d28ed953dba1439f42e31764bd580
-    m_Address: Assets/_Sunflower/Scriptable/Variable/ads_counter_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8b26d65d7ecc248d588fe6589b7ebdc4
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_interstitial_capping_level_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a922fcba70520de4486468de077e96c2
-    m_Address: Assets/_Sunflower/Scriptable/Variable/time_counter_inter_ad_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9d24fb49e00e040a08c84af0e948f99d
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_level_turn_on_Interstitial_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 421e94b54b54747f388ece41e49e03c6
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_on_off_interstitial_ads_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7be70904d601ae049a3e7c391bf9b8a0
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_request_interstitial.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 97374341169ee42419452c8e62ad838f
-    m_Address: Assets/_Sunflower/Scriptable/Variable/Debug_Variable/is_off_inter_ads_variables.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ba87dfc0db173264684b04d7e1ab239d
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_show_interstitial_completed.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 23a4d1b0c67734e99a0108751888caf0
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_interstitial_capping_time_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2728698185b78224ea0bf86a5e6b2455
-    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_play_current_level_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e72f90332b069ab4eab7cca3290f4faf
-    m_Address: Assets/_Project/Textures/UI/Common/ui_button_debug.png
+  - m_GUID: fc010066eec5ef24eb9fa923867c670f
+    m_Address: Assets/_Project/Config/GameConfig.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -267,43 +72,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2aa0188f290954406bb715c2da89b36b
-    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_green.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f98e99f62fe5bf64785d5d28997f0fdc
-    m_Address: Assets/_Project/Textures/UI/Common/ui_tick.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8d15ab71442963c47b22b47460111e35
-    m_Address: Assets/_Project/Fonts/TMP_LilitaOne.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5fb3ab62ecb5d44928052e616b179bdb
-    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_red.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 61aa56bcc96c74e4ebf0b19fa8413dfd
-    m_Address: Assets/_Sunflower/Scriptable/Event/ClickButtonEvent.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a40e92ec88aa74d7e91ac7ac63811d29
-    m_Address: Assets/_Project/Textures/UI/Button_Normal/Btn_blue.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6f6b1e844d596d549bc5761e32eeeec3
-    m_Address: Assets/_Sunflower/Scriptable/Event/show_require_internet_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 04da37cd8d26a7b42909787bbff3cc98
-    m_Address: Assets/_Project/Textures/UI/Common/leaderboard_whitebar.png
+  - m_GUID: 23a4d1b0c67734e99a0108751888caf0
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_interstitial_capping_time_variable.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -322,8 +92,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97374341169ee42419452c8e62ad838f
+    m_Address: Assets/_Sunflower/Scriptable/Variable/Debug_Variable/is_off_inter_ads_variables.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2728698185b78224ea0bf86a5e6b2455
+    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_play_current_level_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88f7c202cefac3c4f9e29ffb5a85f62a
+    m_Address: Assets/_Sunflower/Scriptable/Ads/ShowAd_Variable/inter_ad_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03cbff122fde4534d9072e647621b894
+    m_Address: Assets/_Sunflower/Scriptable/Variable/Debug_Variable/is_off_ui_variables.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4f33772c12513144943e9ba3ac161f5
     m_Address: Assets/_Sunflower/Scriptable/Event/Level/Level_Generate/event_get_previous_level.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cc98c82176f3fa4e9684e9f20c64999
+    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_back_level_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -332,8 +127,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a4bbc0399fafde4bb1c4007bbfb6d9f
+    m_Address: Assets/_Sunflower/Scriptable/Variable/current_coin_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9cbd7436c0fc7249915e5fd802ae174
+    m_Address: Assets/_Sunflower/Scriptable/Ads/ShowAd_Variable/reward_ad_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 941474e3dc9ef89499f1c226fb6952e1
     m_Address: Assets/_Sunflower/Scriptable/Event/Coin_Generate/move_one_coin_done_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00d1914409592564ea7ca3f861a30d8e
+    m_Address: Assets/_Sunflower/Scriptable/Variable/game_state_variable.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -347,8 +157,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 421e94b54b54747f388ece41e49e03c6
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_on_off_interstitial_ads_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a23d4b373bb58e04fb8e85b3237c3797
     m_Address: Assets/_Sunflower/Scriptable/Event/Level/Level_Generate/event_load_level.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bb823675099e1844a9226562cd403df
+    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_win_level_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -357,8 +177,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7eb04288f3f94c0d8523b23c6adcb25
+    m_Address: Assets/_Sunflower/Scriptable/Variable/Debug_Variable/debug_is_testing_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b82c7998cf398094dba18b8bf2d7b029
     m_Address: Assets/_Sunflower/Scriptable/Event/Coin_Generate/move_all_coin_done_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d24fb49e00e040a08c84af0e948f99d
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_level_turn_on_Interstitial_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b82d09936466b04aa6e3bdc42405b50
+    m_Address: Assets/_Sunflower/Scriptable/Variable/Debug_Variable/is_off_reward_ads_variables.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -372,8 +207,73 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61aa56bcc96c74e4ebf0b19fa8413dfd
+    m_Address: Assets/_Sunflower/Scriptable/Event/ClickButtonEvent.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5e5e673d521437542a9cc1dc118ae486
     m_Address: Assets/_Sunflower/Scriptable/Audio/Volume_Change/music_volume.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b26d65d7ecc248d588fe6589b7ebdc4
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseRemoteConfig/RemoteConfig_Variable/rmc_interstitial_capping_level_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a6969beee2c34a49a706b403a8a6e31
+    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_next_level_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 737e2b8f8e70c1445be0bbabb38d77b5
+    m_Address: Assets/_Sunflower/Scriptable/Event/Game/call_lose_level_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba87dfc0db173264684b04d7e1ab239d
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_show_interstitial_completed.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35958d726d97e43fba7d2a1717097d53
+    m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobInterVariable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 863862f250bdb42ccaba78e46eb83840
+    m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobRewardVariable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7be70904d601ae049a3e7c391bf9b8a0
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_request_interstitial.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b8e3fd403b4ad44d99d8673194f90ef
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_show_reward_completed.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a922fcba70520de4486468de077e96c2
+    m_Address: Assets/_Sunflower/Scriptable/Variable/time_counter_inter_ad_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb1d28ed953dba1439f42e31764bd580
+    m_Address: Assets/_Sunflower/Scriptable/Variable/ads_counter_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 418b5efd79ff44f5f837f5ca52f4d4fc
+    m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobBannerVariable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b91c2b3e7f3f00b438e54856c4523deb
+    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_request_reward.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
