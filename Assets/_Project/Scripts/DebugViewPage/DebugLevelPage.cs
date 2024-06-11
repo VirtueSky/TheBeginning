@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using VirtueSky.Events;
 using VirtueSky.Variables;
@@ -32,7 +33,7 @@ namespace TheBeginning.DebugViewPage
             showNotificationInGameEvent = _showNotiEvent;
         }
 
-        public override IEnumerator Initialize()
+        public override Task Initialize()
         {
             AddButton("Next Level", clicked: NextLevel, icon: DebugViewStatic.IconNextDebug);
             AddButton("Prev Level", clicked: PrevLevel, icon: DebugViewStatic.IconBackDebug);

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using VirtueSky.Variables;
 
@@ -26,7 +27,7 @@ namespace TheBeginning.DebugViewPage
             offRewardVariable = _offReward;
         }
 
-        public override IEnumerator Initialize()
+        public override Task Initialize()
         {
             AddButton("Show Banner", clicked: () => bannerAdVariable.AdUnitBannerVariable.Show());
             AddButton("Hide Banner", clicked: () => bannerAdVariable.Hide());
