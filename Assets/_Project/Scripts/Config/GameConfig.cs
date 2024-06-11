@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 
 [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
@@ -7,7 +8,7 @@ public class GameConfig : ScriptableObject
     [Space, HeaderLine("Level config")] public int maxLevel = 2;
     public int startLoopLevel;
 
-    [Space, HeaderLine("Gameplay config")] public bool enableAdministrator = true;
+    [Space, HeaderLine("Gameplay config")] public bool enableDebugView = true;
 
     public TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
     public int winLevelMoney = 100;

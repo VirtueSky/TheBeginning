@@ -9,14 +9,17 @@ namespace TheBeginning.DebugViewPage
         private IntegerVariable currentCoin;
         private ItemConfig itemConfig;
         private BooleanVariable isOffUIVariable;
+        private BooleanVariable isTestingVariable;
         private string _targetCoin;
         protected override string Title => "Tool Debug";
 
-        public void Init(IntegerVariable _currentCoin, ItemConfig _itemConfig, BooleanVariable _isOffUi)
+        public void Init(IntegerVariable _currentCoin, ItemConfig _itemConfig, BooleanVariable _isOffUi,
+            BooleanVariable _isTesting)
         {
             currentCoin = _currentCoin;
             itemConfig = _itemConfig;
             isOffUIVariable = _isOffUi;
+            isTestingVariable = _isTesting;
         }
 
         public override IEnumerator Initialize()
@@ -26,6 +29,7 @@ namespace TheBeginning.DebugViewPage
             AddButton("Enter Input Coin", clicked: () => currentCoin.Value = int.Parse(_targetCoin));
             AddButton("Unlock All Skin", clicked: () => itemConfig.UnlockAllSkins());
             AddSwitch(isOffUIVariable.Value, "Is Hide UI", valueChanged: b => isOffUIVariable.Value = b);
+            AddSwitch(isTestingVariable.Value, "Is Testing", valueChanged: b => isTestingVariable.Value = b);
             return base.Initialize();
         }
     }

@@ -28,10 +28,10 @@ namespace TheBeginning.DebugViewPage
 
         public override IEnumerator Initialize()
         {
-            AddButton("Show Banner", clicked: () => bannerAdVariable.Show());
+            AddButton("Show Banner", clicked: () => bannerAdVariable.AdUnitBannerVariable.Show());
             AddButton("Hide Banner", clicked: () => bannerAdVariable.Hide());
-            AddButton("Show Inter", clicked: () => interAdVariable.Show());
-            AddButton("Show Reward", clicked: () => rewardAdVariable.Show());
+            AddButton("Show Inter", clicked: () => interAdVariable.AdUnitInterVariable.Show());
+            AddButton("Show Reward", clicked: () => rewardAdVariable.AdUnitRewardVariable.Show());
             AddSwitch(offInterVariable.Value, "Is Off Inter", valueChanged: b => offInterVariable.Value = b);
             AddSwitch(offBannerVariable.Value, "Is Off Banner", valueChanged: b => offBannerVariable.Value = b);
             AddSwitch(offRewardVariable.Value, "Is Off Reward", valueChanged: b => offRewardVariable.Value = b);

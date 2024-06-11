@@ -15,6 +15,7 @@ namespace TheBeginning.Services
         [HeaderLine("Tool")] [SerializeField] private IntegerVariable currentCoin;
         [SerializeField] private ItemConfig itemConfig;
         [SerializeField] private BooleanVariable isOffUiVariable;
+        [SerializeField] private BooleanVariable isTestingVariable;
         [HeaderLine("Ads"), SerializeField] private InterAdVariable interAdVariable;
         [SerializeField] private BannerAdVariable bannerAdVariable;
         [SerializeField] private RewardAdVariable rewardAdVariable;
@@ -32,13 +33,16 @@ namespace TheBeginning.Services
 
         public override void Initialization()
         {
-            if (!gameConfig.enableAdministrator) return;
+            if (!gameConfig.enableDebugView) return;
             debugViewSheet.gameObject.SetActive(true);
             var initialPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning Debug");
             // add game page
             initialPage.AddPageLinkButton<DebugGamePage>("Tool Debug",
                 icon: DebugViewStatic.CreateIconDebug(DebugViewStatic.ICON_TOOL_DEBUG),
-                onLoad: debugView => { debugView.page.Init(currentCoin, itemConfig, isOffUiVariable); });
+                onLoad: debugView =>
+                {
+                    debugView.page.Init(currentCoin, itemConfig, isOffUiVariable, isTestingVariable);
+                });
 
             // add ads page
             initialPage.AddPageLinkButton<DebugAdsPage>("Ads Debug",
