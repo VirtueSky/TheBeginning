@@ -34,12 +34,12 @@ namespace TheBeginning.DebugViewPage
 
         public override IEnumerator Initialize()
         {
-            AddButton("Next Level", clicked: NextLevel);
-            AddButton("Prev Level", clicked: PrevLevel);
-            AddButton("Win Level", clicked: WinLevel);
-            AddButton("Lose Level", clicked: LoseLevel);
-            AddInputField("Input Index Level:", valueChanged: ChangeLevel);
-            AddButton("Jump to level input", clicked: PlayCurrentLevel);
+            AddButton("Next Level", clicked: NextLevel, icon: DebugViewStatic.IconNextDebug);
+            AddButton("Prev Level", clicked: PrevLevel, icon: DebugViewStatic.IconBackDebug);
+            AddButton("Win Level", clicked: WinLevel, icon: DebugViewStatic.IconWinDebug);
+            AddButton("Lose Level", clicked: LoseLevel, icon: DebugViewStatic.IconLoseDebug);
+            AddInputField("Input Level:", valueChanged: ChangeLevel, icon: DebugViewStatic.IconInputDebug);
+            AddButton("Jump to level input", clicked: PlayCurrentLevel, icon: DebugViewStatic.IconOkeDebug);
             return base.Initialize();
         }
 

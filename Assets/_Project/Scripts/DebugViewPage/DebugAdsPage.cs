@@ -32,9 +32,12 @@ namespace TheBeginning.DebugViewPage
             AddButton("Hide Banner", clicked: () => bannerAdVariable.Hide());
             AddButton("Show Inter", clicked: () => interAdVariable.AdUnitInterVariable.Show());
             AddButton("Show Reward", clicked: () => rewardAdVariable.AdUnitRewardVariable.Show());
-            AddSwitch(offInterVariable.Value, "Is Off Inter", valueChanged: b => offInterVariable.Value = b);
-            AddSwitch(offBannerVariable.Value, "Is Off Banner", valueChanged: b => offBannerVariable.Value = b);
-            AddSwitch(offRewardVariable.Value, "Is Off Reward", valueChanged: b => offRewardVariable.Value = b);
+            AddSwitch(offInterVariable.Value, "Is Off Inter", valueChanged: b => offInterVariable.Value = b,
+                icon: DebugViewStatic.IconToggleDebug);
+            AddSwitch(offBannerVariable.Value, "Is Off Banner", valueChanged: b => offBannerVariable.Value = b,
+                icon: DebugViewStatic.IconToggleDebug);
+            AddSwitch(offRewardVariable.Value, "Is Off Reward", valueChanged: b => offRewardVariable.Value = b,
+                icon: DebugViewStatic.IconToggleDebug);
             return base.Initialize();
         }
     }

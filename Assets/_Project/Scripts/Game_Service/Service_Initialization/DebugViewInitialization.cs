@@ -42,8 +42,8 @@ namespace TheBeginning.Services
             debugViewSheet.gameObject.SetActive(true);
             var initialPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning Debug");
             // add game page
-            initialPage.AddPageLinkButton<DebugGamePage>("Tool Debug",
-                icon: DebugViewStatic.CreateIconDebug(DebugViewStatic.ICON_TOOL_DEBUG),
+            initialPage.AddPageLinkButton<DebugGamePage>("Game Debug",
+                icon: DebugViewStatic.IconToolDebug,
                 onLoad: debugView =>
                 {
                     debugView.page.Init(currentCoin, itemConfig, isOffUiVariable, isTestingVariable);
@@ -51,7 +51,7 @@ namespace TheBeginning.Services
 
             // add ads page
             initialPage.AddPageLinkButton<DebugAdsPage>("Ads Debug",
-                icon: DebugViewStatic.CreateIconDebug(DebugViewStatic.ICON_ADS_DEBUG),
+                icon: DebugViewStatic.IconAdsDebug,
                 onLoad: debugView =>
                 {
                     debugView.page.Init(interAdVariable, rewardAdVariable, bannerAdVariable, offInterDebugVariable,
@@ -60,7 +60,7 @@ namespace TheBeginning.Services
 
             // add Level page
             initialPage.AddPageLinkButton<DebugLevelPage>("Level Debug",
-                icon: DebugViewStatic.CreateIconDebug(DebugViewStatic.ICON_LEVEL_DEBUG),
+                icon: DebugViewStatic.IconLevelDebug,
                 onLoad: debugView =>
                 {
                     debugView.page.Init(gameStateVariable, callPlayCurrentLevelEvent, callNextLevelEvent,
