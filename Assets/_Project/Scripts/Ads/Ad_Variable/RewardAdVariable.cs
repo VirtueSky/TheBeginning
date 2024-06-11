@@ -8,7 +8,7 @@ using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 [CreateAssetMenu(menuName = "Ads Variable/Reward Variable", fileName = "reward_ad_variable")]
-public class RewardVariable : BaseSO
+public class RewardAdVariable : BaseSO
 {
     [SerializeField] private AdUnitVariable rewardVariable;
 

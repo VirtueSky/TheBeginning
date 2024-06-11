@@ -47,9 +47,9 @@ public class NotificationInGame : BaseMono
     public void Hide()
     {
         if (!isShow) return;
-        isShow = false;
         Tween.UIAnchoredPositionY(container, posYHide, timeMove, Ease.InBack).OnComplete(() =>
         {
+            isShow = false;
             gameObject.SetActive(false);
         });
     }
