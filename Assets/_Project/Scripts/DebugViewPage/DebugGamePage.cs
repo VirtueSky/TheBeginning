@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using VirtueSky.Variables;
 
@@ -22,7 +23,7 @@ namespace TheBeginning.DebugViewPage
             isTestingVariable = _isTesting;
         }
 
-        public override IEnumerator Initialize()
+        public override Task Initialize()
         {
             AddButton("Add 10000 Coin", clicked: () => currentCoin.Value += 10000);
             AddInputField("Input Coin:", valueChanged: s => _targetCoin = s, icon: DebugViewStatic.IconInputDebug);
@@ -33,6 +34,7 @@ namespace TheBeginning.DebugViewPage
                 icon: DebugViewStatic.IconToggleDebug);
             AddSwitch(isTestingVariable.Value, "Is Testing", valueChanged: b => isTestingVariable.Value = b,
                 icon: DebugViewStatic.IconToggleDebug);
+            Reload();
             return base.Initialize();
         }
     }
