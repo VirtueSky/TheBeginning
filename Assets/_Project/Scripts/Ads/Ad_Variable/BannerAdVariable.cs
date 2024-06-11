@@ -6,7 +6,7 @@ using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 [CreateAssetMenu(menuName = "Ads Variable/Banner Variable", fileName = "banner_ad_variable")]
-public class BannerVariable : BaseSO
+public class BannerAdVariable : BaseSO
 {
     [SerializeField] private AdSetting adSetting;
     [SerializeField] private AdUnitVariable bannerVariable;

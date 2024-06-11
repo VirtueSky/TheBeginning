@@ -3,6 +3,7 @@ using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
@@ -31,7 +32,8 @@ public class PopupWin : UIPopup
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
     private IntegerVariable currentCoin;
 
-    [SerializeField] private RewardVariable rewardVariable;
+    [FormerlySerializedAs("rewardVariable")] [SerializeField]
+    private RewardAdVariable rewardAdVariable;
 
     private float percent = 0;
     private bool waitMoveAllCoinDone;
@@ -105,8 +107,8 @@ public class PopupWin : UIPopup
 
     public void OnClickAdsReward()
     {
-        if (rewardVariable.AdUnitRewardVariable.IsReady()) BonusArrowHandler.MoveObject.StopMoving();
-        rewardVariable.Show(() => { GetRewardAds(); }, () =>
+        if (rewardAdVariable.AdUnitRewardVariable.IsReady()) BonusArrowHandler.MoveObject.StopMoving();
+        rewardAdVariable.Show(() => { GetRewardAds(); }, () =>
         {
             BonusArrowHandler.MoveObject.ResumeMoving();
             BtnRewardAds.SetActive(true);

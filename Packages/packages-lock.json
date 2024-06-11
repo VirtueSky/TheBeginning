@@ -107,6 +107,13 @@
       },
       "hash": "039118f280938f9770ed4efcf04b5bf030981e7e"
     },
+    "com.harumak.unitydebugsheet": {
+      "version": "https://github.com/Haruma-K/UnityDebugSheet.git?path=/Assets/UnityDebugSheet",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "2b1cf90f0375e10c9c0909cc91c5b92d707f2ce3"
+    },
     "com.unity.2d.common": {
       "version": "8.0.2",
       "depth": 1,

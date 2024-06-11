@@ -2,6 +2,7 @@ using PrimeTween;
 using TheBeginning.AppControl;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Events;
 using VirtueSky.Inspector;
@@ -56,8 +57,12 @@ public class AdminController : MonoBehaviour
     [SerializeField] private FloatEvent callWinLevelEvent;
     [SerializeField] private FloatEvent callLoseLevelEvent;
     [SerializeField] private InterAdVariable interAdVariable;
-    [SerializeField] private RewardVariable rewardVariable;
-    [SerializeField] private BannerVariable bannerVariable;
+
+    [FormerlySerializedAs("rewardVariable")] [SerializeField]
+    private RewardAdVariable rewardAdVariable;
+
+    [FormerlySerializedAs("bannerVariable")] [SerializeField]
+    private BannerAdVariable bannerAdVariable;
 
     private void Awake()
     {
@@ -169,12 +174,12 @@ public class AdminController : MonoBehaviour
 
     void OnClickShowBanner()
     {
-        bannerVariable.ShowNoCondition();
+        bannerAdVariable.ShowNoCondition();
     }
 
     void OnClickHideBanner()
     {
-        bannerVariable.Hide();
+        bannerAdVariable.Hide();
     }
 
     void OnClickShowInter()
@@ -184,7 +189,7 @@ public class AdminController : MonoBehaviour
 
     void OnClickShowReward()
     {
-        rewardVariable.AdUnitRewardVariable.Show();
+        rewardAdVariable.AdUnitRewardVariable.Show();
     }
 
     void OnClickUnlockAllSkins()
