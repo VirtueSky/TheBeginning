@@ -1,15 +1,12 @@
 using PrimeTween;
 using TMPro;
 using UnityEngine;
-using VirtueSky.Audio;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
 public class CoinUpdater : MonoBehaviour
 {
     public TextMeshProUGUI CurrencyAmountText;
-    public int StepCount = 10;
-    public float DelayTime = .01f;
     [SerializeField] private GameObject iconCoin;
     [SerializeField] IntegerVariable currentCoin;
 
@@ -43,10 +40,7 @@ public class CoinUpdater : MonoBehaviour
         if (!isFirsCoinMoveDone)
         {
             isFirsCoinMoveDone = true;
-            int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-            int nextAmount = (currentCoin.Value - currentCurrencyAmount) / StepCount;
-            int step = StepCount;
-            CoinTextCount(currentCurrencyAmount, nextAmount, step);
+            UpdateTextCoin();
         }
     }
 
@@ -57,25 +51,14 @@ public class CoinUpdater : MonoBehaviour
 
     private void DecreaseCoin()
     {
-        int currentCurrencyAmount = int.Parse(CurrencyAmountText.text);
-        int nextAmount = (currentCoin.Value - currentCurrencyAmount) / StepCount;
-        int step = StepCount;
-        CoinTextCount(currentCurrencyAmount, nextAmount, step);
+        UpdateTextCoin();
     }
 
-    private void CoinTextCount(int currentCurrencyValue, int nextAmountValue, int stepCount)
+    void UpdateTextCoin()
     {
-        if (stepCount == 0)
-        {
-            CurrencyAmountText.text = currentCoin.Value.ToString();
-            return;
-        }
-
-        int totalValue = (currentCurrencyValue + nextAmountValue);
-        DOTween.Sequence().AppendInterval(DelayTime).SetUpdate(isIndependentUpdate: true).AppendCallback(() =>
-            {
-                CurrencyAmountText.text = totalValue.ToString();
-            })
-            .AppendCallback(() => { CoinTextCount(totalValue, nextAmountValue, stepCount - 1); });
+        int starCoin = int.Parse(CurrencyAmountText.text);
+        int coinChange = starCoin;
+        Tween.Custom(starCoin, currentCoin.Value, 0.5f, valueChange => coinChange = (int)valueChange)
+            .OnUpdate(this, (coin, tween) => { CurrencyAmountText.text = coinChange.ToString(); });
     }
 }
