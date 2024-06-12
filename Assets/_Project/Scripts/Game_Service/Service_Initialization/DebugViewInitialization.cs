@@ -12,6 +12,16 @@ namespace TheBeginning.Services
     {
         [SerializeField] private DebugSheet debugViewSheet;
         [SerializeField] private GameConfig gameConfig;
+        [HeaderLine("Icon"), SerializeField] private Sprite iconTool;
+        [SerializeField] private Sprite iconAds;
+        [SerializeField] private Sprite iconLevel;
+        [SerializeField] private Sprite iconWin;
+        [SerializeField] private Sprite iconLose;
+        [SerializeField] private Sprite iconNext;
+        [SerializeField] private Sprite iconBack;
+        [SerializeField] private Sprite iconToggle;
+        [SerializeField] private Sprite iconInput;
+        [SerializeField] private Sprite iconOke;
         [HeaderLine("Tool")] [SerializeField] private IntegerVariable currentCoin;
         [SerializeField] private ItemConfig itemConfig;
         [SerializeField] private BooleanVariable isOffUiVariable;
