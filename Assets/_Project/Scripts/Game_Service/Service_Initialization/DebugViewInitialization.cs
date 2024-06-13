@@ -66,7 +66,7 @@ namespace TheBeginning.Services
                 onLoad: debugView =>
                 {
                     debugView.page.Init(interAdVariable, rewardAdVariable, bannerAdVariable, offInterDebugVariable,
-                        offBannerDebugVariable, offRewardDebugVariable, iconToggle);
+                        offBannerDebugVariable, offRewardDebugVariable, iconToggle, showNotificationInGameEvent);
                 });
 
             // add Level page

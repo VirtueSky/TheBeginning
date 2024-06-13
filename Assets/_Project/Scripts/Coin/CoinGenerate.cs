@@ -6,12 +6,14 @@ using UnityEngine;
 using VirtueSky.Audio;
 using VirtueSky.Core;
 using VirtueSky.Events;
+using VirtueSky.ObjectPooling;
 using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 using Random = UnityEngine.Random;
 
 public class CoinGenerate : BaseMono
 {
+    [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Transform holder;
     [SerializeField] private int numberCoin;
     [SerializeField] private int delay;
@@ -28,7 +30,6 @@ public class CoinGenerate : BaseMono
     [SerializeField] private EventNoParam moveAllCoinDone;
     [SerializeField] private EventNoParam decreaseCoinEvent;
     [SerializeField] private IntegerVariable currentCoin;
-    [SerializeField] private CoinPool coinPool;
     [Header("Sound")] [SerializeField] public PlaySfxEvent playSoundFx;
     [SerializeField] private SoundData soundCoinMove;
 
@@ -104,7 +105,7 @@ public class CoinGenerate : BaseMono
         for (int i = 0; i < numberCoin; i++)
         {
             await UniTask.Delay(Random.Range(0, delay));
-            GameObject coin = coinPool.Spawn(holder);
+            GameObject coin = coinPrefab.Spawn();
             coin.transform.localScale = Vector3.one * scale;
             coinsActive.Add(coin);
             coin.transform.position = from;
@@ -112,7 +113,7 @@ public class CoinGenerate : BaseMono
             MoveToTarget(coin, () =>
             {
                 coinsActive.Remove(coin);
-                coinPool.DeSpawn(coin);
+                coin.DeSpawn();
                 if (!isScaleIconTo)
                 {
                     isScaleIconTo = true;
