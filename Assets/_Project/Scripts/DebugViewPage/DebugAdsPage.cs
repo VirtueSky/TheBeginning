@@ -2,6 +2,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
+using VirtueSky.Events;
 using VirtueSky.Variables;
 
 namespace TheBeginning.DebugViewPage
@@ -15,11 +16,12 @@ namespace TheBeginning.DebugViewPage
         private BooleanVariable offBannerVariable;
         private BooleanVariable offRewardVariable;
         private Sprite iconToggle;
+        private StringEvent showNotificationInGameEvent;
         protected override string Title => "Ads Debug";
 
         public void Init(InterAdVariable _interAdVariable, RewardAdVariable _rewardAdVariable,
             BannerAdVariable _bannerAdVariable, BooleanVariable _offInter, BooleanVariable _offBanner,
-            BooleanVariable _offReward, Sprite _iconToggle)
+            BooleanVariable _offReward, Sprite _iconToggle, StringEvent _showNotiEvent)
         {
             interAdVariable = _interAdVariable;
             rewardAdVariable = _rewardAdVariable;
@@ -28,14 +30,15 @@ namespace TheBeginning.DebugViewPage
             offBannerVariable = _offBanner;
             offRewardVariable = _offReward;
             iconToggle = _iconToggle;
+            showNotificationInGameEvent = _showNotiEvent;
         }
 
         public override Task Initialize()
         {
-            AddButton("Show Banner", clicked: () => bannerAdVariable.AdUnitBannerVariable.Show());
-            AddButton("Hide Banner", clicked: () => bannerAdVariable.Hide());
-            AddButton("Show Inter", clicked: () => interAdVariable.AdUnitInterVariable.Show());
-            AddButton("Show Reward", clicked: () => rewardAdVariable.AdUnitRewardVariable.Show());
+            AddButton("Show Banner", clicked: ShowBanner);
+            AddButton("Hide Banner", clicked: HideBanner);
+            AddButton("Show Inter", clicked: ShowInter);
+            AddButton("Show Reward", clicked: ShowReward);
             AddSwitch(offInterVariable.Value, "Is Off Inter", valueChanged: b => offInterVariable.Value = b,
                 icon: iconToggle);
             AddSwitch(offBannerVariable.Value, "Is Off Banner", valueChanged: b => offBannerVariable.Value = b,
@@ -43,6 +46,54 @@ namespace TheBeginning.DebugViewPage
             AddSwitch(offRewardVariable.Value, "Is Off Reward", valueChanged: b => offRewardVariable.Value = b,
                 icon: iconToggle);
             return base.Initialize();
+        }
+
+        void ShowBanner()
+        {
+            if (Application.isMobilePlatform)
+            {
+                bannerAdVariable.AdUnitBannerVariable.Show();
+            }
+            else
+            {
+                showNotificationInGameEvent.Raise("Only works on mobile platform");
+            }
+        }
+
+        void HideBanner()
+        {
+            if (Application.isMobilePlatform)
+            {
+                bannerAdVariable.Hide();
+            }
+            else
+            {
+                showNotificationInGameEvent.Raise("Only works on mobile platform");
+            }
+        }
+
+        void ShowInter()
+        {
+            if (Application.isMobilePlatform)
+            {
+                interAdVariable.AdUnitInterVariable.Show();
+            }
+            else
+            {
+                showNotificationInGameEvent.Raise("Only works on mobile platform");
+            }
+        }
+
+        void ShowReward()
+        {
+            if (Application.isMobilePlatform)
+            {
+                rewardAdVariable.AdUnitRewardVariable.Show();
+            }
+            else
+            {
+                showNotificationInGameEvent.Raise("Only works on mobile platform");
+            }
         }
     }
 }

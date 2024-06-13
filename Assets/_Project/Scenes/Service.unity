@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -696,7 +696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b86bd0cb00c4144a7171384a1d1a7ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
 --- !u!114 &524850876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,7 +1155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualEffectConfig: {fileID: 11400000, guid: e6191c42750a4db49b793497b673f618, type: 2}
-  pools: {fileID: 11400000, guid: 31683f0c90e634d8d980521af34039b1, type: 2}
   spawnEffectEvent: {fileID: 11400000, guid: 5809c9924b572894ab3ad0e21a06e422, type: 2}
 --- !u!114 &1448091020
 MonoBehaviour:
@@ -1171,7 +1169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDontDestroyOnLoad: 0
-  soundComponentPool: {fileID: 11400000, guid: 3f552051a4d54054192af9ffc30c929e, type: 2}
+  soundComponentPrefab: {fileID: 388889726886674533, guid: 61141c7603e7a9740933706a3f0d4ab7,
+    type: 3}
   audioHolder: {fileID: 1221707768}
   eventPlayMusic: {fileID: 11400000, guid: 2f4f06310dd5bc84f80499d277f922ca, type: 2}
   eventStopMusic: {fileID: 11400000, guid: ee9801e62b463ad43bf2d085e75f7dab, type: 2}
