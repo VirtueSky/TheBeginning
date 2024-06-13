@@ -12,6 +12,16 @@ namespace TheBeginning.Services
     {
         [SerializeField] private DebugSheet debugViewSheet;
         [SerializeField] private GameConfig gameConfig;
+        [HeaderLine("Icon"), SerializeField] private Sprite iconTool;
+        [SerializeField] private Sprite iconAds;
+        [SerializeField] private Sprite iconLevel;
+        [SerializeField] private Sprite iconWin;
+        [SerializeField] private Sprite iconLose;
+        [SerializeField] private Sprite iconNext;
+        [SerializeField] private Sprite iconBack;
+        [SerializeField] private Sprite iconToggle;
+        [SerializeField] private Sprite iconInput;
+        [SerializeField] private Sprite iconOke;
         [HeaderLine("Tool")] [SerializeField] private IntegerVariable currentCoin;
         [SerializeField] private ItemConfig itemConfig;
         [SerializeField] private BooleanVariable isOffUiVariable;
@@ -43,29 +53,30 @@ namespace TheBeginning.Services
             var initialPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning Debug");
             // add game page
             initialPage.AddPageLinkButton<DebugGamePage>("Game Debug",
-                icon: DebugViewStatic.IconToolDebug,
+                icon: iconTool,
                 onLoad: debugView =>
                 {
-                    debugView.page.Init(currentCoin, itemConfig, isOffUiVariable, isTestingVariable);
+                    debugView.page.Init(currentCoin, itemConfig, isOffUiVariable, isTestingVariable, iconInput, iconOke,
+                        iconToggle);
                 });
 
             // add ads page
             initialPage.AddPageLinkButton<DebugAdsPage>("Ads Debug",
-                icon: DebugViewStatic.IconAdsDebug,
+                icon: iconAds,
                 onLoad: debugView =>
                 {
                     debugView.page.Init(interAdVariable, rewardAdVariable, bannerAdVariable, offInterDebugVariable,
-                        offBannerDebugVariable, offRewardDebugVariable);
+                        offBannerDebugVariable, offRewardDebugVariable, iconToggle);
                 });
 
             // add Level page
             initialPage.AddPageLinkButton<DebugLevelPage>("Level Debug",
-                icon: DebugViewStatic.IconLevelDebug,
+                icon: iconLevel,
                 onLoad: debugView =>
                 {
                     debugView.page.Init(gameStateVariable, callPlayCurrentLevelEvent, callNextLevelEvent,
                         callPreviousLevelEvent, callWinLevelEvent, callLoseLevelEvent, indexLevel,
-                        showNotificationInGameEvent);
+                        showNotificationInGameEvent, iconNext, iconBack, iconWin, iconLose, iconInput, iconOke);
                 });
             initialPage.Reload();
         }

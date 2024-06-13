@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Threading.Tasks;
 using UnityDebugSheet.Runtime.Core.Scripts;
+using UnityEngine;
 using VirtueSky.Variables;
 
 namespace TheBeginning.DebugViewPage
@@ -13,11 +14,12 @@ namespace TheBeginning.DebugViewPage
         private BooleanVariable offInterVariable;
         private BooleanVariable offBannerVariable;
         private BooleanVariable offRewardVariable;
+        private Sprite iconToggle;
         protected override string Title => "Ads Debug";
 
         public void Init(InterAdVariable _interAdVariable, RewardAdVariable _rewardAdVariable,
             BannerAdVariable _bannerAdVariable, BooleanVariable _offInter, BooleanVariable _offBanner,
-            BooleanVariable _offReward)
+            BooleanVariable _offReward, Sprite _iconToggle)
         {
             interAdVariable = _interAdVariable;
             rewardAdVariable = _rewardAdVariable;
@@ -25,6 +27,7 @@ namespace TheBeginning.DebugViewPage
             offInterVariable = _offInter;
             offBannerVariable = _offBanner;
             offRewardVariable = _offReward;
+            iconToggle = _iconToggle;
         }
 
         public override Task Initialize()
@@ -34,11 +37,11 @@ namespace TheBeginning.DebugViewPage
             AddButton("Show Inter", clicked: () => interAdVariable.AdUnitInterVariable.Show());
             AddButton("Show Reward", clicked: () => rewardAdVariable.AdUnitRewardVariable.Show());
             AddSwitch(offInterVariable.Value, "Is Off Inter", valueChanged: b => offInterVariable.Value = b,
-                icon: DebugViewStatic.IconToggleDebug);
+                icon: iconToggle);
             AddSwitch(offBannerVariable.Value, "Is Off Banner", valueChanged: b => offBannerVariable.Value = b,
-                icon: DebugViewStatic.IconToggleDebug);
+                icon: iconToggle);
             AddSwitch(offRewardVariable.Value, "Is Off Reward", valueChanged: b => offRewardVariable.Value = b,
-                icon: DebugViewStatic.IconToggleDebug);
+                icon: iconToggle);
             return base.Initialize();
         }
     }

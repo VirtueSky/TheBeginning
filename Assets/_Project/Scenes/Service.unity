@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -726,6 +726,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugViewSheet: {fileID: 2095126785}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  iconTool: {fileID: 21300000, guid: 4d93d6492d80bd1449fee29b623fa030, type: 3}
+  iconAds: {fileID: 21300000, guid: 243221073899f8d49b1503b89bfaedbb, type: 3}
+  iconLevel: {fileID: 21300000, guid: d42790411f751dc4b8e974ec43e206df, type: 3}
+  iconWin: {fileID: 21300000, guid: 88cc42f2fcd6563419ed336b365c7c87, type: 3}
+  iconLose: {fileID: 21300000, guid: 128c7a70f4f427045819715a47cd342c, type: 3}
+  iconNext: {fileID: 21300000, guid: 8dd334b31878d77488c5c8f6bc8887a2, type: 3}
+  iconBack: {fileID: 21300000, guid: 3b68565843ca8364eb07ecf164e141df, type: 3}
+  iconToggle: {fileID: 21300000, guid: 5aff09c0f38369e4c9f563e16f6fb7ef, type: 3}
+  iconInput: {fileID: 21300000, guid: 6cf985f7ae70b3048983210385dc27d2, type: 3}
+  iconOke: {fileID: 21300000, guid: 6e84e7d8948d694489b6358566c6d2b1, type: 3}
   currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
   itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
   isOffUiVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
