@@ -57,8 +57,8 @@ MonoBehaviour:
   durationTarget: 0.5
   easeNear: 12
   easeTarget: 21
-  scale: 0.7
-  offsetNear: 1
+  scale: 0.6
+  offsetNear: 1.5
   setFromCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
   addTargetToCoinGenerateEvent: {fileID: 11400000, guid: 5536e1a745f504c7eb6f4f7b40ac0329,
     type: 2}

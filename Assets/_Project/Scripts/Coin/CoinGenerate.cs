@@ -105,7 +105,7 @@ public class CoinGenerate : BaseMono
         for (int i = 0; i < numberCoin; i++)
         {
             await UniTask.Delay(Random.Range(0, delay));
-            GameObject coin = coinPrefab.Spawn();
+            GameObject coin = coinPrefab.Spawn(holder);
             coin.transform.localScale = Vector3.one * scale;
             coinsActive.Add(coin);
             coin.transform.position = from;
