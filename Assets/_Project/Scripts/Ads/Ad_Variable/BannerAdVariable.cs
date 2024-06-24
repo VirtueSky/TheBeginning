@@ -8,7 +8,6 @@ using VirtueSky.Variables;
 [CreateAssetMenu(menuName = "Ads Variable/Banner Variable", fileName = "banner_ad_variable")]
 public class BannerAdVariable : BaseSO
 {
-    [SerializeField] private AdSetting adSetting;
     [SerializeField] private AdUnitVariable bannerVariable;
     [Space, SerializeField] private BooleanVariable isOffBannerVariable;
 
@@ -37,16 +36,7 @@ public class BannerAdVariable : BaseSO
 
     public void Hide()
     {
-        switch (adSetting.CurrentAdNetwork)
-        {
-            case AdNetwork.Max:
-                (bannerVariable as MaxBannerVariable)?.Hide();
-                break;
-            case AdNetwork.Admob:
-                (bannerVariable as AdmobBannerVariable)?.Hide();
-                break;
-        }
-
+        bannerVariable.HideBanner();
         trackingFirebaseHideBanner.TrackEvent();
     }
 
