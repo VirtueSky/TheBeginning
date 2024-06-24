@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708708, g: 0.37838137, b: 0.35725543, a: 1}
+  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1020,6 +1020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationVariables:
   - {fileID: 11400000, guid: 968e6ecf0f1dc274e8b317a88339503b, type: 2}
+  autoSchedule: 1
 --- !u!114 &1448091014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,16 +1198,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
-  adSetting: {fileID: 11400000, guid: fb5f51310080b45ef93d6e2ffe38be83, type: 2}
+  adSetting: {fileID: 11400000, guid: f438eac3a49d436468a0dd8cf10cf3ee, type: 2}
   changePreventDisplayAppOpenEvent: {fileID: 11400000, guid: 79bb6a658a49caf419b315ee96940768,
     type: 2}
-  isGDPRCanRequestAds: {fileID: 11400000, guid: 5fddd6d47ae504305897c67e9eacf43a,
-    type: 2}
-  isPrivacyRequiredGDPR: {fileID: 11400000, guid: bde677442bb2c4d4da0a4f33b464e1d3,
-    type: 2}
-  showPrivacyOptionsFormSuccessEvent: {fileID: 11400000, guid: f99127449c94a47ab94c5711cbd2d030,
-    type: 2}
-  callShowPrivacyOptionFormEvent: {fileID: 11400000, guid: 406a90b031945024a97ea43f66e66e51,
+  callShowAgainGDPREvent: {fileID: 11400000, guid: 406a90b031945024a97ea43f66e66e51,
     type: 2}
 --- !u!114 &1448091023
 MonoBehaviour:
