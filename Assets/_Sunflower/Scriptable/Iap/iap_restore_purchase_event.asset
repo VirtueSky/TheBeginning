@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b5edc0caef4a02a234b4d36a5a1c2a, type: 3}
-  m_Name: tracking_firebase_show_reward_completed
+  m_Script: {fileID: 11500000, guid: 719558c56beb4a8d98cf058fadf5455a, type: 3}
+  m_Name: iap_restore_purchase_event
   m_EditorClassIdentifier: 
-  eventName: On_Show_Reward_Completed
-  parameterName: reward_position
+  description: only ios

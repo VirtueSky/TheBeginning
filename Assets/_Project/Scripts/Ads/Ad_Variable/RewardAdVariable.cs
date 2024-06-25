@@ -16,9 +16,9 @@ public class RewardAdVariable : BaseSO
     [SerializeField] private StringEvent showNotificationInGameEvent;
 
     [Space, HeaderLine("Log Event Firebase Analytic"), SerializeField]
-    private TrackingFirebaseNoParam trackingFirebaseRequestReward;
+    private TrackingFirebaseOneParam trackingFirebaseRequestReward;
 
-    [SerializeField] private TrackingFirebaseNoParam trackingFirebaseShowRewardCompleted;
+    [SerializeField] private TrackingFirebaseOneParam trackingFirebaseShowRewardCompleted;
     public AdUnitVariable AdUnitRewardVariable => rewardVariable;
 
     bool Condition()
@@ -27,17 +27,17 @@ public class RewardAdVariable : BaseSO
     }
 
     public void Show(Action completeCallback = null, Action skipCallback = null, Action displayCallback = null,
-        Action closeCallback = null)
+        Action closeCallback = null, string trackingRewardPosition = "")
     {
         if (Condition())
         {
-            trackingFirebaseRequestReward.TrackEvent();
+            trackingFirebaseRequestReward.TrackEvent(trackingRewardPosition);
             rewardVariable.Show().OnCompleted(() =>
                 {
                     DelayHandle(() =>
                     {
                         completeCallback?.Invoke();
-                        trackingFirebaseShowRewardCompleted.TrackEvent();
+                        trackingFirebaseShowRewardCompleted.TrackEvent(trackingRewardPosition);
                     });
                 }).OnDisplayed(displayCallback)
                 .OnClosed(() => DelayHandle(closeCallback))

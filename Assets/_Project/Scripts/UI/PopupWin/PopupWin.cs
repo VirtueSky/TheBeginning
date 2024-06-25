@@ -1,3 +1,4 @@
+using System.Reflection;
 using PrimeTween;
 using TheBeginning.AppControl;
 using TheBeginning.UserData;
@@ -109,11 +110,11 @@ public class PopupWin : UIPopup
     {
         if (rewardAdVariable.AdUnitRewardVariable.IsReady()) BonusArrowHandler.MoveObject.StopMoving();
         rewardAdVariable.Show(() => { GetRewardAds(); }, () =>
-        {
-            BonusArrowHandler.MoveObject.ResumeMoving();
-            BtnRewardAds.SetActive(true);
-            BtnTapToContinue.SetActive(true);
-        });
+            {
+                BonusArrowHandler.MoveObject.ResumeMoving();
+                BtnRewardAds.SetActive(true);
+                BtnTapToContinue.SetActive(true);
+            }, trackingRewardPosition: $"{MethodBase.GetCurrentMethod().Name}_{this.name}");
     }
 
     public async void GetRewardAds()
