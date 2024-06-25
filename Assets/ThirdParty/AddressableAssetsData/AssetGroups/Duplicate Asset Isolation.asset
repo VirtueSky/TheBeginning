@@ -252,11 +252,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5b8e3fd403b4ad44d99d8673194f90ef
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_show_reward_completed.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a922fcba70520de4486468de077e96c2
     m_Address: Assets/_Sunflower/Scriptable/Variable/time_counter_inter_ad_variable.asset
     m_ReadOnly: 0
@@ -269,11 +264,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 418b5efd79ff44f5f837f5ca52f4d4fc
     m_Address: Assets/_Sunflower/Scriptable/Ads/Admob/AdmobBannerVariable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b91c2b3e7f3f00b438e54856c4523deb
-    m_Address: Assets/_Sunflower/Scriptable/FirebaseAnalytic_Tracking/Tracking_Ads/tracking_firebase_request_reward.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

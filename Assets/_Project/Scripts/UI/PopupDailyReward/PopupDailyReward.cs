@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using System.Reflection;
 using PrimeTween;
 using TheBeginning.AppControl;
 using TheBeginning.UserData;
@@ -74,13 +75,13 @@ public class PopupDailyReward : UIPopup
     public void OnClickBtnClaimX5Video()
     {
         rewardAdVariable.Show(() =>
-        {
-            CurrentItem.OnClaim(true, () =>
             {
-                claimRewardEvent.Raise();
-                Setup();
-            });
-        });
+                CurrentItem.OnClaim(true, () =>
+                {
+                    claimRewardEvent.Raise();
+                    Setup();
+                });
+            }, trackingRewardPosition: $"{MethodBase.GetCurrentMethod().Name}_{this.name}");
     }
 
     public void OnClickBtnClaim()
