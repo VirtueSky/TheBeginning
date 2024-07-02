@@ -35,3 +35,12 @@ MonoBehaviour:
   enableGDPR: 0
   enableGDPRTestMode: 0
   admobDevicesTest: []
+  androidAppKey: 
+  iOSAppKey: 
+  useTestAppKey: 1
+  ironSourceBannerVariable: {fileID: 11400000, guid: 43fa97e0019de304cb4ce05506a82fa5,
+    type: 2}
+  ironSourceInterVariable: {fileID: 11400000, guid: 33969daddf1f1d3468618b9f3c743ceb,
+    type: 2}
+  ironSourceRewardVariable: {fileID: 11400000, guid: 3d9d712d9e26eba40a216f72a4d7c6fa,
+    type: 2}

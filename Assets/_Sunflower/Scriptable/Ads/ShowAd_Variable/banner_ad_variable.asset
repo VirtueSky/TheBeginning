@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: banner_ad_variable
   m_EditorClassIdentifier: 
   description: 
-  adSetting: {fileID: 11400000, guid: fb5f51310080b45ef93d6e2ffe38be83, type: 2}
   bannerVariable: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
   isOffBannerVariable: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183,
     type: 2}
