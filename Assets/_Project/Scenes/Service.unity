@@ -970,6 +970,7 @@ GameObject:
   - component: {fileID: 1448091017}
   - component: {fileID: 1448091020}
   - component: {fileID: 1448091021}
+  - component: {fileID: 1448091024}
   m_Layer: 0
   m_Name: Service
   m_TagString: Untagged
@@ -1223,6 +1224,35 @@ MonoBehaviour:
   - {fileID: 524850875}
   - {fileID: 524850874}
   - {fileID: 524850872}
+--- !u!114 &1448091024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448091006}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c749a2fdea6f4e87b4cf5c41c5da0d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputEventTouchBegin: {fileID: 11400000, guid: 417548e77c823694d9b8752e0a2c81f8,
+    type: 2}
+  inputEventTouchMove: {fileID: 11400000, guid: 1a1a85e456bbfda469a39a877b5bb0df,
+    type: 2}
+  inputEventTouchStationary: {fileID: 11400000, guid: 385735ad42d0ebb4d9da63a2f0b810cd,
+    type: 2}
+  inputEventTouchEnd: {fileID: 11400000, guid: 49d49980a665257419393436a2ac5fb3, type: 2}
+  inputEventTouchCancel: {fileID: 11400000, guid: 882d35632dc142444b171096f44b2896,
+    type: 2}
+  useMouse: 1
+  inputEventMouseDown: {fileID: 11400000, guid: b86d291cfdb1ab249acb88401eee94fb,
+    type: 2}
+  inputEventMouseUpdate: {fileID: 11400000, guid: 027b0d8399245c247aaefe4e524b481a,
+    type: 2}
+  inputEventMouseUp: {fileID: 11400000, guid: 10a21daa762276944a90c9b2a54b3490, type: 2}
+  ignoreUI: 1
+  touchPosition: {x: 0, y: 0, z: 0}
 --- !u!224 &1725799735 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2063518118511579042, guid: 9061c66a86c22914ab4f80086948599c,

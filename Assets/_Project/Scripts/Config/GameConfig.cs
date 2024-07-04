@@ -11,6 +11,7 @@ public class GameConfig : ScriptableObject
     [Space, HeaderLine("Gameplay config")] public bool enableDebugView = true;
 
     public TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
+    public bool multiTouchEnabled;
     public int winLevelMoney = 100;
     public int percentWinGiftPerLevel = 10;
 

@@ -19,9 +19,9 @@ using Unity.Advertisement.IosSupport;
 [EditorIcon("icon_manager")]
 public class LoadingManager : BaseMono
 {
+    [SerializeField] private GameConfig gameConfig;
     [HeaderLine("Attributes")] public Image progressBar;
     public TextMeshProUGUI loadingText;
-
     [Range(0.1f, 10f)] public float timeLoading = 5f;
     [SerializeField] private StringEvent changeSceneEvent;
     [SerializeField] private BooleanVariable isFetchRemoteConfigCompleted;
@@ -32,6 +32,7 @@ public class LoadingManager : BaseMono
     {
         Init();
         LoadScene();
+        Input.multiTouchEnabled = gameConfig.multiTouchEnabled;
     }
 
 
