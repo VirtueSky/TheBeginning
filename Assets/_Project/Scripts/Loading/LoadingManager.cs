@@ -1,5 +1,4 @@
 using PrimeTween;
-using TheBeginning;
 using TheBeginning.Config;
 using TMPro;
 using UnityEngine;
@@ -13,9 +12,6 @@ using VirtueSky.Core;
 using VirtueSky.Events;
 using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
-#if UNITY_IOS
-using Unity.Advertisement.IosSupport;
-#endif
 
 namespace TheBeginning.SceneFlow
 {
@@ -41,14 +37,6 @@ namespace TheBeginning.SceneFlow
 
         private void Init()
         {
-#if UNITY_IOS
-        if (ATTrackingStatusBinding.GetAuthorizationTrackingStatus() ==
-            ATTrackingStatusBinding.AuthorizationTrackingStatus.NOT_DETERMINED)
-        {
-            ATTrackingStatusBinding.RequestAuthorizationTracking();
-        }
-#endif
-
             progressBar.fillAmount = 0;
             progressBar.DOFillAmount(1, timeLoading)
                 .OnUpdate(progressBar,

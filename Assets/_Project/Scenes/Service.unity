@@ -603,6 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 524850869}
+  - component: {fileID: 524850878}
   - component: {fileID: 524850871}
   - component: {fileID: 524850875}
   - component: {fileID: 524850874}
@@ -758,6 +759,18 @@ MonoBehaviour:
   indexLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   showNotificationInGameEvent: {fileID: 11400000, guid: cd73ca7a44674384aa18fd3f412eeee3,
     type: 2}
+--- !u!114 &524850878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524850868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b63baa11cb54b389165d68e8321f4da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &532783272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,12 +1214,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serviceInitializations:
-  - {fileID: 524850871}
-  - {fileID: 524850873}
+  - {fileID: 524850878}
   - {fileID: 524850877}
-  - {fileID: 524850876}
-  - {fileID: 524850875}
   - {fileID: 524850874}
+  - {fileID: 524850876}
+  - {fileID: 524850871}
+  - {fileID: 524850875}
+  - {fileID: 524850873}
   - {fileID: 524850872}
 --- !u!114 &1448091024
 MonoBehaviour:
