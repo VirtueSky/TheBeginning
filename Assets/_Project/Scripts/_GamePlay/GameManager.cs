@@ -93,7 +93,7 @@ public class GameManager : BaseMono
     private void ReplayGame()
     {
         eventReplayLevel.Raise(eventGetCurrentLevel.Raise());
-        trackingFirebaseLoseLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
+        trackingFirebaseReplayLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
         StartGame();
         PopupManager.Show<PopupInGame>();
     }
