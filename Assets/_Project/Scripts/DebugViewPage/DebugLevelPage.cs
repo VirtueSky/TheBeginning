@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Threading.Tasks;
+using TheBeginning.Game;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
 using VirtueSky.Events;

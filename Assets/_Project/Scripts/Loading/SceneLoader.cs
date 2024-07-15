@@ -7,63 +7,66 @@ using VirtueSky.Events;
 using TheBeginning;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-public class SceneLoader : BaseMono
+namespace TheBeginning.SceneFlow
 {
-    [SerializeField] private StringEvent changeSceneEvent;
-
-    public override void OnEnable()
+    public class SceneLoader : BaseMono
     {
-        base.OnEnable();
-        changeSceneEvent.AddListener(ChangeScene);
-    }
+        [SerializeField] private StringEvent changeSceneEvent;
 
-    public override void OnDisable()
-    {
-        base.OnDisable();
-        changeSceneEvent.RemoveListener(ChangeScene);
-    }
-
-    public void ChangeScene(string sceneName)
-    {
-        foreach (var scene in GetAllLoadedScene())
+        public override void OnEnable()
         {
-            if (!scene.name.Equals(Constant.SERVICE_SCENE))
+            base.OnEnable();
+            changeSceneEvent.AddListener(ChangeScene);
+        }
+
+        public override void OnDisable()
+        {
+            base.OnDisable();
+            changeSceneEvent.RemoveListener(ChangeScene);
+        }
+
+        public void ChangeScene(string sceneName)
+        {
+            foreach (var scene in GetAllLoadedScene())
             {
-                if (Utility.sceneHolder.ContainsKey(scene.name))
+                if (!scene.name.Equals(Constant.SERVICE_SCENE))
                 {
-                    Addressables.UnloadSceneAsync(Utility.sceneHolder[scene.name]);
-                    Utility.sceneHolder.Remove(scene.name);
+                    if (Utility.sceneHolder.ContainsKey(scene.name))
+                    {
+                        Addressables.UnloadSceneAsync(Utility.sceneHolder[scene.name]);
+                        Utility.sceneHolder.Remove(scene.name);
+                    }
+                    else
+                    {
+                        SceneManager.UnloadSceneAsync(scene);
+                    }
                 }
-                else
-                {
-                    SceneManager.UnloadSceneAsync(scene);
-                }
+            }
+
+            Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive).Completed += OnAdditiveSceneLoaded;
+        }
+
+        void OnAdditiveSceneLoaded(AsyncOperationHandle<SceneInstance> scene)
+        {
+            if (scene.Status == AsyncOperationStatus.Succeeded)
+            {
+                string sceneName = scene.Result.Scene.name;
+                Utility.sceneHolder.Add(sceneName, scene);
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
             }
         }
 
-        Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive).Completed += OnAdditiveSceneLoaded;
-    }
-
-    void OnAdditiveSceneLoaded(AsyncOperationHandle<SceneInstance> scene)
-    {
-        if (scene.Status == AsyncOperationStatus.Succeeded)
+        private Scene[] GetAllLoadedScene()
         {
-            string sceneName = scene.Result.Scene.name;
-            Utility.sceneHolder.Add(sceneName, scene);
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+            int countLoaded = SceneManager.sceneCount;
+            var loadedScenes = new Scene[countLoaded];
+
+            for (var i = 0; i < countLoaded; i++)
+            {
+                loadedScenes[i] = SceneManager.GetSceneAt(i);
+            }
+
+            return loadedScenes;
         }
-    }
-
-    private Scene[] GetAllLoadedScene()
-    {
-        int countLoaded = SceneManager.sceneCount;
-        var loadedScenes = new Scene[countLoaded];
-
-        for (var i = 0; i < countLoaded; i++)
-        {
-            loadedScenes[i] = SceneManager.GetSceneAt(i);
-        }
-
-        return loadedScenes;
     }
 }

@@ -5,30 +5,33 @@ using VirtueSky.Inspector;
 using VirtueSky.Misc;
 using VirtueSky.Variables;
 
-public class Level : BaseMono
+namespace TheBeginning.LevelSystem
 {
-    [SerializeField] private IntegerVariable indexLevelVariable;
-    [SerializeField] private EventGetTransformCurrentLevel eventGetTransformCurrentLevel;
-    public Transform GetTransform() => transform;
-
-    public override void OnEnable()
+    public class Level : BaseMono
     {
-        base.OnEnable();
-        eventGetTransformCurrentLevel.AddListener(GetTransform);
-    }
+        [SerializeField] private IntegerVariable indexLevelVariable;
+        [SerializeField] private EventGetTransformCurrentLevel eventGetTransformCurrentLevel;
+        public Transform GetTransform() => transform;
 
-    public override void OnDisable()
-    {
-        base.OnDisable();
-        eventGetTransformCurrentLevel.RemoveListener(GetTransform);
-    }
+        public override void OnEnable()
+        {
+            base.OnEnable();
+            eventGetTransformCurrentLevel.AddListener(GetTransform);
+        }
+
+        public override void OnDisable()
+        {
+            base.OnDisable();
+            eventGetTransformCurrentLevel.RemoveListener(GetTransform);
+        }
 
 #if UNITY_EDITOR
-    [Button]
-    private void StartLevel()
-    {
-        indexLevelVariable.Value = gameObject.name.GetNumberInAString();
-        EditorApplication.isPlaying = true;
-    }
+        [Button]
+        private void StartLevel()
+        {
+            indexLevelVariable.Value = gameObject.name.GetNumberInAString();
+            EditorApplication.isPlaying = true;
+        }
 #endif
+    }
 }

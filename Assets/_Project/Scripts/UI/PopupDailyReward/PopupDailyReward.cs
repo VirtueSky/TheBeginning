@@ -4,98 +4,102 @@ using System;
 using System.Linq;
 using System.Reflection;
 using PrimeTween;
-using TheBeginning.UserData;
+using TheBeginning.Config;
+using TheBeginning.Data;
 using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
-public class PopupDailyReward : UIPopup
+namespace TheBeginning.UI
 {
-    [TitleColor("Attribute", CustomColor.Lavender, CustomColor.Cornsilk)]
-    public GameObject BtnWatchVideo;
-
-    public GameObject BtnClaim;
-    [SerializeField] private EventNoParam claimRewardEvent;
-
-    [FormerlySerializedAs("rewardVariable")] [SerializeField]
-    private RewardAdVariable rewardAdVariable;
-
-    [ReadOnly] public DailyRewardItem CurrentItem;
-    public List<DailyRewardItem> DailyRewardItems => GetComponentsInChildren<DailyRewardItem>().ToList();
-
-    protected override void OnBeforeShow()
+    public class PopupDailyReward : UIPopup
     {
-        base.OnBeforeShow();
-        ResetDailyReward();
-        Setup();
-    }
+        [TitleColor("Attribute", CustomColor.Lavender, CustomColor.Cornsilk)]
+        public GameObject BtnWatchVideo;
 
-    public void ResetDailyReward()
-    {
-        if (!UserData.IsClaimedTodayDailyReward() && UserData.DailyRewardDayIndex == 29)
+        public GameObject BtnClaim;
+        [SerializeField] private EventNoParam claimRewardEvent;
+
+        [FormerlySerializedAs("rewardVariable")] [SerializeField]
+        private RewardAdVariable rewardAdVariable;
+
+        [ReadOnly] public DailyRewardItem CurrentItem;
+        public List<DailyRewardItem> DailyRewardItems => GetComponentsInChildren<DailyRewardItem>().ToList();
+
+        protected override void OnBeforeShow()
         {
-            UserData.DailyRewardDayIndex = 1;
-            UserData.IsStartLoopingDailyReward = true;
-        }
-    }
-
-    private bool IsCurrentItem(int index)
-    {
-        return UserData.DailyRewardDayIndex == index;
-    }
-
-    public void Setup()
-    {
-        SetUpItems();
-    }
-
-    private void SetUpItems()
-    {
-        var week = (UserData.DailyRewardDayIndex - 1) / 7;
-        if (UserData.IsClaimedTodayDailyReward()) week = (UserData.DailyRewardDayIndex - 2) / 7;
-
-        for (var i = 0; i < 7; i++)
-        {
-            var item = DailyRewardItems[i];
-            item.SetUp(i + 7 * week);
-            if (IsCurrentItem(item.dayIndex)) CurrentItem = item;
-        }
-
-        BtnWatchVideo.SetActive(false);
-        BtnClaim.SetActive(false);
-        if (CurrentItem && CurrentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
-        {
-            BtnWatchVideo.SetActive(CurrentItem.DailyRewardData.dailyRewardType == DailyRewardType.Coin);
-            BtnClaim.SetActive(true);
-        }
-    }
-
-    public void OnClickBtnClaimX5Video()
-    {
-        rewardAdVariable.Show(() =>
-            {
-                CurrentItem.OnClaim(true, () =>
-                {
-                    claimRewardEvent.Raise();
-                    Setup();
-                });
-            }, trackingRewardPosition: $"{MethodBase.GetCurrentMethod().Name}_{this.name}");
-    }
-
-    public void OnClickBtnClaim()
-    {
-        CurrentItem.OnClaim(false, () =>
-        {
-            claimRewardEvent.Raise();
+            base.OnBeforeShow();
+            ResetDailyReward();
             Setup();
-        });
-    }
+        }
 
-    public void OnClickNextDay()
-    {
-        UserData.LastDailyRewardClaimed = DateTime.Now.AddDays(-1).ToString();
-        ResetDailyReward();
-        Setup();
+        public void ResetDailyReward()
+        {
+            if (!UserData.IsClaimedTodayDailyReward() && UserData.DailyRewardDayIndex == 29)
+            {
+                UserData.DailyRewardDayIndex = 1;
+                UserData.IsStartLoopingDailyReward = true;
+            }
+        }
+
+        private bool IsCurrentItem(int index)
+        {
+            return UserData.DailyRewardDayIndex == index;
+        }
+
+        public void Setup()
+        {
+            SetUpItems();
+        }
+
+        private void SetUpItems()
+        {
+            var week = (UserData.DailyRewardDayIndex - 1) / 7;
+            if (UserData.IsClaimedTodayDailyReward()) week = (UserData.DailyRewardDayIndex - 2) / 7;
+
+            for (var i = 0; i < 7; i++)
+            {
+                var item = DailyRewardItems[i];
+                item.SetUp(i + 7 * week);
+                if (IsCurrentItem(item.dayIndex)) CurrentItem = item;
+            }
+
+            BtnWatchVideo.SetActive(false);
+            BtnClaim.SetActive(false);
+            if (CurrentItem && CurrentItem.DailyRewardItemState == DailyRewardItemState.ReadyToClaim)
+            {
+                BtnWatchVideo.SetActive(CurrentItem.DailyRewardData.dailyRewardType == DailyRewardType.Coin);
+                BtnClaim.SetActive(true);
+            }
+        }
+
+        public void OnClickBtnClaimX5Video()
+        {
+            rewardAdVariable.Show(() =>
+                {
+                    CurrentItem.OnClaim(true, () =>
+                    {
+                        claimRewardEvent.Raise();
+                        Setup();
+                    });
+                }, trackingRewardPosition: $"{MethodBase.GetCurrentMethod().Name}_{this.name}");
+        }
+
+        public void OnClickBtnClaim()
+        {
+            CurrentItem.OnClaim(false, () =>
+            {
+                claimRewardEvent.Raise();
+                Setup();
+            });
+        }
+
+        public void OnClickNextDay()
+        {
+            UserData.LastDailyRewardClaimed = DateTime.Now.AddDays(-1).ToString();
+            ResetDailyReward();
+            Setup();
+        }
     }
 }

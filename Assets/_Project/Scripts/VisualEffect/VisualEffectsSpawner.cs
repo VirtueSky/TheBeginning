@@ -1,4 +1,5 @@
 using PrimeTween;
+using TheBeginning.Config;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
