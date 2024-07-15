@@ -4,34 +4,37 @@ using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Variables;
 
-public class PopupUpdate : UIPopup
+namespace TheBeginning.UI
 {
-    [Space] [SerializeField] private TextMeshProUGUI textContent;
-    [SerializeField] private TextMeshProUGUI textVersion;
-    [SerializeField] private StringVariable contentUpdateVariable;
-    [SerializeField] private StringVariable versionUpdateVariable;
-    [SerializeField] private BooleanVariable dontShowAgainPopupUpdate;
-    [SerializeField] private Toggle toggleShowAgain;
-
-    private void Start()
+    public class PopupUpdate : UIPopup
     {
-        toggleShowAgain.isOn = false;
-    }
+        [Space] [SerializeField] private TextMeshProUGUI textContent;
+        [SerializeField] private TextMeshProUGUI textVersion;
+        [SerializeField] private StringVariable contentUpdateVariable;
+        [SerializeField] private StringVariable versionUpdateVariable;
+        [SerializeField] private BooleanVariable dontShowAgainPopupUpdate;
+        [SerializeField] private Toggle toggleShowAgain;
 
-    protected override void OnBeforeShow()
-    {
-        base.OnBeforeShow();
-        Setup();
-    }
+        private void Start()
+        {
+            toggleShowAgain.isOn = false;
+        }
 
-    void Setup()
-    {
-        textContent.text = contentUpdateVariable.Value;
-        textVersion.text = versionUpdateVariable.Value;
-    }
+        protected override void OnBeforeShow()
+        {
+            base.OnBeforeShow();
+            Setup();
+        }
 
-    public void OnChangeValueShowAgain()
-    {
-        dontShowAgainPopupUpdate.Value = toggleShowAgain.isOn;
+        void Setup()
+        {
+            textContent.text = contentUpdateVariable.Value;
+            textVersion.text = versionUpdateVariable.Value;
+        }
+
+        public void OnChangeValueShowAgain()
+        {
+            dontShowAgainPopupUpdate.Value = toggleShowAgain.isOn;
+        }
     }
 }

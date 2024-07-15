@@ -7,58 +7,61 @@ using VirtueSky.Ads;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
-public class PopupTest : UIPopup
+namespace TheBeginning.UI
 {
-    public TextMeshProUGUI textNotice;
-    public IntegerVariable currentCoin;
-
-    [Header("Unit variables")] public AdUnitVariable banner;
-    public AdUnitVariable inter;
-    public AdUnitVariable reward;
-
-    public void ShowBanner()
+    public class PopupTest : UIPopup
     {
-        LogMessage("Show Banner");
-        // adManagerVariable.Value.ShowBanner();
-        banner.Show();
-    }
+        public TextMeshProUGUI textNotice;
+        public IntegerVariable currentCoin;
 
-    public void HideBanner()
-    {
-        LogMessage("Hide Banner");
-        // adManagerVariable.Value.HideBanner();
-        banner.Destroy();
-    }
+        [Header("Unit variables")] public AdUnitVariable banner;
+        public AdUnitVariable inter;
+        public AdUnitVariable reward;
 
-    public void ShowRewards()
-    {
-        // adManagerVariable.Value.ShowRewardAds(() =>
-        // {
-        //     currencyVariable.Value += 100;
-        //     LogMessage("Reward Completed");
-        // }, null, null, () =>
-        // {
-        //     LogMessage("Skip reward");
-        // });
-        reward.Show().OnCompleted(() =>
+        public void ShowBanner()
         {
-            currentCoin.Value += 100;
-            LogMessage("Reward Completed");
-        }).OnSkipped(() => { LogMessage("Skip reward"); });
-    }
+            LogMessage("Show Banner");
+            // adManagerVariable.Value.ShowBanner();
+            banner.Show();
+        }
 
-    public void ShowInterAds()
-    {
-        // adManagerVariable.Value.ShowInterstitial(() =>
-        // {
-        //     LogMessage("Interstitial completed");
-        // });
-        inter.Show().OnCompleted(() => { LogMessage("Interstitial completed"); });
-    }
+        public void HideBanner()
+        {
+            LogMessage("Hide Banner");
+            // adManagerVariable.Value.HideBanner();
+            banner.Destroy();
+        }
 
-    public void LogMessage(string message)
-    {
-        Debug.Log(message);
-        textNotice.text = message;
+        public void ShowRewards()
+        {
+            // adManagerVariable.Value.ShowRewardAds(() =>
+            // {
+            //     currencyVariable.Value += 100;
+            //     LogMessage("Reward Completed");
+            // }, null, null, () =>
+            // {
+            //     LogMessage("Skip reward");
+            // });
+            reward.Show().OnCompleted(() =>
+            {
+                currentCoin.Value += 100;
+                LogMessage("Reward Completed");
+            }).OnSkipped(() => { LogMessage("Skip reward"); });
+        }
+
+        public void ShowInterAds()
+        {
+            // adManagerVariable.Value.ShowInterstitial(() =>
+            // {
+            //     LogMessage("Interstitial completed");
+            // });
+            inter.Show().OnCompleted(() => { LogMessage("Interstitial completed"); });
+        }
+
+        public void LogMessage(string message)
+        {
+            Debug.Log(message);
+            textNotice.text = message;
+        }
     }
 }

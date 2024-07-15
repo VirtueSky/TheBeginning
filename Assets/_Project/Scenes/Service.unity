@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708984, g: 0.37837017, b: 0.35722536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -604,6 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 524850869}
+  - component: {fileID: 524850878}
   - component: {fileID: 524850871}
   - component: {fileID: 524850875}
   - component: {fileID: 524850874}
@@ -759,6 +759,18 @@ MonoBehaviour:
   indexLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   showNotificationInGameEvent: {fileID: 11400000, guid: cd73ca7a44674384aa18fd3f412eeee3,
     type: 2}
+--- !u!114 &524850878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524850868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b63baa11cb54b389165d68e8321f4da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &532783272
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +977,6 @@ GameObject:
   - component: {fileID: 1448091014}
   - component: {fileID: 1448091015}
   - component: {fileID: 1448091013}
-  - component: {fileID: 1448091012}
   - component: {fileID: 1448091016}
   - component: {fileID: 1448091017}
   - component: {fileID: 1448091020}
@@ -993,20 +1004,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1448091012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448091006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9b27e983f63a14f9f2dbec94591a0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listNotificationVariable:
-  - {fileID: 11400000, guid: 968e6ecf0f1dc274e8b317a88339503b, type: 2}
 --- !u!114 &1448091013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,12 +1214,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serviceInitializations:
-  - {fileID: 524850871}
-  - {fileID: 524850873}
+  - {fileID: 524850878}
   - {fileID: 524850877}
-  - {fileID: 524850876}
-  - {fileID: 524850875}
   - {fileID: 524850874}
+  - {fileID: 524850876}
+  - {fileID: 524850871}
+  - {fileID: 524850875}
+  - {fileID: 524850873}
   - {fileID: 524850872}
 --- !u!114 &1448091024
 MonoBehaviour:
@@ -1231,7 +1229,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448091006}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c749a2fdea6f4e87b4cf5c41c5da0d2c, type: 3}
   m_Name: 

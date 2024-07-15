@@ -1,5 +1,6 @@
 #if UNITY_EDITOR
 using System.Linq;
+using TheBeginning.Config;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;

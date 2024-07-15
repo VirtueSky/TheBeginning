@@ -1,3 +1,4 @@
+using TheBeginning.Config;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
@@ -5,77 +6,80 @@ using VirtueSky.Inspector;
 using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
-[EditorIcon("icon_controller"), HideMonoScript]
-public class LevelLoader : BaseMono
+namespace TheBeginning.LevelSystem
 {
-    [ReadOnly] [SerializeField] private Level currentLevel;
-    [ReadOnly] [SerializeField] private Level previousLevel;
-    [SerializeField] private IntegerVariable currentIndexLevel;
-    [SerializeField] private GameConfig gameConfig;
-    [SerializeField] private EventLoadLevel eventLoadLevel;
-    [SerializeField] private EventGetCurrentLevel eventGetCurrentLevel;
-    [SerializeField] private EventGetPreviousLevel eventGetPreviousLevel;
-
-    public Level CurrentLevel() => currentLevel;
-    public Level PreviousLevel() => previousLevel;
-
-    public override void OnEnable()
+    [EditorIcon("icon_controller"), HideMonoScript]
+    public class LevelLoader : BaseMono
     {
-        base.OnEnable();
-        eventLoadLevel.AddListener(LoadLevel);
-        eventGetCurrentLevel.AddListener(CurrentLevel);
-        eventGetPreviousLevel.AddListener(PreviousLevel);
-    }
+        [ReadOnly] [SerializeField] private Level currentLevel;
+        [ReadOnly] [SerializeField] private Level previousLevel;
+        [SerializeField] private IntegerVariable currentIndexLevel;
+        [SerializeField] private GameConfig gameConfig;
+        [SerializeField] private EventLoadLevel eventLoadLevel;
+        [SerializeField] private EventGetCurrentLevel eventGetCurrentLevel;
+        [SerializeField] private EventGetPreviousLevel eventGetPreviousLevel;
 
-    private void Start()
-    {
-        var instance = LoadLevel();
-    }
+        public Level CurrentLevel() => currentLevel;
+        public Level PreviousLevel() => previousLevel;
 
-    public async UniTask<Level> LoadLevel()
-    {
-        int index = HandleIndexLevel(currentIndexLevel.Value);
-        var result = await Addressables.LoadAssetAsync<GameObject>($"Levels/Level {index}");
-        if (currentLevel != null)
+        public override void OnEnable()
         {
-            previousLevel = currentLevel;
-        }
-        else
-        {
-            int indexPrev = HandleIndexLevel(currentIndexLevel.Value - 1);
-            var resultPre = await Addressables.LoadAssetAsync<GameObject>($"Levels/Level {indexPrev}");
-            previousLevel = resultPre.GetComponent<Level>();
+            base.OnEnable();
+            eventLoadLevel.AddListener(LoadLevel);
+            eventGetCurrentLevel.AddListener(CurrentLevel);
+            eventGetPreviousLevel.AddListener(PreviousLevel);
         }
 
-        currentLevel = result.GetComponent<Level>();
-        return currentLevel;
-    }
-
-    int HandleIndexLevel(int indexLevel)
-    {
-        if (indexLevel > gameConfig.maxLevel)
+        private void Start()
         {
-            return (indexLevel - gameConfig.startLoopLevel) %
-                   (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
-                   gameConfig.startLoopLevel;
+            var instance = LoadLevel();
         }
 
-        if (indexLevel > 0 && indexLevel <= gameConfig.maxLevel)
+        public async UniTask<Level> LoadLevel()
         {
-            //return (indexLevel - 1) % gameConfig.maxLevel + 1;
-            return indexLevel;
+            int index = HandleIndexLevel(currentIndexLevel.Value);
+            var result = await Addressables.LoadAssetAsync<GameObject>($"Levels/Level {index}");
+            if (currentLevel != null)
+            {
+                previousLevel = currentLevel;
+            }
+            else
+            {
+                int indexPrev = HandleIndexLevel(currentIndexLevel.Value - 1);
+                var resultPre = await Addressables.LoadAssetAsync<GameObject>($"Levels/Level {indexPrev}");
+                previousLevel = resultPre.GetComponent<Level>();
+            }
+
+            currentLevel = result.GetComponent<Level>();
+            return currentLevel;
         }
 
-        if (indexLevel == 0)
+        int HandleIndexLevel(int indexLevel)
         {
-            return gameConfig.maxLevel;
+            if (indexLevel > gameConfig.maxLevel)
+            {
+                return (indexLevel - gameConfig.startLoopLevel) %
+                       (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
+                       gameConfig.startLoopLevel;
+            }
+
+            if (indexLevel > 0 && indexLevel <= gameConfig.maxLevel)
+            {
+                //return (indexLevel - 1) % gameConfig.maxLevel + 1;
+                return indexLevel;
+            }
+
+            if (indexLevel == 0)
+            {
+                return gameConfig.maxLevel;
+            }
+
+            return 1;
         }
 
-        return 1;
-    }
-
-    public void ActiveCurrentLevel(bool active)
-    {
-        currentLevel.gameObject.SetActive(active);
+        public void ActiveCurrentLevel(bool active)
+        {
+            currentLevel.gameObject.SetActive(active);
+        }
     }
 }

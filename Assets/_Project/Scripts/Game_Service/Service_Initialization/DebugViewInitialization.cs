@@ -1,3 +1,4 @@
+using TheBeginning.Config;
 using TheBeginning.DebugViewPage;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;

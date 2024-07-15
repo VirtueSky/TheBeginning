@@ -1,5 +1,6 @@
-
-
-public class PopupIAP : UIPopup
+namespace TheBeginning.UI
 {
+    public class PopupIAP : UIPopup
+    {
+    }
 }

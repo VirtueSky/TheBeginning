@@ -1,4 +1,4 @@
-namespace TheBeginning.UserData
+namespace TheBeginning.Data
 {
     public partial struct UserData
     {

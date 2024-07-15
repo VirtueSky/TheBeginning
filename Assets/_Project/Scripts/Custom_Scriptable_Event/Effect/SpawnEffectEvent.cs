@@ -1,4 +1,5 @@
 using System;
+using TheBeginning.Config;
 using UnityEngine;
 using VirtueSky.Events;
 using VirtueSky.Inspector;

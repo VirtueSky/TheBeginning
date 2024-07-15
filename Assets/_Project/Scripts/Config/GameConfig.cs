@@ -2,39 +2,42 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 
-[CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
-public class GameConfig : ScriptableObject
+namespace TheBeginning.Config
 {
-    [Space, HeaderLine("Level config")] public int maxLevel = 2;
-    public int startLoopLevel;
+    [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
+    public class GameConfig : ScriptableObject
+    {
+        [Space, HeaderLine("Level config")] public int maxLevel = 2;
+        public int startLoopLevel;
 
-    [Space, HeaderLine("Gameplay config")] public bool enableDebugView = true;
+        [Space, HeaderLine("Gameplay config")] public bool enableDebugView = true;
 
-    public TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
-    public bool multiTouchEnabled;
-    public int winLevelMoney = 100;
-    public int percentWinGiftPerLevel = 10;
+        public TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
+        public bool multiTouchEnabled;
+        public int winLevelMoney = 100;
+        public int percentWinGiftPerLevel = 10;
 
-    [Space, HeaderLine("Notification In Game")]
-    public bool enableNotificationInGame = true;
+        [Space, HeaderLine("Notification In Game")]
+        public bool enableNotificationInGame = true;
 
-    public float timeDelayHideNotificationInGame = 1.0f;
+        public float timeDelayHideNotificationInGame = 1.0f;
 
-    [Space, HeaderLine("Require Internet")]
-    public bool enableRequireInternet = false;
+        [Space, HeaderLine("Require Internet")]
+        public bool enableRequireInternet = false;
 
-    public float timeDelayCheckInternet = 5;
-    public float timeLoopCheckInternet = .5f;
+        public float timeDelayCheckInternet = 5;
+        public float timeLoopCheckInternet = .5f;
 
-    [Space, HeaderLine("Show Popup Update")]
-    public bool enableShowPopupUpdate = false;
-}
+        [Space, HeaderLine("Show Popup Update")]
+        public bool enableShowPopupUpdate = false;
+    }
 
 
-public enum TargetFrameRate
-{
-    ByDevice = -1,
-    Frame60 = 60,
-    Frame120 = 120,
-    Frame240 = 240
+    public enum TargetFrameRate
+    {
+        ByDevice = -1,
+        Frame60 = 60,
+        Frame120 = 120,
+        Frame240 = 240
+    }
 }

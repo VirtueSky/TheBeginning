@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using VirtueSky.Inspector;
 
@@ -7,7 +8,8 @@ namespace TheBeginning.Services
     public class RuntimeInitialization : MonoBehaviour
     {
         [SerializeField] private ServiceInitialization[] serviceInitializations;
-        private void Start()
+
+        private void Awake()
         {
             foreach (var serviceInitialization in serviceInitializations)
             {
