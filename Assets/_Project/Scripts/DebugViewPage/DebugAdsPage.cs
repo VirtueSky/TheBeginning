@@ -2,6 +2,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
+using VirtueSky.Ads;
 using VirtueSky.Events;
 using VirtueSky.Variables;
 
@@ -88,7 +89,7 @@ namespace TheBeginning.DebugViewPage
         {
             if (Application.isMobilePlatform)
             {
-                rewardAdVariable.AdUnitRewardVariable.Show();
+                rewardAdVariable.AdUnitRewardVariable.Show().OnCompleted(() => Debug.Log("Reward Completed..."));
             }
             else
             {

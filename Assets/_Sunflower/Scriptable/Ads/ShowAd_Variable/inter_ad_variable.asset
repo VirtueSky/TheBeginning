@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: inter_ad_variable
   m_EditorClassIdentifier: 
   description: 
-  interVariable: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}
+  interVariable: {fileID: 11400000, guid: 33969daddf1f1d3468618b9f3c743ceb, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   isOffInterAdsVariable: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f,
     type: 2}
