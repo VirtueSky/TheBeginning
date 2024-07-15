@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: banner_ad_variable
   m_EditorClassIdentifier: 
   description: 
-  bannerVariable: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
+  bannerVariable: {fileID: 11400000, guid: 43fa97e0019de304cb4ce05506a82fa5, type: 2}
   isOffBannerVariable: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183,
     type: 2}
   remoteConfigOnOffBanner: {fileID: 11400000, guid: 656bf5dbd6eb94f4c9cebcd2a196bd11,

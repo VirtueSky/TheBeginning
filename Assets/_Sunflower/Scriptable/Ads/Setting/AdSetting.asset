@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adCheckingInterval: 8
   adLoadingInterval: 15
-  adNetwork: 1
+  adNetwork: 2
   sdkKey: 
   applovinEnableAgeRestrictedUser: 0
   maxBannerVariable: {fileID: 0}
@@ -35,9 +35,9 @@ MonoBehaviour:
   enableGDPR: 0
   enableGDPRTestMode: 0
   admobDevicesTest: []
-  androidAppKey: 
-  iOSAppKey: 
-  useTestAppKey: 1
+  androidAppKey: 85460dcd
+  iOSAppKey: 8545d445
+  useTestAppKey: 0
   ironSourceBannerVariable: {fileID: 11400000, guid: 43fa97e0019de304cb4ce05506a82fa5,
     type: 2}
   ironSourceInterVariable: {fileID: 11400000, guid: 33969daddf1f1d3468618b9f3c743ceb,
