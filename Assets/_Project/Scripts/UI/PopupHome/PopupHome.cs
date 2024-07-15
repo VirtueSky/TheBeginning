@@ -1,6 +1,5 @@
 using System;
 using PrimeTween;
-using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using UnityEngine;
 using VirtueSky.Audio;
@@ -60,22 +59,22 @@ public class PopupHome : UIPopup
 
     public void OnClickSetting()
     {
-        PopupControl.Show<PopupSetting>(false);
+        PopupManager.Show<PopupSetting>(false);
     }
 
     public void OnClickDailyReward()
     {
-        PopupControl.Show<PopupDailyReward>(false);
+        PopupManager.Show<PopupDailyReward>(false);
     }
 
     public void OnClickShop()
     {
-        PopupControl.Show<PopupShop>(false);
+        PopupManager.Show<PopupShop>(false);
     }
 
     public void OnClickTest()
     {
-        PopupControl.Show<PopupTest>(false);
+        PopupManager.Show<PopupTest>(false);
     }
 
     void ShowPopupUpdate()
@@ -86,7 +85,7 @@ public class PopupHome : UIPopup
             {
                 if (!versionUpdateVariable.Value.Equals(Application.version))
                 {
-                    PopupControl.Show<PopupUpdate>(false);
+                    PopupManager.Show<PopupUpdate>(false);
                 }
             });
         }

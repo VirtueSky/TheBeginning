@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using TheBeginning.AppControl;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
@@ -16,19 +15,24 @@ public class PopupManager : BaseMono
     [SerializeField] private Camera cameraUI;
 
     [HeaderLine(Constant.SO_Variable)] [SerializeField]
-    private readonly Dictionary<Type, UIPopup> _container = new Dictionary<Type, UIPopup>();
+    private readonly Dictionary<Type, UIPopup> container = new Dictionary<Type, UIPopup>();
 
     private int index = 1;
+
+    private static PopupManager _ins;
 
     private void Awake()
     {
         Debug.Assert(cameraUI != null, "CameraUI != null");
-        PopupControl.Init(this);
+        if (_ins == null)
+        {
+            _ins = this;
+        }
     }
 
-    public async void Show<T>(bool isHideAll = true)
+    private async void InternalShow<T>(bool isHideAll = true)
     {
-        _container.TryGetValue(typeof(T), out UIPopup popup);
+        container.TryGetValue(typeof(T), out UIPopup popup);
         if (popup == null)
         {
             var obj = await Addressables.LoadAssetAsync<GameObject>(GetKeyPopup(typeof(T).ToString()));
@@ -38,11 +42,11 @@ public class PopupManager : BaseMono
                 var popupInstance = Instantiate(popupPrefab, parentContainer);
                 if (isHideAll)
                 {
-                    HideAll();
+                    InternalHideAll();
                 }
 
                 popupInstance.Show();
-                _container.Add(popupInstance.GetType(), popupInstance);
+                container.Add(popupInstance.GetType(), popupInstance);
                 popupInstance.canvas.sortingOrder = index++;
             }
             else
@@ -56,7 +60,7 @@ public class PopupManager : BaseMono
             {
                 if (isHideAll)
                 {
-                    HideAll();
+                    InternalHideAll();
                 }
 
                 popup.Show();
@@ -64,9 +68,9 @@ public class PopupManager : BaseMono
         }
     }
 
-    public void Hide<T>()
+    private void InternalHide<T>()
     {
-        if (_container.TryGetValue(typeof(T), out UIPopup popup))
+        if (container.TryGetValue(typeof(T), out UIPopup popup))
         {
             if (popup.isActiveAndEnabled)
             {
@@ -79,24 +83,19 @@ public class PopupManager : BaseMono
         }
     }
 
-    public UIPopup Get<T>()
+    private UIPopup InternalGet<T>()
     {
-        if (_container.TryGetValue(typeof(T), out UIPopup popup))
-        {
-            return popup;
-        }
-
-        return null;
+        return container.GetValueOrDefault(typeof(T));
     }
 
-    public bool IsPopupReady<T>()
+    private bool InternalIsPopupReady<T>()
     {
-        return _container.ContainsKey(typeof(T));
+        return container.ContainsKey(typeof(T));
     }
 
-    public void HideAll()
+    public void InternalHideAll()
     {
-        foreach (var popup in _container.Values)
+        foreach (var popup in container.Values)
         {
             if (popup.isActiveAndEnabled)
             {
@@ -117,4 +116,14 @@ public class PopupManager : BaseMono
             return fullName;
         }
     }
+
+    #region API
+
+    public static void Show<T>(bool isHideAll = true) => _ins.InternalShow<T>(isHideAll);
+    public static void Hide<T>() => _ins.InternalHide<T>();
+    public static UIPopup Get<T>() => _ins.InternalGet<T>();
+    public static bool IsPopupReady<T>() => _ins.InternalIsPopupReady<T>();
+    public static void HideAll() => _ins.InternalHideAll();
+
+    #endregion
 }

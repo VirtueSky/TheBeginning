@@ -1,6 +1,5 @@
 using CodeStage.AdvancedFPSCounter;
 using PrimeTween;
-using TheBeginning.AppControl;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Events;
@@ -81,25 +80,25 @@ public class GameManager : BaseMono
     void ReturnHome()
     {
         GameState = GameState.Lobby;
-        PopupControl.Show<PopupHome>();
+        PopupManager.Show<PopupHome>();
         levelHolder.ClearTransform();
     }
 
-    public void PlayCurrentLevel()
+    private void PlayCurrentLevel()
     {
         StartGame();
-        PopupControl.Show<PopupInGame>();
+        PopupManager.Show<PopupInGame>();
     }
 
-    public void ReplayGame()
+    private void ReplayGame()
     {
         eventReplayLevel.Raise(eventGetCurrentLevel.Raise());
         trackingFirebaseLoseLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
         StartGame();
-        PopupControl.Show<PopupInGame>();
+        PopupManager.Show<PopupInGame>();
     }
 
-    public void BackLevel()
+    private void BackLevel()
     {
         if (indexLevelVariable?.Value > 1)
         {
@@ -112,7 +111,7 @@ public class GameManager : BaseMono
         eventLoadLevel.Raise();
     }
 
-    public async void NextLevel()
+    private async void NextLevel()
     {
         eventSkipLevel.Raise(eventGetCurrentLevel.Raise());
         indexLevelVariable.Value++;
@@ -121,7 +120,7 @@ public class GameManager : BaseMono
         Instantiate(levelPrefab, levelHolder, false);
     }
 
-    public void StartGame()
+    private void StartGame()
     {
         GameState = GameState.PlayingGame;
         eventStartLevel.Raise(eventGetCurrentLevel.Raise());
@@ -131,7 +130,7 @@ public class GameManager : BaseMono
         trackingFirebaseStartLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
     }
 
-    public void OnWinGame(float delayPopupShowTime = 2.5f)
+    private void OnWinGame(float delayPopupShowTime = 2.5f)
     {
         if (GameState == GameState.WaitingResult ||
             GameState == GameState.LoseGame ||
@@ -144,12 +143,12 @@ public class GameManager : BaseMono
         {
             indexLevelVariable.Value++;
             eventLoadLevel.Raise();
-            PopupControl.Show<PopupWin>();
-            PopupControl.Hide<PopupInGame>();
+            PopupManager.Show<PopupWin>();
+            PopupManager.Hide<PopupInGame>();
         });
     }
 
-    public void OnLoseGame(float delayPopupShowTime = 2.5f)
+    private void OnLoseGame(float delayPopupShowTime = 2.5f)
     {
         if (GameState == GameState.WaitingResult ||
             GameState == GameState.LoseGame ||
@@ -160,8 +159,8 @@ public class GameManager : BaseMono
         trackingFirebaseLoseLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
         Tween.Delay(delayPopupShowTime, () =>
         {
-            PopupControl.Show<PopupLose>();
-            PopupControl.Hide<PopupInGame>();
+            PopupManager.Show<PopupLose>();
+            PopupManager.Hide<PopupInGame>();
         });
     }
 

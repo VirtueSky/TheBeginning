@@ -1,6 +1,5 @@
 using System.Reflection;
 using PrimeTween;
-using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using TMPro;
 using UnityEngine;

@@ -4,7 +4,6 @@ using System;
 using System.Linq;
 using System.Reflection;
 using PrimeTween;
-using TheBeginning.AppControl;
 using TheBeginning.UserData;
 using UnityEngine.Serialization;
 using VirtueSky.Inspector;
