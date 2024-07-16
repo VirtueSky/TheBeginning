@@ -23,6 +23,13 @@ namespace TheBeginning.Services
         [SerializeField] private Sprite iconToggle;
         [SerializeField] private Sprite iconInput;
         [SerializeField] private Sprite iconOke;
+        [SerializeField] private Sprite iconAnalysis;
+        [SerializeField] private Sprite iconFps;
+        [SerializeField] private Sprite iconAudio;
+        [SerializeField] private Sprite iconRam;
+        [SerializeField] private Sprite iconAdvanced;
+        [SerializeField] private Sprite iconCoinDebug;
+        [SerializeField] private Sprite iconOutfitDebug;
         [HeaderLine("Tool")] [SerializeField] private IntegerVariable currentCoin;
         [SerializeField] private ItemConfig itemConfig;
         [SerializeField] private BooleanVariable isOffUiVariable;
@@ -42,6 +49,7 @@ namespace TheBeginning.Services
         [SerializeField] private IntegerVariable indexLevel;
         [SerializeField] private StringEvent showNotificationInGameEvent;
 
+
         public override void Initialization()
         {
             if (!gameConfig.enableDebugView)
@@ -58,7 +66,7 @@ namespace TheBeginning.Services
                 onLoad: debugView =>
                 {
                     debugView.page.Init(currentCoin, itemConfig, isOffUiVariable, isTestingVariable, iconInput, iconOke,
-                        iconToggle);
+                        iconToggle, iconCoinDebug, iconOutfitDebug);
                 });
 
             // add ads page
@@ -80,6 +88,10 @@ namespace TheBeginning.Services
                         showNotificationInGameEvent, iconNext, iconBack, iconWin, iconLose, iconInput, iconOke);
                 });
             initialPage.Reload();
+
+            // Add system analysis page
+            initialPage.AddPageLinkButton<SystemAnalysisPage>("System analysis", icon: iconAnalysis, onLoad:
+                debugView => { debugView.page.Init(iconFps, iconRam, iconAudio, iconAdvanced); });
         }
     }
 }

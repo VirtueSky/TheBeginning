@@ -1,4 +1,3 @@
-using CodeStage.AdvancedFPSCounter;
 using PrimeTween;
 using TheBeginning.LevelSystem;
 using TheBeginning.UI;
@@ -50,7 +49,6 @@ namespace TheBeginning.Game
         [SerializeField] private IntegerVariable adsCounterVariable;
         [SerializeField] private FloatVariable timeCounterInterAdVariable;
 
-        public AFPSCounter AFpsCounter => GetComponent<AFPSCounter>();
 
         public override void OnEnable()
         {
@@ -166,11 +164,6 @@ namespace TheBeginning.Game
                 PopupManager.Show<PopupLose>();
                 PopupManager.Hide<PopupInGame>();
             });
-        }
-
-        public void ChangeAFpsState()
-        {
-            AFpsCounter.enabled = !AFpsCounter.isActiveAndEnabled;
         }
 
         private GameState GameState
