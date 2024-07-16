@@ -23,6 +23,11 @@ namespace TheBeginning.Services
         [SerializeField] private Sprite iconToggle;
         [SerializeField] private Sprite iconInput;
         [SerializeField] private Sprite iconOke;
+        [SerializeField] private Sprite iconAnalysis;
+        [SerializeField] private Sprite iconFps;
+        [SerializeField] private Sprite iconAudio;
+        [SerializeField] private Sprite iconRam;
+        [SerializeField] private Sprite iconAdvanced;
         [HeaderLine("Tool")] [SerializeField] private IntegerVariable currentCoin;
         [SerializeField] private ItemConfig itemConfig;
         [SerializeField] private BooleanVariable isOffUiVariable;
@@ -41,6 +46,7 @@ namespace TheBeginning.Services
         [SerializeField] private FloatEvent callLoseLevelEvent;
         [SerializeField] private IntegerVariable indexLevel;
         [SerializeField] private StringEvent showNotificationInGameEvent;
+
 
         public override void Initialization()
         {
@@ -80,6 +86,10 @@ namespace TheBeginning.Services
                         showNotificationInGameEvent, iconNext, iconBack, iconWin, iconLose, iconInput, iconOke);
                 });
             initialPage.Reload();
+
+            // Add system analysis page
+            initialPage.AddPageLinkButton<SystemAnalysisPage>("System analysis", icon: iconAnalysis, onLoad:
+                debugView => { debugView.page.Init(iconFps, iconRam, iconAudio, iconAdvanced); });
         }
     }
 }

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.tayx.graphy": "https://github.com/pancake-llc/graphy.git#3.0.6",
     "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git",
     "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
     "com.esotericsoftware.spine.spine-csharp": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-csharp/src#4.1",
