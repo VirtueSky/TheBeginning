@@ -28,6 +28,8 @@ namespace TheBeginning.Services
         [SerializeField] private Sprite iconAudio;
         [SerializeField] private Sprite iconRam;
         [SerializeField] private Sprite iconAdvanced;
+        [SerializeField] private Sprite iconCoinDebug;
+        [SerializeField] private Sprite iconOutfitDebug;
         [HeaderLine("Tool")] [SerializeField] private IntegerVariable currentCoin;
         [SerializeField] private ItemConfig itemConfig;
         [SerializeField] private BooleanVariable isOffUiVariable;
@@ -64,7 +66,7 @@ namespace TheBeginning.Services
                 onLoad: debugView =>
                 {
                     debugView.page.Init(currentCoin, itemConfig, isOffUiVariable, isTestingVariable, iconInput, iconOke,
-                        iconToggle);
+                        iconToggle, iconCoinDebug, iconOutfitDebug);
                 });
 
             // add ads page

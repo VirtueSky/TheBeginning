@@ -725,21 +725,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugViewSheet: {fileID: 2095126785}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
-  iconTool: {fileID: 21300000, guid: 4d93d6492d80bd1449fee29b623fa030, type: 3}
-  iconAds: {fileID: 21300000, guid: 243221073899f8d49b1503b89bfaedbb, type: 3}
-  iconLevel: {fileID: 21300000, guid: d42790411f751dc4b8e974ec43e206df, type: 3}
-  iconWin: {fileID: 21300000, guid: 88cc42f2fcd6563419ed336b365c7c87, type: 3}
-  iconLose: {fileID: 21300000, guid: 128c7a70f4f427045819715a47cd342c, type: 3}
-  iconNext: {fileID: 21300000, guid: 8dd334b31878d77488c5c8f6bc8887a2, type: 3}
-  iconBack: {fileID: 21300000, guid: 3b68565843ca8364eb07ecf164e141df, type: 3}
-  iconToggle: {fileID: 21300000, guid: 5aff09c0f38369e4c9f563e16f6fb7ef, type: 3}
+  iconTool: {fileID: 21300000, guid: 2d8be02cedaf05d4086f421a7bd95109, type: 3}
+  iconAds: {fileID: 21300000, guid: 36c9f1d626150294ab77f0c9aa120fef, type: 3}
+  iconLevel: {fileID: 21300000, guid: c1469ad627c1b494cbd24e4874f63442, type: 3}
+  iconWin: {fileID: 21300000, guid: e46d766853b486b4f872140d5a14482e, type: 3}
+  iconLose: {fileID: 21300000, guid: 2a135fa99ab30f44ba4339cdd762e180, type: 3}
+  iconNext: {fileID: 21300000, guid: 4f801437d84facc4d8595fe21db53eb0, type: 3}
+  iconBack: {fileID: 21300000, guid: 9dcf81ae1c4ae0c48b00c55575f4851b, type: 3}
+  iconToggle: {fileID: 21300000, guid: c376301d5555c2e43b1f07a6b11aa564, type: 3}
   iconInput: {fileID: 21300000, guid: 6cf985f7ae70b3048983210385dc27d2, type: 3}
-  iconOke: {fileID: 21300000, guid: 6e84e7d8948d694489b6358566c6d2b1, type: 3}
+  iconOke: {fileID: 21300000, guid: 9329c8f3a74ba2f4d8c38635ced2d788, type: 3}
   iconAnalysis: {fileID: 21300000, guid: baeb453eb35ace94a8103faf7bbf8e02, type: 3}
   iconFps: {fileID: 21300000, guid: c8522f211ee8d1c4aaaf7005ba0dc743, type: 3}
   iconAudio: {fileID: 21300000, guid: db573b4bbf5c5da43adfcce7e5f648b2, type: 3}
   iconRam: {fileID: 21300000, guid: 7ec70773a78c0104484b7c57cb77cae7, type: 3}
   iconAdvanced: {fileID: 21300000, guid: 3fda9bd7daaf0f4459f2fd1daf82448e, type: 3}
+  iconCoinDebug: {fileID: 21300000, guid: eb9c187540660754ab8a515338206184, type: 3}
+  iconOutfitDebug: {fileID: 21300000, guid: 1aaa9b4d13dbcb64baea375e33fc1f58, type: 3}
   currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
   itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
   isOffUiVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
@@ -764,11 +766,6 @@ MonoBehaviour:
   indexLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   showNotificationInGameEvent: {fileID: 11400000, guid: cd73ca7a44674384aa18fd3f412eeee3,
     type: 2}
-  graphy: {fileID: 1123667590}
-  fpsCounter: {fileID: 1123624390}
-  ramCounter: {fileID: 1123637948}
-  audioCounter: {fileID: 1123674898}
-  advancedCounter: {fileID: 1000012302192186}
 --- !u!114 &524850878
 MonoBehaviour:
   m_ObjectHideFlags: 0
