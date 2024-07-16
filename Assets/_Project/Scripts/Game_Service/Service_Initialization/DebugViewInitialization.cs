@@ -90,7 +90,7 @@ namespace TheBeginning.Services
             initialPage.Reload();
 
             // Add system analysis page
-            initialPage.AddPageLinkButton<SystemAnalysisPage>("System analysis", icon: iconAnalysis, onLoad:
+            initialPage.AddPageLinkButton<DebugSystemAnalysisPage>("System analysis", icon: iconAnalysis, onLoad:
                 debugView => { debugView.page.Init(iconFps, iconRam, iconAudio, iconAdvanced); });
         }
     }
