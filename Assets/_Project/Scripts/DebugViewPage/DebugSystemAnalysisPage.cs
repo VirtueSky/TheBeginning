@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TheBeginning.DebugViewPage
 {
-    public class SystemAnalysisPage : DefaultDebugPageBase
+    public class DebugSystemAnalysisPage : DefaultDebugPageBase
     {
         protected override string Title => "System Analysis";
         private Sprite iconFps;
