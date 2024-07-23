@@ -95,6 +95,11 @@ public class Switcher : MonoBehaviour
                         break;
                     case SettingType.Vibration:
                         VibrateChanged = !IsOn;
+                        if (VibrateChanged)
+                        {
+                            Vibration.VibratePop();
+                        }
+
                         break;
                 }
 

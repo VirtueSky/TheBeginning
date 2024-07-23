@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
+using VirtueSky.Rating;
 using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
@@ -31,6 +32,7 @@ namespace TheBeginning.UI
 
         [SerializeField] private Vector3Event generateCoinEvent;
         [SerializeField] private EventNoParam moveAllCoinDone;
+        [SerializeField] private InAppReview inAppReview;
 
         [HeaderLine(Constant.SO_Variable)] [SerializeField]
         private IntegerVariable currentCoin;
@@ -89,6 +91,7 @@ namespace TheBeginning.UI
         protected override void OnBeforeShow()
         {
             base.OnBeforeShow();
+            inAppReview.RateAndReview();
             waitMoveAllCoinDone = false;
             moveAllCoinDone.AddListener(OnMoveAllCoinDone);
             Setup();
