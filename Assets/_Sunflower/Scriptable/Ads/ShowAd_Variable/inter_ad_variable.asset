@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b3f7f0095e40dd9d9bf2b0e7eac045, type: 3}
+  m_Name: inter_ad_variable
+  m_EditorClassIdentifier: 
+  description: 
+  interVariable: {fileID: 11400000, guid: 33969daddf1f1d3468618b9f3c743ceb, type: 2}
+  indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
+  isOffInterAdsVariable: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f,
+    type: 2}
+  adsCounterVariable: {fileID: 11400000, guid: fb1d28ed953dba1439f42e31764bd580, type: 2}
+  timeCounterInterAds: {fileID: 11400000, guid: a922fcba70520de4486468de077e96c2,
+    type: 2}
+  remoteConfigLevelTurnOnInterstitial: {fileID: 11400000, guid: 9d24fb49e00e040a08c84af0e948f99d,
+    type: 2}
+  remoteConfigInterstitialCappingLevelVariable: {fileID: 11400000, guid: 8b26d65d7ecc248d588fe6589b7ebdc4,
+    type: 2}
+  remoteConfigInterstitialCappingTimeVariable: {fileID: 11400000, guid: 23a4d1b0c67734e99a0108751888caf0,
+    type: 2}
+  remoteConfigOnOffInterstitial: {fileID: 11400000, guid: 421e94b54b54747f388ece41e49e03c6,
+    type: 2}
+  trackingFirebaseRequestInter: {fileID: 11400000, guid: 7be70904d601ae049a3e7c391bf9b8a0,
+    type: 2}
+  trackingFirebaseShowInterCompleted: {fileID: 11400000, guid: ba87dfc0db173264684b04d7e1ab239d,
+    type: 2}

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0199f7cf7b5f44cfa63f780b9ff50857, type: 3}
   m_Name: AdmobRewardVariable
   m_EditorClassIdentifier: 
-  iOSId: ca-app-pub-3940256099942544/1712485313
+  androidId: ca-app-pub-3940256099942544/5224354917
+  useTestId: 1

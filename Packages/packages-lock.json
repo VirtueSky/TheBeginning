@@ -45,31 +45,38 @@
       "hash": "66fd0c1b84d72ec9ac32e2eece65f2630b4b262e"
     },
     "com.google.firebase.analytics": {
-      "version": "https://github.com/firebase-unity/firebase-analytics.git#11.8.1",
+      "version": "https://github.com/firebase-unity/firebase-analytics.git#12.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.google.firebase.app": "11.8.1"
+        "com.google.firebase.app": "12.0.0"
       },
-      "hash": "b89fc7b80c2159846012c3a2c69673160d562f64"
+      "hash": "35fa3059106f61fd11ae2612fc8b1c4dc0997ebd"
     },
     "com.google.firebase.app": {
-      "version": "https://github.com/firebase-unity/firebase-app.git#11.8.1",
+      "version": "https://github.com/firebase-unity/firebase-app.git#12.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.google.external-dependency-manager": "1.2.177"
       },
-      "hash": "041c9721cc159eba00551c47b213ad1b63e8e069"
+      "hash": "afb504235042fc1252ec0e8ffe161072b1c7e37f"
     },
     "com.google.firebase.remote-config": {
-      "version": "https://github.com/firebase-unity/firebase-remote-config.git#11.8.1",
+      "version": "https://github.com/firebase-unity/firebase-remote-config.git#12.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.google.firebase.app": "11.8.1"
+        "com.google.firebase.app": "12.0.0"
       },
-      "hash": "d115e0f596450404902a629272bb61d60b0cab01"
+      "hash": "88df2eb2bbc8e4d9e162f742722082fd66e676e1"
+    },
+    "com.google.firebase.support-ios": {
+      "version": "https://github.com/firebase-unity/firebase-support-ios.git#12.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "550fdb02598d3cbe0322ac2e2a74127e8e46a7d3"
     },
     "com.google.play.common": {
       "version": "https://github.com/google-unity/google-play-common.git#1.8.2",
@@ -100,6 +107,20 @@
       },
       "hash": "039118f280938f9770ed4efcf04b5bf030981e7e"
     },
+    "com.harumak.unitydebugsheet": {
+      "version": "https://github.com/Haruma-K/UnityDebugSheet.git?path=/Assets/UnityDebugSheet",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "2b1cf90f0375e10c9c0909cc91c5b92d707f2ce3"
+    },
+    "com.tayx.graphy": {
+      "version": "https://github.com/pancake-llc/graphy.git#3.0.6",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "9ded9ea5743bac53592c1988ea7c35939404e655"
+    },
     "com.unity.2d.common": {
       "version": "8.0.2",
       "depth": 1,
@@ -120,22 +141,22 @@
       "dependencies": {}
     },
     "com.unity.2d.spriteshape": {
-      "version": "9.0.2",
+      "version": "9.0.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.1.0",
-        "com.unity.2d.common": "8.0.1",
+        "com.unity.2d.common": "8.0.2",
         "com.unity.modules.physics2d": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.addressables": {
-      "version": "1.21.20",
+      "version": "1.21.21",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.scriptablebuildpipeline": "1.21.22",
+        "com.unity.scriptablebuildpipeline": "1.21.23",
         "com.unity.modules.assetbundle": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
@@ -161,7 +182,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
-      "version": "1.8.13",
+      "version": "1.8.16",
       "depth": 2,
       "source": "registry",
       "dependencies": {
@@ -171,7 +192,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "2.3.1",
+      "version": "2.4.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -244,7 +265,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.mobile.android-logcat": {
-      "version": "1.4.0",
+      "version": "1.4.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -287,7 +308,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "1.21.22",
+      "version": "1.21.23",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -304,7 +325,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
-      "version": "1.12.4",
+      "version": "1.12.5",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -333,8 +354,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.6",
-      "depth": 0,
+      "version": "3.0.8",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
@@ -363,15 +384,16 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.6.3",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.8.7",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.serialization": "3.1.1",
         "com.unity.collections": "2.1.4",
-        "com.unity.textmeshpro": "3.0.6"
+        "com.unity.textmeshpro": "3.0.8",
+        "com.unity.addressables": "1.21.20"
       },
-      "hash": "671999b9ec793671cbfdb9f41566f6bdb40534c8"
+      "hash": "a32cc29323af00502ea1c21f21853821d943cc9a"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

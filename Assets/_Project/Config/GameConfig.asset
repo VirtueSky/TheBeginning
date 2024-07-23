@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLevel: 3
   startLoopLevel: 1
-  enableAdministrator: 1
+  enableDebugView: 1
   targetFrameRate: 60
   winLevelMoney: 100
   percentWinGiftPerLevel: 10
   enableNotificationInGame: 1
   timeDelayHideNotificationInGame: 1
-  enableRequireInternet: 1
+  enableRequireInternet: 0
   timeDelayCheckInternet: 5
   timeLoopCheckInternet: 0.25
   enableShowPopupUpdate: 1

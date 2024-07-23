@@ -3,31 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[CreateAssetMenu(fileName = "VisualEffectConfig", menuName = "Config/VisualEffectConfig")]
-public class VisualEffectConfig : ScriptableObject
+namespace TheBeginning.Config
 {
-    [SerializeField] private List<VisualEffectData> listVisualEffectData;
-    public List<VisualEffectData> ListVisualEffectData => listVisualEffectData;
-
-    public VisualEffectData GetVisualEffectDataByType(VisualEffectType visualEffectType)
+    [CreateAssetMenu(fileName = "VisualEffectConfig", menuName = "Config/VisualEffectConfig")]
+    public class VisualEffectConfig : ScriptableObject
     {
-        return listVisualEffectData.Find(item => item.visualEffectType == visualEffectType);
+        [SerializeField] private List<VisualEffectData> listVisualEffectData;
+        public List<VisualEffectData> ListVisualEffectData => listVisualEffectData;
+
+        public VisualEffectData GetVisualEffectDataByType(VisualEffectType visualEffectType)
+        {
+            return listVisualEffectData.Find(item => item.visualEffectType == visualEffectType);
+        }
     }
-}
 
-[Serializable]
-public class VisualEffectData
-{
-    public VisualEffectType visualEffectType;
-    public List<GameObject> effectList;
-
-    public GameObject GetRandomEffect()
+    [Serializable]
+    public class VisualEffectData
     {
-        return effectList[Random.Range(0, effectList.Count)];
-    }
-}
+        public VisualEffectType visualEffectType;
+        public List<GameObject> effectList;
 
-public enum VisualEffectType
-{
-    Default,
+        public GameObject GetRandomEffect()
+        {
+            return effectList[Random.Range(0, effectList.Count)];
+        }
+    }
+
+    public enum VisualEffectType
+    {
+        Default,
+    }
 }

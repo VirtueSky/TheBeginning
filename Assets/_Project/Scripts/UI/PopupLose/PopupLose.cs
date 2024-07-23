@@ -2,23 +2,26 @@ using System.Reflection;
 using UnityEngine;
 using VirtueSky.Events;
 
-public class PopupLose : UIPopup
+namespace TheBeginning.UI
 {
-    [SerializeField] private EventNoParam replayGameEvent;
-
-    protected override void OnBeforeShow()
+    public class PopupLose : UIPopup
     {
-        base.OnBeforeShow();
-    }
+        [SerializeField] private EventNoParam replayGameEvent;
 
-    protected override void OnBeforeHide()
-    {
-        base.OnBeforeHide();
-    }
+        protected override void OnBeforeShow()
+        {
+            base.OnBeforeShow();
+        }
 
-    public void OnClickReplay()
-    {
-        Hide();
-        replayGameEvent.Raise();
+        protected override void OnBeforeHide()
+        {
+            base.OnBeforeHide();
+        }
+
+        public void OnClickReplay()
+        {
+            Hide();
+            replayGameEvent.Raise();
+        }
     }
 }

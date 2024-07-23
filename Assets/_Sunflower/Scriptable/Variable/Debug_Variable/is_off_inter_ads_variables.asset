@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8612af88fd55455ab06a565de64186b9, type: 3}
   m_Name: is_off_inter_ads_variables
   m_EditorClassIdentifier: 
-  id: is_off_inter_ads_variables
   description: 
-  enableDebugField: 0
   valueDebug: 0
+  id: 97374341169ee42419452c8e62ad838f
   initializeValue: 0
   isSetData: 1
   isSaveData: 0
   isRaiseEvent: 1
+  currentValue: 0

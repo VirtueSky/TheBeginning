@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Packages/Public/com.unity.services.levelplay/Editor/AssemblyInfo.cs.meta
+guid: 32796859bc81457dbaa0f066618e9152
+=======
+guid: 28474c1520cb141d9b23a65aeed0a573
+>>>>>>> levelplay/release/Phase3:Packages/Public/com.unity.services.levelplay/Editor/Analytics/EditorAnalyticsSender.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

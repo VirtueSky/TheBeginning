@@ -16,3 +16,4 @@ MonoBehaviour:
   size: 5
   position: 0
   useCollapsible: 1
+  useTestId: 1

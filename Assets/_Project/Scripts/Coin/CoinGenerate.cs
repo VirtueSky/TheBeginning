@@ -1,16 +1,20 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using PrimeTween;
 using UnityEngine;
-using UnityEngine.Serialization;
+using VirtueSky.Audio;
 using VirtueSky.Core;
+using VirtueSky.Events;
+using VirtueSky.ObjectPooling;
 using VirtueSky.Threading.Tasks;
+using VirtueSky.Variables;
 using Random = UnityEngine.Random;
 
 public class CoinGenerate : BaseMono
 {
-    [SerializeField] private Vector3 from = Vector3.zero;
-    [SerializeField] private GameObject to;
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private Transform holder;
     [SerializeField] private int numberCoin;
     [SerializeField] private int delay;
     [SerializeField] private float durationNear;
@@ -19,76 +23,114 @@ public class CoinGenerate : BaseMono
     [SerializeField] private Ease easeTarget;
     [SerializeField] private float scale = 1;
     [SerializeField] private float offsetNear = 1;
+    [SerializeField] private Vector3Event setFromCoinEvent;
+    [SerializeField] private GameObjectEvent addTargetToCoinGenerateEvent;
+    [SerializeField] private GameObjectEvent removeTargetToCoinGenerateEvent;
+    [SerializeField] private EventNoParam moveOneCoinDone;
+    [SerializeField] private EventNoParam moveAllCoinDone;
+    [SerializeField] private EventNoParam decreaseCoinEvent;
+    [SerializeField] private IntegerVariable currentCoin;
+    [Header("Sound")] [SerializeField] public PlaySfxEvent playSoundFx;
+    [SerializeField] private SoundData soundCoinMove;
 
-    [FormerlySerializedAs("currencyPool")] [SerializeField]
-    private CoinPool coinPool;
-
-    private System.Action moveOneCoinDone;
     private bool isScaleIconTo = false;
-
+    private Vector3 from;
+    private GameObject to;
     private List<GameObject> coinsActive = new List<GameObject>();
+    private List<GameObject> listTo = new List<GameObject>();
+    private int cacheCurrentCoin;
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        currentCoin.AddListener(HandleGenerateCoin);
+        setFromCoinEvent.AddListener(SetFrom);
+        addTargetToCoinGenerateEvent.AddListener(AddTo);
+        removeTargetToCoinGenerateEvent.AddListener(RemoveTo);
+        SetFrom(holder.position);
+        SaveCache();
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        currentCoin.RemoveListener(HandleGenerateCoin);
+        setFromCoinEvent.RemoveListener(SetFrom);
+        addTargetToCoinGenerateEvent.RemoveListener(AddTo);
+        removeTargetToCoinGenerateEvent.RemoveListener(RemoveTo);
+    }
+
+    private void SaveCache()
+    {
+        cacheCurrentCoin = currentCoin.Value;
+    }
+
+    private void HandleGenerateCoin(int value)
+    {
+        if (currentCoin.Value > cacheCurrentCoin)
+        {
+            GenerateCoin();
+        }
+        else
+        {
+            decreaseCoinEvent.Raise();
+            SaveCache();
+        }
+    }
 
     public void SetFrom(Vector3 from)
     {
         this.from = from;
     }
 
-    public void SetToGameObject(GameObject to)
+    public void AddTo(GameObject obj)
     {
-        this.to = to;
+        listTo.Add(obj);
+        to = listTo.Last();
     }
 
-    private void Start()
+    public void RemoveTo(GameObject obj)
     {
-    }
-
-    public async void GenerateCoin(Action moveOneCoinDone, Action moveAllCoinDone,
-        GameObject to = null,
-        int numberCoin = -1)
-    {
-        isScaleIconTo = false;
-        this.moveOneCoinDone = moveOneCoinDone;
-        //this.moveAllCoinDone = moveAllCoinDone;
-        this.to = to == null ? this.to : to;
-        this.numberCoin = numberCoin < 0 ? this.numberCoin : numberCoin;
-
-        for (int i = 0; i < this.numberCoin; i++)
+        listTo.Remove(obj);
+        if (listTo.Count > 0)
         {
-            await UniTask.Delay(Random.Range(0, delay));
-            GameObject coin = coinPool.Spawn(transform);
-            coin.transform.localScale = Vector3.one * scale;
-            coinsActive.Add(coin);
-            coin.transform.position = from;
-            MoveCoin(coin, moveAllCoinDone);
-            // if (i == numberCoin - 1)
-            // {
-            //     Observer.CoinMove?.Invoke();
-            // }
+            to = listTo.Last();
         }
     }
 
-    private void MoveCoin(GameObject coin, Action moveAllCoinDone)
+
+    public async void GenerateCoin()
     {
-        MoveToTarget(coin, () =>
+        isScaleIconTo = false;
+        for (int i = 0; i < numberCoin; i++)
         {
-            coinsActive.Remove(coin);
-            coinPool.DeSpawn(coin);
-            if (!isScaleIconTo)
-            {
-                isScaleIconTo = true;
-                ScaleIconTo();
-            }
+            await UniTask.Delay(Random.Range(0, delay));
+            GameObject coin = coinPrefab.Spawn(holder);
+            coin.transform.localScale = Vector3.one * scale;
+            coinsActive.Add(coin);
+            coin.transform.position = from;
 
-            moveOneCoinDone?.Invoke();
-            if (coinsActive.Count == 0)
+            MoveToTarget(coin, () =>
             {
-                moveAllCoinDone?.Invoke();
+                coinsActive.Remove(coin);
+                coin.DeSpawn();
+                if (!isScaleIconTo)
+                {
+                    isScaleIconTo = true;
+                    playSoundFx.Raise(soundCoinMove);
+                    ScaleIconTo();
+                }
 
-                from = Vector3.zero;
-            }
-        });
+                moveOneCoinDone.Raise();
+                if (coinsActive.Count == 0)
+                {
+                    moveAllCoinDone.Raise();
+                    SaveCache();
+                    SetFrom(holder.position);
+                }
+            });
+        }
     }
-
 
     private void MoveToTarget(GameObject coin, Action completed)
     {

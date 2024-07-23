@@ -1,26 +1,35 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using VirtueSky.Threading.Tasks;
 
-public static class Utility
+namespace TheBeginning
 {
-    public static readonly HttpClient Client = new HttpClient();
-
-    public static async UniTask<string> TranslateAsync(string text, string targetLanguage,
-        string sourceLanguage = "auto")
+    public static class Utility
     {
-        var url =
-            $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={sourceLanguage}&tl={targetLanguage}&dt=t&q={Uri.EscapeDataString(text)}";
+        public static Dictionary<string, AsyncOperationHandle<SceneInstance>> sceneHolder =
+            new Dictionary<string, AsyncOperationHandle<SceneInstance>>();
 
-        var response = await Client.GetAsync(url);
-        response.EnsureSuccessStatusCode();
+        public static readonly HttpClient Client = new HttpClient();
 
-        Debug.LogWarning(response.EnsureSuccessStatusCode());
+        public static async UniTask<string> TranslateAsync(string text, string targetLanguage,
+            string sourceLanguage = "auto")
+        {
+            var url =
+                $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={sourceLanguage}&tl={targetLanguage}&dt=t&q={Uri.EscapeDataString(text)}";
 
-        string responseBody = await response.Content.ReadAsStringAsync();
-        var responseJson = JArray.Parse(responseBody);
-        return (string)responseJson[0][0]?[0];
+            var response = await Client.GetAsync(url);
+            response.EnsureSuccessStatusCode();
+
+            Debug.LogWarning(response.EnsureSuccessStatusCode());
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            var responseJson = JArray.Parse(responseBody);
+            return (string)responseJson[0][0]?[0];
+        }
     }
 }

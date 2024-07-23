@@ -22,11 +22,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 72dd9931dda0d446883437577dd90768
-    m_Address: Assets/_Project/Prefabs/Popup/Administrator.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0392fbccb8ea35f46b0480d27ea4d054
     m_Address: Assets/_Project/Prefabs/Popup/Service/RequireInternet.prefab
     m_ReadOnly: 0
