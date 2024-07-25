@@ -15,8 +15,8 @@ MonoBehaviour:
   adCheckingInterval: 8
   adLoadingInterval: 15
   adNetwork: 1
-  enableGDPR: 0
-  enableGDPRTestMode: 0
+  enableGDPR: 1
+  enableGDPRTestMode: 1
   sdkKey: 
   applovinEnableAgeRestrictedUser: 0
   maxBannerVariable: {fileID: 0}
