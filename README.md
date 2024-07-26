@@ -18,9 +18,9 @@ Description: Gamebase for mobile hyper casual, casual game
 
 ### DebugView
 
-![Unity_Je2ULcRBwx](https://github.com/user-attachments/assets/9f71d670-60cd-4069-8507-36afe641ec1b)
-
 - Enable Debug View `true` in GameConfig window
 - Swipe up on the edge (left or right) of the screen to open (shortcut in editor (`Alt+D` or `Option+D`))
 
+
+![Unity_9YRD8rJRE1](https://github.com/user-attachments/assets/73692ff8-918a-4721-bd7b-c380d4a9cb14)
 
