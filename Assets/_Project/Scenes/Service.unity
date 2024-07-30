@@ -4403,6 +4403,8 @@ GameObject:
   - component: {fileID: 1448091020}
   - component: {fileID: 1448091021}
   - component: {fileID: 1448091024}
+  - component: {fileID: 1448091026}
+  - component: {fileID: 1448091025}
   m_Layer: 0
   m_Name: Service
   m_TagString: Untagged
@@ -4668,6 +4670,41 @@ MonoBehaviour:
     type: 2}
   touchPosition: {x: 0, y: 0, z: 0}
   preventTouch: 0
+--- !u!114 &1448091025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448091006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49195c8970f14421b92361f977eca22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  status: {fileID: 11400000, guid: 17779290a127c4147aa7bad382aca7eb, type: 2}
+  serverCode: {fileID: 11400000, guid: f84deb053f08fd44a9725fcf97c54797, type: 2}
+  loginEvent: {fileID: 11400000, guid: 5690d295f4268774ba78ccaf9dd71993, type: 2}
+--- !u!114 &1448091026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448091006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59cb8f4b8592824aa250e0ed64dfe29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  status: {fileID: 11400000, guid: 17779290a127c4147aa7bad382aca7eb, type: 2}
+  serverCode: {fileID: 11400000, guid: f84deb053f08fd44a9725fcf97c54797, type: 2}
+  loginEvent: {fileID: 11400000, guid: 5690d295f4268774ba78ccaf9dd71993, type: 2}
+  authorizationCodeVariable: {fileID: 11400000, guid: 16a67aaadef95fb478d486ddeea5c5f1,
+    type: 2}
+  userIdVariable: {fileID: 11400000, guid: 10c1da772bb482246a3402bf222d1281, type: 2}
 --- !u!224 &1725799735 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2063518118511579042, guid: 9061c66a86c22914ab4f80086948599c,
