@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: FolderIconSettings
   m_EditorClassIdentifier: 
   setupIconDefault: 1
-  customIcon: 0
-  folderIconDatas: []
+  customIcon: 1
+  folderIconDatas:
+  - icon: {fileID: 2800000, guid: b5aa5103c69828e42a9ff77db820f2a6, type: 3}
+    folderName: _Project
+  - icon: {fileID: 2800000, guid: 575f900c4ff32fa42a779d65da794c83, type: 3}
+    folderName: _Sunflower
