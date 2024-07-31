@@ -12,10 +12,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1924e497ac37414e91f1284e084dc52, type: 3}
   m_Name: FolderIconSettings
   m_EditorClassIdentifier: 
-  setupIconDefault: 1
-  customIcon: 1
-  folderIconDatas:
-  - icon: {fileID: 2800000, guid: b5aa5103c69828e42a9ff77db820f2a6, type: 3}
-    folderName: _Project
-  - icon: {fileID: 2800000, guid: 575f900c4ff32fa42a779d65da794c83, type: 3}
-    folderName: _Sunflower
+  enableFolderIcons: 1
+  enableAutoCustomIconsDefault: 1
+  folderIconsDictionary:
+    dictionaryData:
+    - key: Animations
+      value: {fileID: 2800000, guid: eab75b706f70aca43b8ff64634c515ee, type: 3}
+    - key: Audio
+      value: {fileID: 2800000, guid: 30b6f094fe545f640b5f5da798a13fb8, type: 3}
+    - key: Editor
+      value: {fileID: 2800000, guid: 512d76f3dccd6f640b4ccc01cb61b756, type: 3}
+    - key: Fonts
+      value: {fileID: 2800000, guid: 62ddbe7c7b650f349b033ff9fd3d0bff, type: 3}
+    - key: Materials
+      value: {fileID: 2800000, guid: 89dbba36a0719d24f9287029f9ee6587, type: 3}
+    - key: Models
+      value: {fileID: 2800000, guid: 45ff670f2cb66164a8d6e10605691373, type: 3}
+    - key: Plugins
+      value: {fileID: 2800000, guid: 13b91f0a2558c7048ad52ab46cbec5d9, type: 3}
+    - key: Prefabs
+      value: {fileID: 2800000, guid: bb321d21ec6df16479b3b7ca2912c9c7, type: 3}
+    - key: Presets
+      value: {fileID: 2800000, guid: 78eeb920cc73f444b874a012016e0aba, type: 3}
+    - key: Resources
+      value: {fileID: 2800000, guid: 9100ae07f3844b644a425dc2faa495b8, type: 3}
+    - key: Scenes
+      value: {fileID: 2800000, guid: e883a49e0791ffb4da111b699600a550, type: 3}
+    - key: Scripts
+      value: {fileID: 2800000, guid: 6e5375f7dc7dd98459edcd2fb9a3f8b5, type: 3}
+    - key: Settings
+      value: {fileID: 2800000, guid: 3eeb12e1542f9da42815f009b4d9f05d, type: 3}
+    - key: Shaders
+      value: {fileID: 2800000, guid: 2bc839d7e3db2bf478572af026c7b8b4, type: 3}
+    - key: Sprites
+      value: {fileID: 2800000, guid: b37da4319a2a50d4ebe3cc38697d9acf, type: 3}
+    - key: Textures
+      value: {fileID: 2800000, guid: cb4c49e67fb74904287e1799e8b3e47b, type: 3}
+    - key: Android
+      value: {fileID: 2800000, guid: 6858fce162a9b4744baedb1357e0b690, type: 3}
+    - key: iOS
+      value: {fileID: 2800000, guid: 25e93be6802c63c408e62e4bdfa4e91f, type: 3}
+    - key: _Project
+      value: {fileID: 2800000, guid: 30971d38931ab5c4ea6ac4124bebfac4, type: 3}
+    - key: _Sunflower
+      value: {fileID: 2800000, guid: 38dec0c9e1ada504d98f8a0f4959a215, type: 3}
