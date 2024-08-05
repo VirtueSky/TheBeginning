@@ -5,6 +5,44 @@ Description: Gamebase for mobile hyper casual, casual game
 
 - Use [sunflower](https://github.com/VirtueSky/sunflower) package
 
+- GameFlow
+
+```mermaid
+flowchart LR
+    subgraph LauncherScene["<i class="fa-brands fa-unity"></i> Launcher Scene"]
+    Loading(Loading)
+    end
+
+    subgraph ServiceScene["<i class="fa-brands fa-unity"></i> Service Scene"]
+    Initialization(Initialization)
+    SceneLoader(SceneLoader)
+    LevelLoader(LevelLoader)
+    AudioManager(AudioManager)
+    VisualEffectsSpawner(VisualEffectsSpawner)
+    Advertising(Advertising)
+    IapManager(IapManager)
+    end
+
+    subgraph GameScene["<i class="fa-brands fa-unity"></i> Game Scene"]
+    GameManager(GameManager)
+    PopupManager(PopupManager)
+    end
+
+    GameScene --Raise--> AudioManager --Listener--> SoundComponent{{Pooling: SoundComponent-AudioSource}}
+
+
+    Loading --Load--> ServiceScene
+    Loading --Raise--> LoadGameScene(Load GameScene) --Listener--> SceneLoader --Load--> GameScene
+    GameManager ----> StartGame{Start Game} --Raise (Start Level)--> LevelLoader --Listener(Instantiate)--> Level(Level)
+    PopupManager --Show PopupInGame--> StartGame
+    Level --Win Level--> WinGame{Win Game} --Next Level-->GameManager
+    Level --Lose Level--> LoseGame{Lose Game} --Replay or Skip Level-->GameManager
+    Level --Replay Level--> ReplayGame{Replay Game}
+    ReplayGame --Replay Level--> GameManager
+    PopupManager --Show PopupWin--> WinGame
+    PopupManager --Show PopupLose--> LoseGame
+```
+
 ## Note
 ### GameConfig Window
 - Shortcut (`Ctrl + ~` or `Command + ~`) to open GameConfig Window
