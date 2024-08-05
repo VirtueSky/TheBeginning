@@ -8,7 +8,7 @@ Description: Gamebase for mobile hyper casual, casual game
 - GameFlow
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph LauncherScene["<i class="fa-brands fa-unity"></i> Launcher Scene"]
     Loading(Loading)
     end
@@ -33,7 +33,7 @@ flowchart LR
 
     Loading --Load--> ServiceScene
     Loading --Raise--> LoadGameScene(Load GameScene) --Listener--> SceneLoader --Load--> GameScene
-    GameManager ----> StartGame{Start Game} --Raise (Start Level)--> LevelLoader --Listener(Instantiate)--> Level(Level)
+    GameManager --Raise----> StartGame{Start Game} --Listener--> LevelLoader --Instantiate--> Level(Level)
     PopupManager --Show PopupInGame--> StartGame
     Level --Win Level--> WinGame{Win Game} --Next Level-->GameManager
     Level --Lose Level--> LoseGame{Lose Game} --Replay or Skip Level-->GameManager
