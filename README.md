@@ -31,7 +31,7 @@ flowchart TB
     GameScene --Raise--> AudioManager --Listener--> SoundComponent{{Pooling: SoundComponent-AudioSource}}
 
 
-    Loading --Load--> ServiceScene
+    Loading --Load (LoadSceneMode.Additive)--> ServiceScene
     Loading --Raise--> LoadGameScene(Load GameScene) --Listener--> SceneLoader --Load--> GameScene
     GameManager --Raise----> StartGame{Start Game} --Listener--> LevelLoader --Instantiate--> Level(Level)
     PopupManager --Show PopupInGame--> StartGame
