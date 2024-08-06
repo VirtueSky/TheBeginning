@@ -114,6 +114,13 @@
       "dependencies": {},
       "hash": "2b1cf90f0375e10c9c0909cc91c5b92d707f2ce3"
     },
+    "com.matthewminer.consolation": {
+      "version": "https://github.com/wolf-package/consolation.git#1.4.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "cf87d85de5f5865487fddb2f24daebe570870c5a"
+    },
     "com.tayx.graphy": {
       "version": "https://github.com/pancake-llc/graphy.git#3.0.6",
       "depth": 0,
