@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleKey: 32
   openOnStart: 0
-  shakeToOpen: 1
+  shakeToOpen: 0
   shakeRequiresTouch: 0
   shakeAcceleration: 3
   toggleThresholdSeconds: 0.5
