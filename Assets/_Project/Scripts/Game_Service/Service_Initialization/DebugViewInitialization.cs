@@ -95,8 +95,6 @@ namespace TheBeginning.Services
                         callPreviousLevelEvent, callWinLevelEvent, callLoseLevelEvent, indexLevel,
                         showNotificationInGameEvent, iconNext, iconBack, iconWin, iconLose, iconInput, iconOke);
                 });
-            initialPage.Reload();
-
             // Add system analysis page
             initialPage.AddPageLinkButton<DebugSystemAnalysisPage>("System analysis", icon: iconAnalysis, onLoad:
                 debugView => { debugView.page.Init(iconFps, iconRam, iconAudio, iconAdvanced); });
@@ -104,6 +102,7 @@ namespace TheBeginning.Services
             // Add Console pag
             initialPage.AddPageLinkButton<DebugConsoleLogPage>("Console Log", icon: iconConsoleLog,
                 onLoad: debugView => { debugView.page.Init(iconToggle, iconInput, iconOke, iconSlider); });
+            initialPage.Reload();
         }
 
         void SetupConsoleInGame()
