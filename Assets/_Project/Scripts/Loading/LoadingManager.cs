@@ -20,12 +20,14 @@ namespace TheBeginning.SceneFlow
     {
         [SerializeField] private GameConfig gameConfig;
         [HeaderLine("Attributes")] public Image progressBar;
+        [SerializeField] private RawImage rawImage;
         public TextMeshProUGUI loadingText;
         [Range(0.1f, 10f)] public float timeLoading = 5f;
         [SerializeField] private StringEvent changeSceneEvent;
         [SerializeField] private BooleanVariable isFetchRemoteConfigCompleted;
         private bool flagDoneProgress;
         private bool fetchFirebaseRemoteConfigCompleted = false;
+        private Rect rect = new Rect(0, 0, 1, 1);
 
         private void Awake()
         {
@@ -40,7 +42,13 @@ namespace TheBeginning.SceneFlow
             progressBar.fillAmount = 0;
             progressBar.DOFillAmount(1, timeLoading)
                 .OnUpdate(progressBar,
-                    (image, tween) => loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%")
+                    (image, tween) =>
+                    {
+                        loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%";
+                        rect.x -= Time.deltaTime * 0.1f;
+                        rect.y -= Time.deltaTime * 0.1f;
+                        rawImage.uvRect = rect;
+                    })
                 .OnComplete(() => flagDoneProgress = true);
         }
 
