@@ -1,3 +1,4 @@
+using Consolation;
 using TheBeginning.Config;
 using TheBeginning.DebugViewPage;
 using UnityDebugSheet.Runtime.Core.Scripts;
@@ -13,6 +14,10 @@ namespace TheBeginning.Services
     {
         [SerializeField] private DebugSheet debugViewSheet;
         [SerializeField] private GameConfig gameConfig;
+
+        [HeaderLine("ConsoleInGame"), SerializeField]
+        private ConsoleInGame consoleInGamePrefab;
+
         [HeaderLine("Icon"), SerializeField] private Sprite iconTool;
         [SerializeField] private Sprite iconAds;
         [SerializeField] private Sprite iconLevel;
@@ -30,6 +35,8 @@ namespace TheBeginning.Services
         [SerializeField] private Sprite iconAdvanced;
         [SerializeField] private Sprite iconCoinDebug;
         [SerializeField] private Sprite iconOutfitDebug;
+        [SerializeField] private Sprite iconConsoleLog;
+        [SerializeField] private Sprite iconSlider;
         [HeaderLine("Tool")] [SerializeField] private IntegerVariable currentCoin;
         [SerializeField] private ItemConfig itemConfig;
         [SerializeField] private BooleanVariable isOffUiVariable;
@@ -59,6 +66,7 @@ namespace TheBeginning.Services
             }
 
             debugViewSheet.gameObject.SetActive(true);
+            SetupConsoleInGame();
             var initialPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning Debug");
             // add game page
             initialPage.AddPageLinkButton<DebugGamePage>("Game Debug",
@@ -92,6 +100,15 @@ namespace TheBeginning.Services
             // Add system analysis page
             initialPage.AddPageLinkButton<DebugSystemAnalysisPage>("System analysis", icon: iconAnalysis, onLoad:
                 debugView => { debugView.page.Init(iconFps, iconRam, iconAudio, iconAdvanced); });
+
+            // Add Console pag
+            initialPage.AddPageLinkButton<DebugConsoleLogPage>("Console Log", icon: iconConsoleLog,
+                onLoad: debugView => { debugView.page.Init(iconToggle, iconInput, iconOke, iconSlider); });
+        }
+
+        void SetupConsoleInGame()
+        {
+            Instantiate(consoleInGamePrefab);
         }
     }
 }

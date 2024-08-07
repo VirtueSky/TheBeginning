@@ -307,12 +307,17 @@ PrefabInstance:
     - target: {fileID: 6564643837970611220, guid: ca5e6d279e01e413f8bbf07d75aebe7f,
         type: 3}
       propertyPath: _maxProgress
-      value: 0.633
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6564643837970611220, guid: ca5e6d279e01e413f8bbf07d75aebe7f,
         type: 3}
       propertyPath: _useMiddleState
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564643837970611220, guid: ca5e6d279e01e413f8bbf07d75aebe7f,
+        type: 3}
+      propertyPath: _moveInsideSafeArea
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6564643837970611224, guid: ca5e6d279e01e413f8bbf07d75aebe7f,
         type: 3}
@@ -725,6 +730,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugViewSheet: {fileID: 2095126785}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  consoleInGamePrefab: {fileID: 1693451240832174851, guid: e1182754700ccf44289e0d137be27ec8,
+    type: 3}
   iconTool: {fileID: 21300000, guid: 2d8be02cedaf05d4086f421a7bd95109, type: 3}
   iconAds: {fileID: 21300000, guid: 36c9f1d626150294ab77f0c9aa120fef, type: 3}
   iconLevel: {fileID: 21300000, guid: c1469ad627c1b494cbd24e4874f63442, type: 3}
@@ -742,6 +749,8 @@ MonoBehaviour:
   iconAdvanced: {fileID: 21300000, guid: 3fda9bd7daaf0f4459f2fd1daf82448e, type: 3}
   iconCoinDebug: {fileID: 21300000, guid: eb9c187540660754ab8a515338206184, type: 3}
   iconOutfitDebug: {fileID: 21300000, guid: 1aaa9b4d13dbcb64baea375e33fc1f58, type: 3}
+  iconConsoleLog: {fileID: 21300000, guid: 6dc678910c85e1948ab02dd201636490, type: 3}
+  iconSlider: {fileID: 21300000, guid: b7cb707fa031cc94b8cc2f119bdfad21, type: 3}
   currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
   itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
   isOffUiVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
