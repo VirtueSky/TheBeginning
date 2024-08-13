@@ -787,6 +787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b63baa11cb54b389165d68e8321f4da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firebaseDependencyAvailable: {fileID: 11400000, guid: 4e9990c5639bee94a92994853702c911,
+    type: 2}
 --- !u!1 &532783272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4479,6 +4481,8 @@ MonoBehaviour:
   typeInitRemoteConfig: 0
   dependencyStatus: 7
   isFetchRemoteConfigCompleted: {fileID: 11400000, guid: 90e7fdd9a40bfdc4c89ff31f239a25c2,
+    type: 2}
+  firebaseDependencyAvailable: {fileID: 11400000, guid: 4e9990c5639bee94a92994853702c911,
     type: 2}
   listRemoteConfigData:
   - key: RMC_INTER_CAPPING_LEVEL
