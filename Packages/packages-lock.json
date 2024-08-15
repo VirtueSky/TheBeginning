@@ -1,18 +1,21 @@
 {
   "dependencies": {
     "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git",
+      "version": "https://github.com/mob-sakai/UIEffect.git#4.0.0-preview.10",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b43e40508b167d143330d8b9eff0d5c9965cdf3c"
+      "hash": "332340e7bc2f8257816dd28784607a1edf6b6c2a"
     },
     "com.coffee.ui-particle": {
-      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.9.1",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "429ff2dd09264fd091ed3005c7a4c247f118c7ae"
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.particlesystem": "1.0.0"
+      },
+      "hash": "025efcbc5d3175aa1aaf5cb42a667cd7727457ae"
     },
     "com.esotericsoftware.spine.spine-csharp": {
       "version": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-csharp/src#4.1",
