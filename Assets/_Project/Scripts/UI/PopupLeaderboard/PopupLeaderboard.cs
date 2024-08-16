@@ -1,14 +1,19 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using PrimeTween;
+using TMPro;
 using Unity.Services.Authentication;
 using Unity.Services.Leaderboards;
 using Unity.Services.Leaderboards.Models;
 using UnityDebugSheet.Runtime.Foundation.PageNavigator.Modules;
 using UnityEngine;
+using UnityEngine.UI;
+using VirtueSky.Core;
 using VirtueSky.Events;
 using VirtueSky.GameService;
 using VirtueSky.Inspector;
+using VirtueSky.Misc;
 using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
@@ -20,8 +25,21 @@ namespace TheBeginning.UI
         [SerializeField] private string allTimeTableId = "ALL_TIME_RANK";
         [SerializeField] private string weeklyTableId = "WEEKLY_RANK";
         [SerializeField] private IntegerVariable currentLevel;
+        [SerializeField] private GameObject contentSlot;
         [SerializeField] private GameObject rootLeaderboard;
         [SerializeField] private GameObject block;
+        [SerializeField] private Button buttonClose;
+        [SerializeField] private Button buttonNextPage;
+        [SerializeField] private Button buttonPreviousPage;
+        [SerializeField] private Button buttonAllTimeRank;
+        [SerializeField] private Button buttonWeeklyRank;
+        [SerializeField] private Sprite spriteCurrentTab;
+        [SerializeField] private Sprite spriteNormalTab;
+        [SerializeField] private TextMeshProUGUI textName;
+        [SerializeField] private TextMeshProUGUI textRank;
+        [SerializeField] private TextMeshProUGUI textCurrentPage;
+        [SerializeField] private AnimationCurve displayRankCurve;
+        [SerializeField] private List<LeaderboardElementView> slots = new List<LeaderboardElementView>();
 
         [SerializeField] private LeaderboardElementColor colorRank1 = new(new Color(1f, 0.82f, 0f),
             new Color(0.44f, 0.33f, 0f),
@@ -67,6 +85,12 @@ namespace TheBeginning.UI
         private AsyncProcessHandle _handleAnimation;
         private bool _firstTimeEnterWeekly = true;
         private bool _firstTimeEnterWorld = true;
+
+        protected override void OnBeforeShow()
+        {
+            base.OnBeforeShow();
+            _countInOnePage = slots.Count;
+        }
 
         private async void Init()
         {
@@ -119,26 +143,99 @@ namespace TheBeginning.UI
 
         private async UniTask<bool> LoadNextDataAllTimeScores()
         {
-            _allTimeData.offset = _allTimeData.entries.Count - 1 != 0 ? _allTimeData.entries.Count - 1 : 0;
+            _allTimeData.offset = (_allTimeData.entries.Count - 1).Max(0);
             var scores = await LeaderboardsService.Instance.GetScoresAsync(allTimeTableId,
                 new GetScoresOptions { Limit = _allTimeData.limit, Offset = _allTimeData.offset });
             _allTimeData.entries.AddRange(scores.Results);
-            _allTimeData.pageCount = (int)System.Math.Ceiling(_allTimeData.entries.Count / (float)_countInOnePage);
+            _allTimeData.pageCount = (_allTimeData.entries.Count / (float)_countInOnePage).CeilToInt();
             return true;
         }
 
         private async UniTask<bool> LoadNextDataWeeklyScore()
         {
-            _weeklyData.offset = _weeklyData.entries.Count - 1 != 0 ? _weeklyData.entries.Count - 1 : 0;
+            _weeklyData.offset = (_weeklyData.entries.Count - 1).Max(0);
             var scores = await LeaderboardsService.Instance.GetScoresAsync(weeklyTableId,
                 new GetScoresOptions { Limit = _weeklyData.limit, Offset = _weeklyData.offset });
             _weeklyData.entries.AddRange(scores.Results);
-            _weeklyData.pageCount = (int)System.Math.Ceiling(_weeklyData.entries.Count / (float)_countInOnePage);
+            _weeklyData.pageCount = (_weeklyData.entries.Count / (float)_countInOnePage).CeilToInt();
             return true;
         }
 
-        private void Refresh(LeaderboardData allTimeData)
+        private void Refresh(LeaderboardData data)
         {
+            buttonNextPage.interactable = true;
+            textName.text = AuthenticationService.Instance.PlayerName;
+            textRank.text = $"{data.myRank + 1}";
+            rootLeaderboard.SetActive(true);
+            slots.ForEach(slot => slot.gameObject.SetActive(false));
+            textCurrentPage.text = $"{data.currentPage + 1}";
+            if (data.currentPage >= data.currentPage - 1) // reach the end
+            {
+                buttonNextPage.gameObject.SetActive(false);
+                buttonPreviousPage.gameObject.SetActive(data.currentPage != 0);
+            }
+
+            block.SetActive(true);
+            foreach (var sequence in _sequences)
+            {
+                sequence.Stop();
+            }
+
+            var pageData = new List<LeaderboardEntry>();
+            for (int i = 0; i < _countInOnePage; i++)
+            {
+                int index = data.currentPage * _countInOnePage + i;
+                if (data.entries.Count <= index) break;
+
+                pageData.Add(data.entries[index]);
+            }
+
+            buttonPreviousPage.gameObject.SetActive(data.currentPage != 0);
+            buttonNextPage.gameObject.SetActive(data.currentPage < data.pageCount - 1);
+            contentSlot.SetActive(true);
+            block.SetActive(false);
+            App.StartCoroutine(PageSetup(pageData));
+        }
+
+        private IEnumerator PageSetup(List<LeaderboardEntry> pageData)
+        {
+            for (int i = 0; i < pageData.Count; i++)
+            {
+                slots[i].Init(pageData[i].Rank + 1, pageData[i].PlayerName, (int)pageData[i].Score,
+                    ColorDivision(pageData[i].Rank + 1, pageData[i].PlayerId),
+                    pageData[i].PlayerId.Equals(AuthenticationService.Instance.PlayerId));
+                slots[i].gameObject.SetActive(true);
+
+                _sequences[i].Stop();
+                // todo play anim
+                _sequences[i] = Sequence.Create();
+                _sequences[i]
+                    .Chain(Tween.Scale(slots[i].transform,
+                        new Vector3(0.92f, 0.92f, 0.92f),
+                        new Vector3(1.04f, 1.06f, 1),
+                        0.2f,
+                        Ease.OutQuad));
+                _sequences[i]
+                    .Chain(Tween.Scale(slots[i].transform,
+                        new Vector3(1.04f, 1.06f, 1),
+                        Vector3.one,
+                        0.15f,
+                        Ease.InQuad));
+                yield return new WaitForSeconds(displayRankCurve.Evaluate(i / (float)pageData.Count));
+            }
+        }
+
+        private LeaderboardElementColor ColorDivision(int rank, string playerId)
+        {
+            if (playerId.Equals(AuthenticationService.Instance.PlayerId)) return colorRankYou;
+
+            return rank switch
+            {
+                1 => colorRank1,
+                2 => colorRank2,
+                3 => colorRank3,
+                _ => colorOutRank
+            };
         }
 
 
