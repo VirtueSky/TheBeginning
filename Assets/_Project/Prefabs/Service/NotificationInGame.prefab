@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b396f2a5fa387044096f617d404b9bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textNoti: {fileID: 1571600837992300582}
+  textNoti: {fileID: 4890303519412967080}
   container: {fileID: 3305898790409175187}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   posYShow: -150
@@ -189,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 731153374142126934}
   - component: {fileID: 5507046963753555365}
-  - component: {fileID: 1571600837992300582}
+  - component: {fileID: 4890303519412967080}
   m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
@@ -224,7 +224,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5703444035936597428}
   m_CullTransparentMesh: 1
---- !u!114 &1571600837992300582
+--- !u!114 &4890303519412967080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,8 +253,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4281216558
+  m_fontColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

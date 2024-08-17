@@ -22,11 +22,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0414325cc03918d47bedc3751f7127d6
-    m_Address: Assets/_Project/Fonts/TMP_LilitaOne_Stroke.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 728967541f883204f8066926561c2768
     m_Address: Assets/_Sunflower/Scriptable/Event/change_scene_event.asset
     m_ReadOnly: 0

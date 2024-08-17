@@ -74,6 +74,7 @@ namespace TheBeginning.UI
         [SerializeField] private StatusLoginVariable status;
         [SerializeField] private StringVariable nameVariable;
         [SerializeField] private EventNoParam gpgsGetNewServerCodeEvent;
+        [SerializeField] private StringEvent showNotificationInGameEvent;
 
 
         private LeaderboardData _allTimeData = new("alltime_data");
@@ -90,6 +91,128 @@ namespace TheBeginning.UI
         {
             base.OnBeforeShow();
             _countInOnePage = slots.Count;
+            _sequences = new Sequence[slots.Count];
+            buttonNextPage.onClick.AddListener(OnButtonNextPagePressed);
+            buttonPreviousPage.onClick.AddListener(OnButtonPreviousPagePressed);
+            buttonAllTimeRank.onClick.AddListener(OnButtonAllTimeRankPressed);
+            buttonWeeklyRank.onClick.AddListener(OnButtonWeeklyRankPressed);
+            Init();
+        }
+
+        protected override void OnBeforeHide()
+        {
+            base.OnBeforeHide();
+            buttonNextPage.onClick.RemoveListener(OnButtonNextPagePressed);
+            buttonPreviousPage.onClick.RemoveListener(OnButtonPreviousPagePressed);
+            buttonAllTimeRank.onClick.RemoveListener(OnButtonAllTimeRankPressed);
+            buttonWeeklyRank.onClick.RemoveListener(OnButtonWeeklyRankPressed);
+        }
+
+        private void OnButtonWeeklyRankPressed()
+        {
+            _currentTab = ELeaderboardTab.Weekly;
+            buttonWeeklyRank.image.sprite = spriteCurrentTab;
+            buttonAllTimeRank.image.sprite = spriteNormalTab;
+            Init();
+        }
+
+        private void OnButtonAllTimeRankPressed()
+        {
+            _currentTab = ELeaderboardTab.AllTime;
+            buttonWeeklyRank.image.sprite = spriteNormalTab;
+            buttonAllTimeRank.image.sprite = spriteCurrentTab;
+            Init();
+        }
+
+        private void OnButtonPreviousPagePressed()
+        {
+            buttonPreviousPage.interactable = false;
+            switch (_currentTab)
+            {
+                case ELeaderboardTab.AllTime:
+                    AllTimePreviousPage();
+                    break;
+                case ELeaderboardTab.Weekly:
+                    WeeklyPreviousPage();
+                    break;
+            }
+        }
+
+        private void AllTimePreviousPage()
+        {
+            if (_allTimeData.currentPage > 0)
+            {
+                _allTimeData.currentPage--;
+                buttonPreviousPage.interactable = true;
+                Refresh(_allTimeData);
+            }
+        }
+
+        private void WeeklyPreviousPage()
+        {
+            if (_weeklyData.currentPage > 0)
+            {
+                _weeklyData.currentPage--;
+                buttonPreviousPage.interactable = true;
+                Refresh(_weeklyData);
+            }
+        }
+
+        private void OnButtonNextPagePressed()
+        {
+            buttonNextPage.interactable = false;
+            switch (_currentTab)
+            {
+                case ELeaderboardTab.AllTime:
+                    AllTimeNextPage();
+                    break;
+                case ELeaderboardTab.Weekly:
+                    WeeklyNextPage();
+                    break;
+            }
+        }
+
+        private async void WeeklyNextPage()
+        {
+            _weeklyData.currentPage++;
+            if (_weeklyData.currentPage == _weeklyData.pageCount - 1)
+            {
+                if (_weeklyData.entries.Count > 0)
+                {
+                    block.SetActive(true);
+                    contentSlot.SetActive(false);
+                    await LoadNextDataWeeklyScores(); // request more entry
+                    block.SetActive(false);
+                    Refresh(_weeklyData);
+                }
+            }
+            else
+            {
+                buttonNextPage.interactable = true;
+                Refresh(_weeklyData);
+            }
+        }
+
+
+        private async void AllTimeNextPage()
+        {
+            _allTimeData.currentPage++;
+            if (_allTimeData.currentPage == _allTimeData.pageCount - 1)
+            {
+                if (_allTimeData.entries.Count > 0)
+                {
+                    block.SetActive(true);
+                    contentSlot.SetActive(false);
+                    await LoadNextDataAllTimeScores(); // request more entry
+                    block.SetActive(false);
+                    Refresh(_allTimeData);
+                }
+            }
+            else
+            {
+                buttonNextPage.interactable = true;
+                Refresh(_allTimeData);
+            }
         }
 
         private async void Init()
@@ -151,7 +274,7 @@ namespace TheBeginning.UI
             return true;
         }
 
-        private async UniTask<bool> LoadNextDataWeeklyScore()
+        private async UniTask<bool> LoadNextDataWeeklyScores()
         {
             _weeklyData.offset = (_weeklyData.entries.Count - 1).Max(0);
             var scores = await LeaderboardsService.Instance.GetScoresAsync(weeklyTableId,
@@ -261,6 +384,7 @@ namespace TheBeginning.UI
                 {
                     // Login failed
                     Debug.Log("Login failed");
+                    showNotificationInGameEvent.Raise("Failed to retrieve Google play games authorization code");
                     return;
                 }
             }
@@ -296,6 +420,7 @@ namespace TheBeginning.UI
             {
                 // Login failed
                 Debug.Log("Login failed");
+                showNotificationInGameEvent.Raise("Failed to login Apple");
             }
 #endif
 
