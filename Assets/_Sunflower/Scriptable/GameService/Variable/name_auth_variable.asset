@@ -15,8 +15,8 @@ MonoBehaviour:
   description: 
   valueDebug: 
   id: 2bd918680e13e4c63b34eb1e9311f9b9
-  initializeValue: 
-  isSetData: 1
+  initializeValue: NgoThiKhoa
+  isSetData: 0
   isSaveData: 0
   isRaiseEvent: 0
-  currentValue: 
+  currentValue: Ngo Thi Khoa

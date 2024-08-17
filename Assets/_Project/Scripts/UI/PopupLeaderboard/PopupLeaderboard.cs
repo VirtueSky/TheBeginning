@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace TheBeginning.UI
     {
         [SerializeField] private string allTimeTableId = "ALL_TIME_RANK";
         [SerializeField] private string weeklyTableId = "WEEKLY_RANK";
+        [SerializeField] private string playerNameEditor = "VirtueSky";
         [SerializeField] private IntegerVariable currentLevel;
         [SerializeField] private GameObject contentSlot;
         [SerializeField] private GameObject rootLeaderboard;
@@ -220,9 +222,67 @@ namespace TheBeginning.UI
             block.SetActive(true);
             rootLeaderboard.SetActive(false);
 
-            InitEditor();
-            InitAndroid();
-            InitIos();
+#if UNITY_EDITOR
+            if (!AuthenticationService.Instance.IsSignedIn)
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+#endif
+#if UNITY_ANDROID && VIRTUESKY_GPGS
+            if (!GooglePlayGamesAuthentication.IsSignIn())
+            {
+                status.SetNotLoggedIn();
+                loginEvent.Raise();
+                await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
+                if (string.IsNullOrEmpty(serverCode.Value))
+                {
+                    // Login failed
+                    Debug.Log("Login failed");
+                    showNotificationInGameEvent.Raise("Failed to retrieve Google play games authorization code");
+                    return;
+                }
+            }
+            else
+            {
+                status.SetNotLoggedIn();
+                gpgsGetNewServerCodeEvent.Raise();
+                await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
+            }
+#endif
+
+#if UNITY_IOS
+            status.SetNotLoggedIn();
+            loginEvent.Raise();
+            await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
+
+            if (string.IsNullOrEmpty(serverCode.Value))
+            {
+                // Login failed
+                Debug.Log("Login failed");
+                showNotificationInGameEvent.Raise("Failed to login Apple");
+            }
+#endif
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+            if (AuthenticationService.Instance.SessionTokenExists)
+            {
+                // signin cached
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            }
+            else
+            {
+                await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(serverCode.Value);
+            }
+#endif
+#if UNITY_IOS && !UNITY_EDITOR
+            if (AuthenticationService.Instance.SessionTokenExists)
+            {
+                // signin cached
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            }
+            else
+            {
+                await AuthenticationService.Instance.SignInWithAppleAsync(serverCode.Value);
+            }
+#endif
 
             await Excute();
 
@@ -245,7 +305,7 @@ namespace TheBeginning.UI
                 _allTimeData.myRank = resultAdded.Rank;
                 if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
                 {
-                    await AuthenticationService.Instance.UpdatePlayerNameAsync(nameVariable.Value);
+                    await AuthenticationService.Instance.UpdatePlayerNameAsync(GetPlayerName());
                     await LoadNextDataAllTimeScores();
                     block.SetActive(false);
                     Refresh(_allTimeData);
@@ -262,6 +322,15 @@ namespace TheBeginning.UI
                     Refresh(_allTimeData);
                 }
             }
+        }
+
+        string GetPlayerName()
+        {
+#if UNITY_EDITOR_64
+            return playerNameEditor;
+#else
+            return nameVariable.Value;
+#endif
         }
 
         private async UniTask<bool> LoadNextDataAllTimeScores()
@@ -287,7 +356,8 @@ namespace TheBeginning.UI
         private void Refresh(LeaderboardData data)
         {
             buttonNextPage.interactable = true;
-            textName.text = AuthenticationService.Instance.PlayerName;
+            string[] playerNameSplits = AuthenticationService.Instance.PlayerName.Split('#');
+            textName.text = playerNameSplits[0];
             textRank.text = $"{data.myRank + 1}";
             rootLeaderboard.SetActive(true);
             slots.ForEach(slot => slot.gameObject.SetActive(false));
@@ -324,7 +394,7 @@ namespace TheBeginning.UI
         {
             for (int i = 0; i < pageData.Count; i++)
             {
-                slots[i].Init(pageData[i].Rank + 1, pageData[i].PlayerName, (int)pageData[i].Score,
+                slots[i].Init(pageData[i].Rank + 1, pageData[i].PlayerName.Split('#')[0], (int)pageData[i].Score,
                     ColorDivision(pageData[i].Rank + 1, pageData[i].PlayerId),
                     pageData[i].PlayerId.Equals(AuthenticationService.Instance.PlayerId));
                 slots[i].gameObject.SetActive(true);
@@ -360,83 +430,5 @@ namespace TheBeginning.UI
                 _ => colorOutRank
             };
         }
-
-
-        #region Init Authentication
-
-        private async void InitEditor()
-        {
-#if UNITY_EDITOR
-            if (!AuthenticationService.Instance.IsSignedIn)
-                await AuthenticationService.Instance.SignInAnonymouslyAsync();
-#endif
-        }
-
-        private async void InitAndroid()
-        {
-#if UNITY_ANDROID && VIRTUESKY_GPGS
-            if (!GooglePlayGamesAuthentication.IsSignIn())
-            {
-                status.SetNotLoggedIn();
-                loginEvent.Raise();
-                await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
-                if (string.IsNullOrEmpty(serverCode.Value))
-                {
-                    // Login failed
-                    Debug.Log("Login failed");
-                    showNotificationInGameEvent.Raise("Failed to retrieve Google play games authorization code");
-                    return;
-                }
-            }
-            else
-            {
-                status.SetNotLoggedIn();
-                gpgsGetNewServerCodeEvent.Raise();
-                await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
-            }
-#endif
-
-#if UNITY_ANDROID && !UNITY_EDITOR
-            if (AuthenticationService.Instance.SessionTokenExists)
-            {
-                // signin cached
-                await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            }
-            else
-            {
-                await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(serverCode.Value);
-            }
-#endif
-        }
-
-        private async void InitIos()
-        {
-#if UNITY_IOS
-            status.SetNotLoggedIn();
-            loginEvent.Raise();
-            await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
-
-            if (string.IsNullOrEmpty(serverCode.Value))
-            {
-                // Login failed
-                Debug.Log("Login failed");
-                showNotificationInGameEvent.Raise("Failed to login Apple");
-            }
-#endif
-
-#if UNITY_IOS && !UNITY_EDITOR
-            if (AuthenticationService.Instance.SessionTokenExists)
-            {
-                // signin cached
-                await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            }
-            else
-            {
-                await AuthenticationService.Instance.SignInWithAppleAsync(serverCode.Value);
-            }
-#endif
-        }
-
-        #endregion
     }
 }
