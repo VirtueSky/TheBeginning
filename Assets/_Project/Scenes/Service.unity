@@ -616,6 +616,7 @@ GameObject:
   - component: {fileID: 524850872}
   - component: {fileID: 524850876}
   - component: {fileID: 524850877}
+  - component: {fileID: 524850879}
   m_Layer: 0
   m_Name: Initialization
   m_TagString: Untagged
@@ -789,6 +790,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firebaseDependencyAvailable: {fileID: 11400000, guid: 4e9990c5639bee94a92994853702c911,
     type: 2}
+--- !u!114 &524850879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524850868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dbaa7ec4c94498ba61a9ea485eaedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &532783272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4650,14 +4663,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serviceInitializations:
-  - {fileID: 524850878}
-  - {fileID: 524850877}
-  - {fileID: 524850874}
   - {fileID: 524850876}
-  - {fileID: 524850871}
+  - {fileID: 524850874}
+  - {fileID: 524850879}
   - {fileID: 524850875}
   - {fileID: 524850873}
   - {fileID: 524850872}
+  - {fileID: 524850877}
+  - {fileID: 524850871}
+  - {fileID: 524850878}
 --- !u!114 &1448091024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4698,7 +4712,10 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   status: {fileID: 11400000, guid: 17779290a127c4147aa7bad382aca7eb, type: 2}
   serverCode: {fileID: 11400000, guid: f84deb053f08fd44a9725fcf97c54797, type: 2}
+  nameVariable: {fileID: 11400000, guid: 2bd918680e13e4c63b34eb1e9311f9b9, type: 2}
   loginEvent: {fileID: 11400000, guid: 5690d295f4268774ba78ccaf9dd71993, type: 2}
+  getNewServerCodeEvent: {fileID: 11400000, guid: c40930ccee82c4df1bfce34f8ded5ecb,
+    type: 2}
 --- !u!114 &1448091026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4714,6 +4731,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   status: {fileID: 11400000, guid: 17779290a127c4147aa7bad382aca7eb, type: 2}
   serverCode: {fileID: 11400000, guid: f84deb053f08fd44a9725fcf97c54797, type: 2}
+  nameVariable: {fileID: 11400000, guid: 2bd918680e13e4c63b34eb1e9311f9b9, type: 2}
   loginEvent: {fileID: 11400000, guid: 5690d295f4268774ba78ccaf9dd71993, type: 2}
   authorizationCodeVariable: {fileID: 11400000, guid: 16a67aaadef95fb478d486ddeea5c5f1,
     type: 2}
