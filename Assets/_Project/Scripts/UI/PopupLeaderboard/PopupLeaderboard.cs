@@ -132,31 +132,21 @@ namespace TheBeginning.UI
             switch (_currentTab)
             {
                 case ELeaderboardTab.AllTime:
-                    AllTimePreviousPage();
+                    PreviousPage(_allTimeData);
                     break;
                 case ELeaderboardTab.Weekly:
-                    WeeklyPreviousPage();
+                    PreviousPage(_weeklyData);
                     break;
             }
         }
 
-        private void AllTimePreviousPage()
+        private void PreviousPage(LeaderboardData leaderboardData)
         {
-            if (_allTimeData.currentPage > 0)
+            if (leaderboardData.currentPage > 0)
             {
-                _allTimeData.currentPage--;
+                leaderboardData.currentPage--;
                 buttonPreviousPage.interactable = true;
-                Refresh(_allTimeData);
-            }
-        }
-
-        private void WeeklyPreviousPage()
-        {
-            if (_weeklyData.currentPage > 0)
-            {
-                _weeklyData.currentPage--;
-                buttonPreviousPage.interactable = true;
-                Refresh(_weeklyData);
+                Refresh(leaderboardData);
             }
         }
 
@@ -166,54 +156,43 @@ namespace TheBeginning.UI
             switch (_currentTab)
             {
                 case ELeaderboardTab.AllTime:
-                    AllTimeNextPage();
+                    NextPage(_allTimeData);
                     break;
                 case ELeaderboardTab.Weekly:
-                    WeeklyNextPage();
+                    NextPage(_weeklyData);
                     break;
             }
         }
 
-        private async void WeeklyNextPage()
+
+        private async void NextPage(LeaderboardData leaderboardData)
         {
-            _weeklyData.currentPage++;
-            if (_weeklyData.currentPage == _weeklyData.pageCount - 1)
+            leaderboardData.currentPage++;
+            if (leaderboardData.currentPage == leaderboardData.pageCount - 1)
             {
-                if (_weeklyData.entries.Count > 0)
+                if (leaderboardData.entries.Count > 0)
                 {
                     block.SetActive(true);
                     contentSlot.SetActive(false);
-                    await LoadNextDataWeeklyScores(); // request more entry
+
+                    switch (_currentTab)
+                    {
+                        case ELeaderboardTab.AllTime:
+                            await LoadNextData(_allTimeData, allTimeTableId); // request more entry
+                            break;
+                        case ELeaderboardTab.Weekly:
+                            await LoadNextData(_weeklyData, weeklyTableId); // request more entry
+                            break;
+                    }
+
                     block.SetActive(false);
-                    Refresh(_weeklyData);
+                    Refresh(leaderboardData);
                 }
             }
             else
             {
                 buttonNextPage.interactable = true;
-                Refresh(_weeklyData);
-            }
-        }
-
-
-        private async void AllTimeNextPage()
-        {
-            _allTimeData.currentPage++;
-            if (_allTimeData.currentPage == _allTimeData.pageCount - 1)
-            {
-                if (_allTimeData.entries.Count > 0)
-                {
-                    block.SetActive(true);
-                    contentSlot.SetActive(false);
-                    await LoadNextDataAllTimeScores(); // request more entry
-                    block.SetActive(false);
-                    Refresh(_allTimeData);
-                }
-            }
-            else
-            {
-                buttonNextPage.interactable = true;
-                Refresh(_allTimeData);
+                Refresh(leaderboardData);
             }
         }
 
@@ -306,7 +285,7 @@ namespace TheBeginning.UI
                 if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
                 {
                     await AuthenticationService.Instance.UpdatePlayerNameAsync(GetPlayerName());
-                    await LoadNextDataAllTimeScores();
+                    await LoadNextData(_allTimeData, allTimeTableId);
                     block.SetActive(false);
                     Refresh(_allTimeData);
                 }
@@ -315,7 +294,7 @@ namespace TheBeginning.UI
                     if (_firstTimeEnterWorld)
                     {
                         _firstTimeEnterWorld = false;
-                        await LoadNextDataAllTimeScores();
+                        await LoadNextData(_allTimeData, allTimeTableId);
                     }
 
                     block.SetActive(false);
@@ -333,23 +312,14 @@ namespace TheBeginning.UI
 #endif
         }
 
-        private async UniTask<bool> LoadNextDataAllTimeScores()
-        {
-            _allTimeData.offset = (_allTimeData.entries.Count - 1).Max(0);
-            var scores = await LeaderboardsService.Instance.GetScoresAsync(allTimeTableId,
-                new GetScoresOptions { Limit = _allTimeData.limit, Offset = _allTimeData.offset });
-            _allTimeData.entries.AddRange(scores.Results);
-            _allTimeData.pageCount = (_allTimeData.entries.Count / (float)_countInOnePage).CeilToInt();
-            return true;
-        }
 
-        private async UniTask<bool> LoadNextDataWeeklyScores()
+        private async UniTask<bool> LoadNextData(LeaderboardData leaderboardData, string tableId)
         {
-            _weeklyData.offset = (_weeklyData.entries.Count - 1).Max(0);
-            var scores = await LeaderboardsService.Instance.GetScoresAsync(weeklyTableId,
-                new GetScoresOptions { Limit = _weeklyData.limit, Offset = _weeklyData.offset });
-            _weeklyData.entries.AddRange(scores.Results);
-            _weeklyData.pageCount = (_weeklyData.entries.Count / (float)_countInOnePage).CeilToInt();
+            leaderboardData.offset = (leaderboardData.entries.Count - 1).Max(0);
+            var scores = await LeaderboardsService.Instance.GetScoresAsync(tableId,
+                new GetScoresOptions { Limit = leaderboardData.limit, Offset = leaderboardData.offset });
+            leaderboardData.entries.AddRange(scores.Results);
+            leaderboardData.pageCount = (leaderboardData.entries.Count / (float)_countInOnePage).CeilToInt();
             return true;
         }
 
