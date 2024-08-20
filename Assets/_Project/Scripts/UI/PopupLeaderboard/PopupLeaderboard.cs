@@ -98,7 +98,7 @@ namespace TheBeginning.UI
             buttonPreviousPage.onClick.AddListener(OnButtonPreviousPagePressed);
             buttonAllTimeRank.onClick.AddListener(OnButtonAllTimeRankPressed);
             buttonWeeklyRank.onClick.AddListener(OnButtonWeeklyRankPressed);
-            Init();
+            Login();
         }
 
         protected override void OnBeforeHide()
@@ -115,7 +115,7 @@ namespace TheBeginning.UI
             _currentTab = ELeaderboardTab.Weekly;
             buttonWeeklyRank.image.sprite = spriteCurrentTab;
             buttonAllTimeRank.image.sprite = spriteNormalTab;
-            Init();
+            InitTable(_weeklyData, weeklyTableId, _firstTimeEnterWeekly);
         }
 
         private void OnButtonAllTimeRankPressed()
@@ -123,7 +123,7 @@ namespace TheBeginning.UI
             _currentTab = ELeaderboardTab.AllTime;
             buttonWeeklyRank.image.sprite = spriteNormalTab;
             buttonAllTimeRank.image.sprite = spriteCurrentTab;
-            Init();
+            InitTable(_allTimeData, allTimeTableId, _firstTimeEnterWorld);
         }
 
         private void OnButtonPreviousPagePressed()
@@ -196,7 +196,7 @@ namespace TheBeginning.UI
             }
         }
 
-        private async void Init()
+        private async void Login()
         {
             block.SetActive(true);
             rootLeaderboard.SetActive(false);
@@ -225,22 +225,7 @@ namespace TheBeginning.UI
                 gpgsGetNewServerCodeEvent.Raise();
                 await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
             }
-#endif
-
-#if UNITY_IOS
-            status.SetNotLoggedIn();
-            loginEvent.Raise();
-            await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
-
-            if (string.IsNullOrEmpty(serverCode.Value))
-            {
-                // Login failed
-                Debug.Log("Login failed");
-                showNotificationInGameEvent.Raise("Failed to login Apple");
-            }
-#endif
-
-#if UNITY_ANDROID && !UNITY_EDITOR
+            
             if (AuthenticationService.Instance.SessionTokenExists)
             {
                 // signin cached
@@ -251,7 +236,19 @@ namespace TheBeginning.UI
                 await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(serverCode.Value);
             }
 #endif
+
 #if UNITY_IOS && !UNITY_EDITOR
+            status.SetNotLoggedIn();
+            loginEvent.Raise();
+            await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
+
+            if (string.IsNullOrEmpty(serverCode.Value))
+            {
+                // Login failed
+                Debug.Log("Login failed");
+                showNotificationInGameEvent.Raise("Failed to login Apple");
+            }
+
             if (AuthenticationService.Instance.SessionTokenExists)
             {
                 // signin cached
@@ -262,46 +259,45 @@ namespace TheBeginning.UI
                 await AuthenticationService.Instance.SignInWithAppleAsync(serverCode.Value);
             }
 #endif
+            InitTable(_allTimeData, allTimeTableId, _firstTimeEnterWorld);
+        }
 
-            await Excute();
-
-            return;
-
-            async Task Excute()
+        private async void InitTable(LeaderboardData leaderboardData, string tableId, bool firstTimeEnter)
+        {
+            rootLeaderboard.SetActive(false);
+            block.SetActive(true);
+            LeaderboardEntry resultAdded;
+            if (firstTimeEnter)
             {
-                rootLeaderboard.SetActive(false);
-                LeaderboardEntry resultAdded;
-                if (_firstTimeEnterWorld)
+                resultAdded =
+                    await LeaderboardsService.Instance.AddPlayerScoreAsync(tableId, currentLevel.Value);
+            }
+            else
+            {
+                resultAdded = await LeaderboardsService.Instance.GetPlayerScoreAsync(tableId);
+            }
+
+            leaderboardData.myRank = resultAdded.Rank;
+            if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
+            {
+                await AuthenticationService.Instance.UpdatePlayerNameAsync(GetPlayerName());
+                await LoadNextData(leaderboardData, tableId);
+                block.SetActive(false);
+                Refresh(leaderboardData);
+            }
+            else
+            {
+                if (firstTimeEnter)
                 {
-                    resultAdded =
-                        await LeaderboardsService.Instance.AddPlayerScoreAsync(allTimeTableId, currentLevel.Value);
-                }
-                else
-                {
-                    resultAdded = await LeaderboardsService.Instance.GetPlayerScoreAsync(allTimeTableId);
+                    firstTimeEnter = false;
+                    await LoadNextData(leaderboardData, tableId);
                 }
 
-                _allTimeData.myRank = resultAdded.Rank;
-                if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
-                {
-                    await AuthenticationService.Instance.UpdatePlayerNameAsync(GetPlayerName());
-                    await LoadNextData(_allTimeData, allTimeTableId);
-                    block.SetActive(false);
-                    Refresh(_allTimeData);
-                }
-                else
-                {
-                    if (_firstTimeEnterWorld)
-                    {
-                        _firstTimeEnterWorld = false;
-                        await LoadNextData(_allTimeData, allTimeTableId);
-                    }
-
-                    block.SetActive(false);
-                    Refresh(_allTimeData);
-                }
+                block.SetActive(false);
+                Refresh(leaderboardData);
             }
         }
+
 
         string GetPlayerName()
         {
