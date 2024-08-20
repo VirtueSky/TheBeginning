@@ -307,12 +307,17 @@ PrefabInstance:
     - target: {fileID: 6564643837970611220, guid: ca5e6d279e01e413f8bbf07d75aebe7f,
         type: 3}
       propertyPath: _maxProgress
-      value: 0.633
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6564643837970611220, guid: ca5e6d279e01e413f8bbf07d75aebe7f,
         type: 3}
       propertyPath: _useMiddleState
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564643837970611220, guid: ca5e6d279e01e413f8bbf07d75aebe7f,
+        type: 3}
+      propertyPath: _moveInsideSafeArea
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6564643837970611224, guid: ca5e6d279e01e413f8bbf07d75aebe7f,
         type: 3}
@@ -611,6 +616,7 @@ GameObject:
   - component: {fileID: 524850872}
   - component: {fileID: 524850876}
   - component: {fileID: 524850877}
+  - component: {fileID: 524850879}
   m_Layer: 0
   m_Name: Initialization
   m_TagString: Untagged
@@ -725,6 +731,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugViewSheet: {fileID: 2095126785}
   gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
+  consoleInGamePrefab: {fileID: 1693451240832174851, guid: e1182754700ccf44289e0d137be27ec8,
+    type: 3}
   iconTool: {fileID: 21300000, guid: 2d8be02cedaf05d4086f421a7bd95109, type: 3}
   iconAds: {fileID: 21300000, guid: 36c9f1d626150294ab77f0c9aa120fef, type: 3}
   iconLevel: {fileID: 21300000, guid: c1469ad627c1b494cbd24e4874f63442, type: 3}
@@ -742,6 +750,8 @@ MonoBehaviour:
   iconAdvanced: {fileID: 21300000, guid: 3fda9bd7daaf0f4459f2fd1daf82448e, type: 3}
   iconCoinDebug: {fileID: 21300000, guid: eb9c187540660754ab8a515338206184, type: 3}
   iconOutfitDebug: {fileID: 21300000, guid: 1aaa9b4d13dbcb64baea375e33fc1f58, type: 3}
+  iconConsoleLog: {fileID: 21300000, guid: 6dc678910c85e1948ab02dd201636490, type: 3}
+  iconSlider: {fileID: 21300000, guid: b7cb707fa031cc94b8cc2f119bdfad21, type: 3}
   currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
   itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
   isOffUiVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
@@ -776,6 +786,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b63baa11cb54b389165d68e8321f4da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firebaseDependencyAvailable: {fileID: 11400000, guid: 4e9990c5639bee94a92994853702c911,
+    type: 2}
+--- !u!114 &524850879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524850868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dbaa7ec4c94498ba61a9ea485eaedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &532783272
@@ -847,7 +871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -175.00003, y: -238}
+  m_AnchoredPosition: {x: -175, y: -238}
   m_SizeDelta: {x: 330, y: 456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &805163170
@@ -985,7 +1009,7 @@ MonoBehaviour:
   m_toggleActiveAlt: 0
   m_graphModulePosition: 0
   m_graphModuleOffset: {x: 0, y: 0}
-  m_fpsModuleState: 3
+  m_fpsModuleState: 4
   m_goodFpsColor: {r: 0.20825918, g: 0.6792453, b: 0.62190783, a: 1}
   m_goodFpsThreshold: 60
   m_cautionFpsColor: {r: 0.9137255, g: 0.76862746, b: 0.41568628, a: 1}
@@ -993,7 +1017,7 @@ MonoBehaviour:
   m_criticalFpsColor: {r: 0.90588236, g: 0.43529412, b: 0.31764707, a: 1}
   m_fpsGraphResolution: 150
   m_fpsTextUpdateRate: 3
-  m_ramModuleState: 3
+  m_ramModuleState: 4
   m_allocatedRamColor: {r: 0.94509804, g: 0.35686275, b: 0.70980394, a: 1}
   m_reservedRamColor: {r: 0.99607843, g: 0.89411765, b: 0.2509804, a: 1}
   m_monoRamColor: {r: 0, g: 0.73333335, b: 0.9764706, a: 1}
@@ -4403,6 +4427,8 @@ GameObject:
   - component: {fileID: 1448091020}
   - component: {fileID: 1448091021}
   - component: {fileID: 1448091024}
+  - component: {fileID: 1448091026}
+  - component: {fileID: 1448091025}
   m_Layer: 0
   m_Name: Service
   m_TagString: Untagged
@@ -4466,7 +4492,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeInitRemoteConfig: 0
+  dependencyStatus: 7
   isFetchRemoteConfigCompleted: {fileID: 11400000, guid: 90e7fdd9a40bfdc4c89ff31f239a25c2,
+    type: 2}
+  firebaseDependencyAvailable: {fileID: 11400000, guid: 4e9990c5639bee94a92994853702c911,
     type: 2}
   listRemoteConfigData:
   - key: RMC_INTER_CAPPING_LEVEL
@@ -4634,14 +4663,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serviceInitializations:
-  - {fileID: 524850878}
-  - {fileID: 524850877}
-  - {fileID: 524850874}
   - {fileID: 524850876}
-  - {fileID: 524850871}
+  - {fileID: 524850874}
+  - {fileID: 524850879}
   - {fileID: 524850875}
   - {fileID: 524850873}
   - {fileID: 524850872}
+  - {fileID: 524850877}
+  - {fileID: 524850871}
+  - {fileID: 524850878}
 --- !u!114 &1448091024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4663,14 +4693,49 @@ MonoBehaviour:
   inputEventTouchEnd: {fileID: 11400000, guid: 49d49980a665257419393436a2ac5fb3, type: 2}
   inputEventTouchCancel: {fileID: 11400000, guid: 882d35632dc142444b171096f44b2896,
     type: 2}
-  useMouse: 1
-  inputEventMouseDown: {fileID: 11400000, guid: b86d291cfdb1ab249acb88401eee94fb,
+  inputPreventTouchVariable: {fileID: 11400000, guid: 8b46a69eb6f5942238d3ea1600ab86f9,
     type: 2}
-  inputEventMouseUpdate: {fileID: 11400000, guid: 027b0d8399245c247aaefe4e524b481a,
-    type: 2}
-  inputEventMouseUp: {fileID: 11400000, guid: 10a21daa762276944a90c9b2a54b3490, type: 2}
-  ignoreUI: 1
   touchPosition: {x: 0, y: 0, z: 0}
+  preventTouch: 0
+--- !u!114 &1448091025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448091006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49195c8970f14421b92361f977eca22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  status: {fileID: 11400000, guid: 17779290a127c4147aa7bad382aca7eb, type: 2}
+  serverCode: {fileID: 11400000, guid: f84deb053f08fd44a9725fcf97c54797, type: 2}
+  nameVariable: {fileID: 11400000, guid: 2bd918680e13e4c63b34eb1e9311f9b9, type: 2}
+  loginEvent: {fileID: 11400000, guid: 5690d295f4268774ba78ccaf9dd71993, type: 2}
+  getNewServerCodeEvent: {fileID: 11400000, guid: c40930ccee82c4df1bfce34f8ded5ecb,
+    type: 2}
+--- !u!114 &1448091026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448091006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59cb8f4b8592824aa250e0ed64dfe29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  status: {fileID: 11400000, guid: 17779290a127c4147aa7bad382aca7eb, type: 2}
+  serverCode: {fileID: 11400000, guid: f84deb053f08fd44a9725fcf97c54797, type: 2}
+  nameVariable: {fileID: 11400000, guid: 2bd918680e13e4c63b34eb1e9311f9b9, type: 2}
+  loginEvent: {fileID: 11400000, guid: 5690d295f4268774ba78ccaf9dd71993, type: 2}
+  authorizationCodeVariable: {fileID: 11400000, guid: 16a67aaadef95fb478d486ddeea5c5f1,
+    type: 2}
+  userIdVariable: {fileID: 11400000, guid: 10c1da772bb482246a3402bf222d1281, type: 2}
 --- !u!224 &1725799735 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2063518118511579042, guid: 9061c66a86c22914ab4f80086948599c,

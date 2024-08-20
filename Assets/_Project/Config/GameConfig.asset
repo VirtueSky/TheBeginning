@@ -16,6 +16,7 @@ MonoBehaviour:
   startLoopLevel: 1
   enableDebugView: 1
   targetFrameRate: 60
+  multiTouchEnabled: 0
   winLevelMoney: 100
   percentWinGiftPerLevel: 10
   enableNotificationInGame: 1

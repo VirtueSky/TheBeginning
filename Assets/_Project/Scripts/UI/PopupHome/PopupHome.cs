@@ -70,6 +70,11 @@ namespace TheBeginning.UI
             PopupManager.Show<PopupDailyReward>(false);
         }
 
+        public void OnClickLeaderboard()
+        {
+            PopupManager.Show<PopupLeaderboard>(false);
+        }
+
         public void OnClickShop()
         {
             PopupManager.Show<PopupShop>(false);

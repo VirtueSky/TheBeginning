@@ -1,18 +1,21 @@
 {
   "dependencies": {
     "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git",
+      "version": "https://github.com/mob-sakai/UIEffect.git#4.0.0-preview.10",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b43e40508b167d143330d8b9eff0d5c9965cdf3c"
+      "hash": "332340e7bc2f8257816dd28784607a1edf6b6c2a"
     },
     "com.coffee.ui-particle": {
-      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#3.3.0",
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.9.1",
       "depth": 0,
       "source": "git",
-      "dependencies": {},
-      "hash": "429ff2dd09264fd091ed3005c7a4c247f118c7ae"
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.particlesystem": "1.0.0"
+      },
+      "hash": "025efcbc5d3175aa1aaf5cb42a667cd7727457ae"
     },
     "com.esotericsoftware.spine.spine-csharp": {
       "version": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-csharp/src#4.1",
@@ -113,6 +116,13 @@
       "source": "git",
       "dependencies": {},
       "hash": "2b1cf90f0375e10c9c0909cc91c5b92d707f2ce3"
+    },
+    "com.matthewminer.consolation": {
+      "version": "https://github.com/wolf-package/consolation.git#1.4.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "cf87d85de5f5865487fddb2f24daebe570870c5a"
     },
     "com.tayx.graphy": {
       "version": "https://github.com/pancake-llc/graphy.git#3.0.6",
@@ -324,14 +334,36 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.services.authentication": {
+      "version": "3.3.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1",
+        "com.unity.services.core": "1.13.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.services.core": {
-      "version": "1.12.5",
+      "version": "1.13.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.unitywebrequest": "1.0.0",
         "com.unity.nuget.newtonsoft-json": "3.2.1",
         "com.unity.modules.androidjni": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.services.leaderboards": {
+      "version": "2.1.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.services.authentication": "3.3.3",
+        "com.unity.services.core": "1.13.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -354,8 +386,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.textmeshpro": {
-      "version": "3.0.8",
-      "depth": 1,
+      "version": "3.0.9",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
@@ -384,7 +416,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.8.7",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.9.6",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -393,7 +425,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.20"
       },
-      "hash": "a32cc29323af00502ea1c21f21853821d943cc9a"
+      "hash": "9188a1603b0ec091054bebeec3716bfe78cd4c9b"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

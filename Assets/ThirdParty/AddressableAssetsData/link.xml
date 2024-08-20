@@ -2,6 +2,7 @@
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="AreaItem" preserve="all" />
     <type fullname="BannerAdVariable" preserve="all" />
+    <type fullname="Block" preserve="all" />
     <type fullname="BonusArrowHandler" preserve="all" />
     <type fullname="CoinGenerate" preserve="all" />
     <type fullname="CoinUpdater" preserve="all" />
@@ -29,6 +30,7 @@
     <type fullname="TheBeginning.LevelSystem.LevelLoader" preserve="all" />
     <type fullname="TheBeginning.SceneFlow.LoadingManager" preserve="all" />
     <type fullname="TheBeginning.SceneFlow.SceneLoader" preserve="all" />
+    <type fullname="TheBeginning.Services.AuthenticationInitialization" preserve="all" />
     <type fullname="TheBeginning.Services.DebugViewInitialization" preserve="all" />
     <type fullname="TheBeginning.Services.FrameRateInitialization" preserve="all" />
     <type fullname="TheBeginning.Services.InAppReviewInitialization" preserve="all" />
@@ -40,10 +42,12 @@
     <type fullname="TheBeginning.Services.RuntimeInitialization" preserve="all" />
     <type fullname="TheBeginning.Services.VibrationInitialization" preserve="all" />
     <type fullname="TheBeginning.UI.DailyRewardItem" preserve="all" />
+    <type fullname="TheBeginning.UI.LeaderboardElementView" preserve="all" />
     <type fullname="TheBeginning.UI.PopupDailyReward" preserve="all" />
     <type fullname="TheBeginning.UI.PopupHome" preserve="all" />
     <type fullname="TheBeginning.UI.PopupIAP" preserve="all" />
     <type fullname="TheBeginning.UI.PopupInGame" preserve="all" />
+    <type fullname="TheBeginning.UI.PopupLeaderboard" preserve="all" />
     <type fullname="TheBeginning.UI.PopupLose" preserve="all" />
     <type fullname="TheBeginning.UI.PopupManager" preserve="all" />
     <type fullname="TheBeginning.UI.PopupSetting" preserve="all" />
@@ -55,9 +59,13 @@
     <type fullname="VisualEffectsSpawner" preserve="all" />
     <type fullname="SpawnEffectData" preserve="nothing" serialized="true" />
     <type fullname="TheBeginning.Config.DailyRewardData" preserve="nothing" serialized="true" />
+    <type fullname="TheBeginning.UI.LeaderboardElementColor" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Coffee.UIParticle, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Coffee.UIExtensions.UIParticle" preserve="all" />
+  </assembly>
+  <assembly fullname="Consolation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Consolation.ConsoleInGame" preserve="all" />
   </assembly>
   <assembly fullname="Tayx.Graphy, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="Graphy.Runtime.UI.G_SafeArea" preserve="all" />
@@ -78,6 +86,11 @@
     <type fullname="Tayx.Graphy.Ram.G_RamText" preserve="all" />
     <type fullname="Tayx.Graphy.GraphyDebugger/DebugCondition" preserve="nothing" serialized="true" />
     <type fullname="Tayx.Graphy.GraphyDebugger/DebugPacket" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UIEffect, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Coffee.UIEffects.UIEffect" preserve="all" />
+    <type fullname="Coffee.UIEffects.UIShiny" preserve="all" />
+    <type fullname="Coffee.UIEffects.EffectPlayer" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
@@ -149,6 +162,11 @@
     <type fullname="UnityDebugSheet.Runtime.Foundation.UITextEllipsisOverflow" preserve="all" />
     <type fullname="UnityDebugSheet.Runtime.Core.Scripts.KeyboardShortcut" preserve="nothing" serialized="true" />
   </assembly>
+  <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AnimationClip" preserve="all" />
+    <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
+  </assembly>
   <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.AudioClip" preserve="all" />
     <type fullname="UnityEngine.AudioListener" preserve="all" />
@@ -208,6 +226,7 @@
     <type fullname="UnityEngine.UI.InputField" preserve="all" />
     <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
     <type fullname="UnityEngine.UI.Mask" preserve="all" />
+    <type fullname="UnityEngine.UI.RawImage" preserve="all" />
     <type fullname="UnityEngine.UI.RectMask2D" preserve="all" />
     <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
     <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
@@ -289,6 +308,11 @@
     <type fullname="VirtueSky.Events.Vector3Event" preserve="all" />
     <type fullname="VirtueSky.Events.BaseEventListener`3/EventResponseData[TheBeginning.LevelSystem.Level,EventLevel,UnityEngine.Events.UnityEvent`1[TheBeginning.LevelSystem.Level]]" preserve="nothing" serialized="true" />
   </assembly>
+  <assembly fullname="Virtuesky.Sunflower.GameService, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="VirtueSky.GameService.AppleAuthentication" preserve="all" />
+    <type fullname="VirtueSky.GameService.GooglePlayGamesAuthentication" preserve="all" />
+    <type fullname="VirtueSky.GameService.StatusLoginVariable" preserve="all" />
+  </assembly>
   <assembly fullname="Virtuesky.Sunflower.Notifications, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="VirtueSky.Notifications.NotificationPrepare" preserve="all" />
     <type fullname="VirtueSky.Notifications.NotificationVariable" preserve="all" />
@@ -302,14 +326,12 @@
     <type fullname="VirtueSky.RemoteConfigs.FirebaseRemoteConfigData" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Virtuesky.Sunflower.TouchInput, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-    <type fullname="VirtueSky.TouchInput.InputEventMouseDown" preserve="all" />
-    <type fullname="VirtueSky.TouchInput.InputEventMouseUp" preserve="all" />
-    <type fullname="VirtueSky.TouchInput.InputEventMouseUpdate" preserve="all" />
     <type fullname="VirtueSky.TouchInput.InputEventTouchBegin" preserve="all" />
     <type fullname="VirtueSky.TouchInput.InputEventTouchCancel" preserve="all" />
     <type fullname="VirtueSky.TouchInput.InputEventTouchEnd" preserve="all" />
     <type fullname="VirtueSky.TouchInput.InputEventTouchMove" preserve="all" />
     <type fullname="VirtueSky.TouchInput.InputEventTouchStationary" preserve="all" />
+    <type fullname="VirtueSky.TouchInput.InputPreventTouchVariable" preserve="all" />
     <type fullname="VirtueSky.TouchInput.TouchInputManager" preserve="all" />
   </assembly>
   <assembly fullname="Virtuesky.Sunflower.Tracking, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">

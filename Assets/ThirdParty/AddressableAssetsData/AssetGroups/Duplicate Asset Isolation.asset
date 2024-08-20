@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 45a93078d2e2c40078e231a7cd14f474
+  m_GUID: 3df19f32afb24446fa12e3cb0f718f6a
   m_SerializeEntries:
   - m_GUID: 4b75fe61160713244bd8c8bcf4ebecc6
     m_Address: Assets/_Sunflower/Scriptable/Variable/index_level_variable.asset
@@ -53,7 +53,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 04da37cd8d26a7b42909787bbff3cc98
-    m_Address: Assets/_Project/Textures/UI/Common/leaderboard_whitebar.png
+    m_Address: Assets/_Project/Sprites/UI/Common/leaderboard_whitebar.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -64,6 +64,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3265ab4bf004d28a9537516768c1c75
     m_Address: Assets/ThirdParty/TextMesh Pro/Fonts/LiberationSans.ttf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17779290a127c4147aa7bad382aca7eb
+    m_Address: Assets/_Sunflower/Scriptable/GameService/Variable/status_login_variables.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -142,6 +147,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f84deb053f08fd44a9725fcf97c54797
+    m_Address: Assets/_Sunflower/Scriptable/GameService/Variable/server_code_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8008196536e554abbb7d1ab3f83aab56
     m_Address: Assets/_Sunflower/Scriptable/Event/Coin_Generate/remove_target_to_coin_event.asset
     m_ReadOnly: 0
@@ -149,6 +159,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee52367561b1f4c4f865ac869bce7df8
     m_Address: Assets/_Sunflower/Scriptable/Event/Coin_Generate/set_from_coin_generate_event.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5690d295f4268774ba78ccaf9dd71993
+    m_Address: Assets/_Sunflower/Scriptable/GameService/Event/login_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -177,6 +192,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bd918680e13e4c63b34eb1e9311f9b9
+    m_Address: Assets/_Sunflower/Scriptable/GameService/Variable/name_auth_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b82c7998cf398094dba18b8bf2d7b029
     m_Address: Assets/_Sunflower/Scriptable/Event/Coin_Generate/move_all_coin_done_event.asset
     m_ReadOnly: 0
@@ -197,11 +217,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6b191e3ca00186348845eada05e37528
-    m_Address: Assets/_Sunflower/Scriptable/InAppReview/in_app_review.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e96f0ac661d9264dbdb066c74f8ffd8
     m_Address: Assets/_Sunflower/Scriptable/Event/Level/Level_Generate/event_get_current_level.asset
     m_ReadOnly: 0
@@ -209,6 +224,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 61aa56bcc96c74e4ebf0b19fa8413dfd
     m_Address: Assets/_Sunflower/Scriptable/Event/ClickButtonEvent.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c40930ccee82c4df1bfce34f8ded5ecb
+    m_Address: Assets/_Sunflower/Scriptable/GameService/Event/get_new_server_code_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -278,7 +298,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1eaee135ce037439d925cee5e41ce026
-    m_Address: Assets/_Project/Textures/UI/GUI.png
+    m_Address: Assets/_Project/Sprites/UI/GUI.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
