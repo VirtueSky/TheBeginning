@@ -4058,7 +4058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 0
+  m_EffectFactor: 0.19939916
   m_Width: 0.06
   m_Rotation: 150
   m_Softness: 0.6
@@ -7259,7 +7259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 0
+  m_EffectFactor: 0.25551215
   m_Width: 0.06
   m_Rotation: 150
   m_Softness: 0.6
@@ -10644,7 +10644,7 @@ MonoBehaviour:
   scaleFromHide: {x: 0, y: 0, z: 0}
   pointHidePos: {fileID: 0}
   allTimeTableId: Leaderboard_Thebeginning_Test
-  weeklyTableId: WEEKLY_RANK
+  weeklyTableId: _Leaderboard_Thebeginning_Weekly_Test
   playerNameEditor: VirtueSky
   currentLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
   contentSlot: {fileID: 4247553189892371302}
@@ -11328,7 +11328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 0
+  m_EffectFactor: 0.25551215
   m_Width: 0.06
   m_Rotation: 150
   m_Softness: 0.6

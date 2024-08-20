@@ -225,22 +225,7 @@ namespace TheBeginning.UI
                 gpgsGetNewServerCodeEvent.Raise();
                 await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
             }
-#endif
-
-#if UNITY_IOS
-            status.SetNotLoggedIn();
-            loginEvent.Raise();
-            await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
-
-            if (string.IsNullOrEmpty(serverCode.Value))
-            {
-                // Login failed
-                Debug.Log("Login failed");
-                showNotificationInGameEvent.Raise("Failed to login Apple");
-            }
-#endif
-
-#if UNITY_ANDROID && !UNITY_EDITOR
+            
             if (AuthenticationService.Instance.SessionTokenExists)
             {
                 // signin cached
@@ -251,7 +236,19 @@ namespace TheBeginning.UI
                 await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(serverCode.Value);
             }
 #endif
+
 #if UNITY_IOS && !UNITY_EDITOR
+            status.SetNotLoggedIn();
+            loginEvent.Raise();
+            await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
+
+            if (string.IsNullOrEmpty(serverCode.Value))
+            {
+                // Login failed
+                Debug.Log("Login failed");
+                showNotificationInGameEvent.Raise("Failed to login Apple");
+            }
+
             if (AuthenticationService.Instance.SessionTokenExists)
             {
                 // signin cached
@@ -262,6 +259,7 @@ namespace TheBeginning.UI
                 await AuthenticationService.Instance.SignInWithAppleAsync(serverCode.Value);
             }
 #endif
+
 
             await Excute();
 
