@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
-using VirtueSky.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 public static class EditorInitializer
 {

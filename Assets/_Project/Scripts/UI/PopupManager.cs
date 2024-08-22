@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
-using VirtueSky.Threading.Tasks;
 
 namespace TheBeginning.UI
 {

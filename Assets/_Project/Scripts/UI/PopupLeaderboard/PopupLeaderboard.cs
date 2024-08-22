@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using PrimeTween;
 using TMPro;
 using Unity.Services.Authentication;
@@ -15,7 +16,6 @@ using VirtueSky.Events;
 using VirtueSky.GameService;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
-using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
 namespace TheBeginning.UI

@@ -1,4 +1,5 @@
 using System.Reflection;
+using Cysharp.Threading.Tasks;
 using PrimeTween;
 using TheBeginning.Config;
 using TheBeginning.Data;
@@ -8,7 +9,6 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
-using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
 namespace TheBeginning.UI
