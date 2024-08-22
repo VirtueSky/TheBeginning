@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.5",
     "com.coffee.ui-effect": "https://github.com/mob-sakai/UIEffect.git#4.0.0-preview.10",
     "com.coffee.ui-particle": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.9.1",
     "com.esotericsoftware.spine.spine-csharp": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-csharp/src#4.1",
@@ -37,7 +38,7 @@
     "com.unity.textmeshpro": "3.0.9",
     "com.unity.timeline": "1.7.6",
     "com.unity.ugui": "1.0.0",
-    "com.virtuesky.sunflower": "https://github.com/VirtueSky/sunflower.git#2.9.6",
+    "com.virtuesky.sunflower": "https://github.com/VirtueSky/sunflower.git#2.9.7",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

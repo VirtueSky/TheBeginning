@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using PrimeTween;
 using TMPro;
 using Unity.Services.Authentication;
@@ -15,7 +16,6 @@ using VirtueSky.Events;
 using VirtueSky.GameService;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
-using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
 namespace TheBeginning.UI
@@ -98,7 +98,7 @@ namespace TheBeginning.UI
             buttonPreviousPage.onClick.AddListener(OnButtonPreviousPagePressed);
             buttonAllTimeRank.onClick.AddListener(OnButtonAllTimeRankPressed);
             buttonWeeklyRank.onClick.AddListener(OnButtonWeeklyRankPressed);
-            Init();
+            Login();
         }
 
         protected override void OnBeforeHide()
@@ -115,7 +115,7 @@ namespace TheBeginning.UI
             _currentTab = ELeaderboardTab.Weekly;
             buttonWeeklyRank.image.sprite = spriteCurrentTab;
             buttonAllTimeRank.image.sprite = spriteNormalTab;
-            Init();
+            InitTable(_weeklyData, weeklyTableId, _firstTimeEnterWeekly);
         }
 
         private void OnButtonAllTimeRankPressed()
@@ -123,7 +123,7 @@ namespace TheBeginning.UI
             _currentTab = ELeaderboardTab.AllTime;
             buttonWeeklyRank.image.sprite = spriteNormalTab;
             buttonAllTimeRank.image.sprite = spriteCurrentTab;
-            Init();
+            InitTable(_allTimeData, allTimeTableId, _firstTimeEnterWorld);
         }
 
         private void OnButtonPreviousPagePressed()
@@ -132,31 +132,21 @@ namespace TheBeginning.UI
             switch (_currentTab)
             {
                 case ELeaderboardTab.AllTime:
-                    AllTimePreviousPage();
+                    PreviousPage(_allTimeData);
                     break;
                 case ELeaderboardTab.Weekly:
-                    WeeklyPreviousPage();
+                    PreviousPage(_weeklyData);
                     break;
             }
         }
 
-        private void AllTimePreviousPage()
+        private void PreviousPage(LeaderboardData leaderboardData)
         {
-            if (_allTimeData.currentPage > 0)
+            if (leaderboardData.currentPage > 0)
             {
-                _allTimeData.currentPage--;
+                leaderboardData.currentPage--;
                 buttonPreviousPage.interactable = true;
-                Refresh(_allTimeData);
-            }
-        }
-
-        private void WeeklyPreviousPage()
-        {
-            if (_weeklyData.currentPage > 0)
-            {
-                _weeklyData.currentPage--;
-                buttonPreviousPage.interactable = true;
-                Refresh(_weeklyData);
+                Refresh(leaderboardData);
             }
         }
 
@@ -166,58 +156,47 @@ namespace TheBeginning.UI
             switch (_currentTab)
             {
                 case ELeaderboardTab.AllTime:
-                    AllTimeNextPage();
+                    NextPage(_allTimeData);
                     break;
                 case ELeaderboardTab.Weekly:
-                    WeeklyNextPage();
+                    NextPage(_weeklyData);
                     break;
             }
         }
 
-        private async void WeeklyNextPage()
+
+        private async void NextPage(LeaderboardData leaderboardData)
         {
-            _weeklyData.currentPage++;
-            if (_weeklyData.currentPage == _weeklyData.pageCount - 1)
+            leaderboardData.currentPage++;
+            if (leaderboardData.currentPage == leaderboardData.pageCount - 1)
             {
-                if (_weeklyData.entries.Count > 0)
+                if (leaderboardData.entries.Count > 0)
                 {
                     block.SetActive(true);
                     contentSlot.SetActive(false);
-                    await LoadNextDataWeeklyScores(); // request more entry
+
+                    switch (_currentTab)
+                    {
+                        case ELeaderboardTab.AllTime:
+                            await LoadNextData(_allTimeData, allTimeTableId); // request more entry
+                            break;
+                        case ELeaderboardTab.Weekly:
+                            await LoadNextData(_weeklyData, weeklyTableId); // request more entry
+                            break;
+                    }
+
                     block.SetActive(false);
-                    Refresh(_weeklyData);
+                    Refresh(leaderboardData);
                 }
             }
             else
             {
                 buttonNextPage.interactable = true;
-                Refresh(_weeklyData);
+                Refresh(leaderboardData);
             }
         }
 
-
-        private async void AllTimeNextPage()
-        {
-            _allTimeData.currentPage++;
-            if (_allTimeData.currentPage == _allTimeData.pageCount - 1)
-            {
-                if (_allTimeData.entries.Count > 0)
-                {
-                    block.SetActive(true);
-                    contentSlot.SetActive(false);
-                    await LoadNextDataAllTimeScores(); // request more entry
-                    block.SetActive(false);
-                    Refresh(_allTimeData);
-                }
-            }
-            else
-            {
-                buttonNextPage.interactable = true;
-                Refresh(_allTimeData);
-            }
-        }
-
-        private async void Init()
+        private async void Login()
         {
             block.SetActive(true);
             rootLeaderboard.SetActive(false);
@@ -246,22 +225,7 @@ namespace TheBeginning.UI
                 gpgsGetNewServerCodeEvent.Raise();
                 await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
             }
-#endif
-
-#if UNITY_IOS
-            status.SetNotLoggedIn();
-            loginEvent.Raise();
-            await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
-
-            if (string.IsNullOrEmpty(serverCode.Value))
-            {
-                // Login failed
-                Debug.Log("Login failed");
-                showNotificationInGameEvent.Raise("Failed to login Apple");
-            }
-#endif
-
-#if UNITY_ANDROID && !UNITY_EDITOR
+            
             if (AuthenticationService.Instance.SessionTokenExists)
             {
                 // signin cached
@@ -272,7 +236,19 @@ namespace TheBeginning.UI
                 await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(serverCode.Value);
             }
 #endif
+
 #if UNITY_IOS && !UNITY_EDITOR
+            status.SetNotLoggedIn();
+            loginEvent.Raise();
+            await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
+
+            if (string.IsNullOrEmpty(serverCode.Value))
+            {
+                // Login failed
+                Debug.Log("Login failed");
+                showNotificationInGameEvent.Raise("Failed to login Apple");
+            }
+
             if (AuthenticationService.Instance.SessionTokenExists)
             {
                 // signin cached
@@ -283,46 +259,45 @@ namespace TheBeginning.UI
                 await AuthenticationService.Instance.SignInWithAppleAsync(serverCode.Value);
             }
 #endif
+            InitTable(_allTimeData, allTimeTableId, _firstTimeEnterWorld);
+        }
 
-            await Excute();
-
-            return;
-
-            async Task Excute()
+        private async void InitTable(LeaderboardData leaderboardData, string tableId, bool firstTimeEnter)
+        {
+            rootLeaderboard.SetActive(false);
+            block.SetActive(true);
+            LeaderboardEntry resultAdded;
+            if (firstTimeEnter)
             {
-                rootLeaderboard.SetActive(false);
-                LeaderboardEntry resultAdded;
-                if (_firstTimeEnterWorld)
+                resultAdded =
+                    await LeaderboardsService.Instance.AddPlayerScoreAsync(tableId, currentLevel.Value);
+            }
+            else
+            {
+                resultAdded = await LeaderboardsService.Instance.GetPlayerScoreAsync(tableId);
+            }
+
+            leaderboardData.myRank = resultAdded.Rank;
+            if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
+            {
+                await AuthenticationService.Instance.UpdatePlayerNameAsync(GetPlayerName());
+                await LoadNextData(leaderboardData, tableId);
+                block.SetActive(false);
+                Refresh(leaderboardData);
+            }
+            else
+            {
+                if (firstTimeEnter)
                 {
-                    resultAdded =
-                        await LeaderboardsService.Instance.AddPlayerScoreAsync(allTimeTableId, currentLevel.Value);
-                }
-                else
-                {
-                    resultAdded = await LeaderboardsService.Instance.GetPlayerScoreAsync(allTimeTableId);
+                    firstTimeEnter = false;
+                    await LoadNextData(leaderboardData, tableId);
                 }
 
-                _allTimeData.myRank = resultAdded.Rank;
-                if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
-                {
-                    await AuthenticationService.Instance.UpdatePlayerNameAsync(GetPlayerName());
-                    await LoadNextDataAllTimeScores();
-                    block.SetActive(false);
-                    Refresh(_allTimeData);
-                }
-                else
-                {
-                    if (_firstTimeEnterWorld)
-                    {
-                        _firstTimeEnterWorld = false;
-                        await LoadNextDataAllTimeScores();
-                    }
-
-                    block.SetActive(false);
-                    Refresh(_allTimeData);
-                }
+                block.SetActive(false);
+                Refresh(leaderboardData);
             }
         }
+
 
         string GetPlayerName()
         {
@@ -333,23 +308,14 @@ namespace TheBeginning.UI
 #endif
         }
 
-        private async UniTask<bool> LoadNextDataAllTimeScores()
-        {
-            _allTimeData.offset = (_allTimeData.entries.Count - 1).Max(0);
-            var scores = await LeaderboardsService.Instance.GetScoresAsync(allTimeTableId,
-                new GetScoresOptions { Limit = _allTimeData.limit, Offset = _allTimeData.offset });
-            _allTimeData.entries.AddRange(scores.Results);
-            _allTimeData.pageCount = (_allTimeData.entries.Count / (float)_countInOnePage).CeilToInt();
-            return true;
-        }
 
-        private async UniTask<bool> LoadNextDataWeeklyScores()
+        private async UniTask<bool> LoadNextData(LeaderboardData leaderboardData, string tableId)
         {
-            _weeklyData.offset = (_weeklyData.entries.Count - 1).Max(0);
-            var scores = await LeaderboardsService.Instance.GetScoresAsync(weeklyTableId,
-                new GetScoresOptions { Limit = _weeklyData.limit, Offset = _weeklyData.offset });
-            _weeklyData.entries.AddRange(scores.Results);
-            _weeklyData.pageCount = (_weeklyData.entries.Count / (float)_countInOnePage).CeilToInt();
+            leaderboardData.offset = (leaderboardData.entries.Count - 1).Max(0);
+            var scores = await LeaderboardsService.Instance.GetScoresAsync(tableId,
+                new GetScoresOptions { Limit = leaderboardData.limit, Offset = leaderboardData.offset });
+            leaderboardData.entries.AddRange(scores.Results);
+            leaderboardData.pageCount = (leaderboardData.entries.Count / (float)_countInOnePage).CeilToInt();
             return true;
         }
 

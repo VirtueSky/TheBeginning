@@ -1,9 +1,9 @@
+using Cysharp.Threading.Tasks;
 using TheBeginning.Config;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
-using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
 namespace TheBeginning.LevelSystem

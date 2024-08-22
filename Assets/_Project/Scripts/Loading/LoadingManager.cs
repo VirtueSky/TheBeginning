@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using PrimeTween;
 using TheBeginning.Config;
 using TMPro;
@@ -10,7 +11,6 @@ using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
 using VirtueSky.Events;
-using VirtueSky.Threading.Tasks;
 using VirtueSky.Variables;
 
 namespace TheBeginning.SceneFlow

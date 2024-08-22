@@ -1,7 +1,7 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VirtueSky.Events;
 using VirtueSky.Inspector;
-using VirtueSky.Threading.Tasks;
 
 namespace TheBeginning.LevelSystem
 {
