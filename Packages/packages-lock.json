@@ -423,7 +423,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#2.9.7",
+      "version": "https://github.com/VirtueSky/sunflower.git#2.9.8",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -432,7 +432,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.21"
       },
-      "hash": "4f26072813e3beb30922b1a160899f03500a8b1b"
+      "hash": "4089855be4879209b15e990e9b1407d1d349d64c"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
