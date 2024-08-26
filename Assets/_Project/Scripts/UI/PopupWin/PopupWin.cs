@@ -29,13 +29,9 @@ namespace TheBeginning.UI
         [HeaderLine(Constant.SO_Event)] [SerializeField]
         private EventNoParam playCurrentLevelEvent;
 
-        [SerializeField] private Vector3Event generateCoinEvent;
         [SerializeField] private EventNoParam moveAllCoinDone;
 
         [HeaderLine(Constant.SO_Variable)] [SerializeField]
-        private IntegerVariable currentCoin;
-
-        [FormerlySerializedAs("rewardVariable")] [SerializeField]
         private RewardAdVariable rewardAdVariable;
 
         private float percent = 0;
@@ -121,8 +117,8 @@ namespace TheBeginning.UI
 
         public async void GetRewardAds()
         {
-            generateCoinEvent.Raise(BtnRewardAds.transform.position);
-            currentCoin.Value += MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus;
+            CoinSystem.AddCoin(MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus,
+                BtnRewardAds.transform.position);
             BonusArrowHandler.MoveObject.StopMoving();
             BtnRewardAds.SetActive(false);
             BtnTapToContinue.SetActive(false);
@@ -133,8 +129,7 @@ namespace TheBeginning.UI
 
         public async void OnClickContinue()
         {
-            generateCoinEvent.Raise(BtnTapToContinue.transform.position);
-            currentCoin.Value += MoneyWin;
+            CoinSystem.AddCoin(MoneyWin, BtnTapToContinue.transform.position);
             BtnRewardAds.SetActive(false);
             BtnTapToContinue.SetActive(false);
             await UniTask.WaitUntil(() => waitMoveAllCoinDone);

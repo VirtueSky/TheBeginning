@@ -23,9 +23,6 @@ namespace TheBeginning.UI
         public Image backgroundCanNotClaim;
         public Image iconLock;
         public Image iconItem;
-        [SerializeField] private IntegerVariable currentCoin;
-
-        [SerializeField] private Vector3Event generateCoinEvent;
         [SerializeField] private DailyRewardConfig dailyRewardConfig;
 
         //[SerializeField] private EventNoParam claimRewardEvent;
@@ -133,8 +130,7 @@ namespace TheBeginning.UI
             switch (dailyRewardData.dailyRewardType)
             {
                 case DailyRewardType.Coin:
-                    generateCoinEvent.Raise(this.gameObject.transform.position);
-                    currentCoin.Value += coinValue * (isClaimX5 ? 5 : 1);
+                    CoinSystem.AddCoin(coinValue * (isClaimX5 ? 5 : 1), gameObject.transform.position);
                     break;
                 case DailyRewardType.Skin:
 

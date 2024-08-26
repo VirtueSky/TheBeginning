@@ -12,7 +12,6 @@ namespace TheBeginning.UI
     public class PopupTest : UIPopup
     {
         public TextMeshProUGUI textNotice;
-        public IntegerVariable currentCoin;
 
         [Header("Unit variables")] public AdUnitVariable banner;
         public AdUnitVariable inter;
@@ -44,7 +43,7 @@ namespace TheBeginning.UI
             // });
             reward.Show().OnCompleted(() =>
             {
-                currentCoin.Value += 100;
+                CoinSystem.AddCoin(100);
                 LogMessage("Reward Completed");
             }).OnSkipped(() => { LogMessage("Skip reward"); });
         }

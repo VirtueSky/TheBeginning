@@ -9,7 +9,6 @@ namespace TheBeginning.DebugViewPage
 {
     public class DebugGamePage : DefaultDebugPageBase
     {
-        private IntegerVariable currentCoin;
         private ItemConfig itemConfig;
         private BooleanVariable isOffUIVariable;
         private BooleanVariable isTestingVariable;
@@ -21,11 +20,10 @@ namespace TheBeginning.DebugViewPage
         private string targetCoin = "";
         protected override string Title => "Game Debug";
 
-        public void Init(IntegerVariable _currentCoin, ItemConfig _itemConfig, BooleanVariable _isOffUi,
+        public void Init(ItemConfig _itemConfig, BooleanVariable _isOffUi,
             BooleanVariable _isTesting, Sprite _iconInput, Sprite _iconOk, Sprite _iconToggle, Sprite _iconCoinDebug,
             Sprite _iconOutfitDebug)
         {
-            currentCoin = _currentCoin;
             itemConfig = _itemConfig;
             isOffUIVariable = _isOffUi;
             isTestingVariable = _isTesting;
@@ -38,14 +36,11 @@ namespace TheBeginning.DebugViewPage
 
         public override Task Initialize()
         {
-            AddButton("Add 10000 Coin", icon: iconCoinDebug, clicked: () => currentCoin.Value += 10000);
+            AddButton("Add 10000 Coin", icon: iconCoinDebug, clicked: () => CoinSystem.AddCoin(10000));
             AddInputField("Input Coin:", valueChanged: s => targetCoin = s, icon: iconInput);
             AddButton("Enter Input Coin", clicked: () =>
                 {
-                    if (targetCoin != "")
-                    {
-                        currentCoin.Value = int.Parse(targetCoin);
-                    }
+                    if (targetCoin != "") CoinSystem.SetCoin(int.Parse(targetCoin));
                 },
                 icon: iconOk);
             AddButton("Unlock All Skin", icon: iconOutfitDebug, clicked: () => itemConfig.UnlockAllSkins());

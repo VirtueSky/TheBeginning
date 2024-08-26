@@ -29,7 +29,8 @@ public class CoinGenerate : BaseMono
     [SerializeField] private EventNoParam moveOneCoinDone;
     [SerializeField] private EventNoParam moveAllCoinDone;
     [SerializeField] private EventNoParam decreaseCoinEvent;
-    [SerializeField] private IntegerVariable currentCoin;
+    [SerializeField] private EventNoParam addCoinEvent;
+    [SerializeField] private EventNoParam minusCoinEvent;
     [Header("Sound")] [SerializeField] public PlaySfxEvent playSoundFx;
     [SerializeField] private SoundData soundCoinMove;
 
@@ -43,7 +44,8 @@ public class CoinGenerate : BaseMono
     public override void OnEnable()
     {
         base.OnEnable();
-        currentCoin.AddListener(HandleGenerateCoin);
+        addCoinEvent.AddListener(GenerateCoin);
+        minusCoinEvent.AddListener(DecreaseCoin);
         setFromCoinEvent.AddListener(SetFrom);
         addTargetToCoinGenerateEvent.AddListener(AddTo);
         removeTargetToCoinGenerateEvent.AddListener(RemoveTo);
@@ -54,7 +56,8 @@ public class CoinGenerate : BaseMono
     public override void OnDisable()
     {
         base.OnDisable();
-        currentCoin.RemoveListener(HandleGenerateCoin);
+        addCoinEvent.RemoveListener(GenerateCoin);
+        minusCoinEvent.RemoveListener(DecreaseCoin);
         setFromCoinEvent.RemoveListener(SetFrom);
         addTargetToCoinGenerateEvent.RemoveListener(AddTo);
         removeTargetToCoinGenerateEvent.RemoveListener(RemoveTo);
@@ -62,20 +65,13 @@ public class CoinGenerate : BaseMono
 
     private void SaveCache()
     {
-        cacheCurrentCoin = currentCoin.Value;
+        cacheCurrentCoin = CoinSystem.GetCurrentCoin();
     }
 
-    private void HandleGenerateCoin(int value)
+    private void DecreaseCoin()
     {
-        if (currentCoin.Value > cacheCurrentCoin)
-        {
-            GenerateCoin();
-        }
-        else
-        {
-            decreaseCoinEvent.Raise();
-            SaveCache();
-        }
+        decreaseCoinEvent.Raise();
+        SaveCache();
     }
 
     public void SetFrom(Vector3 from)

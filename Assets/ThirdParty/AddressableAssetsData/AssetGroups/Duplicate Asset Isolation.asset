@@ -127,11 +127,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6a4bbc0399fafde4bb1c4007bbfb6d9f
-    m_Address: Assets/_Sunflower/Scriptable/Variable/current_coin_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9cbd7436c0fc7249915e5fd802ae174
     m_Address: Assets/_Sunflower/Scriptable/Ads/ShowAd_Variable/reward_ad_variable.asset
     m_ReadOnly: 0
