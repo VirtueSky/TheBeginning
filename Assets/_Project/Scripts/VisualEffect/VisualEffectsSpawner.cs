@@ -31,7 +31,10 @@ public class VisualEffectsSpawner : BaseMono
 
             if (data.isDestroyedOnEnd)
             {
-                App.Delay(data.timeDestroy, () => effect.DeSpawn());
+                App.Delay(data.timeDestroy, () =>
+                {
+                    if (effect != null) effect.DeSpawn();
+                });
             }
         }
     }

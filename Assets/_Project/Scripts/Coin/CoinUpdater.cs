@@ -24,7 +24,7 @@ public class CoinUpdater : MonoBehaviour
         decreaseCoinEvent.AddListener(DecreaseCoin);
         moveAllCoinDone.AddListener(MoveAllCoinDone);
         addTargetToCoinGenerateEvent.Raise(iconCoin);
-        CurrencyAmountText.text = currentCoin.Value.ToString();
+        CurrencyAmountText.text = CoinSystem.GetCurrentCoin().ToString();
     }
 
     private void OnDisable()
@@ -58,7 +58,7 @@ public class CoinUpdater : MonoBehaviour
     {
         int starCoin = int.Parse(CurrencyAmountText.text);
         int coinChange = starCoin;
-        Tween.Custom(starCoin, currentCoin.Value, 0.5f, valueChange => coinChange = (int)valueChange)
+        Tween.Custom(starCoin, CoinSystem.GetCurrentCoin(), 0.5f, valueChange => coinChange = (int)valueChange)
             .OnUpdate(this, (coin, tween) => { CurrencyAmountText.text = coinChange.ToString(); });
     }
 }
