@@ -752,7 +752,6 @@ MonoBehaviour:
   iconOutfitDebug: {fileID: 21300000, guid: 1aaa9b4d13dbcb64baea375e33fc1f58, type: 3}
   iconConsoleLog: {fileID: 21300000, guid: 6dc678910c85e1948ab02dd201636490, type: 3}
   iconSlider: {fileID: 21300000, guid: b7cb707fa031cc94b8cc2f119bdfad21, type: 3}
-  currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
   itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
   isOffUiVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
@@ -4650,7 +4649,8 @@ MonoBehaviour:
   adSetting: {fileID: 11400000, guid: f438eac3a49d436468a0dd8cf10cf3ee, type: 2}
   changePreventDisplayAppOpenEvent: {fileID: 11400000, guid: 79bb6a658a49caf419b315ee96940768,
     type: 2}
-  callShowAgainGDPREvent: {fileID: 0}
+  callShowAgainGDPREvent: {fileID: 11400000, guid: 406a90b031945024a97ea43f66e66e51,
+    type: 2}
 --- !u!114 &1448091023
 MonoBehaviour:
   m_ObjectHideFlags: 0
