@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbff0f3c083045338776b184bac0261a, type: 3}
   m_Name: sfx_volume
   m_EditorClassIdentifier: 
-  id: sfx_volume
   description: 
-  enableDebugField: 0
   valueDebug: 0
+  typeId: 0
+  guid: 70a0552aacfee3c45a634aa5cb9ba272
+  customId: 
   initializeValue: 1
   isSetData: 1
   isSaveData: 0
   isRaiseEvent: 1
+  currentValue: 0
+  isClamped: 0
+  minMax: {x: 0, y: 100}

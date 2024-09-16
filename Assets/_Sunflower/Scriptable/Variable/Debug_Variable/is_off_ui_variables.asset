@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   valueDebug: 0
-  id: 03cbff122fde4534d9072e647621b894
+  typeId: 0
+  guid: 03cbff122fde4534d9072e647621b894
+  customId: 
   initializeValue: 0
   isSetData: 1
   isSaveData: 0
