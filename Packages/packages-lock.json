@@ -18,11 +18,11 @@
       "hash": "025efcbc5d3175aa1aaf5cb42a667cd7727457ae"
     },
     "com.cysharp.unitask": {
-      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.5",
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.6",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "cdf88c6a6ac8c9b7e6e5d3c0a360a4af29641c24"
+      "hash": "83d8a2b424a2ee7137f8671770e9acb2b9d325f0"
     },
     "com.esotericsoftware.spine.spine-csharp": {
       "version": "https://github.com/EsotericSoftware/spine-runtimes.git?path=spine-csharp/src#4.1",
@@ -423,7 +423,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#3.0.3",
+      "version": "https://github.com/VirtueSky/sunflower.git#3.0.5",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -432,7 +432,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.21"
       },
-      "hash": "1a7f4790694f44dcffbe0090083d8bb8b115139c"
+      "hash": "6f26a85a8f036aa383fbf8c68e50f56d9fa30052"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
