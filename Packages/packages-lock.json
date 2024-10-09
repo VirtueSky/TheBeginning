@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.adjust.sdk": {
+      "version": "https://github.com/adjust/unity_sdk.git?path=Assets/Adjust#v5.0.3",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "fe136c20e50be7d3df63726315e7c8cf39054749"
+    },
     "com.coffee.ui-effect": {
       "version": "https://github.com/mob-sakai/UIEffect.git#4.0.0-preview.10",
       "depth": 0,
@@ -423,7 +430,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#3.0.5",
+      "version": "https://github.com/VirtueSky/sunflower.git#3.0.9",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -432,7 +439,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.21"
       },
-      "hash": "6f26a85a8f036aa383fbf8c68e50f56d9fa30052"
+      "hash": "83c1257a92ac487cfe30d8fd0fc9ccb30afaea7e"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

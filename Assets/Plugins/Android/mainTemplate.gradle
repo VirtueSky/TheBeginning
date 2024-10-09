@@ -7,6 +7,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:12
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.4.1' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:17
     implementation 'androidx.lifecycle:lifecycle-process:2.4.1' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:22
+    implementation 'com.adjust.sdk:adjust-android:5.0.0' // Packages/com.adjust.sdk/Native/Editor/Dependencies.xml:5
+    implementation 'com.android.installreferrer:installreferrer:2.2' // Packages/com.adjust.sdk/Native/Editor/Dependencies.xml:7
     implementation 'com.google.android.gms:play-services-ads:23.2.0' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1' // Assets/LevelPlay/Editor/IronSourceSDKDependencies.xml:17
     implementation 'com.google.android.gms:play-services-base:18.4.0' // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:17
