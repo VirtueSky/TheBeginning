@@ -139,11 +139,11 @@
       "hash": "cf87d85de5f5865487fddb2f24daebe570870c5a"
     },
     "com.tayx.graphy": {
-      "version": "https://github.com/pancake-llc/graphy.git#3.0.6",
+      "version": "https://github.com/Tayx94/graphy.git#v3.0.5",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "9ded9ea5743bac53592c1988ea7c35939404e655"
+      "hash": "0874cf1e1a75576b118ceeaeedc042341df877bc"
     },
     "com.unity.2d.common": {
       "version": "8.0.2",
