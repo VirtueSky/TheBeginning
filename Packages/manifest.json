@@ -16,7 +16,7 @@
     "com.google.play.review": "https://github.com/google-unity/in-app-review.git#1.8.1",
     "com.harumak.unitydebugsheet": "https://github.com/Haruma-K/UnityDebugSheet.git?path=/Assets/UnityDebugSheet",
     "com.matthewminer.consolation": "https://github.com/wolf-package/consolation.git#1.4.2",
-    "com.tayx.graphy": "https://github.com/Tayx94/graphy.git#v3.0.5",
+    "com.tayx.graphy": "https://github.com/wolf-org/graphy.git#3.0.6",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.spriteshape": "9.0.3",
     "com.unity.addressables": "1.21.21",
