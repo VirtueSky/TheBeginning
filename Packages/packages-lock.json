@@ -139,11 +139,11 @@
       "hash": "cf87d85de5f5865487fddb2f24daebe570870c5a"
     },
     "com.tayx.graphy": {
-      "version": "https://github.com/Tayx94/graphy.git#v3.0.5",
+      "version": "https://github.com/wolf-org/graphy.git#3.0.6",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "0874cf1e1a75576b118ceeaeedc042341df877bc"
+      "hash": "f0375daf7cfa8dee28dbf07d0c7d00737ed7975e"
     },
     "com.unity.2d.common": {
       "version": "8.0.2",
