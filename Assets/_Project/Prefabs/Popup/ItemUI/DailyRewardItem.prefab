@@ -86,6 +86,8 @@ GameObject:
   - component: {fileID: 6262988362844482627}
   - component: {fileID: 641874922752113787}
   - component: {fileID: 7702154380198746034}
+  - component: {fileID: 3432759831556194063}
+  - component: {fileID: 8827703624612986131}
   m_Layer: 5
   m_Name: TextDay
   m_TagString: Untagged
@@ -140,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Day 1
+  m_text: Day 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d15ab71442963c47b22b47460111e35, type: 2}
   m_sharedMaterial: {fileID: 3604630249188092411, guid: 8d15ab71442963c47b22b47460111e35,
@@ -210,6 +212,42 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3432759831556194063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889012484204209903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476932f1680198544b423513d634d37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 7702154380198746034}
+  property:
+    enabled: 0
+    value: font
+  variable: {fileID: 11400000, guid: cb7fbc56070ab4d4391731ecc38db9bc, type: 2}
+--- !u!114 &8827703624612986131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889012484204209903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c43f4ebada4d6ab7202113210604cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 7702154380198746034}
+  property:
+    enabled: 0
+    value: text
+  variable: {fileID: 11400000, guid: 8905a488eaac16c46a4549ad32185a86, type: 2}
+  formatArgs:
+  - 0
 --- !u!1 &1025374726091736404
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,12 +818,11 @@ MonoBehaviour:
   dayIndex: 0
   textDay: {fileID: 7702154380198746034}
   textValue: {fileID: 8165368559018800352}
+  localeTextDay: {fileID: 8827703624612986131}
   greenTick: {fileID: 2136497422556157723}
   backgroundCanNotClaim: {fileID: 667792049671608572}
   iconLock: {fileID: 6635031094650380721}
   iconItem: {fileID: 4765810111079921948}
-  currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
-  generateCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
   dailyRewardConfig: {fileID: 11400000, guid: 8595dbcfcc8e4d24b85c87242a5d3778, type: 2}
 --- !u!1 &7977002042426809001
 GameObject:

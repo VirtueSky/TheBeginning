@@ -1040,6 +1040,8 @@ GameObject:
   - component: {fileID: 1912597492370817061}
   - component: {fileID: 7433913391265569156}
   - component: {fileID: 868623933966463779}
+  - component: {fileID: 1888827055316417592}
+  - component: {fileID: 1635245392347223077}
   m_Layer: 0
   m_Name: Btn_Start
   m_TagString: Untagged
@@ -1096,8 +1098,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0414325cc03918d47bedc3751f7127d6, type: 2}
-  m_sharedMaterial: {fileID: 3604630249188092411, guid: 0414325cc03918d47bedc3751f7127d6,
+  m_fontAsset: {fileID: 11400000, guid: 8d15ab71442963c47b22b47460111e35, type: 2}
+  m_sharedMaterial: {fileID: 3604630249188092411, guid: 8d15ab71442963c47b22b47460111e35,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1244,6 +1246,41 @@ MonoBehaviour:
   offsetScale: 0.1
   timeScale: 0.7
   ease: 1
+--- !u!114 &1888827055316417592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224738810157298992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476932f1680198544b423513d634d37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 1912597492370817061}
+  property:
+    enabled: 0
+    value: font
+  variable: {fileID: 11400000, guid: cb7fbc56070ab4d4391731ecc38db9bc, type: 2}
+--- !u!114 &1635245392347223077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224738810157298992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c43f4ebada4d6ab7202113210604cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 1912597492370817061}
+  property:
+    enabled: 0
+    value: text
+  variable: {fileID: 11400000, guid: 9e49103fb616680419a6db4d4948408f, type: 2}
+  formatArgs: []
 --- !u!1001 &7994868994823702684
 PrefabInstance:
   m_ObjectHideFlags: 0

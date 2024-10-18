@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
+using VirtueSky.Utils;
 using VirtueSky.Variables;
 
 namespace TheBeginning.UI

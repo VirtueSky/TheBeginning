@@ -11,6 +11,7 @@ using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
 using VirtueSky.Events;
+using VirtueSky.Localization;
 using VirtueSky.Variables;
 
 namespace TheBeginning.SceneFlow
@@ -22,6 +23,7 @@ namespace TheBeginning.SceneFlow
         [HeaderLine("Attributes")] public Image progressBar;
         [SerializeField] private RawImage rawImage;
         public TextMeshProUGUI loadingText;
+        [SerializeField] private LocaleTextComponent localeTextComponent;
         [Range(0.1f, 10f)] public float timeLoading = 5f;
         [SerializeField] private StringEvent changeSceneEvent;
         [SerializeField] private BooleanVariable isFetchRemoteConfigCompleted;
@@ -39,12 +41,14 @@ namespace TheBeginning.SceneFlow
 
         private void Init()
         {
+            Locale.LoadLanguageSetting();
             progressBar.fillAmount = 0;
             progressBar.DOFillAmount(1, timeLoading)
                 .OnUpdate(progressBar,
                     (image, tween) =>
                     {
-                        loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%";
+                        //   loadingText.text = $"Loading... {(int)(progressBar.fillAmount * 100)}%";
+                        localeTextComponent.UpdateArgs($"{(int)(progressBar.fillAmount * 100)}");
                         rect.x -= Time.deltaTime * 0.1f;
                         rect.y -= Time.deltaTime * 0.1f;
                         rawImage.uvRect = rect;
