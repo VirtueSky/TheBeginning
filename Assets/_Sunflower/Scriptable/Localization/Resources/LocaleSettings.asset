@@ -21,6 +21,6 @@ MonoBehaviour:
     custom: 0
   detectDeviceLanguage: 1
   importLocation: Assets/_Sunflower/Scriptable/Localization
-  googleTranslateApiKey: AIzaSyD4enoqbH_qJAS_JJTGNJ4WLAklb6p0fO8
+  googleTranslateApiKey: 
   spreadsheetKey: 
   serviceAccountCredential: 
