@@ -9,6 +9,7 @@ using TheBeginning.Data;
 using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
+using VirtueSky.Utils;
 using VirtueSky.Variables;
 
 namespace TheBeginning.UI
