@@ -60,6 +60,7 @@ MonoBehaviour:
   dayIndex: 0
   textDay: {fileID: 2650185653218095932}
   textValue: {fileID: 9010266915291655672}
+  localeTextDay: {fileID: 3762127991814758750}
   greenTick: {fileID: 5380138503035491784}
   backgroundCanNotClaim: {fileID: 2671668069648912198}
   iconLock: {fileID: 3459086093031490177}
@@ -1067,10 +1068,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
+  m_fontSize: 62.05
   m_fontSizeBase: 70
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 90
   m_fontStyle: 0
@@ -1862,6 +1863,8 @@ GameObject:
   - component: {fileID: 7359509157074574320}
   - component: {fileID: 2560817749203238827}
   - component: {fileID: 2650185653218095932}
+  - component: {fileID: 3762127991814758750}
+  - component: {fileID: 6114014442404835553}
   m_Layer: 5
   m_Name: TextDay
   m_TagString: Untagged
@@ -1916,7 +1919,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Day 7
+  m_text: Day 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d15ab71442963c47b22b47460111e35, type: 2}
   m_sharedMaterial: {fileID: 3604630249188092411, guid: 8d15ab71442963c47b22b47460111e35,
@@ -1986,6 +1989,42 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3762127991814758750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073085238188580520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c43f4ebada4d6ab7202113210604cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 2650185653218095932}
+  property:
+    enabled: 0
+    value: text
+  variable: {fileID: 11400000, guid: 8905a488eaac16c46a4549ad32185a86, type: 2}
+  formatArgs:
+  - 0
+--- !u!114 &6114014442404835553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073085238188580520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476932f1680198544b423513d634d37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 2650185653218095932}
+  property:
+    enabled: 0
+    value: font
+  variable: {fileID: 11400000, guid: cb7fbc56070ab4d4391731ecc38db9bc, type: 2}
 --- !u!1 &7151091472365318068
 GameObject:
   m_ObjectHideFlags: 0

@@ -818,6 +818,7 @@ MonoBehaviour:
   dayIndex: 0
   textDay: {fileID: 7702154380198746034}
   textValue: {fileID: 8165368559018800352}
+  localeTextDay: {fileID: 8827703624612986131}
   greenTick: {fileID: 2136497422556157723}
   backgroundCanNotClaim: {fileID: 667792049671608572}
   iconLock: {fileID: 6635031094650380721}

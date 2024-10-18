@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
+using VirtueSky.Localization;
 using VirtueSky.Variables;
 
 namespace TheBeginning.UI
@@ -16,6 +17,7 @@ namespace TheBeginning.UI
         [ReadOnly] public int dayIndex;
         public TextMeshProUGUI textDay;
         public TextMeshProUGUI textValue;
+        public LocaleTextComponent localeTextDay;
 
         public Image greenTick;
 
@@ -89,7 +91,8 @@ namespace TheBeginning.UI
         public void SetUpUI(int i)
         {
             SetDefaultUI();
-            textDay.text = "Day " + (i + 1);
+            //  textDay.text = "Day " + (i + 1);
+            localeTextDay.UpdateArgs($"{i + 1}");
             textValue.text = coinValue.ToString();
             switch (dailyRewardItemState)
             {
