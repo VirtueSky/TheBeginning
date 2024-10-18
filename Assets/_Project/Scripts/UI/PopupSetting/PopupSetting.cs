@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Events;
+using VirtueSky.Localization;
 #if ADS_ADMOB
 using GoogleMobileAds.Ump.Api;
 #endif
@@ -11,6 +12,8 @@ namespace TheBeginning.UI
     {
         [SerializeField] private Button btnRestorePurchase;
         [SerializeField] private Button btnShowPrivacyConsent;
+        [SerializeField] private Coffee.UIEffects.UIEffect btnLanguageEnglish;
+        [SerializeField] private Coffee.UIEffects.UIEffect btnLanguageVietNam;
         [SerializeField] private EventNoParam restorePurchaseEvent;
         [SerializeField] private EventNoParam callShowAgainGDPREvent;
 
@@ -27,6 +30,7 @@ namespace TheBeginning.UI
             btnShowPrivacyConsent.gameObject.SetActive(ConsentInformation.PrivacyOptionsRequirementStatus ==
                                                        PrivacyOptionsRequirementStatus.Required);
 #endif
+            InitBtnLanguage();
         }
 
         protected override void OnBeforeHide()
@@ -34,6 +38,14 @@ namespace TheBeginning.UI
             base.OnBeforeHide();
             btnRestorePurchase.onClick.RemoveListener(OnClickRestorePurchase);
             btnShowPrivacyConsent.onClick.RemoveListener(OnClickShowPrivacyConsent);
+        }
+
+        void InitBtnLanguage()
+        {
+            btnLanguageEnglish.effectFactor = 1;
+            btnLanguageVietNam.effectFactor = 1;
+            if (Locale.CurrentLanguage == Language.English) btnLanguageEnglish.effectFactor = 0;
+            if (Locale.CurrentLanguage == Language.Vietnamese) btnLanguageVietNam.effectFactor = 0;
         }
 
         void SetupButtonDefault()
@@ -50,6 +62,18 @@ namespace TheBeginning.UI
         public void OnClickShowPrivacyConsent()
         {
             callShowAgainGDPREvent.Raise();
+        }
+
+        public void OnClickLanguageEn()
+        {
+            Locale.CurrentLanguage = Language.English;
+            InitBtnLanguage();
+        }
+
+        public void OnClickLanguageVi()
+        {
+            Locale.CurrentLanguage = Language.Vietnamese;
+            InitBtnLanguage();
         }
     }
 }
