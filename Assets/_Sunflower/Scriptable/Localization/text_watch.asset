@@ -17,7 +17,7 @@ MonoBehaviour:
       name: English
       code: en
       custom: 0
-    value: What
+    value: Watch
   - language:
       name: Vietnamese
       code: vi
