@@ -15,10 +15,15 @@ MonoBehaviour:
   m_GroupName: Duplicate Asset Isolation
   m_Data:
     m_SerializedData: []
-  m_GUID: 3df19f32afb24446fa12e3cb0f718f6a
+  m_GUID: 0bdadc1cc1daa4d0f8bf1d10f2c51900
   m_SerializeEntries:
   - m_GUID: 4b75fe61160713244bd8c8bcf4ebecc6
     m_Address: Assets/_Sunflower/Scriptable/Variable/index_level_variable.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d15ab71442963c47b22b47460111e35
+    m_Address: Assets/_Project/Fonts/TMP_LilitaOne.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -32,8 +37,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb7fbc56070ab4d4391731ecc38db9bc
+    m_Address: Assets/_Sunflower/Scriptable/Localization/font_asset_localizevalue.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc010066eec5ef24eb9fa923867c670f
     m_Address: Assets/_Project/Config/GameConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fce06a9647c5b654d902352095165cd0
+    m_Address: Assets/_Project/Fonts/Vi.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -69,6 +84,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 17779290a127c4147aa7bad382aca7eb
     m_Address: Assets/_Sunflower/Scriptable/GameService/Variable/status_login_variables.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 406a90b031945024a97ea43f66e66e51
+    m_Address: Assets/_Sunflower/Scriptable/GDPR/call_show_again_gdpr_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -149,11 +169,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8008196536e554abbb7d1ab3f83aab56
     m_Address: Assets/_Sunflower/Scriptable/Event/Coin_Generate/remove_target_to_coin_event.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ee52367561b1f4c4f865ac869bce7df8
-    m_Address: Assets/_Sunflower/Scriptable/Event/Coin_Generate/set_from_coin_generate_event.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
