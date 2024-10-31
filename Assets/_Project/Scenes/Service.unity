@@ -4476,7 +4476,6 @@ GameObject:
   - component: {fileID: 1448091015}
   - component: {fileID: 1448091013}
   - component: {fileID: 1448091016}
-  - component: {fileID: 1448091017}
   - component: {fileID: 1448091020}
   - component: {fileID: 1448091021}
   - component: {fileID: 1448091024}
@@ -4645,20 +4644,6 @@ MonoBehaviour:
     type: 2}
   eventGetPreviousLevel: {fileID: 11400000, guid: e4f33772c12513144943e9ba3ac161f5,
     type: 2}
---- !u!114 &1448091017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448091006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd6ce0fa49039144a943032090c0d77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualEffectConfig: {fileID: 11400000, guid: e6191c42750a4db49b793497b673f618, type: 2}
-  spawnEffectEvent: {fileID: 11400000, guid: 5809c9924b572894ab3ad0e21a06e422, type: 2}
 --- !u!114 &1448091020
 MonoBehaviour:
   m_ObjectHideFlags: 0
