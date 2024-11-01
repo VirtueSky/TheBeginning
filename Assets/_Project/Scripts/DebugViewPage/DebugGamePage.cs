@@ -34,7 +34,21 @@ namespace TheBeginning.DebugViewPage
             iconOutfitDebug = _iconOutfitDebug;
         }
 
+
+#if UDS_USE_ASYNC_METHODS
         public override Task Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#else
+        public override IEnumerator Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#endif
+        void OnInitialize()
         {
             AddButton("Add 10000 Coin", icon: iconCoinDebug, clicked: () => CoinSystem.AddCoin(10000));
             AddInputField("Input Coin:", valueChanged: s => targetCoin = s, icon: iconInput);
@@ -49,7 +63,6 @@ namespace TheBeginning.DebugViewPage
             AddSwitch(isTestingVariable.Value, "Is Testing", valueChanged: b => isTestingVariable.Value = b,
                 icon: iconToggle);
             Reload();
-            return base.Initialize();
         }
     }
 }

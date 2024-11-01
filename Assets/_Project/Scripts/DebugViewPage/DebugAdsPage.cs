@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Threading.Tasks;
+using System.Collections;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
 using VirtueSky.Ads;
@@ -34,7 +34,21 @@ namespace TheBeginning.DebugViewPage
             showNotificationInGameEvent = _showNotiEvent;
         }
 
+
+#if UDS_USE_ASYNC_METHODS
         public override Task Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#else
+        public override IEnumerator Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#endif
+        void OnInitialize()
         {
             AddButton("Show Banner", clicked: ShowBanner);
             AddButton("Hide Banner", clicked: HideBanner);
@@ -46,7 +60,6 @@ namespace TheBeginning.DebugViewPage
                 icon: iconToggle);
             AddSwitch(offRewardVariable.Value, "Is Off Reward", valueChanged: b => offRewardVariable.Value = b,
                 icon: iconToggle);
-            return base.Initialize();
         }
 
         void ShowBanner()
