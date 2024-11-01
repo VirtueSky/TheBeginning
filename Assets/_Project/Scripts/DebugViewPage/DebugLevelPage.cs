@@ -48,7 +48,22 @@ namespace TheBeginning.DebugViewPage
             iconOk = _iconOk;
         }
 
+
+#if UDS_USE_ASYNC_METHODS
         public override Task Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#else
+        public override IEnumerator Initialize()
+        {
+            OnInitialize();
+            return base.Initialize();
+        }
+#endif
+
+        void OnInitialize()
         {
             AddButton("Next Level", clicked: NextLevel, icon: iconNext);
             AddButton("Prev Level", clicked: PrevLevel, icon: iconBack);
@@ -56,7 +71,6 @@ namespace TheBeginning.DebugViewPage
             AddButton("Lose Level", clicked: LoseLevel, icon: iconLose);
             AddInputField("Input Level:", valueChanged: ChangeLevel, icon: iconInput);
             AddButton("Jump to level input", clicked: PlayCurrentLevel, icon: iconOk);
-            return base.Initialize();
         }
 
         void ChangeLevel(string s)
