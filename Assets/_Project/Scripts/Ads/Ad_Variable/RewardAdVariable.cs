@@ -8,7 +8,7 @@ using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 [CreateAssetMenu(menuName = "Ads Variable/Reward Variable", fileName = "reward_ad_variable")]
-public class RewardAdVariable : BaseSO
+public class RewardAdVariable : AdVariable
 {
     [SerializeField] private AdUnitVariable rewardVariable;
 
@@ -20,6 +20,10 @@ public class RewardAdVariable : BaseSO
 
     [SerializeField] private TrackingFirebaseOneParam trackingFirebaseShowRewardCompleted;
     public AdUnitVariable AdUnitRewardVariable => rewardVariable;
+
+    public override void Init()
+    {
+    }
 
     bool Condition()
     {

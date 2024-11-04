@@ -709,6 +709,7 @@ MonoBehaviour:
   trackingFirebaseLoseLevel: {fileID: 11400000, guid: 6f4f5bfc74bea854289cf1793d8fcc51,
     type: 2}
   levelHolder: {fileID: 1245891407}
+  eventGetGameState: {fileID: 11400000, guid: 84d3512307af1204a884ec2767925df0, type: 2}
   eventLoadLevel: {fileID: 11400000, guid: a23d4b373bb58e04fb8e85b3237c3797, type: 2}
   eventGetCurrentLevel: {fileID: 11400000, guid: 7e96f0ac661d9264dbdb066c74f8ffd8,
     type: 2}
@@ -728,11 +729,7 @@ MonoBehaviour:
   callBackLevelEvent: {fileID: 11400000, guid: 9cc98c82176f3fa4e9684e9f20c64999, type: 2}
   callWinLevelEvent: {fileID: 11400000, guid: 8bb823675099e1844a9226562cd403df, type: 2}
   callLoseLevelEvent: {fileID: 11400000, guid: 737e2b8f8e70c1445be0bbabb38d77b5, type: 2}
-  gameStateVariable: {fileID: 11400000, guid: 00d1914409592564ea7ca3f861a30d8e, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
-  adsCounterVariable: {fileID: 11400000, guid: fb1d28ed953dba1439f42e31764bd580, type: 2}
-  timeCounterInterAdVariable: {fileID: 11400000, guid: a922fcba70520de4486468de077e96c2,
-    type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
