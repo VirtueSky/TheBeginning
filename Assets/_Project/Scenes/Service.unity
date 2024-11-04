@@ -4720,16 +4720,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serviceInitializations:
+  - {fileID: 524850873}
   - {fileID: 524850872}
+  - {fileID: 524850874}
   - {fileID: 524850877}
   - {fileID: 524850875}
+  - {fileID: 524850871}
   - {fileID: 524850879}
-  - {fileID: 524850874}
-  - {fileID: 524850878}
-  - {fileID: 524850873}
   - {fileID: 524850876}
   - {fileID: 524850880}
-  - {fileID: 524850871}
+  - {fileID: 524850878}
 --- !u!114 &1448091024
 MonoBehaviour:
   m_ObjectHideFlags: 0
