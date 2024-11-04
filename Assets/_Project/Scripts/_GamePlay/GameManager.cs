@@ -24,8 +24,9 @@ namespace TheBeginning.Game
         [SerializeField] private Transform levelHolder;
 
         [HeaderLine(Constant.SO_Event)] [SerializeField]
-        private EventLoadLevel eventLoadLevel;
+        private EventGetGameState eventGetGameState;
 
+        [SerializeField] private EventLoadLevel eventLoadLevel;
         [SerializeField] private EventGetCurrentLevel eventGetCurrentLevel;
         [SerializeField] private EventGetPreviousLevel eventGetPreviousLevel;
         [SerializeField] private EventLevel eventWinLevel;
@@ -43,16 +44,12 @@ namespace TheBeginning.Game
 
 
         [HeaderLine(Constant.SO_Variable)] [SerializeField]
-        private GameStateVariable gameStateVariable;
-
-        [SerializeField] private IntegerVariable indexLevelVariable;
-        [SerializeField] private IntegerVariable adsCounterVariable;
-        [SerializeField] private FloatVariable timeCounterInterAdVariable;
-
+        private IntegerVariable indexLevelVariable;
 
         public override void OnEnable()
         {
             base.OnEnable();
+            eventGetGameState.AddListener(GetGameState);
             callPlayCurrentLevelEvent.AddListener(PlayCurrentLevel);
             callReplayLevelEvent.AddListener(ReplayGame);
             callNextLevelEvent.AddListener(NextLevel);
@@ -65,6 +62,7 @@ namespace TheBeginning.Game
         public override void OnDisable()
         {
             base.OnDisable();
+            eventGetGameState.RemoveListener(GetGameState);
             callPlayCurrentLevelEvent.RemoveListener(PlayCurrentLevel);
             callReplayLevelEvent.RemoveListener(ReplayGame);
             callNextLevelEvent.RemoveListener(NextLevel);
@@ -74,6 +72,8 @@ namespace TheBeginning.Game
             callReturnHome.RemoveListener(ReturnHome);
         }
 
+        private GameState GetGameState() => gameState;
+
         void Start()
         {
             ReturnHome();
@@ -81,7 +81,7 @@ namespace TheBeginning.Game
 
         void ReturnHome()
         {
-            GameState = GameState.Lobby;
+            gameState = GameState.Lobby;
             PopupManager.Show<PopupHome>();
             levelHolder.ClearTransform();
         }
@@ -124,7 +124,7 @@ namespace TheBeginning.Game
 
         private void StartGame()
         {
-            GameState = GameState.PlayingGame;
+            gameState = GameState.PlayingGame;
             eventStartLevel.Raise(eventGetCurrentLevel.Raise());
             var currentLevelPrefab = eventGetCurrentLevel.Raise();
             levelHolder.ClearTransform();
@@ -134,12 +134,11 @@ namespace TheBeginning.Game
 
         private void OnWinGame(float delayPopupShowTime = 2.5f)
         {
-            if (GameState == GameState.WaitingResult ||
-                GameState == GameState.LoseGame ||
-                GameState == GameState.WinGame) return;
-            GameState = GameState.WinGame;
+            if (gameState == GameState.WaitingResult ||
+                gameState == GameState.LoseGame ||
+                gameState == GameState.WinGame) return;
+            gameState = GameState.WinGame;
             eventWinLevel.Raise(eventGetCurrentLevel.Raise());
-            adsCounterVariable.Value++;
             trackingFirebaseWinLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
             Tween.Delay(delayPopupShowTime, () =>
             {
@@ -152,37 +151,17 @@ namespace TheBeginning.Game
 
         private void OnLoseGame(float delayPopupShowTime = 2.5f)
         {
-            if (GameState == GameState.WaitingResult ||
-                GameState == GameState.LoseGame ||
-                GameState == GameState.WinGame) return;
-            GameState = GameState.LoseGame;
+            if (gameState == GameState.WaitingResult ||
+                gameState == GameState.LoseGame ||
+                gameState == GameState.WinGame) return;
+            gameState = GameState.LoseGame;
             eventLoseLevel.Raise(eventGetCurrentLevel.Raise());
-            adsCounterVariable.Value++;
             trackingFirebaseLoseLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
             Tween.Delay(delayPopupShowTime, () =>
             {
                 PopupManager.Show<PopupLose>();
                 PopupManager.Hide<PopupInGame>();
             });
-        }
-
-        private GameState GameState
-        {
-            get => gameState;
-            set
-            {
-                gameState = value;
-                gameStateVariable.Value = gameState;
-            }
-        }
-
-        public override void FixedTick()
-        {
-            base.FixedTick();
-            if (GameState == GameState.PlayingGame)
-            {
-                timeCounterInterAdVariable.Value += Time.deltaTime;
-            }
         }
     }
 

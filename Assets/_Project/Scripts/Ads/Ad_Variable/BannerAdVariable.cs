@@ -6,7 +6,7 @@ using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 [CreateAssetMenu(menuName = "Ads Variable/Banner Variable", fileName = "banner_ad_variable")]
-public class BannerAdVariable : BaseSO
+public class BannerAdVariable : AdVariable
 {
     [SerializeField] private AdUnitVariable bannerVariable;
     [Space, SerializeField] private BooleanVariable isOffBannerVariable;
@@ -19,6 +19,10 @@ public class BannerAdVariable : BaseSO
 
     [SerializeField] private TrackingFirebaseNoParam trackingFirebaseHideBanner;
     public AdUnitVariable AdUnitBannerVariable => bannerVariable;
+
+    public override void Init()
+    {
+    }
 
     bool Condition()
     {

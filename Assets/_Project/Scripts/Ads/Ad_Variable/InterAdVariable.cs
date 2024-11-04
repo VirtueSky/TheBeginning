@@ -1,4 +1,6 @@
 using System;
+using TheBeginning.Game;
+using TheBeginning.LevelSystem;
 using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Core;
@@ -7,7 +9,7 @@ using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 [CreateAssetMenu(menuName = "Ads Variable/Inter Variable", fileName = "inter_ad_variable")]
-public class InterAdVariable : BaseSO
+public class InterAdVariable : AdVariable
 {
     [SerializeField] private AdUnitVariable interVariable;
 
@@ -15,6 +17,9 @@ public class InterAdVariable : BaseSO
     [SerializeField] private BooleanVariable isOffInterAdsVariable;
     [SerializeField] private IntegerVariable adsCounterVariable;
     [SerializeField] private FloatVariable timeCounterInterAds;
+    [SerializeField] private EventGetGameState eventGetGameState;
+    [SerializeField] private EventLevel winLevelEvent;
+    [SerializeField] private EventLevel loseLevelEvent;
 
     [Space, HeaderLine("Firebase Remote Config"), SerializeField]
     private IntegerVariable remoteConfigLevelTurnOnInterstitial;
@@ -28,6 +33,14 @@ public class InterAdVariable : BaseSO
 
     [SerializeField] private TrackingFirebaseNoParam trackingFirebaseShowInterCompleted;
     public AdUnitVariable AdUnitInterVariable => interVariable;
+
+    public override void Init()
+    {
+        ResetCounter();
+        App.SubTick(OnUpdate);
+        winLevelEvent.AddListener(OnEndLevel);
+        loseLevelEvent.AddListener(OnEndLevel);
+    }
 
     bool Condition()
     {
@@ -62,7 +75,6 @@ public class InterAdVariable : BaseSO
         else
         {
             completeCallback?.Invoke();
-            ResetCounter();
         }
     }
 
@@ -70,5 +82,15 @@ public class InterAdVariable : BaseSO
     void DelayHandle(Action action)
     {
         App.Delay(0.05f, action);
+    }
+
+    void OnEndLevel(Level level)
+    {
+        adsCounterVariable.Value++;
+    }
+
+    void OnUpdate()
+    {
+        if (eventGetGameState.Raise() == GameState.PlayingGame) timeCounterInterAds.Value += Time.deltaTime;
     }
 }
