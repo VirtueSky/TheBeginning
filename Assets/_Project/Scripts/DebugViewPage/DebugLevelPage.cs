@@ -10,7 +10,7 @@ namespace TheBeginning.DebugViewPage
 {
     public class DebugLevelPage : DefaultDebugPageBase
     {
-        private GameStateVariable gameStateVariable;
+        private EventGetGameState eventGetGameState;
         private EventNoParam callPlayCurrentLevelEvent;
         private EventNoParam callNextLevelEvent;
         private EventNoParam callPreviousLevelEvent;
@@ -27,12 +27,12 @@ namespace TheBeginning.DebugViewPage
 
         protected override string Title => "Level Debug";
 
-        public void Init(GameStateVariable _gameStateVariable, EventNoParam _callPlayCurrentLevel,
+        public void Init(EventGetGameState _eventGetGameState, EventNoParam _callPlayCurrentLevel,
             EventNoParam _callNextLevel, EventNoParam _callPrevLevel, FloatEvent _callWinLevel,
             FloatEvent _callLoseLevel, IntegerVariable _indexLevel, StringEvent _showNotiEvent, Sprite _iconNext,
             Sprite _iconBack, Sprite _iconWin, Sprite _iconLose, Sprite _iconInput, Sprite _iconOk)
         {
-            gameStateVariable = _gameStateVariable;
+            eventGetGameState = _eventGetGameState;
             callPlayCurrentLevelEvent = _callPlayCurrentLevel;
             callNextLevelEvent = _callNextLevel;
             callPreviousLevelEvent = _callPrevLevel;
@@ -147,7 +147,7 @@ namespace TheBeginning.DebugViewPage
 
         private bool IsPlayingGame()
         {
-            return gameStateVariable.Value == GameState.PlayingGame;
+            return eventGetGameState.Raise() == GameState.PlayingGame;
         }
     }
 }

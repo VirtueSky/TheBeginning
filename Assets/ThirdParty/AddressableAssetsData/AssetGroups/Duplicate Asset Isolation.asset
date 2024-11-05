@@ -157,11 +157,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 00d1914409592564ea7ca3f861a30d8e
-    m_Address: Assets/_Sunflower/Scriptable/Variable/game_state_variable.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f84deb053f08fd44a9725fcf97c54797
     m_Address: Assets/_Sunflower/Scriptable/GameService/Variable/server_code_variable.asset
     m_ReadOnly: 0
