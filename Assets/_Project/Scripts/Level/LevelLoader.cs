@@ -19,8 +19,8 @@ namespace TheBeginning.LevelSystem
         [SerializeField] private EventGetCurrentLevel eventGetCurrentLevel;
         [SerializeField] private EventGetPreviousLevel eventGetPreviousLevel;
 
-        public Level CurrentLevel() => currentLevel;
-        public Level PreviousLevel() => previousLevel;
+        private Level CurrentLevel() => currentLevel;
+        private Level PreviousLevel() => previousLevel;
 
         public override void OnEnable()
         {
@@ -38,7 +38,7 @@ namespace TheBeginning.LevelSystem
         public async UniTask<Level> LoadLevel()
         {
             int index = HandleIndexLevel(currentIndexLevel.Value);
-            var result = await Addressables.LoadAssetAsync<GameObject>($"Levels/Level {index}");
+            var result = await Addressables.LoadAssetAsync<GameObject>($"Level {index}");
             if (currentLevel != null)
             {
                 previousLevel = currentLevel;
@@ -46,7 +46,7 @@ namespace TheBeginning.LevelSystem
             else
             {
                 int indexPrev = HandleIndexLevel(currentIndexLevel.Value - 1);
-                var resultPre = await Addressables.LoadAssetAsync<GameObject>($"Levels/Level {indexPrev}");
+                var resultPre = await Addressables.LoadAssetAsync<GameObject>($"Level {indexPrev}");
                 previousLevel = resultPre.GetComponent<Level>();
             }
 
