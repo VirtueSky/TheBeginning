@@ -821,7 +821,7 @@ MonoBehaviour:
     type: 2}
   callPlayCurrentLevelEvent: {fileID: 11400000, guid: 2728698185b78224ea0bf86a5e6b2455,
     type: 2}
-  gameStateVariable: {fileID: 11400000, guid: 00d1914409592564ea7ca3f861a30d8e, type: 2}
+  eventGetGameState: {fileID: 11400000, guid: 84d3512307af1204a884ec2767925df0, type: 2}
   callNextLevelEvent: {fileID: 11400000, guid: 7a6969beee2c34a49a706b403a8a6e31, type: 2}
   callPreviousLevelEvent: {fileID: 11400000, guid: 9cc98c82176f3fa4e9684e9f20c64999,
     type: 2}

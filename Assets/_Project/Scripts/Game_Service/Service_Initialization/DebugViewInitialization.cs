@@ -47,7 +47,7 @@ namespace TheBeginning.Services
         [SerializeField] private BooleanVariable offBannerDebugVariable;
         [SerializeField] private BooleanVariable offRewardDebugVariable;
         [HeaderLine("Level"), SerializeField] private EventNoParam callPlayCurrentLevelEvent;
-        [SerializeField] private GameStateVariable gameStateVariable;
+        [SerializeField] private EventGetGameState eventGetGameState;
         [SerializeField] private EventNoParam callNextLevelEvent;
         [SerializeField] private EventNoParam callPreviousLevelEvent;
         [SerializeField] private FloatEvent callWinLevelEvent;
@@ -90,7 +90,7 @@ namespace TheBeginning.Services
                 icon: iconLevel,
                 onLoad: debugView =>
                 {
-                    debugView.page.Init(gameStateVariable, callPlayCurrentLevelEvent, callNextLevelEvent,
+                    debugView.page.Init(eventGetGameState, callPlayCurrentLevelEvent, callNextLevelEvent,
                         callPreviousLevelEvent, callWinLevelEvent, callLoseLevelEvent, indexLevel,
                         showNotificationInGameEvent, iconNext, iconBack, iconWin, iconLose, iconInput, iconOke);
                 });
