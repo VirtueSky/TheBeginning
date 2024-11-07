@@ -5,18 +5,18 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
+using VirtueSky.Utils;
 
 namespace TheBeginning.UI
 {
     [EditorIcon("icon_generator")]
     public class PopupManager : BaseMono
     {
-        [HeaderLine(Constant.Environment)] [SerializeField]
+        [HeaderLine(Constant.Environment, false, CustomColor.Gold, CustomColor.Aqua)] [SerializeField]
         private Transform parentContainer;
 
         [SerializeField] private Camera cameraUI;
 
-        [HeaderLine(Constant.SO_Variable)] [SerializeField]
         private readonly Dictionary<Type, UIPopup> container = new Dictionary<Type, UIPopup>();
 
         private int index = 1;
