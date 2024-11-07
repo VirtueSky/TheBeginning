@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
+using VirtueSky.Misc;
 using VirtueSky.Utils;
 
 namespace TheBeginning.UI
@@ -54,7 +55,7 @@ namespace TheBeginning.UI
                 }
                 else
                 {
-                    Debug.Log("Popup not found in the list to show");
+                    Debug.Log("Popup not found in the list to show".SetColor(Color.red));
                 }
             }
             else
@@ -84,7 +85,7 @@ namespace TheBeginning.UI
             }
             else
             {
-                Debug.Log("Popup not found to hide");
+                Debug.Log("Popup not found to hide".SetColor(Color.red));
             }
         }
 
