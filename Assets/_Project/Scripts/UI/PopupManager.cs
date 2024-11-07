@@ -98,7 +98,7 @@ namespace TheBeginning.UI
             return container.ContainsKey(typeof(T));
         }
 
-        public void InternalHideAll()
+        private void InternalHideAll()
         {
             foreach (var popup in container.Values)
             {
