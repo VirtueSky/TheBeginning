@@ -32,7 +32,7 @@ namespace TheBeginning.UI
             }
         }
 
-        private async void InternalShow<T>(bool isHideAll = true)
+        private async void InternalShow<T>(bool isHideAll = true, Action showPopupCompleted = null)
         {
             container.TryGetValue(typeof(T), out UIPopup popup);
             if (popup == null)
@@ -48,6 +48,7 @@ namespace TheBeginning.UI
                     }
 
                     popupInstance.Show();
+                    showPopupCompleted?.Invoke();
                     container.Add(popupInstance.GetType(), popupInstance);
                     popupInstance.canvas.sortingOrder = index++;
                 }
@@ -66,17 +67,19 @@ namespace TheBeginning.UI
                     }
 
                     popup.Show();
+                    showPopupCompleted?.Invoke();
                 }
             }
         }
 
-        private void InternalHide<T>()
+        private void InternalHide<T>(Action hidePopupCompleted = null)
         {
             if (container.TryGetValue(typeof(T), out UIPopup popup))
             {
                 if (popup.isActiveAndEnabled)
                 {
                     popup.Hide();
+                    hidePopupCompleted?.Invoke();
                 }
             }
             else
@@ -121,8 +124,8 @@ namespace TheBeginning.UI
 
         #region API
 
-        public static void Show<T>(bool isHideAll = true) => _ins.InternalShow<T>(isHideAll);
-        public static void Hide<T>() => _ins.InternalHide<T>();
+        public static void Show<T>(bool isHideAll = true, Action showPopupCompleted = null) => _ins.InternalShow<T>(isHideAll, showPopupCompleted);
+        public static void Hide<T>(Action hidePopupCompleted = null) => _ins.InternalHide<T>(hidePopupCompleted);
         public static UIPopup Get<T>() => _ins.InternalGet<T>();
         public static bool IsPopupReady<T>() => _ins.InternalIsPopupReady<T>();
         public static void HideAll() => _ins.InternalHideAll();
