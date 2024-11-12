@@ -143,13 +143,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767417185410928074}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: feb24bede8914c444a230eff3356e63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animType: 2
-  playOnAwake: 1
+  playOnAwake: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 1, y: 1, z: 1}
@@ -1081,13 +1081,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4614830620348307228}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: feb24bede8914c444a230eff3356e63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animType: 2
-  playOnAwake: 1
+  playOnAwake: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 1, y: 1, z: 1}
@@ -1251,7 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animType: 2
-  playOnAwake: 1
+  playOnAwake: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 1, y: 1, z: 1}
@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animType: 2
-  playOnAwake: 1
+  playOnAwake: 0
   animTime: 0.5
   delayAnimTime: 0
   fromScale: {x: 1, y: 1, z: 1}

@@ -18,7 +18,6 @@ MonoBehaviour:
   enableGDPR: 1
   enableGDPRTestMode: 1
   sdkKey: 
-  applovinEnableAgeRestrictedUser: 0
   maxBannerVariable: {fileID: 0}
   maxInterVariable: {fileID: 0}
   maxRewardVariable: {fileID: 0}
