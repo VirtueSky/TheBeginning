@@ -17,21 +17,13 @@
       "hash": "d4b41e270eb56f7db0386b52d00df1fd239169a2"
     },
     "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git#4.0.0-preview.10",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "332340e7bc2f8257816dd28784607a1edf6b6c2a"
-    },
-    "com.coffee.ui-particle": {
-      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.9.1",
+      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.0.0",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.modules.particlesystem": "1.0.0"
+        "com.unity.ugui": "1.0.0"
       },
-      "hash": "025efcbc5d3175aa1aaf5cb42a667cd7727457ae"
+      "hash": "53e6b41b9da8909ef6caa435dad523146621b5f0"
     },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.6",
@@ -64,11 +56,11 @@
       "hash": "949f3b068fea450d96de8fc2a30def2d3de92315"
     },
     "com.google.external-dependency-manager": {
-      "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.179",
+      "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.183",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "66fd0c1b84d72ec9ac32e2eece65f2630b4b262e"
+      "hash": "d5ff67d7b8fe2aea1ae801aaba2d6f2dbad39917"
     },
     "com.google.firebase.analytics": {
       "version": "https://github.com/firebase-unity/firebase-analytics.git#12.0.0",

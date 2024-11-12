@@ -11,7 +11,9 @@ namespace TheBeginning.UI
     public class PopupSetting : UIPopup
     {
         [SerializeField] private Button btnRestorePurchase;
+
         [SerializeField] private Button btnShowPrivacyConsent;
+
         [SerializeField] private Coffee.UIEffects.UIEffect btnLanguageEnglish;
         [SerializeField] private Coffee.UIEffects.UIEffect btnLanguageVietNam;
         [SerializeField] private EventNoParam restorePurchaseEvent;
@@ -42,10 +44,10 @@ namespace TheBeginning.UI
 
         void InitBtnLanguage()
         {
-            btnLanguageEnglish.effectFactor = 1;
-            btnLanguageVietNam.effectFactor = 1;
-            if (Locale.CurrentLanguage == Language.English) btnLanguageEnglish.effectFactor = 0;
-            if (Locale.CurrentLanguage == Language.Vietnamese) btnLanguageVietNam.effectFactor = 0;
+            btnLanguageEnglish.toneIntensity = 1;
+            btnLanguageVietNam.toneIntensity = 1;
+            if (Locale.CurrentLanguage == Language.English) btnLanguageEnglish.toneIntensity = 0;
+            if (Locale.CurrentLanguage == Language.Vietnamese) btnLanguageVietNam.toneIntensity = 0;
         }
 
         void SetupButtonDefault()
