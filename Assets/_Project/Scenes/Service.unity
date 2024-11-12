@@ -4327,7 +4327,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1221707768}
-  - component: {fileID: 1221707769}
   - component: {fileID: 1221707770}
   m_Layer: 0
   m_Name: AudioHolder
@@ -4351,21 +4350,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1221707769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1221707767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e49d3628ff744fdbbb3309c61e6cd6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickButtonEvent: {fileID: 11400000, guid: 61aa56bcc96c74e4ebf0b19fa8413dfd, type: 2}
-  playSoundButton: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
-  soundClickButton: {fileID: 11400000, guid: 9d60ab45b0d57a94092e6ba29fdcc6af, type: 2}
 --- !u!81 &1221707770
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4562,7 +4546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeInitRemoteConfig: 0
-  dependencyStatus: 7
   isFetchRemoteConfigCompleted: {fileID: 11400000, guid: 90e7fdd9a40bfdc4c89ff31f239a25c2,
     type: 2}
   firebaseDependencyAvailable: {fileID: 11400000, guid: 4e9990c5639bee94a92994853702c911,

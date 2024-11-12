@@ -31,5 +31,10 @@ namespace TheBeginning
             var responseJson = JArray.Parse(responseBody);
             return (string)responseJson[0][0]?[0];
         }
+
+        public static string GetBattleId()
+        {
+            return $"{SystemInfo.deviceUniqueIdentifier}+{DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString()}";
+        }
     }
 }

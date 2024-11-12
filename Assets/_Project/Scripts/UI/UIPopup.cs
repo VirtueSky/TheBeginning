@@ -93,13 +93,13 @@ namespace TheBeginning.UI
                         container.transform.localScale = scaleFromShow;
                         gameObject.SetActive(true);
                         tween = container.transform.Scale(currentScale, durationShowPopup, Ease.OutBack)
-                            .OnComplete(() => { OnAfterShow(); });
+                            .OnComplete(OnAfterShow);
                         break;
                     case ShowAnimationType.Flip:
                         container.transform.eulerAngles = eulerAngleShowFrom;
                         gameObject.SetActive(true);
                         tween = container.transform.EulerAngles(eulerAngleShowFrom, currentAngle, durationShowPopup)
-                            .SetEase(Ease.OutBack).OnComplete(() => { OnAfterShow(); });
+                            .SetEase(Ease.OutBack).OnComplete(OnAfterShow);
                         break;
                     case ShowAnimationType.Fade:
                         canvasGroup.alpha = 0;
@@ -120,7 +120,7 @@ namespace TheBeginning.UI
                                     container.transform.position.z);
                                 gameObject.SetActive(true);
                                 tween = container.transform.Position(currentPos, durationShowPopup, Ease.Linear)
-                                    .OnComplete(() => { OnAfterShow(); });
+                                    .OnComplete(OnAfterShow);
                                 break;
                             case MovePopupType.Right:
                                 container.transform.position = new Vector3(
@@ -129,7 +129,7 @@ namespace TheBeginning.UI
                                     container.transform.position.z);
                                 gameObject.SetActive(true);
                                 tween = container.transform.Position(currentPos, durationShowPopup, Ease.Linear)
-                                    .OnComplete(() => { OnAfterShow(); });
+                                    .OnComplete(OnAfterShow);
                                 break;
                             case MovePopupType.Up:
                                 container.transform.position = new Vector3(container.transform.position.x,
@@ -137,7 +137,7 @@ namespace TheBeginning.UI
                                     container.transform.position.z);
                                 gameObject.SetActive(true);
                                 tween = container.transform.Position(currentPos, durationShowPopup, Ease.Linear)
-                                    .OnComplete(() => { OnAfterShow(); });
+                                    .OnComplete(OnAfterShow);
                                 break;
                             case MovePopupType.Down:
                                 container.transform.position = new Vector3(container.transform.position.x,
@@ -145,7 +145,7 @@ namespace TheBeginning.UI
                                     container.transform.position.z);
                                 gameObject.SetActive(true);
                                 tween = container.transform.Position(currentPos, durationShowPopup, Ease.Linear)
-                                    .OnComplete(() => { OnAfterShow(); });
+                                    .OnComplete(OnAfterShow);
                                 break;
                         }
 
@@ -156,7 +156,7 @@ namespace TheBeginning.UI
                         gameObject.SetActive(true);
                         container.transform.Position(currentPos, durationShowPopup, Ease.OutSine);
                         container.transform.Scale(currentScale, durationShowPopup, Ease.OutSine)
-                            .OnComplete(() => { OnAfterShow(); });
+                            .OnComplete(OnAfterShow);
                         break;
                 }
             }

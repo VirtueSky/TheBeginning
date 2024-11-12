@@ -290,6 +290,10 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  playSfxEvent: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
+  soundDataClickButton: {fileID: 11400000, guid: 9d60ab45b0d57a94092e6ba29fdcc6af,
+    type: 2}
 --- !u!1 &5073460358986406894
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +434,10 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  playSfxEvent: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
+  soundDataClickButton: {fileID: 11400000, guid: 9d60ab45b0d57a94092e6ba29fdcc6af,
+    type: 2}
 --- !u!1 &5732926270582141118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,6 +1035,10 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  playSfxEvent: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
+  soundDataClickButton: {fileID: 11400000, guid: 9d60ab45b0d57a94092e6ba29fdcc6af,
+    type: 2}
 --- !u!1 &8224738810157298992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1241,10 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 1
+  playSfxEvent: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
+  soundDataClickButton: {fileID: 11400000, guid: 9d60ab45b0d57a94092e6ba29fdcc6af,
+    type: 2}
 --- !u!114 &868623933966463779
 MonoBehaviour:
   m_ObjectHideFlags: 0

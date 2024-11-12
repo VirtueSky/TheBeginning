@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VirtueSky.Audio;
+using VirtueSky.Component;
 using VirtueSky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
@@ -36,7 +37,7 @@ namespace TheBeginning.UI
 
         [SerializeField] private SoundData musicInGame;
 
-        private List<UIEffect> UIEffects => GetComponentsInChildren<UIEffect>().ToList();
+        private List<UIEffectComponent> UIEffects => GetComponentsInChildren<UIEffectComponent>().ToList();
 
 
         protected override void OnBeforeShow()
@@ -92,7 +93,7 @@ namespace TheBeginning.UI
         public void HideUI(Level level = null)
         {
             if (UIEffects.Count == 0) return;
-            foreach (UIEffect item in UIEffects)
+            foreach (UIEffectComponent item in UIEffects)
             {
                 item.PlayAnim();
             }

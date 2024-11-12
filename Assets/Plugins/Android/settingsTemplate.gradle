@@ -19,13 +19,7 @@ dependencyResolutionManagement {
 // Android Resolver Repos Start
         def unityProjectPath = $/file:///**DIR_UNITYPROJECT**/$.replace("\\", "/")
         maven {
-            url "https://maven.google.com/" // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7, Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:12, Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:17, Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:22, Assets/GoogleMobileAds/Editor/GoogleUmpDependencies.xml:7, Assets/LevelPlay/Editor/IronSourceSDKDependencies.xml:17, Assets/LevelPlay/Editor/IronSourceSDKDependencies.xml:25
-        }
-        maven {
-            url "https://android-sdk.is.com/" // Assets/LevelPlay/Editor/IronSourceSDKDependencies.xml:9
-        }
-        maven {
-            url (unityProjectPath + "/Assets/GeneratedLocalRepo/Firebase/m2repository") // Packages/com.google.firebase.app/Firebase/Editor/AppDependencies.xml:22, Packages/com.google.firebase.remote-config/Firebase/Editor/RemoteConfigDependencies.xml:20, Packages/com.google.firebase.analytics/Firebase/Editor/AnalyticsDependencies.xml:18
+            url "https://maven.google.com/" // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7, Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:12, Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:17, Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:22, Assets/GoogleMobileAds/Editor/GoogleUmpDependencies.xml:7
         }
         mavenLocal()
 // Android Resolver Repos End

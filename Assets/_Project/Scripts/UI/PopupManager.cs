@@ -5,18 +5,19 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
+using VirtueSky.Misc;
+using VirtueSky.Utils;
 
 namespace TheBeginning.UI
 {
     [EditorIcon("icon_generator")]
     public class PopupManager : BaseMono
     {
-        [HeaderLine(Constant.Environment)] [SerializeField]
+        [HeaderLine(Constant.Environment, false, CustomColor.Gold, CustomColor.Aqua)] [SerializeField]
         private Transform parentContainer;
 
         [SerializeField] private Camera cameraUI;
 
-        [HeaderLine(Constant.SO_Variable)] [SerializeField]
         private readonly Dictionary<Type, UIPopup> container = new Dictionary<Type, UIPopup>();
 
         private int index = 1;
@@ -32,7 +33,7 @@ namespace TheBeginning.UI
             }
         }
 
-        private async void InternalShow<T>(bool isHideAll = true)
+        private async void InternalShow<T>(bool isHideAll = true, Action showPopupCompleted = null)
         {
             container.TryGetValue(typeof(T), out UIPopup popup);
             if (popup == null)
@@ -48,12 +49,13 @@ namespace TheBeginning.UI
                     }
 
                     popupInstance.Show();
+                    showPopupCompleted?.Invoke();
                     container.Add(popupInstance.GetType(), popupInstance);
                     popupInstance.canvas.sortingOrder = index++;
                 }
                 else
                 {
-                    Debug.Log("Popup not found in the list to show");
+                    Debug.Log("Popup not found in the list to show".SetColor(Color.red));
                 }
             }
             else
@@ -66,22 +68,24 @@ namespace TheBeginning.UI
                     }
 
                     popup.Show();
+                    showPopupCompleted?.Invoke();
                 }
             }
         }
 
-        private void InternalHide<T>()
+        private void InternalHide<T>(Action hidePopupCompleted = null)
         {
             if (container.TryGetValue(typeof(T), out UIPopup popup))
             {
                 if (popup.isActiveAndEnabled)
                 {
                     popup.Hide();
+                    hidePopupCompleted?.Invoke();
                 }
             }
             else
             {
-                Debug.Log("Popup not found to hide");
+                Debug.Log("Popup not found to hide".SetColor(Color.red));
             }
         }
 
@@ -95,7 +99,7 @@ namespace TheBeginning.UI
             return container.ContainsKey(typeof(T));
         }
 
-        public void InternalHideAll()
+        private void InternalHideAll()
         {
             foreach (var popup in container.Values)
             {
@@ -121,8 +125,8 @@ namespace TheBeginning.UI
 
         #region API
 
-        public static void Show<T>(bool isHideAll = true) => _ins.InternalShow<T>(isHideAll);
-        public static void Hide<T>() => _ins.InternalHide<T>();
+        public static void Show<T>(bool isHideAll = true, Action showPopupCompleted = null) => _ins.InternalShow<T>(isHideAll, showPopupCompleted);
+        public static void Hide<T>(Action hidePopupCompleted = null) => _ins.InternalHide<T>(hidePopupCompleted);
         public static UIPopup Get<T>() => _ins.InternalGet<T>();
         public static bool IsPopupReady<T>() => _ins.InternalIsPopupReady<T>();
         public static void HideAll() => _ins.InternalHideAll();
