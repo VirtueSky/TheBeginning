@@ -662,8 +662,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 524850869}
-  - component: {fileID: 524850878}
   - component: {fileID: 524850871}
+  - component: {fileID: 524850878}
   - component: {fileID: 524850875}
   - component: {fileID: 524850874}
   - component: {fileID: 524850873}
@@ -672,6 +672,7 @@ GameObject:
   - component: {fileID: 524850877}
   - component: {fileID: 524850879}
   - component: {fileID: 524850880}
+  - component: {fileID: 524850881}
   m_Layer: 0
   m_Name: Initialization
   m_TagString: Untagged
@@ -872,6 +873,29 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 46fc363fb14ea9741a05bf4fc5750a64, type: 2}
   - {fileID: 11400000, guid: 88f7c202cefac3c4f9e29ffb5a85f62a, type: 2}
   - {fileID: 11400000, guid: f9cbd7436c0fc7249915e5fd802ae174, type: 2}
+--- !u!114 &524850881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524850868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44fb6d83e1f4b6983518e1c88c5a344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serviceInitializations:
+  - {fileID: 524850871}
+  - {fileID: 524850872}
+  - {fileID: 524850873}
+  - {fileID: 524850874}
+  - {fileID: 524850875}
+  - {fileID: 524850876}
+  - {fileID: 524850877}
+  - {fileID: 524850878}
+  - {fileID: 524850879}
+  - {fileID: 524850880}
 --- !u!1 &532783272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4472,8 +4496,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448091007}
-  - component: {fileID: 1448091023}
-  - component: {fileID: 1448091014}
   - component: {fileID: 1448091015}
   - component: {fileID: 1448091013}
   - component: {fileID: 1448091016}
@@ -4520,19 +4542,6 @@ MonoBehaviour:
   notificationVariables:
   - {fileID: 11400000, guid: 968e6ecf0f1dc274e8b317a88339503b, type: 2}
   autoSchedule: 1
---- !u!114 &1448091014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448091006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f35d65dc1b9e463989d0cf530f259442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
 --- !u!114 &1448091015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4690,29 +4699,6 @@ MonoBehaviour:
     type: 2}
   callShowAgainGDPREvent: {fileID: 11400000, guid: 406a90b031945024a97ea43f66e66e51,
     type: 2}
---- !u!114 &1448091023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448091006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44fb6d83e1f4b6983518e1c88c5a344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serviceInitializations:
-  - {fileID: 524850873}
-  - {fileID: 524850872}
-  - {fileID: 524850874}
-  - {fileID: 524850877}
-  - {fileID: 524850875}
-  - {fileID: 524850871}
-  - {fileID: 524850879}
-  - {fileID: 524850876}
-  - {fileID: 524850880}
-  - {fileID: 524850878}
 --- !u!114 &1448091024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6310,6 +6296,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1431014500}
     m_Modifications:
+    - target: {fileID: 3305898790409175187, guid: 48cad98c82b3f884296a8111b8b750f8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 125.00012
+      objectReference: {fileID: 0}
     - target: {fileID: 4287100684189731626, guid: 48cad98c82b3f884296a8111b8b750f8,
         type: 3}
       propertyPath: m_Name
