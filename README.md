@@ -1,4 +1,4 @@
-# Base Game Unity (Andorid & Ios), Use Scriptable Architecture
+# Base Game Unity (Andorid & iOS), Use Scriptable Architecture
 - Unity 2022.3 (LTS)
   
 Description: Gamebase for mobile hyper casual, casual game 
