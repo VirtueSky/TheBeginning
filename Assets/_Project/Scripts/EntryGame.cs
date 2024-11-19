@@ -13,7 +13,7 @@ namespace TheBeginning.SceneFlow
 
         private async void Start()
         {
-            await Addressables.LoadSceneAsync(Constant.LAUNCHER_SCENE);
+            await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE);
             Destroy(gameObject);
         }
     }

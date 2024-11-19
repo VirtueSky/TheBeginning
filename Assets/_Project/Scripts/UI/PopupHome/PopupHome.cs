@@ -20,12 +20,11 @@ namespace TheBeginning.UI
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private StringVariable versionUpdateVariable;
         [SerializeField] private BooleanVariable dontShowAgainPopupUpdate;
-        [SerializeField] private StringEvent showNotificationInGameEvent;
+       
         private Tween tween;
 
         private void Start()
         {
-            App.Delay(1.0f, () => { showNotificationInGameEvent.Raise("Welcome TheBeginning"); });
         }
 
         protected override void OnBeforeShow()

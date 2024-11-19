@@ -12,13 +12,10 @@ public static class EditorInitializer
         string currentScene = SceneManager.GetActiveScene().name;
         switch (currentScene)
         {
-            case Constant.LAUNCHER_SCENE:
-                return;
             case Constant.SERVICE_SCENE:
-                await Addressables.LoadSceneAsync(Constant.LAUNCHER_SCENE);
-                break;
+                return;
             case Constant.GAME_SCENE:
-                await Addressables.LoadSceneAsync(Constant.LAUNCHER_SCENE);
+                await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE);
                 break;
         }
     }

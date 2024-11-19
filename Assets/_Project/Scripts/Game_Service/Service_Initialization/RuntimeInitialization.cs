@@ -4,7 +4,7 @@ using VirtueSky.Inspector;
 
 namespace TheBeginning.Services
 {
-    [HideMonoScript]
+    [EditorIcon("icon_controller"), HideMonoScript]
     public class RuntimeInitialization : MonoBehaviour
     {
         [SerializeField] private ServiceInitialization[] serviceInitializations;
@@ -20,7 +20,7 @@ namespace TheBeginning.Services
         [Button]
         void GetServiceInitialization()
         {
-            serviceInitializations = FindObjectsByType<ServiceInitialization>(FindObjectsSortMode.None);
+            serviceInitializations = GetComponents<ServiceInitialization>();
         }
 #endif
     }

@@ -54,14 +54,8 @@ public class TheBeginningWindow : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-    [MenuItem("The Beginning/Open Scene Launcher %F1", priority = 200)]
-    public static void OpenLauncherScene()
-    {
-        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
-        Debug.Log($"<color=Green>Change scene succeed</color>");
-    }
 
-    [MenuItem("The Beginning/Open Scene Service %F3", priority = 202)]
+    [MenuItem("The Beginning/Open Scene Service %F1", priority = 200)]
     public static void OpenServiceScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICE_SCENE}.unity");
@@ -73,13 +67,6 @@ public class TheBeginningWindow : EditorWindow
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAME_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
-    }
-
-    [MenuItem("The Beginning/Play Launcher", priority = 100)]
-    public static void PlayLauncher()
-    {
-        OpenLauncherScene();
-        EditorApplication.isPlaying = true;
     }
 }
 #endif

@@ -1,3 +1,4 @@
+using System;
 using PrimeTween;
 using TheBeginning.LevelSystem;
 using TheBeginning.UI;
@@ -74,7 +75,7 @@ namespace TheBeginning.Game
 
         private GameState GetGameState() => gameState;
 
-        void Start()
+        private void Start()
         {
             ReturnHome();
         }
