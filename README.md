@@ -8,32 +8,22 @@ Description: Gamebase for mobile hyper casual, casual game
 - GameFlow
 
 ```mermaid
-flowchart TB
-    subgraph LauncherScene["<i class="fa-brands fa-unity"></i> Launcher Scene"]
-    Loading(Loading)
-    end
+flowchart TD
 
-    subgraph ServiceScene["<i class="fa-brands fa-unity"></i> Service Scene"]
+subgraph ServiceScene["<i class="fa-brands fa-unity"></i> Service Scene"]
     Initialization(Initialization)
-    SceneLoader(SceneLoader)
     LevelLoader(LevelLoader)
     AudioManager(AudioManager)
-    VisualEffectsSpawner(VisualEffectsSpawner)
-    Advertising(Advertising)
-    IapManager(IapManager)
     end
 
     subgraph GameScene["<i class="fa-brands fa-unity"></i> Game Scene"]
     GameManager(GameManager)
     PopupManager(PopupManager)
     end
-
-    GameScene --Raise--> AudioManager --Listener--> SoundComponent{{Pooling: SoundComponent-AudioSource}}
-
-
-    Loading --Load (LoadSceneMode.Additive)--> ServiceScene
-    Loading --Raise--> LoadGameScene(Load GameScene) --Listener--> SceneLoader --Load--> GameScene
-    GameManager --Raise----> StartGame{Start Game} --Listener--> LevelLoader --Instantiate--> Level(Level)
+    EntryGame{Entry Game} --> ServiceScene
+    AudioManager --> SoundComponent{{Pooling: SoundComponent-AudioSource}}
+    Initialization --Load Game Scene--> GameScene 
+    GameManager --> StartGame{Start Game} --> LevelLoader --Instantiate--> Level(Level)
     PopupManager --Show PopupInGame--> StartGame
     Level --Win Level--> WinGame{Win Game} --Next Level-->GameManager
     Level --Lose Level--> LoseGame{Lose Game} --Replay or Skip Level-->GameManager
