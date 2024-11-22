@@ -51,13 +51,6 @@
       },
       "hash": "3b8069f4b91cc05329147c372446cd5b54e0f5dd"
     },
-    "com.google.external-dependency-manager": {
-      "version": "https://github.com/google-unity/external-dependency-manager.git#1.2.183",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "d5ff67d7b8fe2aea1ae801aaba2d6f2dbad39917"
-    },
     "com.harumak.unitydebugsheet": {
       "version": "https://github.com/Haruma-K/UnityDebugSheet.git?path=/Assets/UnityDebugSheet",
       "depth": 0,
@@ -351,7 +344,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#3.1.7",
+      "version": "https://github.com/VirtueSky/sunflower.git#3.1.8",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -360,7 +353,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.21"
       },
-      "hash": "145038eb41d42b1eea7dea2005a8caeadbd88aa7"
+      "hash": "a50fb4fed618ffaf15635818e8021e21fd6f3ba2"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
