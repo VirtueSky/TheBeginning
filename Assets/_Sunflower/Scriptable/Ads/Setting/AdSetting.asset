@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adCheckingInterval: 8
   adLoadingInterval: 15
-  adNetwork: 1
+  adNetwork: 2
   enableGDPR: 1
   enableGDPRTestMode: 1
   sdkKey: 

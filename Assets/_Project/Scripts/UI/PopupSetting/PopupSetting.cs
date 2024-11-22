@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Events;
 using VirtueSky.Localization;
-#if ADS_ADMOB
+#if VIRTUESKY_ADMOB
 using GoogleMobileAds.Ump.Api;
 #endif
 
@@ -28,7 +28,7 @@ namespace TheBeginning.UI
 #if UNITY_IOS
         btnRestorePurchase.gameObject.SetActive(true);
 #endif
-#if ADS_ADMOB
+#if VIRTUESKY_ADMOB
             btnShowPrivacyConsent.gameObject.SetActive(ConsentInformation.PrivacyOptionsRequirementStatus ==
                                                        PrivacyOptionsRequirementStatus.Required);
 #endif
