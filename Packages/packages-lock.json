@@ -51,13 +51,6 @@
       },
       "hash": "3b8069f4b91cc05329147c372446cd5b54e0f5dd"
     },
-    "com.google.external-dependency-manager": {
-      "version": "https://github.com/googlesamples/unity-jar-resolver.git?path=upm#v1.2.183",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "3e97c8d815ca4a947ff93fd468e7b2e108b39150"
-    },
     "com.harumak.unitydebugsheet": {
       "version": "https://github.com/Haruma-K/UnityDebugSheet.git?path=/Assets/UnityDebugSheet",
       "depth": 0,
