@@ -114,11 +114,11 @@ namespace TheBeginning.Game
             eventLoadLevel.Raise();
         }
 
-        private async void NextLevel()
+        private void NextLevel()
         {
             eventSkipLevel.Raise(eventGetCurrentLevel.Raise());
             indexLevelVariable.Value++;
-            var levelPrefab = await eventLoadLevel.Raise();
+            var levelPrefab = eventLoadLevel.Raise();
             levelHolder.ClearTransform();
             Instantiate(levelPrefab, levelHolder, false);
         }

@@ -707,7 +707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a86a3347634742b6966e88359eca744e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
 --- !u!114 &524850872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,7 +769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f358e15a7c94c079139d0aefa6c6a51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   showRequireInternetEvent: {fileID: 11400000, guid: 6f6b1e844d596d549bc5761e32eeeec3,
     type: 2}
 --- !u!114 &524850877
@@ -786,7 +784,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugViewSheet: {fileID: 2095126785}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   consoleInGamePrefab: {fileID: 1693451240832174851, guid: e1182754700ccf44289e0d137be27ec8,
     type: 3}
   iconTool: {fileID: 21300000, guid: 2d8be02cedaf05d4086f421a7bd95109, type: 3}
@@ -4647,7 +4644,6 @@ MonoBehaviour:
   currentLevel: {fileID: 0}
   previousLevel: {fileID: 0}
   currentIndexLevel: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   eventLoadLevel: {fileID: 11400000, guid: a23d4b373bb58e04fb8e85b3237c3797, type: 2}
   eventGetCurrentLevel: {fileID: 11400000, guid: 7e96f0ac661d9264dbdb066c74f8ffd8,
     type: 2}
@@ -4681,6 +4677,7 @@ MonoBehaviour:
   eventStopAllSfx: {fileID: 11400000, guid: 5542f5af4a6e69e418ba805130c31881, type: 2}
   musicVolume: {fileID: 11400000, guid: 5e5e673d521437542a9cc1dc118ae486, type: 2}
   sfxVolume: {fileID: 11400000, guid: 70a0552aacfee3c45a634aa5cb9ba272, type: 2}
+  listCacheSfx: []
 --- !u!114 &1448091021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4696,8 +4693,6 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   adSetting: {fileID: 11400000, guid: f438eac3a49d436468a0dd8cf10cf3ee, type: 2}
   changePreventDisplayAppOpenEvent: {fileID: 11400000, guid: 79bb6a658a49caf419b315ee96940768,
-    type: 2}
-  callShowAgainGDPREvent: {fileID: 11400000, guid: 406a90b031945024a97ea43f66e66e51,
     type: 2}
 --- !u!114 &1448091024
 MonoBehaviour:
@@ -6299,7 +6294,7 @@ PrefabInstance:
     - target: {fileID: 3305898790409175187, guid: 48cad98c82b3f884296a8111b8b750f8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 125.00012
+      value: 125.000244
       objectReference: {fileID: 0}
     - target: {fileID: 4287100684189731626, guid: 48cad98c82b3f884296a8111b8b750f8,
         type: 3}

@@ -1,8 +1,6 @@
 #if UNITY_EDITOR
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
-using Cysharp.Threading.Tasks;
 
 public static class EditorInitializer
 {
@@ -15,7 +13,7 @@ public static class EditorInitializer
             case Constant.SERVICE_SCENE:
                 return;
             case Constant.GAME_SCENE:
-                await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE);
+                SceneManager.LoadScene(Constant.SERVICE_SCENE);
                 break;
         }
     }

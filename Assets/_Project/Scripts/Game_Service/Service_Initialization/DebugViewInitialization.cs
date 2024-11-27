@@ -13,7 +13,6 @@ namespace TheBeginning.Services
     public class DebugViewInitialization : ServiceInitialization
     {
         [SerializeField] private DebugSheet debugViewSheet;
-        [SerializeField] private GameConfig gameConfig;
 
         [HeaderLine("ConsoleInGame"), SerializeField]
         private ConsoleInGame consoleInGamePrefab;
@@ -58,7 +57,7 @@ namespace TheBeginning.Services
 
         public override void Initialization()
         {
-            if (!gameConfig.enableDebugView)
+            if (!GameConfig.EnableDebugView)
             {
                 debugViewSheet.gameObject.SetActive(false);
                 return;

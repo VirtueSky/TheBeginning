@@ -24,7 +24,6 @@ namespace TheBeginning.UI
         public Image ProcessBar;
         public TextMeshProUGUI TextPercentGift;
         [SerializeField] private AudioClip soundPopupWin;
-        [SerializeField] private GameConfig gameConfig;
 
         [HeaderLine(Constant.SO_Event)] [SerializeField]
         private EventNoParam playCurrentLevelEvent;
@@ -37,7 +36,7 @@ namespace TheBeginning.UI
         private float percent = 0;
         private bool waitMoveAllCoinDone;
 
-        public int MoneyWin => gameConfig.winLevelMoney;
+        public int MoneyWin => GameConfig.WinLevelMoney;
 
 
         public float Percent
@@ -69,7 +68,7 @@ namespace TheBeginning.UI
         private void SetupProgressBar()
         {
             ProcessBar.fillAmount = (float)UserData.PercentWinGift / 100;
-            UserData.PercentWinGift += gameConfig.percentWinGiftPerLevel;
+            UserData.PercentWinGift += GameConfig.PercentWinGiftPerLevel;
             Percent = (float)UserData.PercentWinGift;
             if (UserData.PercentWinGift == 100)
             {
@@ -98,7 +97,7 @@ namespace TheBeginning.UI
             moveAllCoinDone.RemoveListener(OnMoveAllCoinDone);
         }
 
-        public void Setup()
+        private void Setup()
         {
             BtnRewardAds.SetActive(true);
             BtnTapToContinue.SetActive(false);
@@ -107,7 +106,7 @@ namespace TheBeginning.UI
         public void OnClickAdsReward()
         {
             if (rewardAdVariable.AdUnitRewardVariable.IsReady()) BonusArrowHandler.MoveObject.StopMoving();
-            rewardAdVariable.Show(() => { GetRewardAds(); }, () =>
+            rewardAdVariable.Show(GetRewardAds, () =>
                 {
                     BonusArrowHandler.MoveObject.ResumeMoving();
                     BtnRewardAds.SetActive(true);
@@ -115,7 +114,7 @@ namespace TheBeginning.UI
                 }, trackingRewardPosition: $"{MethodBase.GetCurrentMethod().Name}_{this.name}");
         }
 
-        public async void GetRewardAds()
+        private async void GetRewardAds()
         {
             CoinSystem.AddCoin(MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus,
                 BtnRewardAds.transform.position);

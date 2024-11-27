@@ -1,7 +1,4 @@
-using Cysharp.Threading.Tasks;
-using TheBeginning.Config;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
@@ -14,7 +11,6 @@ namespace TheBeginning.LevelSystem
         [ReadOnly] [SerializeField] private Level currentLevel;
         [ReadOnly] [SerializeField] private Level previousLevel;
         [SerializeField] private IntegerVariable currentIndexLevel;
-        [SerializeField] private GameConfig gameConfig;
         [SerializeField] private EventLoadLevel eventLoadLevel;
         [SerializeField] private EventGetCurrentLevel eventGetCurrentLevel;
         [SerializeField] private EventGetPreviousLevel eventGetPreviousLevel;
@@ -35,10 +31,10 @@ namespace TheBeginning.LevelSystem
             var instance = LoadLevel();
         }
 
-        public async UniTask<Level> LoadLevel()
+        private Level LoadLevel()
         {
             int index = HandleIndexLevel(currentIndexLevel.Value);
-            var result = await Addressables.LoadAssetAsync<GameObject>($"Level {index}");
+            var result = LevelConfig.GePrefabLevel($"Level {index}");
             if (currentLevel != null)
             {
                 previousLevel = currentLevel;
@@ -46,7 +42,7 @@ namespace TheBeginning.LevelSystem
             else
             {
                 int indexPrev = HandleIndexLevel(currentIndexLevel.Value - 1);
-                var resultPre = await Addressables.LoadAssetAsync<GameObject>($"Level {indexPrev}");
+                var resultPre = LevelConfig.GePrefabLevel($"Level {indexPrev}");
                 previousLevel = resultPre.GetComponent<Level>();
             }
 
@@ -56,14 +52,14 @@ namespace TheBeginning.LevelSystem
 
         int HandleIndexLevel(int indexLevel)
         {
-            if (indexLevel > gameConfig.maxLevel)
+            if (indexLevel > LevelConfig.MaxLevel)
             {
-                return (indexLevel - gameConfig.startLoopLevel) %
-                       (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
-                       gameConfig.startLoopLevel;
+                return (indexLevel - LevelConfig.StartLoopLevel) %
+                       (LevelConfig.MaxLevel - LevelConfig.StartLoopLevel + 1) +
+                       LevelConfig.StartLoopLevel;
             }
 
-            if (indexLevel > 0 && indexLevel <= gameConfig.maxLevel)
+            if (indexLevel > 0 && indexLevel <= LevelConfig.MaxLevel)
             {
                 //return (indexLevel - 1) % gameConfig.maxLevel + 1;
                 return indexLevel;
@@ -71,7 +67,7 @@ namespace TheBeginning.LevelSystem
 
             if (indexLevel == 0)
             {
-                return gameConfig.maxLevel;
+                return LevelConfig.MaxLevel;
             }
 
             return 1;

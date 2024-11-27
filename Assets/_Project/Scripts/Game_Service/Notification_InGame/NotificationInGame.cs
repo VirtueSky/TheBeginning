@@ -11,7 +11,6 @@ namespace TheBeginning.Services
     {
         [SerializeField] private TextMeshProUGUI textNoti;
         [SerializeField] private RectTransform container;
-        [SerializeField] private GameConfig gameConfig;
         [SerializeField] private float posYShow = -125;
         [SerializeField] private float posYHide = 125;
         [SerializeField] private float timeMove = .5f;
@@ -20,7 +19,7 @@ namespace TheBeginning.Services
 
         private void Awake()
         {
-            if (gameConfig.enableNotificationInGame)
+            if (GameConfig.EnableNotificationInGame)
             {
                 showNotificationInGameEvent.AddListener(Show);
             }
@@ -28,7 +27,7 @@ namespace TheBeginning.Services
 
         private void OnDestroy()
         {
-            if (gameConfig.enableNotificationInGame)
+            if (GameConfig.EnableNotificationInGame)
             {
                 showNotificationInGameEvent.RemoveListener(Show);
             }
@@ -43,7 +42,7 @@ namespace TheBeginning.Services
             textNoti.text = _textNoti;
             Tween.UIAnchoredPositionY(container, posYShow, timeMove, Ease.OutBack).OnComplete(() =>
             {
-                App.Delay(gameConfig.timeDelayHideNotificationInGame, () => { Hide(); });
+                App.Delay(GameConfig.TimeDelayHideNotificationInGame, () => { Hide(); });
             });
         }
 

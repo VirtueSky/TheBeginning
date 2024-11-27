@@ -41,15 +41,11 @@ MonoBehaviour:
   m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
-  m_BuildAddressablesWithPlayerBuild: 0
+  m_BuildAddressablesWithPlayerBuild: 2
   m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: 5f457ceded1c87942b16d8fdeb96365c, type: 2}
   - {fileID: 11400000, guid: f344cd57c6e4a8140ae1fd5c2d6e880e, type: 2}
-  - {fileID: 11400000, guid: 8f0a654f1ad12e7438eef16cc21eac14, type: 2}
-  - {fileID: 11400000, guid: 0a43417bcab64754a80adeb3afd2279d, type: 2}
-  - {fileID: 11400000, guid: 1a750c92878743f44b3eb158484f2812, type: 2}
-  - {fileID: 11400000, guid: 06304e01a4d74b84e8e4c6d293f1d52d, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
