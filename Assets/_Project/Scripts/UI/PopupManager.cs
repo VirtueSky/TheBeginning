@@ -36,7 +36,7 @@ namespace TheBeginning.UI
             container.TryGetValue(typeof(T), out UIPopup popup);
             if (popup == null)
             {
-                var popupPrefab = PopupConfig.GetPrefabPopup(typeof(T).ToString());
+                var popupPrefab = PopupConfig.GetPrefabPopup(typeof(T).Name);
                 if (popupPrefab != null)
                 {
                     var popupInstance = Instantiate(popupPrefab, parentContainer);
