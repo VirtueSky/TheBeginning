@@ -1,7 +1,7 @@
 # Base Game Unity (Andorid & iOS), Use Scriptable Architecture
 - Unity 2022.3 (LTS)
   
-Description: Gamebase for mobile hyper casual, casual game 
+Description: Gamebase for mobile hyper casual, casual game
 
 - Use [sunflower](https://github.com/VirtueSky/sunflower) package
 
@@ -51,4 +51,7 @@ subgraph ServiceScene["<i class="fa-brands fa-unity"></i> Service Scene"]
 
 
 ![Unity_9YRD8rJRE1](https://github.com/user-attachments/assets/73692ff8-918a-4721-bd7b-c380d4a9cb14)
+
+
+(Note: Version use addressable to load scenes, popups and levels [here](https://github.com/VirtueSky/TheBeginning/tree/use_addressable))
 
