@@ -35,9 +35,11 @@ subgraph ServiceScene["<i class="fa-brands fa-unity"></i> Service Scene"]
 
 ## Note
 ### GameConfig Window
-- Shortcut (`Ctrl + ~` or `Command + ~`) to open GameConfig Window
+- Shortcut (`Ctrl + ~` or `Command + ~`) to open TheBeginnig Window
 
-![Screenshot 2024-07-26 093159](https://github.com/user-attachments/assets/11ac42bb-3ea1-489b-afe6-00fabd409ec0)
+
+https://github.com/user-attachments/assets/2f47a9bc-94b3-4982-aeb7-d9d20835591c
+
 
 - Open the `GameConfig` script to add or edit configs,
 
