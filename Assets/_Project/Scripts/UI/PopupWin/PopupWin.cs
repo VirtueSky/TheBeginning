@@ -24,7 +24,6 @@ namespace TheBeginning.UI
         public Image ProcessBar;
         public TextMeshProUGUI TextPercentGift;
         [SerializeField] private AudioClip soundPopupWin;
-        [SerializeField] private GameConfig gameConfig;
 
         [HeaderLine(Constant.SO_Event)] [SerializeField]
         private EventNoParam playCurrentLevelEvent;
@@ -37,7 +36,7 @@ namespace TheBeginning.UI
         private float percent = 0;
         private bool waitMoveAllCoinDone;
 
-        public int MoneyWin => gameConfig.winLevelMoney;
+        public int MoneyWin => GameConfig.Instance.winLevelMoney;
 
 
         public float Percent
@@ -69,7 +68,7 @@ namespace TheBeginning.UI
         private void SetupProgressBar()
         {
             ProcessBar.fillAmount = (float)UserData.PercentWinGift / 100;
-            UserData.PercentWinGift += gameConfig.percentWinGiftPerLevel;
+            UserData.PercentWinGift += GameConfig.Instance.percentWinGiftPerLevel;
             Percent = (float)UserData.PercentWinGift;
             if (UserData.PercentWinGift == 100)
             {

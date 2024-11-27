@@ -14,7 +14,6 @@ namespace TheBeginning.LevelSystem
         [ReadOnly] [SerializeField] private Level currentLevel;
         [ReadOnly] [SerializeField] private Level previousLevel;
         [SerializeField] private IntegerVariable currentIndexLevel;
-        [SerializeField] private GameConfig gameConfig;
         [SerializeField] private EventLoadLevel eventLoadLevel;
         [SerializeField] private EventGetCurrentLevel eventGetCurrentLevel;
         [SerializeField] private EventGetPreviousLevel eventGetPreviousLevel;
@@ -56,14 +55,14 @@ namespace TheBeginning.LevelSystem
 
         int HandleIndexLevel(int indexLevel)
         {
-            if (indexLevel > gameConfig.maxLevel)
+            if (indexLevel > GameConfig.Instance.maxLevel)
             {
-                return (indexLevel - gameConfig.startLoopLevel) %
-                       (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
-                       gameConfig.startLoopLevel;
+                return (indexLevel - GameConfig.Instance.startLoopLevel) %
+                       (GameConfig.Instance.maxLevel - GameConfig.Instance.startLoopLevel + 1) +
+                       GameConfig.Instance.startLoopLevel;
             }
 
-            if (indexLevel > 0 && indexLevel <= gameConfig.maxLevel)
+            if (indexLevel > 0 && indexLevel <= GameConfig.Instance.maxLevel)
             {
                 //return (indexLevel - 1) % gameConfig.maxLevel + 1;
                 return indexLevel;
@@ -71,7 +70,7 @@ namespace TheBeginning.LevelSystem
 
             if (indexLevel == 0)
             {
-                return gameConfig.maxLevel;
+                return GameConfig.Instance.maxLevel;
             }
 
             return 1;

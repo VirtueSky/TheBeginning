@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c6dd8ae2ee1da4db653e7719b669f5, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  maxLevel: 3
-  startLoopLevel: 1
+  maxLevel: 2
+  startLoopLevel: 0
   enableDebugView: 1
   targetFrameRate: 60
   multiTouchEnabled: 0
@@ -23,5 +23,5 @@ MonoBehaviour:
   timeDelayHideNotificationInGame: 1
   enableRequireInternet: 0
   timeDelayCheckInternet: 5
-  timeLoopCheckInternet: 0.25
-  enableShowPopupUpdate: 1
+  timeLoopCheckInternet: 0.5
+  enableShowPopupUpdate: 0

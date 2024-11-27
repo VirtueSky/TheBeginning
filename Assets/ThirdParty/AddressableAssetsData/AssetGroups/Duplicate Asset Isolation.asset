@@ -42,11 +42,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fc010066eec5ef24eb9fa923867c670f
-    m_Address: Assets/_Project/Config/GameConfig.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fce06a9647c5b654d902352095165cd0
     m_Address: Assets/_Project/Fonts/Vi.asset
     m_ReadOnly: 0

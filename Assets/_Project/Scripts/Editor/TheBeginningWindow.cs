@@ -4,56 +4,101 @@ using TheBeginning.Config;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using VirtueSky.Inspector;
+using VirtueSky.ControlPanel.Editor;
 using VirtueSky.UtilsEditor;
 
 
 public class TheBeginningWindow : EditorWindow
 {
-    private Editor _editorGameConfig;
-    private GameConfig _gameConfig;
-    private Vector2 _scrollPosition;
+    enum StateWindow
+    {
+        GameConfig,
+        LevelConfig,
+        PopupConfig
+    }
+
+    private StateWindow stateWindow;
+    private Vector2 scrollButton = Vector2.zero;
 
     [MenuItem("The Beginning/Open GameConfig %`", priority = 1)]
     public static void OpenGameConfigWindow()
     {
-        GameConfig gameConfig = FileExtension.FindAssetAtFolder<GameConfig>(new string[] { "Assets" }).FirstOrDefault();
-        TheBeginningWindow window = GetWindow<TheBeginningWindow>("Game Config");
-        window._gameConfig = gameConfig;
+        TheBeginningWindow window = GetWindow<TheBeginningWindow>("The Beginning");
         if (window == null)
         {
             Debug.LogError("Couldn't open the ads settings window!");
             return;
         }
 
-        window.minSize = new Vector2(350, 250);
+        window.minSize = new Vector2(350, 400);
         window.Show();
+    }
+
+    private void OnEnable()
+    {
+        GameConfigWindow.OnEnable();
+        LevelConfigWindow.OnEnable();
+        PopupConfigWindow.OnEnable();
     }
 
     private void OnGUI()
     {
-        // EditorGUI.DrawRect(new Rect(0, 0, position.width, position.height),
-        //     GameDataEditor.ColorBackgroundRectWindowSunflower.ToColor());
-        // GUI.contentColor = GameDataEditor.ColorTextContentWindowSunflower.ToColor();
-        // GUI.backgroundColor = GameDataEditor.ColorContentWindowSunflower.ToColor();
-        if (_editorGameConfig == null)
-        {
-            _editorGameConfig = UnityEditor.Editor.CreateEditor(_gameConfig);
-        }
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        CPUtility.DrawHeader("TheBeginning", 17);
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
 
-        if (_editorGameConfig == null)
-        {
-            EditorGUILayout.HelpBox("Couldn't create the settings resources editor.",
-                MessageType.Error);
-            return;
-        }
-
-        _scrollPosition = EditorGUILayout.BeginScrollView(_scrollPosition);
-        _editorGameConfig.OnInspectorGUI();
         GUILayout.Space(10);
+        Handles.color = Color.black;
+        CPUtility.DrawCustomLine(4, new Vector2(0, 30), new Vector2(position.width, 30));
+        GUILayout.Space(10);
+        GUILayout.BeginHorizontal();
+        GUILayout.BeginVertical(GUILayout.Width(165));
+        scrollButton = EditorGUILayout.BeginScrollView(scrollButton);
+        DrawButton();
         EditorGUILayout.EndScrollView();
+        CPUtility.DrawCustomLine(4, new Vector3(170, 30), new Vector3(170, position.height));
+        GUILayout.EndVertical();
+        GUILayout.Space(10);
+        DrawContent();
+        GUILayout.EndHorizontal();
     }
 
+    private void DrawContent()
+    {
+        switch (stateWindow)
+        {
+            case StateWindow.GameConfig:
+                GameConfigWindow.Draw();
+                break;
+            case StateWindow.LevelConfig:
+                LevelConfigWindow.Draw();
+                break;
+            case StateWindow.PopupConfig:
+                PopupConfigWindow.Draw();
+                break;
+        }
+    }
+
+    private void DrawButton()
+    {
+        DrawButtonChooseState("Game Config", StateWindow.GameConfig);
+        DrawButtonChooseState("Level Config", StateWindow.LevelConfig);
+        DrawButtonChooseState("Popup Config", StateWindow.PopupConfig);
+    }
+
+    void DrawButtonChooseState(string title, StateWindow _stateWindow)
+    {
+        bool clicked = GUILayout.Toggle(stateWindow == _stateWindow, title, GUI.skin.button,
+            GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true), GUILayout.Height(20));
+        if (clicked && stateWindow != _stateWindow)
+        {
+            stateWindow = _stateWindow;
+        }
+
+        GUILayout.Space(2);
+    }
 
     [MenuItem("The Beginning/Open Scene Service %F1", priority = 200)]
     public static void OpenServiceScene()

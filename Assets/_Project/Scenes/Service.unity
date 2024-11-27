@@ -4681,6 +4681,7 @@ MonoBehaviour:
   eventStopAllSfx: {fileID: 11400000, guid: 5542f5af4a6e69e418ba805130c31881, type: 2}
   musicVolume: {fileID: 11400000, guid: 5e5e673d521437542a9cc1dc118ae486, type: 2}
   sfxVolume: {fileID: 11400000, guid: 70a0552aacfee3c45a634aa5cb9ba272, type: 2}
+  listCacheSfx: []
 --- !u!114 &1448091021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4696,8 +4697,6 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   adSetting: {fileID: 11400000, guid: f438eac3a49d436468a0dd8cf10cf3ee, type: 2}
   changePreventDisplayAppOpenEvent: {fileID: 11400000, guid: 79bb6a658a49caf419b315ee96940768,
-    type: 2}
-  callShowAgainGDPREvent: {fileID: 11400000, guid: 406a90b031945024a97ea43f66e66e51,
     type: 2}
 --- !u!114 &1448091024
 MonoBehaviour:

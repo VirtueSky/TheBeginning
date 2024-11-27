@@ -9,15 +9,14 @@ namespace TheBeginning.Services
     [HideMonoScript]
     public class RequireInternetInitialization : ServiceInitialization
     {
-        [SerializeField] private GameConfig gameConfig;
         [SerializeField] private BooleanEvent showRequireInternetEvent;
 
         public override void Initialization()
         {
-            if (gameConfig.enableRequireInternet)
+            if (GameConfig.Instance.enableRequireInternet)
             {
-                InvokeRepeating(nameof(RequireInternet), gameConfig.timeDelayCheckInternet,
-                    gameConfig.timeLoopCheckInternet);
+                InvokeRepeating(nameof(RequireInternet), GameConfig.Instance.timeDelayCheckInternet,
+                    GameConfig.Instance.timeLoopCheckInternet);
             }
         }
 

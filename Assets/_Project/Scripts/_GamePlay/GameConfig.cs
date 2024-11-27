@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 using VirtueSky.Inspector;
+using VirtueSky.Utils;
 
 namespace TheBeginning.Config
 {
-    [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
-    public class GameConfig : ScriptableObject
+    [EditorIcon("icon_scriptable"), HideMonoScript]
+    public class GameConfig : ScriptableSettings<GameConfig>
     {
         [Space, HeaderLine("Level config")] public int maxLevel = 2;
         public int startLoopLevel;
