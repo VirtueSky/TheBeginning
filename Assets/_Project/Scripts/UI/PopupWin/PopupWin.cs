@@ -97,7 +97,7 @@ namespace TheBeginning.UI
             moveAllCoinDone.RemoveListener(OnMoveAllCoinDone);
         }
 
-        public void Setup()
+        private void Setup()
         {
             BtnRewardAds.SetActive(true);
             BtnTapToContinue.SetActive(false);
@@ -106,7 +106,7 @@ namespace TheBeginning.UI
         public void OnClickAdsReward()
         {
             if (rewardAdVariable.AdUnitRewardVariable.IsReady()) BonusArrowHandler.MoveObject.StopMoving();
-            rewardAdVariable.Show(() => { GetRewardAds(); }, () =>
+            rewardAdVariable.Show(GetRewardAds, () =>
                 {
                     BonusArrowHandler.MoveObject.ResumeMoving();
                     BtnRewardAds.SetActive(true);
@@ -114,7 +114,7 @@ namespace TheBeginning.UI
                 }, trackingRewardPosition: $"{MethodBase.GetCurrentMethod().Name}_{this.name}");
         }
 
-        public async void GetRewardAds()
+        private async void GetRewardAds()
         {
             CoinSystem.AddCoin(MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus,
                 BtnRewardAds.transform.position);
