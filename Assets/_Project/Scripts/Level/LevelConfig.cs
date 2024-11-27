@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using VirtueSky.Inspector;
+using VirtueSky.Linq;
 using VirtueSky.Utils;
+using VirtueSky.Variables;
 
 namespace TheBeginning.LevelSystem
 {
@@ -11,6 +13,7 @@ namespace TheBeginning.LevelSystem
     {
         [SerializeField] private int maxLevel;
         [SerializeField] private int startLoopLevel;
+
         [SerializeField] private string pathLoad = "Assets/_Project/Prefabs/Levels";
         [TableList, SerializeField] private List<ItemLevelConfig> itemLevelConfigs;
 
@@ -19,26 +22,9 @@ namespace TheBeginning.LevelSystem
         public static int StartLoopLevel => Instance.startLoopLevel;
         public static List<ItemLevelConfig> ItemLevelConfigs => Instance.itemLevelConfigs;
 
-        public int HandleIndexLevel(int indexLevel)
+        public static Level GePrefabLevel(string key)
         {
-            if (indexLevel > maxLevel)
-            {
-                return (indexLevel - startLoopLevel) %
-                       (maxLevel - startLoopLevel + 1) +
-                       startLoopLevel;
-            }
-
-            if (indexLevel > 0 && indexLevel <= maxLevel)
-            {
-                return indexLevel;
-            }
-
-            if (indexLevel == 0)
-            {
-                return maxLevel;
-            }
-
-            return 1;
+            return ItemLevelConfigs.FirstOrDefault(item => item.key == key).levelPrefab;
         }
 
 

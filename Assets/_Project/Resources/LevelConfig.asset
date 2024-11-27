@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4969356bcad17c243b45bb07557ee2bb, type: 3}
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
-  maxLevel: 3
+  maxLevel: 4
   startLoopLevel: 1
   pathLoad: Assets/_Project/Prefabs/Levels
   itemLevelConfigs:
@@ -24,4 +24,7 @@ MonoBehaviour:
       type: 3}
   - key: Level 3
     levelPrefab: {fileID: 4891354742427979741, guid: 1641d6414d997ec40bbcf4fb4808e389,
+      type: 3}
+  - key: Level 4
+    levelPrefab: {fileID: 4891354742427979741, guid: fdb798dc7c4384b40b0235c55a3e9bcc,
       type: 3}

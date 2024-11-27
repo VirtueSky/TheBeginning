@@ -17,10 +17,9 @@ namespace TheBeginning.UI
         [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
         [SerializeField] private GameObject noticeDailyReward;
         [SerializeField] private EventNoParam claimDailyRewardEvent;
-        [SerializeField] private GameConfig gameConfig;
         [SerializeField] private StringVariable versionUpdateVariable;
         [SerializeField] private BooleanVariable dontShowAgainPopupUpdate;
-       
+
         private Tween tween;
 
         private void Start()
@@ -86,7 +85,7 @@ namespace TheBeginning.UI
 
         void ShowPopupUpdate()
         {
-            if (gameConfig.enableShowPopupUpdate && !dontShowAgainPopupUpdate.Value)
+            if (GameConfig.Instance.enableShowPopupUpdate && !dontShowAgainPopupUpdate.Value)
             {
                 tween = Tween.Delay(0.5f, () =>
                 {

@@ -34,10 +34,10 @@ namespace TheBeginning.LevelSystem
             var instance = LoadLevel();
         }
 
-        public async UniTask<Level> LoadLevel()
+        private Level LoadLevel()
         {
             int index = HandleIndexLevel(currentIndexLevel.Value);
-            var result = await Addressables.LoadAssetAsync<GameObject>($"Level {index}");
+            var result = LevelConfig.GePrefabLevel($"Level {index}");
             if (currentLevel != null)
             {
                 previousLevel = currentLevel;
@@ -45,7 +45,7 @@ namespace TheBeginning.LevelSystem
             else
             {
                 int indexPrev = HandleIndexLevel(currentIndexLevel.Value - 1);
-                var resultPre = await Addressables.LoadAssetAsync<GameObject>($"Level {indexPrev}");
+                var resultPre = LevelConfig.GePrefabLevel($"Level {indexPrev}");
                 previousLevel = resultPre.GetComponent<Level>();
             }
 
@@ -55,11 +55,11 @@ namespace TheBeginning.LevelSystem
 
         int HandleIndexLevel(int indexLevel)
         {
-            if (indexLevel > GameConfig.Instance.maxLevel)
+            if (indexLevel > LevelConfig.MaxLevel)
             {
-                return (indexLevel - GameConfig.Instance.startLoopLevel) %
-                       (GameConfig.Instance.maxLevel - GameConfig.Instance.startLoopLevel + 1) +
-                       GameConfig.Instance.startLoopLevel;
+                return (indexLevel - LevelConfig.StartLoopLevel) %
+                       (LevelConfig.MaxLevel - LevelConfig.StartLoopLevel + 1) +
+                       LevelConfig.StartLoopLevel;
             }
 
             if (indexLevel > 0 && indexLevel <= GameConfig.Instance.maxLevel)
@@ -70,7 +70,7 @@ namespace TheBeginning.LevelSystem
 
             if (indexLevel == 0)
             {
-                return GameConfig.Instance.maxLevel;
+                return LevelConfig.MaxLevel;
             }
 
             return 1;
