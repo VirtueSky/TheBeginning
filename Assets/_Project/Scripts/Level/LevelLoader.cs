@@ -1,7 +1,4 @@
-using Cysharp.Threading.Tasks;
-using TheBeginning.Config;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
@@ -62,7 +59,7 @@ namespace TheBeginning.LevelSystem
                        LevelConfig.StartLoopLevel;
             }
 
-            if (indexLevel > 0 && indexLevel <= GameConfig.Instance.maxLevel)
+            if (indexLevel > 0 && indexLevel <= LevelConfig.MaxLevel)
             {
                 //return (indexLevel - 1) % gameConfig.maxLevel + 1;
                 return indexLevel;

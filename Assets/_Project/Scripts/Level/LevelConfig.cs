@@ -39,6 +39,14 @@ namespace TheBeginning.LevelSystem
                 itemLevelConfigs.Add(new ItemLevelConfig(levels[i].GetComponent<Level>()));
             }
         }
+
+        private void OnValidate()
+        {
+            for (var i = 0; i < itemLevelConfigs.Count; i++)
+            {
+                itemLevelConfigs[i].SetupKey();
+            }
+        }
 #endif
     }
 
@@ -50,8 +58,13 @@ namespace TheBeginning.LevelSystem
 
         public ItemLevelConfig(Level _levelPrefab)
         {
-            key = _levelPrefab.name;
             this.levelPrefab = _levelPrefab;
+            SetupKey();
+        }
+
+        public void SetupKey()
+        {
+            key = levelPrefab.name;
         }
     }
 }

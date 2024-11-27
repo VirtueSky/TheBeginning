@@ -26,11 +26,11 @@ public class TheBeginningWindow : EditorWindow
         TheBeginningWindow window = GetWindow<TheBeginningWindow>("The Beginning");
         if (window == null)
         {
-            Debug.LogError("Couldn't open the ads settings window!");
+            Debug.LogError("Couldn't open the TheBeginningWindow window!");
             return;
         }
 
-        window.minSize = new Vector2(350, 400);
+        window.minSize = new Vector2(550, 500);
         window.Show();
     }
 

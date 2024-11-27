@@ -12,8 +12,8 @@ namespace TheBeginning.Services
     {
         public override void Initialization()
         {
-            Application.targetFrameRate = (int)GameConfig.Instance.targetFrameRate;
-            Input.multiTouchEnabled = GameConfig.Instance.multiTouchEnabled;
+            Application.targetFrameRate = (int)GameConfig.TargetFrameRate;
+            Input.multiTouchEnabled = GameConfig.MultiTouchEnabled;
             Locale.LoadLanguageSetting();
             Addressables.LoadSceneAsync(Constant.GAME_SCENE, LoadSceneMode.Additive);
         }

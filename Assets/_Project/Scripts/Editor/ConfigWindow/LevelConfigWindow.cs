@@ -1,15 +1,15 @@
 #if UNITY_EDITOR
-using TheBeginning.Config;
+using TheBeginning.LevelSystem;
 using UnityEditor;
 using UnityEngine;
 using VirtueSky.ControlPanel.Editor;
 using VirtueSky.UtilsEditor;
 
-public class GameConfigWindow
+public class LevelConfigWindow
 {
     private static Vector2 _scrollPosition;
     private static UnityEditor.Editor _editor;
-    private static GameConfig _config;
+    private static LevelConfig _config;
     private static Vector2 scroll = Vector2.zero;
 
     public static void OnEnable()
@@ -20,21 +20,22 @@ public class GameConfigWindow
     private static void Init()
     {
         if (_editor != null) _editor = null;
-        _config = CreateAsset.GetScriptableAsset<GameConfig>();
+        _config = CreateAsset.GetScriptableAsset<LevelConfig>();
         _editor = UnityEditor.Editor.CreateEditor(_config);
     }
 
     public static void Draw()
     {
         GUILayout.BeginVertical();
-        CPUtility.DrawHeader("Game Config");
+        CPUtility.DrawHeader("Level Config");
+        CPUtility.GuiLine();
         GUILayout.Space(10);
         scroll = EditorGUILayout.BeginScrollView(scroll);
         if (_config == null)
         {
-            if (GUILayout.Button("Create GameConfig"))
+            if (GUILayout.Button("Create LevelConfig"))
             {
-                _config = CreateAsset.CreateAndGetScriptableAsset<GameConfig>("Assets/_project/Resources", useDefaultPath: false);
+                _config = CreateAsset.CreateAndGetScriptableAsset<LevelConfig>("Assets/_project/Resources", useDefaultPath: false);
                 Init();
             }
         }

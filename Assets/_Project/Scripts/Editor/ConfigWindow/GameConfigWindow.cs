@@ -1,15 +1,15 @@
 #if UNITY_EDITOR
-using TheBeginning.UI;
+using TheBeginning.Config;
 using UnityEditor;
 using UnityEngine;
 using VirtueSky.ControlPanel.Editor;
 using VirtueSky.UtilsEditor;
 
-public class PopupConfigWindow
+public class GameConfigWindow
 {
     private static Vector2 _scrollPosition;
     private static UnityEditor.Editor _editor;
-    private static PopupConfig _config;
+    private static GameConfig _config;
     private static Vector2 scroll = Vector2.zero;
 
     public static void OnEnable()
@@ -20,21 +20,22 @@ public class PopupConfigWindow
     private static void Init()
     {
         if (_editor != null) _editor = null;
-        _config = CreateAsset.GetScriptableAsset<PopupConfig>();
+        _config = CreateAsset.GetScriptableAsset<GameConfig>();
         _editor = UnityEditor.Editor.CreateEditor(_config);
     }
 
     public static void Draw()
     {
         GUILayout.BeginVertical();
-        CPUtility.DrawHeader("Popup Config");
+        CPUtility.DrawHeader("Game Config");
+        CPUtility.GuiLine();
         GUILayout.Space(10);
         scroll = EditorGUILayout.BeginScrollView(scroll);
         if (_config == null)
         {
-            if (GUILayout.Button("Create PopupConfig"))
+            if (GUILayout.Button("Create GameConfig"))
             {
-                _config = CreateAsset.CreateAndGetScriptableAsset<PopupConfig>("Assets/_project/Resources", useDefaultPath: false);
+                _config = CreateAsset.CreateAndGetScriptableAsset<GameConfig>("Assets/_project/Resources", useDefaultPath: false);
                 Init();
             }
         }

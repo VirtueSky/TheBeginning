@@ -8,29 +8,47 @@ namespace TheBeginning.Config
     [EditorIcon("icon_scriptable"), HideMonoScript]
     public class GameConfig : ScriptableSettings<GameConfig>
     {
-        [Space, HeaderLine("Level config")] public int maxLevel = 2;
-        public int startLoopLevel;
+        #region Field
 
-        [Space, HeaderLine("Gameplay config")] public bool enableDebugView = true;
+        [HeaderLine("Gameplay config")] [SerializeField]
+        private bool enableDebugView = true;
 
-        public TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
-        public bool multiTouchEnabled;
-        public int winLevelMoney = 100;
-        public int percentWinGiftPerLevel = 10;
+        [SerializeField] private TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
+        [SerializeField] private bool multiTouchEnabled;
+        [SerializeField] private int winLevelMoney = 100;
+        [SerializeField] private int percentWinGiftPerLevel = 10;
 
-        [Space, HeaderLine("Notification In Game")]
-        public bool enableNotificationInGame = true;
+        [Space, HeaderLine("Notification In Game")] [SerializeField]
+        private bool enableNotificationInGame = true;
 
-        public float timeDelayHideNotificationInGame = 1.0f;
+        [SerializeField] private float timeDelayHideNotificationInGame = 1.0f;
 
-        [Space, HeaderLine("Require Internet")]
-        public bool enableRequireInternet = false;
+        [Space, HeaderLine("Require Internet")] [SerializeField]
+        private bool enableRequireInternet = false;
 
-        public float timeDelayCheckInternet = 5;
-        public float timeLoopCheckInternet = .5f;
+        [SerializeField] private float timeDelayCheckInternet = 5;
+        [SerializeField] private float timeLoopCheckInternet = .5f;
 
-        [Space, HeaderLine("Show Popup Update")]
-        public bool enableShowPopupUpdate = false;
+        [Space, HeaderLine("Show Popup Update")] [SerializeField]
+        private bool enableShowPopupUpdate = false;
+
+        #endregion
+
+        #region Properties
+
+        public static bool EnableDebugView => Instance.enableDebugView;
+        public static TargetFrameRate TargetFrameRate => Instance.targetFrameRate;
+        public static bool MultiTouchEnabled => Instance.multiTouchEnabled;
+        public static int WinLevelMoney => Instance.winLevelMoney;
+        public static int PercentWinGiftPerLevel => Instance.percentWinGiftPerLevel;
+        public static bool EnableNotificationInGame => Instance.enableNotificationInGame;
+        public static float TimeDelayHideNotificationInGame => Instance.timeDelayHideNotificationInGame;
+        public static bool EnableRequireInternet => Instance.enableRequireInternet;
+        public static float TimeDelayCheckInternet => Instance.timeDelayCheckInternet;
+        public static float TimeLoopCheckInternet => Instance.timeLoopCheckInternet;
+        public static bool EnableShowPopupUpdate => Instance.enableShowPopupUpdate;
+
+        #endregion
     }
 
 

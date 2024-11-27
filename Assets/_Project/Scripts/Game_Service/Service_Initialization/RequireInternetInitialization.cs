@@ -13,10 +13,10 @@ namespace TheBeginning.Services
 
         public override void Initialization()
         {
-            if (GameConfig.Instance.enableRequireInternet)
+            if (GameConfig.EnableRequireInternet)
             {
-                InvokeRepeating(nameof(RequireInternet), GameConfig.Instance.timeDelayCheckInternet,
-                    GameConfig.Instance.timeLoopCheckInternet);
+                InvokeRepeating(nameof(RequireInternet), GameConfig.TimeDelayCheckInternet,
+                    GameConfig.TimeLoopCheckInternet);
             }
         }
 

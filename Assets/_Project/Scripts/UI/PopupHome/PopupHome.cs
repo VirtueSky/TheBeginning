@@ -85,7 +85,7 @@ namespace TheBeginning.UI
 
         void ShowPopupUpdate()
         {
-            if (GameConfig.Instance.enableShowPopupUpdate && !dontShowAgainPopupUpdate.Value)
+            if (GameConfig.EnableShowPopupUpdate && !dontShowAgainPopupUpdate.Value)
             {
                 tween = Tween.Delay(0.5f, () =>
                 {

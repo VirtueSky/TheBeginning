@@ -57,7 +57,7 @@ namespace TheBeginning.Services
 
         public override void Initialization()
         {
-            if (!GameConfig.Instance.enableDebugView)
+            if (!GameConfig.EnableDebugView)
             {
                 debugViewSheet.gameObject.SetActive(false);
                 return;
