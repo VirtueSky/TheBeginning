@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public static class EditorInitializer
 {
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    public static async void RuntimeEditorInitialize()
+    public static void RuntimeEditorInitialize()
     {
         string currentScene = SceneManager.GetActiveScene().name;
         switch (currentScene)
