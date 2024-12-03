@@ -15,16 +15,8 @@ MonoBehaviour:
   maxLevel: 4
   startLoopLevel: 1
   pathLoad: Assets/_Project/Prefabs/Levels
-  itemLevelConfigs:
-  - key: Level 1
-    levelPrefab: {fileID: 4891354742427979741, guid: f6775d9c9e42e83488540c32e69e4d51,
-      type: 3}
-  - key: Level 2
-    levelPrefab: {fileID: 4891354742427979741, guid: 9f406b3dbd50943bcac4e20bbc4568a6,
-      type: 3}
-  - key: Level 3
-    levelPrefab: {fileID: 4891354742427979741, guid: 1641d6414d997ec40bbcf4fb4808e389,
-      type: 3}
-  - key: Level 4
-    levelPrefab: {fileID: 4891354742427979741, guid: fdb798dc7c4384b40b0235c55a3e9bcc,
-      type: 3}
+  listLevels:
+  - {fileID: 4891354742427979741, guid: f6775d9c9e42e83488540c32e69e4d51, type: 3}
+  - {fileID: 4891354742427979741, guid: 9f406b3dbd50943bcac4e20bbc4568a6, type: 3}
+  - {fileID: 4891354742427979741, guid: 1641d6414d997ec40bbcf4fb4808e389, type: 3}
+  - {fileID: 4891354742427979741, guid: fdb798dc7c4384b40b0235c55a3e9bcc, type: 3}

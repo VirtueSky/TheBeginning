@@ -11,55 +11,29 @@ namespace TheBeginning.UI
     public class PopupConfig : ScriptableSettings<PopupConfig>
     {
         [SerializeField] private string pathLoad = "Assets/_Project/Prefabs/Popups";
-        [TableList, SerializeField] private List<ItemPopupConfig> itemPopupConfigs;
+        [SerializeField] private List<UIPopup> listUiPopups;
 
-        public static List<ItemPopupConfig> ItemPopupConfigs => Instance.itemPopupConfigs;
+        public static List<UIPopup> ItemPopupConfigs => Instance.listUiPopups;
 
-        public static UIPopup GetPrefabPopup(string key)
+        public static UIPopup GetPrefabPopup(string popupName)
         {
-            return ItemPopupConfigs.FirstOrDefault(item => item.key == key).popupPrefab;
+            return ItemPopupConfigs.FirstOrDefault(item => item.name == popupName);
         }
 #if UNITY_EDITOR
         [Button]
         void LoadPrefabPopup()
         {
-            itemPopupConfigs.Clear();
+            listUiPopups.Clear();
             var popups = VirtueSky.UtilsEditor.FileExtension.FindAll<GameObject>(pathLoad);
             foreach (var obj in popups)
             {
                 UIPopup popup = obj.GetComponent<UIPopup>();
                 if (popup != null)
                 {
-                    itemPopupConfigs.Add(new ItemPopupConfig(popup));
+                    listUiPopups.Add(popup);
                 }
             }
         }
-
-        private void OnValidate()
-        {
-            foreach (var itemPopupConfig in itemPopupConfigs)
-            {
-                itemPopupConfig.SetupKey();
-            }
-        }
 #endif
-    }
-
-    [Serializable]
-    public class ItemPopupConfig
-    {
-        [ReadOnly] public string key;
-        public UIPopup popupPrefab;
-
-        public ItemPopupConfig(UIPopup _popup)
-        {
-            popupPrefab = _popup;
-            SetupKey();
-        }
-
-        public void SetupKey()
-        {
-            key = popupPrefab.name;
-        }
     }
 }
