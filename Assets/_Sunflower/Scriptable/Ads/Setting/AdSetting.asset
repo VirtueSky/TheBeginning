@@ -32,6 +32,7 @@ MonoBehaviour:
     type: 2}
   admobAppOpenVariable: {fileID: 11400000, guid: 096fcfff50a4042bf8f96035a785af9c,
     type: 2}
+  admobNativeOverlayVariable: {fileID: 0}
   admobEnableTestMode: 0
   admobDevicesTest: []
   androidAppKey: 85460dcd

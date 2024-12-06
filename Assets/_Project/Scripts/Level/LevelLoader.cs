@@ -10,6 +10,7 @@ namespace TheBeginning.LevelSystem
     {
         [ReadOnly] [SerializeField] private Level currentLevel;
         [ReadOnly] [SerializeField] private Level previousLevel;
+        [SerializeField] private LevelSettings levelSettings;
         [SerializeField] private IntegerVariable currentIndexLevel;
         [SerializeField] private EventLoadLevel eventLoadLevel;
         [SerializeField] private EventGetCurrentLevel eventGetCurrentLevel;
@@ -34,7 +35,7 @@ namespace TheBeginning.LevelSystem
         private Level LoadLevel()
         {
             int index = HandleIndexLevel(currentIndexLevel.Value);
-            var result = LevelConfig.GePrefabLevel($"Level {index}");
+            var result = levelSettings.GePrefabLevel($"Level {index}");
             if (currentLevel != null)
             {
                 previousLevel = currentLevel;
@@ -42,7 +43,7 @@ namespace TheBeginning.LevelSystem
             else
             {
                 int indexPrev = HandleIndexLevel(currentIndexLevel.Value - 1);
-                var resultPre = LevelConfig.GePrefabLevel($"Level {indexPrev}");
+                var resultPre = levelSettings.GePrefabLevel($"Level {indexPrev}");
                 previousLevel = resultPre.GetComponent<Level>();
             }
 
@@ -52,14 +53,14 @@ namespace TheBeginning.LevelSystem
 
         int HandleIndexLevel(int indexLevel)
         {
-            if (indexLevel > LevelConfig.MaxLevel)
+            if (indexLevel > levelSettings.MaxLevel)
             {
-                return (indexLevel - LevelConfig.StartLoopLevel) %
-                       (LevelConfig.MaxLevel - LevelConfig.StartLoopLevel + 1) +
-                       LevelConfig.StartLoopLevel;
+                return (indexLevel - levelSettings.StartLoopLevel) %
+                       (levelSettings.MaxLevel - levelSettings.StartLoopLevel + 1) +
+                       levelSettings.StartLoopLevel;
             }
 
-            if (indexLevel > 0 && indexLevel <= LevelConfig.MaxLevel)
+            if (indexLevel > 0 && indexLevel <= levelSettings.MaxLevel)
             {
                 //return (indexLevel - 1) % gameConfig.maxLevel + 1;
                 return indexLevel;
@@ -67,7 +68,7 @@ namespace TheBeginning.LevelSystem
 
             if (indexLevel == 0)
             {
-                return LevelConfig.MaxLevel;
+                return levelSettings.MaxLevel;
             }
 
             return 1;

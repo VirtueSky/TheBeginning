@@ -615,6 +615,9 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 0
+  playSfxEvent: {fileID: 0}
+  soundDataClickButton: {fileID: 0}
 --- !u!1 &872215847354943931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3878,6 +3881,7 @@ MonoBehaviour:
   offsetHideMove: 0
   scaleFromHide: {x: 0, y: 0, z: 0}
   pointHidePos: {fileID: 0}
+  gameSettings: {fileID: 11400000, guid: 23bdd0e7d9812cb4c9ffb29dc3701eb7, type: 2}
   BonusArrowHandler: {fileID: 4182017765428493193}
   BtnRewardAds: {fileID: 684091610695217680}
   BtnTapToContinue: {fileID: 9196906812386607124}
@@ -3885,13 +3889,10 @@ MonoBehaviour:
   ProcessBar: {fileID: 4221467736387531753}
   TextPercentGift: {fileID: 4518080855719057209}
   soundPopupWin: {fileID: 8300000, guid: d5d65442eccfa3548921d7156b6d821a, type: 3}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   playCurrentLevelEvent: {fileID: 11400000, guid: 2728698185b78224ea0bf86a5e6b2455,
     type: 2}
-  generateCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
   moveAllCoinDone: {fileID: 11400000, guid: b82c7998cf398094dba18b8bf2d7b029, type: 2}
-  currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
-  rewardVariable: {fileID: 11400000, guid: f9cbd7436c0fc7249915e5fd802ae174, type: 2}
+  rewardAdVariable: {fileID: 0}
 --- !u!1 &7418177931432179246
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,6 +4319,9 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 0
+  playSfxEvent: {fileID: 0}
+  soundDataClickButton: {fileID: 0}
 --- !u!1 &9211212431835267844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4499,6 +4503,21 @@ PrefabInstance:
     - target: {fileID: 3741801841614095309, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472980354065572037, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472980354065572037, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6472980354065572037, guid: 5ece1524dd9c0dd43acf5cd0a3982069,
+        type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7735359813405760995, guid: 5ece1524dd9c0dd43acf5cd0a3982069,

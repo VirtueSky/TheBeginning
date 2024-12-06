@@ -60,12 +60,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textNoti: {fileID: 4890303519412967080}
   container: {fileID: 3305898790409175187}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   posYShow: -150
   posYHide: 150
   timeMove: 0.7
   showNotificationInGameEvent: {fileID: 11400000, guid: cd73ca7a44674384aa18fd3f412eeee3,
     type: 2}
+  gameSettings: {fileID: 11400000, guid: 23bdd0e7d9812cb4c9ffb29dc3701eb7, type: 2}
 --- !u!1 &5023383361541215066
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 125}
+  m_AnchoredPosition: {x: 0, y: 125.000244}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5321524014538644679

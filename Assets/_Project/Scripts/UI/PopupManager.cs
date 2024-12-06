@@ -15,6 +15,7 @@ namespace TheBeginning.UI
         [HeaderLine(Constant.Environment, false, CustomColor.Gold, CustomColor.Aqua)] [SerializeField]
         private Transform parentContainer;
 
+        [SerializeField] private PopupSettings popupSettings;
         [SerializeField] private Camera cameraUI;
 
         private readonly Dictionary<Type, UIPopup> container = new Dictionary<Type, UIPopup>();
@@ -37,7 +38,7 @@ namespace TheBeginning.UI
             container.TryGetValue(typeof(T), out UIPopup popup);
             if (popup == null)
             {
-                var popupPrefab = PopupConfig.GetPrefabPopup(typeof(T).Name);
+                var popupPrefab = popupSettings.GetPrefabPopup(typeof(T).Name);
                 if (popupPrefab != null)
                 {
                     var popupInstance = Instantiate(popupPrefab, parentContainer);

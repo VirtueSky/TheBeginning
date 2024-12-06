@@ -12,6 +12,7 @@ namespace TheBeginning.UI
 {
     public class PopupHome : UIPopup
     {
+        [SerializeField] private GameSettings gameSettings;
         [SerializeField] private PlayMusicEvent playMusicEvent;
         [SerializeField] private SoundData musicHome;
         [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
@@ -85,7 +86,7 @@ namespace TheBeginning.UI
 
         void ShowPopupUpdate()
         {
-            if (GameConfig.EnableShowPopupUpdate && !dontShowAgainPopupUpdate.Value)
+            if (gameSettings.EnableShowPopupUpdate && !dontShowAgainPopupUpdate.Value)
             {
                 tween = Tween.Delay(0.5f, () =>
                 {

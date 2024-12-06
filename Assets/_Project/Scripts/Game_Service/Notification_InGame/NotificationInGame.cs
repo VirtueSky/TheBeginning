@@ -15,11 +15,12 @@ namespace TheBeginning.Services
         [SerializeField] private float posYHide = 125;
         [SerializeField] private float timeMove = .5f;
         [SerializeField] private StringEvent showNotificationInGameEvent;
+        [SerializeField] private GameSettings gameSettings;
         private bool isShow = false;
 
         private void Awake()
         {
-            if (GameConfig.EnableNotificationInGame)
+            if (gameSettings.EnableNotificationInGame)
             {
                 showNotificationInGameEvent.AddListener(Show);
             }
@@ -27,7 +28,7 @@ namespace TheBeginning.Services
 
         private void OnDestroy()
         {
-            if (GameConfig.EnableNotificationInGame)
+            if (gameSettings.EnableNotificationInGame)
             {
                 showNotificationInGameEvent.RemoveListener(Show);
             }
@@ -40,10 +41,8 @@ namespace TheBeginning.Services
             isShow = true;
             gameObject.SetActive(true);
             textNoti.text = _textNoti;
-            Tween.UIAnchoredPositionY(container, posYShow, timeMove, Ease.OutBack).OnComplete(() =>
-            {
-                App.Delay(GameConfig.TimeDelayHideNotificationInGame, () => { Hide(); });
-            });
+            Tween.UIAnchoredPositionY(container, posYShow, timeMove, Ease.OutBack)
+                .OnComplete(() => { App.Delay(gameSettings.TimeDelayHideNotificationInGame, () => { Hide(); }); });
         }
 
         public void Hide()

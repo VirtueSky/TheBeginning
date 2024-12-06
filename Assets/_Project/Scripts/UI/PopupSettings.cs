@@ -1,24 +1,22 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using VirtueSky.Inspector;
 using VirtueSky.Linq;
-using VirtueSky.Utils;
 
 namespace TheBeginning.UI
 {
     [EditorIcon("icon_scriptable"), HideMonoScript]
-    public class PopupConfig : ScriptableSettings<PopupConfig>
+    public class PopupSettings : ScriptableObject
     {
         [SerializeField] private string pathLoad = "Assets/_Project/Prefabs/Popups";
         [SerializeField] private List<UIPopup> listUiPopups;
 
-        public static List<UIPopup> ItemPopupConfigs => Instance.listUiPopups;
+        public List<UIPopup> ItemPopupConfigs => listUiPopups;
 
-        public static UIPopup GetPrefabPopup(string popupName)
+        public UIPopup GetPrefabPopup(string popupName)
         {
-            Debug.Log($"Count: {ItemPopupConfigs.Count}");
-            return ItemPopupConfigs.FirstOrDefault(item => item.name == popupName);
+            Debug.Log($"Count: {listUiPopups.Count}");
+            return listUiPopups.FirstOrDefault(item => item.name == popupName);
         }
 #if UNITY_EDITOR
         [Button]

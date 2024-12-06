@@ -83,7 +83,7 @@ namespace TheBeginning.Game
         void ReturnHome()
         {
             gameState = GameState.Lobby;
-            PopupManager.Show<PopupHome>();
+            //  PopupManager.Show<PopupHome>();
             levelHolder.ClearTransform();
         }
 

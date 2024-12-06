@@ -15,7 +15,9 @@ namespace TheBeginning.UI
 {
     public class PopupWin : UIPopup
     {
-        [HeaderLine(Constant.Normal_Attribute)]
+        [HeaderLine(Constant.Normal_Attribute)] [SerializeField]
+        private GameSettings gameSettings;
+
         public BonusArrowHandler BonusArrowHandler;
 
         public GameObject BtnRewardAds;
@@ -36,7 +38,7 @@ namespace TheBeginning.UI
         private float percent = 0;
         private bool waitMoveAllCoinDone;
 
-        public int MoneyWin => GameConfig.WinLevelMoney;
+        public int MoneyWin => gameSettings.WinLevelMoney;
 
 
         public float Percent
@@ -68,7 +70,7 @@ namespace TheBeginning.UI
         private void SetupProgressBar()
         {
             ProcessBar.fillAmount = (float)UserData.PercentWinGift / 100;
-            UserData.PercentWinGift += GameConfig.PercentWinGiftPerLevel;
+            UserData.PercentWinGift += gameSettings.PercentWinGiftPerLevel;
             Percent = (float)UserData.PercentWinGift;
             if (UserData.PercentWinGift == 100)
             {

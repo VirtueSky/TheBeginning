@@ -12,9 +12,9 @@ public class TheBeginningWindow : EditorWindow
 {
     enum StateWindow
     {
-        GameConfig,
-        LevelConfig,
-        PopupConfig
+        GameSettings,
+        LevelSettings,
+        PopupSettings
     }
 
     private StateWindow stateWindow;
@@ -36,8 +36,8 @@ public class TheBeginningWindow : EditorWindow
 
     private void OnEnable()
     {
-        GameConfigWindow.OnEnable();
-        LevelConfigWindow.OnEnable();
+        GameSettingsWindow.OnEnable();
+        LevelSettingsWindow.OnEnable();
         PopupConfigWindow.OnEnable();
     }
 
@@ -69,13 +69,13 @@ public class TheBeginningWindow : EditorWindow
     {
         switch (stateWindow)
         {
-            case StateWindow.GameConfig:
-                GameConfigWindow.Draw();
+            case StateWindow.GameSettings:
+                GameSettingsWindow.Draw();
                 break;
-            case StateWindow.LevelConfig:
-                LevelConfigWindow.Draw();
+            case StateWindow.LevelSettings:
+                LevelSettingsWindow.Draw();
                 break;
-            case StateWindow.PopupConfig:
+            case StateWindow.PopupSettings:
                 PopupConfigWindow.Draw();
                 break;
         }
@@ -83,9 +83,9 @@ public class TheBeginningWindow : EditorWindow
 
     private void DrawButton()
     {
-        DrawButtonChooseState("Game Config", StateWindow.GameConfig);
-        DrawButtonChooseState("Level Config", StateWindow.LevelConfig);
-        DrawButtonChooseState("Popup Config", StateWindow.PopupConfig);
+        DrawButtonChooseState("Game Settings", StateWindow.GameSettings);
+        DrawButtonChooseState("Level Settings", StateWindow.LevelSettings);
+        DrawButtonChooseState("Popup Settings", StateWindow.PopupSettings);
     }
 
     void DrawButtonChooseState(string title, StateWindow _stateWindow)

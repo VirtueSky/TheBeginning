@@ -805,6 +805,7 @@ MonoBehaviour:
   offsetHideMove: 0
   scaleFromHide: {x: 0, y: 0, z: 0}
   pointHidePos: {fileID: 0}
+  gameSettings: {fileID: 11400000, guid: 23bdd0e7d9812cb4c9ffb29dc3701eb7, type: 2}
   playMusicEvent: {fileID: 11400000, guid: 2f4f06310dd5bc84f80499d277f922ca, type: 2}
   musicHome: {fileID: 11400000, guid: 1ad967bd5c8d58b4dba94bad2f5eed4c, type: 2}
   callPlayCurrentLevelEvent: {fileID: 11400000, guid: 2728698185b78224ea0bf86a5e6b2455,

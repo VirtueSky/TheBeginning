@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4969356bcad17c243b45bb07557ee2bb, type: 3}
-  m_Name: LevelConfig
+  m_Script: {fileID: 11500000, guid: c93c52d376cf4b51a8aa53ca51326c52, type: 3}
+  m_Name: LevelSettings
   m_EditorClassIdentifier: 
   maxLevel: 4
   startLoopLevel: 1

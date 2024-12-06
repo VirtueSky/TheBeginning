@@ -9,7 +9,7 @@ public class PopupConfigWindow
 {
     private static Vector2 _scrollPosition;
     private static UnityEditor.Editor _editor;
-    private static PopupConfig _config;
+    private static PopupSettings _config;
     private static Vector2 scroll = Vector2.zero;
 
     public static void OnEnable()
@@ -20,22 +20,22 @@ public class PopupConfigWindow
     private static void Init()
     {
         if (_editor != null) _editor = null;
-        _config = CreateAsset.GetScriptableAsset<PopupConfig>();
+        _config = CreateAsset.GetScriptableAsset<PopupSettings>();
         _editor = UnityEditor.Editor.CreateEditor(_config);
     }
 
     public static void Draw()
     {
         GUILayout.BeginVertical();
-        CPUtility.DrawHeader("Popup Config");
+        CPUtility.DrawHeader("Popup Settings");
         CPUtility.GuiLine();
         GUILayout.Space(10);
         scroll = EditorGUILayout.BeginScrollView(scroll);
         if (_config == null)
         {
-            if (GUILayout.Button("Create PopupConfig"))
+            if (GUILayout.Button("Create PopupSettings"))
             {
-                _config = CreateAsset.CreateAndGetScriptableAsset<PopupConfig>("Assets/_project/Resources", useDefaultPath: false);
+                _config = CreateAsset.CreateAndGetScriptableAsset<PopupSettings>("Assets/_project/Config", useDefaultPath: false);
                 Init();
             }
         }

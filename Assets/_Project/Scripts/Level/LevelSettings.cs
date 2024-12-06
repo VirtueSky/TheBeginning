@@ -2,13 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using VirtueSky.Inspector;
 using VirtueSky.Linq;
-using VirtueSky.Utils;
-
 
 namespace TheBeginning.LevelSystem
 {
     [EditorIcon("icon_scriptable"), HideMonoScript]
-    public class LevelConfig : ScriptableSettings<LevelConfig>
+    public class LevelSettings : ScriptableObject
     {
         [SerializeField] private int maxLevel;
         [SerializeField] private int startLoopLevel;
@@ -17,15 +15,14 @@ namespace TheBeginning.LevelSystem
         [SerializeField] private List<Level> listLevels;
 
 
-        public static int MaxLevel => Instance.maxLevel;
-        public static int StartLoopLevel => Instance.startLoopLevel;
-        public static List<Level> ListLevels => Instance.listLevels;
+        public int MaxLevel => maxLevel;
+        public int StartLoopLevel => startLoopLevel;
+        public List<Level> ListLevels => listLevels;
 
-        public static Level GePrefabLevel(string levelName)
+        public Level GePrefabLevel(string levelName)
         {
-            return ListLevels.FirstOrDefault(item => item.name == levelName);
+            return listLevels.FirstOrDefault(item => item.name == levelName);
         }
-
 
 #if UNITY_EDITOR
         [Button]
