@@ -812,12 +812,9 @@ MonoBehaviour:
   noticeDailyReward: {fileID: 5732926270582141118}
   claimDailyRewardEvent: {fileID: 11400000, guid: b1fc40b863739b34d90bc5564d896832,
     type: 2}
-  gameConfig: {fileID: 11400000, guid: fc010066eec5ef24eb9fa923867c670f, type: 2}
   versionUpdateVariable: {fileID: 11400000, guid: 094c02312d382eb459d6d7e67cb08e2d,
     type: 2}
   dontShowAgainPopupUpdate: {fileID: 11400000, guid: cf7683b35a61db244a60b89f969ca3c6,
-    type: 2}
-  showNotificationInGameEvent: {fileID: 11400000, guid: cd73ca7a44674384aa18fd3f412eeee3,
     type: 2}
 --- !u!1 &8011450408103091600
 GameObject:

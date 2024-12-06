@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using VirtueSky.Core;
 using VirtueSky.Inspector;
+using VirtueSky.Linq;
 using VirtueSky.Misc;
 using VirtueSky.Utils;
 

@@ -17,6 +17,7 @@ namespace TheBeginning.UI
 
         public static UIPopup GetPrefabPopup(string popupName)
         {
+            Debug.Log($"Count: {ItemPopupConfigs.Count}");
             return ItemPopupConfigs.FirstOrDefault(item => item.name == popupName);
         }
 #if UNITY_EDITOR
