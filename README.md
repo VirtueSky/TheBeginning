@@ -41,7 +41,7 @@ subgraph ServiceScene["<i class="fa-brands fa-unity"></i> Service Scene"]
 https://github.com/user-attachments/assets/2f47a9bc-94b3-4982-aeb7-d9d20835591c
 
 
-- Open the `GameConfig` script to add or edit configs,
+- Open the `GameSettings` script to add or edit configs,
 
 
 ![Screenshot 2024-07-26 093403](https://github.com/user-attachments/assets/10b0a2ce-7f34-48ea-b6fe-487b640c3cbf)
