@@ -37,8 +37,7 @@ namespace TheBeginning.Services
         [SerializeField] private Sprite iconOutfitDebug;
         [SerializeField] private Sprite iconConsoleLog;
         [SerializeField] private Sprite iconSlider;
-        [HeaderLine("Tool")] [SerializeField] private ItemConfig itemConfig;
-        [SerializeField] private BooleanVariable isOffUiVariable;
+        [HeaderLine("Tool")] [SerializeField] private BooleanVariable isOffUiVariable;
         [SerializeField] private BooleanVariable isTestingVariable;
         [HeaderLine("Ads"), SerializeField] private InterAdVariable interAdVariable;
         [SerializeField] private BannerAdVariable bannerAdVariable;
@@ -72,7 +71,7 @@ namespace TheBeginning.Services
                 icon: iconTool,
                 onLoad: debugView =>
                 {
-                    debugView.page.Init(itemConfig, isOffUiVariable, isTestingVariable, iconInput, iconOke,
+                    debugView.page.Init(isOffUiVariable, isTestingVariable, iconInput, iconOke,
                         iconToggle, iconCoinDebug, iconOutfitDebug);
                 });
 

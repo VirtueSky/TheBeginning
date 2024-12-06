@@ -14,7 +14,7 @@ using VirtueSky.Variables;
 
 namespace TheBeginning.UI
 {
-    public class PopupDailyReward : UIPopup
+    public class DailyRewardPopup : UIPopup
     {
         [TitleColor("Attribute", CustomColor.Lavender, CustomColor.Cornsilk)]
         public GameObject BtnWatchVideo;

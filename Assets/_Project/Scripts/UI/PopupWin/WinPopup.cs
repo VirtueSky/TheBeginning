@@ -13,7 +13,7 @@ using VirtueSky.Variables;
 
 namespace TheBeginning.UI
 {
-    public class PopupWin : UIPopup
+    public class WinPopup : UIPopup
     {
         [HeaderLine(Constant.Normal_Attribute)] [SerializeField]
         private GameSettings gameSettings;

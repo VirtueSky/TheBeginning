@@ -8,7 +8,7 @@ using GoogleMobileAds.Ump.Api;
 
 namespace TheBeginning.UI
 {
-    public class PopupSetting : UIPopup
+    public class SettingPopup : UIPopup
     {
         [SerializeField] private Button btnRestorePurchase;
 

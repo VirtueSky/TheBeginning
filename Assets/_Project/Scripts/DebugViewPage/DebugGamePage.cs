@@ -9,7 +9,6 @@ namespace TheBeginning.DebugViewPage
 {
     public class DebugGamePage : DefaultDebugPageBase
     {
-        private ItemConfig itemConfig;
         private BooleanVariable isOffUIVariable;
         private BooleanVariable isTestingVariable;
         private Sprite iconInput;
@@ -20,11 +19,10 @@ namespace TheBeginning.DebugViewPage
         private string targetCoin = "";
         protected override string Title => "Game Debug";
 
-        public void Init(ItemConfig _itemConfig, BooleanVariable _isOffUi,
+        public void Init(BooleanVariable _isOffUi,
             BooleanVariable _isTesting, Sprite _iconInput, Sprite _iconOk, Sprite _iconToggle, Sprite _iconCoinDebug,
             Sprite _iconOutfitDebug)
         {
-            itemConfig = _itemConfig;
             isOffUIVariable = _isOffUi;
             isTestingVariable = _isTesting;
             iconInput = _iconInput;
@@ -57,7 +55,6 @@ namespace TheBeginning.DebugViewPage
                     if (targetCoin != "") CoinSystem.SetCoin(int.Parse(targetCoin));
                 },
                 icon: iconOk);
-            AddButton("Unlock All Skin", icon: iconOutfitDebug, clicked: () => itemConfig.UnlockAllSkins());
             AddSwitch(isOffUIVariable.Value, "Is Hide UI", valueChanged: b => isOffUIVariable.Value = b,
                 icon: iconToggle);
             AddSwitch(isTestingVariable.Value, "Is Testing", valueChanged: b => isTestingVariable.Value = b,

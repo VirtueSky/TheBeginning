@@ -83,14 +83,14 @@ namespace TheBeginning.Game
         void ReturnHome()
         {
             gameState = GameState.Lobby;
-            //  PopupManager.Show<PopupHome>();
+            PopupManager.Show<HomePopup>();
             levelHolder.ClearTransform();
         }
 
         private void PlayCurrentLevel()
         {
             StartGame();
-            PopupManager.Show<PopupInGame>();
+            PopupManager.Show<GameplayPopup>();
         }
 
         private void ReplayGame()
@@ -98,7 +98,7 @@ namespace TheBeginning.Game
             eventReplayLevel.Raise(eventGetCurrentLevel.Raise());
             trackingFirebaseReplayLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
             StartGame();
-            PopupManager.Show<PopupInGame>();
+            PopupManager.Show<GameplayPopup>();
         }
 
         private void BackLevel()
@@ -145,8 +145,8 @@ namespace TheBeginning.Game
             {
                 indexLevelVariable.Value++;
                 eventLoadLevel.Raise();
-                PopupManager.Show<PopupWin>();
-                PopupManager.Hide<PopupInGame>();
+                PopupManager.Show<WinPopup>();
+                PopupManager.Hide<GameplayPopup>();
             });
         }
 
@@ -160,8 +160,8 @@ namespace TheBeginning.Game
             trackingFirebaseLoseLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
             Tween.Delay(delayPopupShowTime, () =>
             {
-                PopupManager.Show<PopupLose>();
-                PopupManager.Hide<PopupInGame>();
+                PopupManager.Show<LosePopup>();
+                PopupManager.Hide<GameplayPopup>();
             });
         }
     }

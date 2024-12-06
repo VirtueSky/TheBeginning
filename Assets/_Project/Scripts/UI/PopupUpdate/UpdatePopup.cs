@@ -6,7 +6,7 @@ using VirtueSky.Variables;
 
 namespace TheBeginning.UI
 {
-    public class PopupUpdate : UIPopup
+    public class UpdatePopup : UIPopup
     {
         [Space] [SerializeField] private TextMeshProUGUI textContent;
         [SerializeField] private TextMeshProUGUI textVersion;

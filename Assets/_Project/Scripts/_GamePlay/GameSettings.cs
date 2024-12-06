@@ -17,13 +17,17 @@ public class GameSettings : ScriptableObject
     [Space, HeaderLine("Notification In Game")] [SerializeField]
     private bool enableNotificationInGame = true;
 
-    [SerializeField] private float timeDelayHideNotificationInGame = 1.0f;
+    [ShowIf(nameof(enableNotificationInGame)), SerializeField]
+    private float timeDelayHideNotificationInGame = 1.0f;
 
     [Space, HeaderLine("Require Internet")] [SerializeField]
     private bool enableRequireInternet = false;
 
-    [SerializeField] private float timeDelayCheckInternet = 5;
-    [SerializeField] private float timeLoopCheckInternet = .5f;
+    [ShowIf(nameof(enableRequireInternet)), SerializeField]
+    private float timeDelayCheckInternet = 5;
+
+    [ShowIf(nameof(enableRequireInternet)), SerializeField]
+    private float timeLoopCheckInternet = .5f;
 
     [Space, HeaderLine("Show Popup Update")] [SerializeField]
     private bool enableShowPopupUpdate = false;

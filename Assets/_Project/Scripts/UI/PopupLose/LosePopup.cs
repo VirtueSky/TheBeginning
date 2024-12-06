@@ -1,10 +1,9 @@
-using System.Reflection;
 using UnityEngine;
 using VirtueSky.Events;
 
 namespace TheBeginning.UI
 {
-    public class PopupLose : UIPopup
+    public class LosePopup : UIPopup
     {
         [SerializeField] private EventNoParam replayGameEvent;
 

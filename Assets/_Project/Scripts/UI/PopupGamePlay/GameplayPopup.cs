@@ -3,7 +3,6 @@ using System.Linq;
 using TheBeginning.LevelSystem;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Audio;
 using VirtueSky.Component;
 using VirtueSky.Events;
@@ -12,12 +11,12 @@ using VirtueSky.Variables;
 
 namespace TheBeginning.UI
 {
-    public class PopupInGame : UIPopup
+    public class GameplayPopup : UIPopup
     {
         [HeaderLine(Constant.Normal_Attribute)]
-        public TextMeshProUGUI LevelText;
+        public TextMeshProUGUI levelText;
 
-        public TextMeshProUGUI LevelTypeText;
+        public TextMeshProUGUI levelTypeText;
 
         [HeaderLine(Constant.SO_Event)] [SerializeField]
         private EventNoParam replayEvent;
@@ -56,7 +55,7 @@ namespace TheBeginning.UI
 
         public void Setup(int currentLevel)
         {
-            LevelText.text = $"Level {currentLevel}";
+            levelText.text = $"Level {currentLevel}";
             // LevelTypeText.text = $"Level ";
         }
 

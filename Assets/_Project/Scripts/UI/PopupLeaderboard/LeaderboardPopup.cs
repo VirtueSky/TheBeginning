@@ -22,7 +22,7 @@ using VirtueSky.Variables;
 namespace TheBeginning.UI
 {
     [EditorIcon("icon_leaderboard"), HideMonoScript]
-    public sealed class PopupLeaderboard : UIPopup
+    public sealed class LeaderboardPopup : UIPopup
     {
         [SerializeField] private string allTimeTableId = "ALL_TIME_RANK";
         [SerializeField] private string weeklyTableId = "WEEKLY_RANK";

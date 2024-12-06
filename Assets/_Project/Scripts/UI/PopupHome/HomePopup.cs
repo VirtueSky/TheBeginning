@@ -10,7 +10,7 @@ using VirtueSky.Variables;
 
 namespace TheBeginning.UI
 {
-    public class PopupHome : UIPopup
+    public class HomePopup : UIPopup
     {
         [SerializeField] private GameSettings gameSettings;
         [SerializeField] private PlayMusicEvent playMusicEvent;
@@ -61,27 +61,17 @@ namespace TheBeginning.UI
 
         public void OnClickSetting()
         {
-            PopupManager.Show<PopupSetting>(false);
+            PopupManager.Show<SettingPopup>(false);
         }
 
         public void OnClickDailyReward()
         {
-            PopupManager.Show<PopupDailyReward>(false);
+            PopupManager.Show<DailyRewardPopup>(false);
         }
 
         public void OnClickLeaderboard()
         {
-            PopupManager.Show<PopupLeaderboard>(false);
-        }
-
-        public void OnClickShop()
-        {
-            PopupManager.Show<PopupShop>(false);
-        }
-
-        public void OnClickTest()
-        {
-            PopupManager.Show<PopupTest>(false);
+            PopupManager.Show<LeaderboardPopup>(false);
         }
 
         void ShowPopupUpdate()
@@ -92,7 +82,7 @@ namespace TheBeginning.UI
                 {
                     if (!versionUpdateVariable.Value.Equals(Application.version))
                     {
-                        PopupManager.Show<PopupUpdate>(false);
+                        PopupManager.Show<UpdatePopup>(false);
                     }
                 });
             }
