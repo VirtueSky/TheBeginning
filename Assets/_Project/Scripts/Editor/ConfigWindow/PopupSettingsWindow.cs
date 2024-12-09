@@ -5,7 +5,7 @@ using UnityEngine;
 using VirtueSky.ControlPanel.Editor;
 using VirtueSky.UtilsEditor;
 
-public class PopupConfigWindow
+public class PopupSettingsWindow
 {
     private static Vector2 _scrollPosition;
     private static UnityEditor.Editor _editor;

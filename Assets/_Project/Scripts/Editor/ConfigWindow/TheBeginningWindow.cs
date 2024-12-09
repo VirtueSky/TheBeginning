@@ -26,7 +26,7 @@ public class TheBeginningWindow : EditorWindow
         TheBeginningWindow window = GetWindow<TheBeginningWindow>("The Beginning");
         if (window == null)
         {
-            Debug.LogError("Couldn't open the TheBeginningWindow window!");
+            Debug.LogError("Couldn't open the TheBeginning window!");
             return;
         }
 
@@ -38,7 +38,7 @@ public class TheBeginningWindow : EditorWindow
     {
         GameSettingsWindow.OnEnable();
         LevelSettingsWindow.OnEnable();
-        PopupConfigWindow.OnEnable();
+        PopupSettingsWindow.OnEnable();
     }
 
     private void OnGUI()
@@ -76,7 +76,7 @@ public class TheBeginningWindow : EditorWindow
                 LevelSettingsWindow.Draw();
                 break;
             case StateWindow.PopupSettings:
-                PopupConfigWindow.Draw();
+                PopupSettingsWindow.Draw();
                 break;
         }
     }
