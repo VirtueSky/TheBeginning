@@ -16,7 +16,6 @@ namespace TheBeginning.UI
 
         [SerializeField] private Coffee.UIEffects.UIEffect btnLanguageEnglish;
         [SerializeField] private Coffee.UIEffects.UIEffect btnLanguageVietNam;
-        [SerializeField] private EventNoParam restorePurchaseEvent;
         [SerializeField] private EventNoParam callShowAgainGDPREvent;
 
         protected override void OnBeforeShow()
@@ -58,7 +57,9 @@ namespace TheBeginning.UI
 
         public void OnClickRestorePurchase()
         {
-            restorePurchaseEvent.Raise();
+#if VIRTUESKY_IAP && UNITY_IOS
+        IapManager.Restore();
+#endif
         }
 
         public void OnClickShowPrivacyConsent()

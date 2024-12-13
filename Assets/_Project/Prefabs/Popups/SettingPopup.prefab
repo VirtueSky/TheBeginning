@@ -3098,8 +3098,6 @@ MonoBehaviour:
   btnShowPrivacyConsent: {fileID: 3161830312648989785}
   btnLanguageEnglish: {fileID: 7830753068738739992}
   btnLanguageVietNam: {fileID: 2204580412906316150}
-  restorePurchaseEvent: {fileID: 11400000, guid: 990591146bfca514fa9f77f9e4a7058a,
-    type: 2}
   callShowAgainGDPREvent: {fileID: 11400000, guid: 406a90b031945024a97ea43f66e66e51,
     type: 2}
 --- !u!1 &7616326084959031557
