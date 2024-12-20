@@ -9,7 +9,7 @@ namespace TheBeginning.DebugViewPage
 {
     public class DebugGamePage : DefaultDebugPageBase
     {
-        private BooleanVariable isOffUIVariable;
+        private BooleanVariable debugOnOffUIVariable;
         private BooleanVariable isTestingVariable;
         private Sprite iconInput;
         private Sprite iconOk;
@@ -19,11 +19,11 @@ namespace TheBeginning.DebugViewPage
         private string targetCoin = "";
         protected override string Title => "Game Debug";
 
-        public void Init(BooleanVariable _isOffUi,
+        public void Init(BooleanVariable _onOffUi,
             BooleanVariable _isTesting, Sprite _iconInput, Sprite _iconOk, Sprite _iconToggle, Sprite _iconCoinDebug,
             Sprite _iconOutfitDebug)
         {
-            isOffUIVariable = _isOffUi;
+            debugOnOffUIVariable = _onOffUi;
             isTestingVariable = _isTesting;
             iconInput = _iconInput;
             iconOk = _iconOk;
@@ -55,7 +55,7 @@ namespace TheBeginning.DebugViewPage
                     if (targetCoin != "") CoinSystem.SetCoin(int.Parse(targetCoin));
                 },
                 icon: iconOk);
-            AddSwitch(isOffUIVariable.Value, "Is Hide UI", valueChanged: b => isOffUIVariable.Value = b,
+            AddSwitch(debugOnOffUIVariable.Value, "On/Off UI", valueChanged: b => debugOnOffUIVariable.Value = b,
                 icon: iconToggle);
             AddSwitch(isTestingVariable.Value, "Is Testing", valueChanged: b => isTestingVariable.Value = b,
                 icon: iconToggle);

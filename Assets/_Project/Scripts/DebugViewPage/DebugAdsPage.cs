@@ -13,23 +13,23 @@ namespace TheBeginning.DebugViewPage
         private InterAdVariable interAdVariable;
         private BannerAdVariable bannerAdVariable;
         private RewardAdVariable rewardAdVariable;
-        private BooleanVariable offInterVariable;
-        private BooleanVariable offBannerVariable;
-        private BooleanVariable offRewardVariable;
+        private BooleanVariable debugOnOffInterVariable;
+        private BooleanVariable debugOnOffBannerVariable;
+        private BooleanVariable debugOnOffRewardVariable;
         private Sprite iconToggle;
         private StringEvent showNotificationInGameEvent;
         protected override string Title => "Ads Debug";
 
         public void Init(InterAdVariable _interAdVariable, RewardAdVariable _rewardAdVariable,
-            BannerAdVariable _bannerAdVariable, BooleanVariable _offInter, BooleanVariable _offBanner,
-            BooleanVariable _offReward, Sprite _iconToggle, StringEvent _showNotiEvent)
+            BannerAdVariable _bannerAdVariable, BooleanVariable _onOffInter, BooleanVariable _onOffBanner,
+            BooleanVariable _onOffReward, Sprite _iconToggle, StringEvent _showNotiEvent)
         {
             interAdVariable = _interAdVariable;
             rewardAdVariable = _rewardAdVariable;
             bannerAdVariable = _bannerAdVariable;
-            offInterVariable = _offInter;
-            offBannerVariable = _offBanner;
-            offRewardVariable = _offReward;
+            debugOnOffInterVariable = _onOffInter;
+            debugOnOffBannerVariable = _onOffBanner;
+            debugOnOffRewardVariable = _onOffReward;
             iconToggle = _iconToggle;
             showNotificationInGameEvent = _showNotiEvent;
         }
@@ -54,11 +54,11 @@ namespace TheBeginning.DebugViewPage
             AddButton("Hide Banner", clicked: HideBanner);
             AddButton("Show Inter", clicked: ShowInter);
             AddButton("Show Reward", clicked: ShowReward);
-            AddSwitch(offInterVariable.Value, "Is Off Inter", valueChanged: b => offInterVariable.Value = b,
+            AddSwitch(debugOnOffInterVariable.Value, "On/Off Inter", valueChanged: b => debugOnOffInterVariable.Value = b,
                 icon: iconToggle);
-            AddSwitch(offBannerVariable.Value, "Is Off Banner", valueChanged: b => offBannerVariable.Value = b,
+            AddSwitch(debugOnOffBannerVariable.Value, "On/Off Banner", valueChanged: b => debugOnOffBannerVariable.Value = b,
                 icon: iconToggle);
-            AddSwitch(offRewardVariable.Value, "Is Off Reward", valueChanged: b => offRewardVariable.Value = b,
+            AddSwitch(debugOnOffRewardVariable.Value, "On/Off Reward", valueChanged: b => debugOnOffRewardVariable.Value = b,
                 icon: iconToggle);
         }
 

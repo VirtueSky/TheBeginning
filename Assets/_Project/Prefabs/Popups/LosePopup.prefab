@@ -275,6 +275,9 @@ MonoBehaviour:
   isShrugOver: 0
   timeShrug: 0.2
   strength: 0.2
+  useSoundFx: 0
+  playSfxEvent: {fileID: 0}
+  soundDataClickButton: {fileID: 0}
 --- !u!1 &2112546984656705563
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811e2d03be24a0142ab8b80a41d7f634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOffUIVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
+  debugOnOffUIVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894,
+    type: 2}
   listGraphics:
   - {fileID: 1262377619817547201}
   - {fileID: 7607586365036201884}

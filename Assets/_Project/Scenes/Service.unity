@@ -794,16 +794,17 @@ MonoBehaviour:
   iconOutfitDebug: {fileID: 21300000, guid: 1aaa9b4d13dbcb64baea375e33fc1f58, type: 3}
   iconConsoleLog: {fileID: 21300000, guid: 6dc678910c85e1948ab02dd201636490, type: 3}
   iconSlider: {fileID: 21300000, guid: b7cb707fa031cc94b8cc2f119bdfad21, type: 3}
-  isOffUiVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
+  debugOnOffUiVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894,
+    type: 2}
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   interAdVariable: {fileID: 11400000, guid: 88f7c202cefac3c4f9e29ffb5a85f62a, type: 2}
   bannerAdVariable: {fileID: 11400000, guid: 46fc363fb14ea9741a05bf4fc5750a64, type: 2}
   rewardAdVariable: {fileID: 11400000, guid: f9cbd7436c0fc7249915e5fd802ae174, type: 2}
-  offInterDebugVariable: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f,
+  debugOnOffInterVariable: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f,
     type: 2}
-  offBannerDebugVariable: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183,
+  debugOnOffBannerVariable: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183,
     type: 2}
-  offRewardDebugVariable: {fileID: 11400000, guid: 9b82d09936466b04aa6e3bdc42405b50,
+  debugOnOffRewardVariable: {fileID: 11400000, guid: 9b82d09936466b04aa6e3bdc42405b50,
     type: 2}
   callPlayCurrentLevelEvent: {fileID: 11400000, guid: 2728698185b78224ea0bf86a5e6b2455,
     type: 2}

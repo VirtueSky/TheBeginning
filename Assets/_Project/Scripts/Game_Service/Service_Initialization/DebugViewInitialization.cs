@@ -37,14 +37,14 @@ namespace TheBeginning.Services
         [SerializeField] private Sprite iconOutfitDebug;
         [SerializeField] private Sprite iconConsoleLog;
         [SerializeField] private Sprite iconSlider;
-        [HeaderLine("Tool")] [SerializeField] private BooleanVariable isOffUiVariable;
+        [HeaderLine("Tool")] [SerializeField] private BooleanVariable debugOnOffUiVariable;
         [SerializeField] private BooleanVariable isTestingVariable;
         [HeaderLine("Ads"), SerializeField] private InterAdVariable interAdVariable;
         [SerializeField] private BannerAdVariable bannerAdVariable;
         [SerializeField] private RewardAdVariable rewardAdVariable;
-        [SerializeField] private BooleanVariable offInterDebugVariable;
-        [SerializeField] private BooleanVariable offBannerDebugVariable;
-        [SerializeField] private BooleanVariable offRewardDebugVariable;
+        [SerializeField] private BooleanVariable debugOnOffInterVariable;
+        [SerializeField] private BooleanVariable debugOnOffBannerVariable;
+        [SerializeField] private BooleanVariable debugOnOffRewardVariable;
         [HeaderLine("Level"), SerializeField] private EventNoParam callPlayCurrentLevelEvent;
         [SerializeField] private EventGetGameState eventGetGameState;
         [SerializeField] private EventNoParam callNextLevelEvent;
@@ -71,7 +71,7 @@ namespace TheBeginning.Services
                 icon: iconTool,
                 onLoad: debugView =>
                 {
-                    debugView.page.Init(isOffUiVariable, isTestingVariable, iconInput, iconOke,
+                    debugView.page.Init(debugOnOffUiVariable, isTestingVariable, iconInput, iconOke,
                         iconToggle, iconCoinDebug, iconOutfitDebug);
                 });
 
@@ -80,8 +80,8 @@ namespace TheBeginning.Services
                 icon: iconAds,
                 onLoad: debugView =>
                 {
-                    debugView.page.Init(interAdVariable, rewardAdVariable, bannerAdVariable, offInterDebugVariable,
-                        offBannerDebugVariable, offRewardDebugVariable, iconToggle, showNotificationInGameEvent);
+                    debugView.page.Init(interAdVariable, rewardAdVariable, bannerAdVariable, debugOnOffInterVariable,
+                        debugOnOffBannerVariable, debugOnOffRewardVariable, iconToggle, showNotificationInGameEvent);
                 });
 
             // add Level page

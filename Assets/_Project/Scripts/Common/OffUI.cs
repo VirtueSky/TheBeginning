@@ -8,19 +8,19 @@ using VirtueSky.Variables;
 
 public class OffUI : MonoBehaviour
 {
-    [SerializeField] private BooleanVariable isOffUIVariable;
+    [SerializeField] private BooleanVariable debugOnOffUIVariable;
     [SerializeField] private List<Graphic> listGraphics = new List<Graphic>();
 
     private void OnEnable()
     {
         GetComponentUI();
-        isOffUIVariable.AddListener(Setup);
-        Setup(isOffUIVariable.Value);
+        debugOnOffUIVariable.AddListener(Setup);
+        Setup(debugOnOffUIVariable.Value);
     }
 
     private void OnDisable()
     {
-        isOffUIVariable.RemoveListener(Setup);
+        debugOnOffUIVariable.RemoveListener(Setup);
     }
 
     void Setup(bool isOff)
@@ -28,7 +28,7 @@ public class OffUI : MonoBehaviour
         if (listGraphics.Count == 0) return;
         foreach (var graphic in listGraphics)
         {
-            graphic.SetAlpha(isOff ? 0 : 1);
+            graphic.SetAlpha(isOff ? 1 : 0);
         }
     }
 

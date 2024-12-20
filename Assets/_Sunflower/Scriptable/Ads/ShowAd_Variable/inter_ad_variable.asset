@@ -15,14 +15,12 @@ MonoBehaviour:
   description: 
   interVariable: {fileID: 11400000, guid: 35958d726d97e43fba7d2a1717097d53, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
-  isOffInterAdsVariable: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f,
+  debugOnOffInterAdsVariable: {fileID: 11400000, guid: 97374341169ee42419452c8e62ad838f,
     type: 2}
   adsCounterVariable: {fileID: 11400000, guid: fb1d28ed953dba1439f42e31764bd580, type: 2}
   timeCounterInterAds: {fileID: 11400000, guid: a922fcba70520de4486468de077e96c2,
     type: 2}
   eventGetGameState: {fileID: 11400000, guid: 84d3512307af1204a884ec2767925df0, type: 2}
-  winLevelEvent: {fileID: 11400000, guid: 908fbb9a98122f44383205d2a2aaf245, type: 2}
-  loseLevelEvent: {fileID: 11400000, guid: 6d4181221526fb843905ee98636c6378, type: 2}
   remoteConfigLevelTurnOnInterstitial: {fileID: 11400000, guid: 9d24fb49e00e040a08c84af0e948f99d,
     type: 2}
   remoteConfigInterstitialCappingLevelVariable: {fileID: 11400000, guid: 8b26d65d7ecc248d588fe6589b7ebdc4,
@@ -30,8 +28,4 @@ MonoBehaviour:
   remoteConfigInterstitialCappingTimeVariable: {fileID: 11400000, guid: 23a4d1b0c67734e99a0108751888caf0,
     type: 2}
   remoteConfigOnOffInterstitial: {fileID: 11400000, guid: 421e94b54b54747f388ece41e49e03c6,
-    type: 2}
-  trackingFirebaseRequestInter: {fileID: 11400000, guid: 7be70904d601ae049a3e7c391bf9b8a0,
-    type: 2}
-  trackingFirebaseShowInterCompleted: {fileID: 11400000, guid: ba87dfc0db173264684b04d7e1ab239d,
     type: 2}

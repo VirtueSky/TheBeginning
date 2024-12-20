@@ -2821,7 +2821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811e2d03be24a0142ab8b80a41d7f634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOffUIVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
+  debugOnOffUIVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894,
+    type: 2}
   listGraphics:
   - {fileID: 6130420468093921937}
   - {fileID: 4985898313006907615}

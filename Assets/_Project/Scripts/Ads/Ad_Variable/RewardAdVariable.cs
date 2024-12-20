@@ -3,8 +3,6 @@ using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Core;
 using VirtueSky.Events;
-using VirtueSky.Tracking;
-using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
 [CreateAssetMenu(menuName = "Ads Variable/Reward Variable", fileName = "reward_ad_variable")]
@@ -12,7 +10,7 @@ public class RewardAdVariable : AdVariable
 {
     [SerializeField] private AdUnitVariable rewardVariable;
 
-    [Space, SerializeField] private BooleanVariable isOffRewardVariable;
+    [Space, SerializeField] private BooleanVariable debugOnOffRewardVariable;
     [SerializeField] private StringEvent showNotificationInGameEvent;
 
     public AdUnitVariable AdUnitRewardVariable => rewardVariable;
@@ -23,7 +21,7 @@ public class RewardAdVariable : AdVariable
 
     bool Condition()
     {
-        return rewardVariable.IsReady() && !isOffRewardVariable.Value;
+        return rewardVariable.IsReady() && debugOnOffRewardVariable.Value;
     }
 
     public void Show(Action completeCallback = null, Action skipCallback = null, Action displayCallback = null,

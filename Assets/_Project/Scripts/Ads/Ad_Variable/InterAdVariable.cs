@@ -4,7 +4,6 @@ using TheBeginning.LevelSystem;
 using UnityEngine;
 using VirtueSky.Ads;
 using VirtueSky.Core;
-using VirtueSky.Tracking;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
@@ -14,7 +13,7 @@ public class InterAdVariable : AdVariable
     [SerializeField] private AdUnitVariable interVariable;
 
     [Space, SerializeField] private IntegerVariable indexLevelVariable;
-    [SerializeField] private BooleanVariable isOffInterAdsVariable;
+    [SerializeField] private BooleanVariable debugOnOffInterAdsVariable;
     [SerializeField] private IntegerVariable adsCounterVariable;
     [SerializeField] private FloatVariable timeCounterInterAds;
     [SerializeField] private EventGetGameState eventGetGameState;
@@ -41,7 +40,7 @@ public class InterAdVariable : AdVariable
         return interVariable.IsReady() && indexLevelVariable.Value > remoteConfigLevelTurnOnInterstitial.Value &&
                adsCounterVariable.Value >= remoteConfigInterstitialCappingLevelVariable.Value &&
                timeCounterInterAds.Value >= remoteConfigInterstitialCappingTimeVariable.Value &&
-               !isOffInterAdsVariable.Value &&
+               debugOnOffInterAdsVariable.Value &&
                remoteConfigOnOffInterstitial.Value;
     }
 

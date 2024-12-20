@@ -1,7 +1,5 @@
 using UnityEngine;
 using VirtueSky.Ads;
-using VirtueSky.Core;
-using VirtueSky.Tracking;
 using VirtueSky.Inspector;
 using VirtueSky.Variables;
 
@@ -9,7 +7,7 @@ using VirtueSky.Variables;
 public class BannerAdVariable : AdVariable
 {
     [SerializeField] private AdUnitVariable bannerVariable;
-    [Space, SerializeField] private BooleanVariable isOffBannerVariable;
+    [Space, SerializeField] private BooleanVariable debugOnOffBannerVariable;
 
     [Space, HeaderLine("Firebase Remote Config"), SerializeField]
     private BooleanVariable remoteConfigOnOffBanner;
@@ -22,7 +20,7 @@ public class BannerAdVariable : AdVariable
 
     bool Condition()
     {
-        return bannerVariable.IsReady() && !isOffBannerVariable.Value && remoteConfigOnOffBanner.Value;
+        return bannerVariable.IsReady() && debugOnOffBannerVariable.Value && remoteConfigOnOffBanner.Value;
     }
 
     public void Show()

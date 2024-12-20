@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: 
   bannerVariable: {fileID: 11400000, guid: 418b5efd79ff44f5f837f5ca52f4d4fc, type: 2}
-  isOffBannerVariable: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183,
+  debugOnOffBannerVariable: {fileID: 11400000, guid: 218f455279fda5943a72e32c7920c183,
     type: 2}
   remoteConfigOnOffBanner: {fileID: 11400000, guid: 656bf5dbd6eb94f4c9cebcd2a196bd11,
-    type: 2}
-  trackingFirebaseShowBanner: {fileID: 11400000, guid: 365179b152680ac43a296e15c48c16f2,
-    type: 2}
-  trackingFirebaseHideBanner: {fileID: 11400000, guid: 1246316147a4da84bb6feb9e27ac21e9,
     type: 2}
