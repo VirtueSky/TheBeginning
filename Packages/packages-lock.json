@@ -10,23 +10,23 @@
       "hash": "d4b41e270eb56f7db0386b52d00df1fd239169a2"
     },
     "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.0.0",
+      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.0.1",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
       },
-      "hash": "53e6b41b9da8909ef6caa435dad523146621b5f0"
+      "hash": "3d23cbfcdb1f746ff059c271b135a9bead933a39"
     },
     "com.coffee.ui-particle": {
-      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.10.2",
+      "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.10.4",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ugui": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
-      "hash": "2b3cec69aceddbddf1c5307d28300c3328161ab4"
+      "hash": "847af6397eea6388150eded48ddb5c796adb44b8"
     },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10",
@@ -59,14 +59,14 @@
       "hash": "2b1cf90f0375e10c9c0909cc91c5b92d707f2ce3"
     },
     "com.matthewminer.consolation": {
-      "version": "https://github.com/wolf-package/consolation.git#1.4.2",
+      "version": "https://github.com/unity-package/consolation.git#1.4.2",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "cf87d85de5f5865487fddb2f24daebe570870c5a"
     },
     "com.tayx.graphy": {
-      "version": "https://github.com/wolf-org/graphy.git#3.0.6",
+      "version": "https://github.com/unity-package/graphy.git#3.0.6",
       "depth": 0,
       "source": "git",
       "dependencies": {},
@@ -344,7 +344,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#3.2.3",
+      "version": "https://github.com/VirtueSky/sunflower.git#3.2.4",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -353,7 +353,7 @@
         "com.unity.textmeshpro": "3.0.8",
         "com.unity.addressables": "1.21.21"
       },
-      "hash": "02ddb1652788ca80994d26734068881bed6103ec"
+      "hash": "93dda2cd00ae43d399228a8cde07011666643ff0"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
