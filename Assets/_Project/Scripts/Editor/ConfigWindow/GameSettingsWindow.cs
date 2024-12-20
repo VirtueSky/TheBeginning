@@ -26,7 +26,7 @@ public class GameSettingsWindow
     public static void Draw()
     {
         GUILayout.BeginVertical();
-        CPUtility.DrawHeader("Game Config");
+        CPUtility.DrawHeader("Game Settings");
         CPUtility.GuiLine();
         GUILayout.Space(10);
         scroll = EditorGUILayout.BeginScrollView(scroll);
