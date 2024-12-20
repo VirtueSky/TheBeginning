@@ -15,10 +15,6 @@ public class RewardAdVariable : AdVariable
     [Space, SerializeField] private BooleanVariable isOffRewardVariable;
     [SerializeField] private StringEvent showNotificationInGameEvent;
 
-    [Space, HeaderLine("Log Event Firebase Analytic"), SerializeField]
-    private TrackingFirebaseOneParam trackingFirebaseRequestReward;
-
-    [SerializeField] private TrackingFirebaseOneParam trackingFirebaseShowRewardCompleted;
     public AdUnitVariable AdUnitRewardVariable => rewardVariable;
 
     public override void Init()
@@ -35,15 +31,7 @@ public class RewardAdVariable : AdVariable
     {
         if (Condition())
         {
-            trackingFirebaseRequestReward.TrackEvent(trackingRewardPosition);
-            rewardVariable.Show().OnCompleted(() =>
-                {
-                    DelayHandle(() =>
-                    {
-                        completeCallback?.Invoke();
-                        trackingFirebaseShowRewardCompleted.TrackEvent(trackingRewardPosition);
-                    });
-                }).OnDisplayed(displayCallback)
+            rewardVariable.Show().OnCompleted(() => { DelayHandle(() => { completeCallback?.Invoke(); }); }).OnDisplayed(displayCallback)
                 .OnClosed(() => DelayHandle(closeCallback))
                 .OnSkipped(() => DelayHandle(skipCallback));
         }

@@ -14,10 +14,6 @@ public class BannerAdVariable : AdVariable
     [Space, HeaderLine("Firebase Remote Config"), SerializeField]
     private BooleanVariable remoteConfigOnOffBanner;
 
-    [Space, HeaderLine("Track Firebase Analytic"), SerializeField]
-    private TrackingFirebaseNoParam trackingFirebaseShowBanner;
-
-    [SerializeField] private TrackingFirebaseNoParam trackingFirebaseHideBanner;
     public AdUnitVariable AdUnitBannerVariable => bannerVariable;
 
     public override void Init()
@@ -34,14 +30,12 @@ public class BannerAdVariable : AdVariable
         if (Condition())
         {
             bannerVariable.Show();
-            trackingFirebaseShowBanner.TrackEvent();
         }
     }
 
     public void Hide()
     {
         bannerVariable.HideBanner();
-        trackingFirebaseHideBanner.TrackEvent();
     }
 
     public AdUnitVariable ShowNoCondition()

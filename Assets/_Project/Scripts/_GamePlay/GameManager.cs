@@ -7,7 +7,6 @@ using VirtueSky.Core;
 using VirtueSky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
-using VirtueSky.Tracking;
 using VirtueSky.Variables;
 
 namespace TheBeginning.Game
@@ -18,10 +17,6 @@ namespace TheBeginning.Game
         [HeaderLine(Constant.Normal_Attribute)] [ReadOnly] [SerializeField]
         private GameState gameState;
 
-        [SerializeField] private TrackingFirebaseOneParam trackingFirebaseStartLevel;
-        [SerializeField] private TrackingFirebaseOneParam trackingFirebaseReplayLevel;
-        [SerializeField] private TrackingFirebaseOneParam trackingFirebaseWinLevel;
-        [SerializeField] private TrackingFirebaseOneParam trackingFirebaseLoseLevel;
         [SerializeField] private Transform levelHolder;
 
         [HeaderLine(Constant.SO_Event)] [SerializeField]
@@ -30,11 +25,6 @@ namespace TheBeginning.Game
         [SerializeField] private EventLoadLevel eventLoadLevel;
         [SerializeField] private EventGetCurrentLevel eventGetCurrentLevel;
         [SerializeField] private EventGetPreviousLevel eventGetPreviousLevel;
-        [SerializeField] private EventLevel eventWinLevel;
-        [SerializeField] private EventLevel eventLoseLevel;
-        [SerializeField] private EventLevel eventStartLevel;
-        [SerializeField] private EventLevel eventSkipLevel;
-        [SerializeField] private EventLevel eventReplayLevel;
         [SerializeField] private EventNoParam callReturnHome;
         [SerializeField] private EventNoParam callReplayLevelEvent;
         [SerializeField] private EventNoParam callPlayCurrentLevelEvent;
@@ -46,6 +36,10 @@ namespace TheBeginning.Game
 
         [HeaderLine(Constant.SO_Variable)] [SerializeField]
         private IntegerVariable indexLevelVariable;
+
+        public static event Action<Level> OnStartLevelEvent;
+        public static event Action<Level> OnWinLevelEvent;
+        public static event Action<Level> OnLoseLevelEvent;
 
         public override void OnEnable()
         {
@@ -95,8 +89,6 @@ namespace TheBeginning.Game
 
         private void ReplayGame()
         {
-            eventReplayLevel.Raise(eventGetCurrentLevel.Raise());
-            trackingFirebaseReplayLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
             StartGame();
             PopupManager.Show<GameplayPopup>();
         }
@@ -116,7 +108,6 @@ namespace TheBeginning.Game
 
         private void NextLevel()
         {
-            eventSkipLevel.Raise(eventGetCurrentLevel.Raise());
             indexLevelVariable.Value++;
             var levelPrefab = eventLoadLevel.Raise();
             levelHolder.ClearTransform();
@@ -126,11 +117,10 @@ namespace TheBeginning.Game
         private void StartGame()
         {
             gameState = GameState.PlayingGame;
-            eventStartLevel.Raise(eventGetCurrentLevel.Raise());
+            OnStartLevelEvent?.Invoke(eventGetCurrentLevel.Raise());
             var currentLevelPrefab = eventGetCurrentLevel.Raise();
             levelHolder.ClearTransform();
             Instantiate(currentLevelPrefab, levelHolder, false);
-            trackingFirebaseStartLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
         }
 
         private void OnWinGame(float delayPopupShowTime = 2.5f)
@@ -139,8 +129,7 @@ namespace TheBeginning.Game
                 gameState == GameState.LoseGame ||
                 gameState == GameState.WinGame) return;
             gameState = GameState.WinGame;
-            eventWinLevel.Raise(eventGetCurrentLevel.Raise());
-            trackingFirebaseWinLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
+            OnWinLevelEvent?.Invoke(eventGetCurrentLevel.Raise());
             Tween.Delay(delayPopupShowTime, () =>
             {
                 indexLevelVariable.Value++;
@@ -156,8 +145,7 @@ namespace TheBeginning.Game
                 gameState == GameState.LoseGame ||
                 gameState == GameState.WinGame) return;
             gameState = GameState.LoseGame;
-            eventLoseLevel.Raise(eventGetCurrentLevel.Raise());
-            trackingFirebaseLoseLevel.TrackEvent(eventGetCurrentLevel.Raise().name);
+            OnLoseLevelEvent?.Invoke(eventGetCurrentLevel.Raise());
             Tween.Delay(delayPopupShowTime, () =>
             {
                 PopupManager.Show<LosePopup>();
