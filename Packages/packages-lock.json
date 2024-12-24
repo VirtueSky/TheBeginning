@@ -344,16 +344,17 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#3.2.4",
+      "version": "https://github.com/VirtueSky/sunflower.git#3.2.5",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.serialization": "3.1.1",
         "com.unity.collections": "2.1.4",
         "com.unity.textmeshpro": "3.0.8",
-        "com.unity.addressables": "1.21.21"
+        "com.unity.addressables": "1.21.21",
+        "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10"
       },
-      "hash": "93dda2cd00ae43d399228a8cde07011666643ff0"
+      "hash": "e3a08ba3cbd7a9480ac6c26923b2809cbdc43d42"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

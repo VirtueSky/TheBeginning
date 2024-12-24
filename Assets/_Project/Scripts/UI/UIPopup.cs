@@ -2,6 +2,7 @@ using PrimeTween;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using VirtueSky.Core;
 using VirtueSky.Inspector;
 using VirtueSky.Utils;
 using VirtueSky.Variables;
@@ -9,7 +10,7 @@ using VirtueSky.Variables;
 namespace TheBeginning.UI
 {
     [RequireComponent(typeof(Canvas), typeof(GraphicRaycaster), typeof(CanvasGroup))]
-    public class UIPopup : MonoBehaviour
+    public class UIPopup : BaseMono
     {
         [TitleColor(Constant.Environment, CustomColor.Violet, CustomColor.Lime)]
         public CanvasGroup canvasGroup;
