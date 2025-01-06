@@ -116,7 +116,7 @@ namespace TheBeginning.UI
             _currentTab = ELeaderboardTab.Weekly;
             buttonWeeklyRank.image.sprite = spriteCurrentTab;
             buttonAllTimeRank.image.sprite = spriteNormalTab;
-            InitTable(_weeklyData, weeklyTableId, _firstTimeEnterWeekly);
+            InitTableWeekly();
         }
 
         private void OnButtonAllTimeRankPressed()
@@ -124,7 +124,7 @@ namespace TheBeginning.UI
             _currentTab = ELeaderboardTab.AllTime;
             buttonWeeklyRank.image.sprite = spriteNormalTab;
             buttonAllTimeRank.image.sprite = spriteCurrentTab;
-            InitTable(_allTimeData, allTimeTableId, _firstTimeEnterWorld);
+            InitTableAllTime();
         }
 
         private void OnButtonPreviousPagePressed()
@@ -226,16 +226,20 @@ namespace TheBeginning.UI
                 gpgsGetNewServerCodeEvent.Raise();
                 await UniTask.WaitUntil(() => status.Value == StatusLogin.Successful);
             }
-            
-            if (AuthenticationService.Instance.SessionTokenExists)
+
+            if (!AuthenticationService.Instance.IsSignedIn)
             {
-                // signin cached
-                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+                if (AuthenticationService.Instance.SessionTokenExists)
+                {
+                    // signin cached
+                    await AuthenticationService.Instance.SignInAnonymouslyAsync();
+                }
+                else
+                {
+                    await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(serverCode.Value);
+                }
             }
-            else
-            {
-                await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(serverCode.Value);
-            }
+
 #endif
 
 #if UNITY_IOS && !UNITY_EDITOR
@@ -250,53 +254,83 @@ namespace TheBeginning.UI
                 showNotificationInGameEvent.Raise("Failed to login Apple");
             }
 
-            if (AuthenticationService.Instance.SessionTokenExists)
+            if (!AuthenticationService.Instance.IsSignedIn)
             {
-                // signin cached
-                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+                if (AuthenticationService.Instance.SessionTokenExists)
+                {
+                    // signin cached
+                    await AuthenticationService.Instance.SignInAnonymouslyAsync();
+                }
+                else
+                {
+                    await AuthenticationService.Instance.SignInWithAppleAsync(serverCode.Value);
+                }
             }
-            else
-            {
-                await AuthenticationService.Instance.SignInWithAppleAsync(serverCode.Value);
-            }
+
 #endif
-            InitTable(_allTimeData, allTimeTableId, _firstTimeEnterWorld);
+            InitTableAllTime();
         }
 
-        private async void InitTable(LeaderboardData leaderboardData, string tableId, bool firstTimeEnter)
+        private async void InitTableAllTime()
         {
             rootLeaderboard.SetActive(false);
             block.SetActive(true);
             LeaderboardEntry resultAdded;
-            if (firstTimeEnter)
+            if (_firstTimeEnterWorld)
             {
                 resultAdded =
-                    await LeaderboardsService.Instance.AddPlayerScoreAsync(tableId, currentLevel.Value);
+                    await LeaderboardsService.Instance.AddPlayerScoreAsync(allTimeTableId, currentLevel.Value);
             }
             else
             {
-                resultAdded = await LeaderboardsService.Instance.GetPlayerScoreAsync(tableId);
+                resultAdded = await LeaderboardsService.Instance.GetPlayerScoreAsync(allTimeTableId);
             }
 
-            leaderboardData.myRank = resultAdded.Rank;
+            _allTimeData.myRank = resultAdded.Rank;
             if (string.IsNullOrEmpty(AuthenticationService.Instance.PlayerName))
             {
                 await AuthenticationService.Instance.UpdatePlayerNameAsync(GetPlayerName());
-                await LoadNextData(leaderboardData, tableId);
+                await LoadNextData(_allTimeData, allTimeTableId);
                 block.SetActive(false);
-                Refresh(leaderboardData);
+                Refresh(_allTimeData);
             }
             else
             {
-                if (firstTimeEnter)
+                if (_firstTimeEnterWorld)
                 {
-                    firstTimeEnter = false;
-                    await LoadNextData(leaderboardData, tableId);
+                    _firstTimeEnterWorld = false;
+                    await LoadNextData(_allTimeData, allTimeTableId);
                 }
 
                 block.SetActive(false);
-                Refresh(leaderboardData);
+                Refresh(_allTimeData);
             }
+        }
+
+        private async void InitTableWeekly()
+        {
+            rootLeaderboard.SetActive(false);
+            block.SetActive(true);
+            LeaderboardEntry resultAdded;
+            if (_firstTimeEnterWeekly)
+            {
+                resultAdded =
+                    await LeaderboardsService.Instance.AddPlayerScoreAsync(weeklyTableId, currentLevel.Value);
+            }
+            else
+            {
+                resultAdded = await LeaderboardsService.Instance.GetPlayerScoreAsync(weeklyTableId);
+            }
+
+            _weeklyData.myRank = resultAdded.Rank;
+            if (_firstTimeEnterWeekly)
+            {
+                _firstTimeEnterWeekly = false;
+                await LoadNextData(_weeklyData, weeklyTableId);
+            }
+
+            block.SetActive(false);
+            Refresh(_weeklyData);
         }
 
 
