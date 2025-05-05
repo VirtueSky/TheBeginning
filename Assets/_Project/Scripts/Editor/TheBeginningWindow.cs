@@ -4,10 +4,12 @@ using TheBeginning.Config;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityToolbarExtender;
+using VirtueSky.DataStorage;
 using VirtueSky.Inspector;
 using VirtueSky.UtilsEditor;
 
-
+[InitializeOnLoad]
 public class TheBeginningWindow : EditorWindow
 {
     private Editor _editorGameConfig;
@@ -54,7 +56,6 @@ public class TheBeginningWindow : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-
     [MenuItem("The Beginning/Open Scene Service %F1", priority = 200)]
     public static void OpenServiceScene()
     {
@@ -67,6 +68,38 @@ public class TheBeginningWindow : EditorWindow
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAME_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
+    }
+
+    static TheBeginningWindow()
+    {
+        ToolbarExtender.LeftToolbarGUI.Add(() =>
+        {
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("Service Scene"))
+            {
+                OpenServiceScene();
+            }
+
+            if (GUILayout.Button("Game Scene"))
+            {
+                OpenGameScene();
+            }
+        });
+
+        ToolbarExtender.RightToolbarGUI.Add(() =>
+        {
+            if (GUILayout.Button("Game Config"))
+            {
+                OpenGameConfigWindow();
+            }
+
+            if (GUILayout.Button("Clear All Data"))
+            {
+                DataWindowEditor.ClearAllData();
+            }
+
+            GUILayout.FlexibleSpace();
+        });
     }
 }
 #endif
