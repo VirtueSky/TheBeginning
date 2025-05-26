@@ -10,13 +10,13 @@
       "hash": "d4b41e270eb56f7db0386b52d00df1fd239169a2"
     },
     "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.8.4",
+      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.8.6",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
       },
-      "hash": "3ff52e4735481da36428d361afe28b85eca96e2d"
+      "hash": "8a0e7d6b26fdd6eae7ade609495a11fa12cb543a"
     },
     "com.coffee.ui-particle": {
       "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.11.2",
@@ -110,7 +110,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.addressables": {
-      "version": "2.4.4",
+      "version": "2.4.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -120,7 +120,7 @@
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.unitywebrequest": "1.0.0",
-        "com.unity.scriptablebuildpipeline": "2.3.6",
+        "com.unity.scriptablebuildpipeline": "2.3.8",
         "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -280,7 +280,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.scriptablebuildpipeline": {
-      "version": "2.3.6",
+      "version": "2.3.8",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -389,7 +389,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#3.3.5",
+      "version": "https://github.com/VirtueSky/sunflower.git#3.3.6",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -399,7 +399,7 @@
         "com.unity.addressables": "1.21.21",
         "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10"
       },
-      "hash": "a89ec417c51aa12ba77a1ad380a8ee04bc64056f"
+      "hash": "eb6e199685e97bbeea0fe726156c4e038f9d03b4"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
