@@ -10,13 +10,13 @@
       "hash": "d4b41e270eb56f7db0386b52d00df1fd239169a2"
     },
     "com.coffee.ui-effect": {
-      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.8.6",
+      "version": "https://github.com/mob-sakai/UIEffect.git?path=Packages/src#5.9.6",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
       },
-      "hash": "8a0e7d6b26fdd6eae7ade609495a11fa12cb543a"
+      "hash": "6f90044ec83adbd66475a6d2b5baa38e85678809"
     },
     "com.coffee.ui-particle": {
       "version": "https://github.com/mob-sakai/ParticleEffectForUGUI.git#4.11.2",
