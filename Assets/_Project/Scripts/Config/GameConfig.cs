@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 using VirtueSky.Inspector;
 
 namespace TheBeginning.Config
@@ -7,29 +6,54 @@ namespace TheBeginning.Config
     [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/GameConfig")]
     public class GameConfig : ScriptableObject
     {
-        [Space, HeaderLine("Level config")] public int maxLevel = 2;
-        public int startLoopLevel;
+        #region Field
 
-        [Space, HeaderLine("Gameplay config")] public bool enableDebugView = true;
+        [Space, HeaderLine("Level config")] [SerializeField]
+        private int maxLevel = 2;
 
-        public TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
-        public bool multiTouchEnabled;
-        public int winLevelMoney = 100;
-        public int percentWinGiftPerLevel = 10;
+        [SerializeField] private int startLoopLevel = 1;
 
-        [Space, HeaderLine("Notification In Game")]
-        public bool enableNotificationInGame = true;
+        [Space, HeaderLine("Gameplay config")] [SerializeField]
+        private bool enableDebugView = true;
 
-        public float timeDelayHideNotificationInGame = 1.0f;
+        [SerializeField] private TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
+        [SerializeField] private bool multiTouchEnabled;
+        [SerializeField] private int winLevelMoney = 100;
+        [SerializeField] private int percentWinGiftPerLevel = 10;
 
-        [Space, HeaderLine("Require Internet")]
-        public bool enableRequireInternet = false;
+        [Space, HeaderLine("Notification In Game")] [SerializeField]
+        private bool enableNotificationInGame = true;
 
-        public float timeDelayCheckInternet = 5;
-        public float timeLoopCheckInternet = .5f;
+        [SerializeField] private float timeDelayHideNotificationInGame = 1.0f;
 
-        [Space, HeaderLine("Show Popup Update")]
-        public bool enableShowPopupUpdate = false;
+        [Space, HeaderLine("Require Internet")] [SerializeField]
+        private bool enableRequireInternet = false;
+
+        [SerializeField] private float timeDelayCheckInternet = 5;
+        [SerializeField] private float timeLoopCheckInternet = .5f;
+
+        [Space, HeaderLine("Show Popup Update")] [SerializeField]
+        private bool enableShowPopupUpdate = false;
+
+        #endregion
+
+        #region Properties
+
+        public int MaxLevel => maxLevel;
+        public int StartLoopLevel => startLoopLevel;
+        public bool EnableDebugView => enableDebugView;
+        public TargetFrameRate TargetFrameRate => targetFrameRate;
+        public bool MultiTouchEnabled => multiTouchEnabled;
+        public int WinLevelMoney => winLevelMoney;
+        public int PercentWinGiftPerLevel => percentWinGiftPerLevel;
+        public bool EnableNotificationInGame => enableNotificationInGame;
+        public float TimeDelayHideNotificationInGame => timeDelayHideNotificationInGame;
+        public bool EnableRequireInternet => enableRequireInternet;
+        public float TimeDelayCheckInternet => timeDelayCheckInternet;
+        public float TimeLoopCheckInternet => timeLoopCheckInternet;
+        public bool EnableShowPopupUpdate => enableShowPopupUpdate;
+
+        #endregion
     }
 
 

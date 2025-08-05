@@ -20,7 +20,7 @@ namespace TheBeginning.Services
 
         private void Awake()
         {
-            if (gameConfig.enableNotificationInGame)
+            if (gameConfig.EnableNotificationInGame)
             {
                 showNotificationInGameEvent.AddListener(Show);
             }
@@ -28,7 +28,7 @@ namespace TheBeginning.Services
 
         private void OnDestroy()
         {
-            if (gameConfig.enableNotificationInGame)
+            if (gameConfig.EnableNotificationInGame)
             {
                 showNotificationInGameEvent.RemoveListener(Show);
             }
@@ -43,7 +43,7 @@ namespace TheBeginning.Services
             textNoti.text = _textNoti;
             Tween.UIAnchoredPositionY(container, posYShow, timeMove, Ease.OutBack).OnComplete(() =>
             {
-                App.Delay(gameConfig.timeDelayHideNotificationInGame, () => { Hide(); });
+                App.Delay(gameConfig.TimeDelayHideNotificationInGame, () => { Hide(); });
             });
         }
 

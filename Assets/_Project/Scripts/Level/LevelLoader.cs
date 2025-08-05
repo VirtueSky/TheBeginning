@@ -56,14 +56,14 @@ namespace TheBeginning.LevelSystem
 
         int HandleIndexLevel(int indexLevel)
         {
-            if (indexLevel > gameConfig.maxLevel)
+            if (indexLevel > gameConfig.MaxLevel)
             {
-                return (indexLevel - gameConfig.startLoopLevel) %
-                       (gameConfig.maxLevel - gameConfig.startLoopLevel + 1) +
-                       gameConfig.startLoopLevel;
+                return (indexLevel - gameConfig.StartLoopLevel) %
+                       (gameConfig.MaxLevel - gameConfig.StartLoopLevel + 1) +
+                       gameConfig.StartLoopLevel;
             }
 
-            if (indexLevel > 0 && indexLevel <= gameConfig.maxLevel)
+            if (indexLevel > 0 && indexLevel <= gameConfig.MaxLevel)
             {
                 //return (indexLevel - 1) % gameConfig.maxLevel + 1;
                 return indexLevel;
@@ -71,7 +71,7 @@ namespace TheBeginning.LevelSystem
 
             if (indexLevel == 0)
             {
-                return gameConfig.maxLevel;
+                return gameConfig.MaxLevel;
             }
 
             return 1;

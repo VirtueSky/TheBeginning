@@ -37,7 +37,7 @@ namespace TheBeginning.UI
         private float percent = 0;
         private bool waitMoveAllCoinDone;
 
-        public int MoneyWin => gameConfig.winLevelMoney;
+        public int MoneyWin => gameConfig.WinLevelMoney;
 
 
         public float Percent
@@ -69,7 +69,7 @@ namespace TheBeginning.UI
         private void SetupProgressBar()
         {
             ProcessBar.fillAmount = (float)UserData.PercentWinGift / 100;
-            UserData.PercentWinGift += gameConfig.percentWinGiftPerLevel;
+            UserData.PercentWinGift += gameConfig.PercentWinGiftPerLevel;
             Percent = (float)UserData.PercentWinGift;
             if (UserData.PercentWinGift == 100)
             {
