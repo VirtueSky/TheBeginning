@@ -4773,6 +4773,7 @@ MonoBehaviour:
   authorizationCodeVariable: {fileID: 11400000, guid: 16a67aaadef95fb478d486ddeea5c5f1,
     type: 2}
   userIdVariable: {fileID: 11400000, guid: 10c1da772bb482246a3402bf222d1281, type: 2}
+  tryLoginEvent: {fileID: 11400000, guid: 03c209f5485ba49919641bc646cc2927, type: 2}
 --- !u!114 &1448091027
 MonoBehaviour:
   m_ObjectHideFlags: 0
