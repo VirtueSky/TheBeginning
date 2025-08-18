@@ -389,7 +389,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#3.4.3",
+      "version": "https://github.com/VirtueSky/sunflower.git#3.4.4",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -399,7 +399,7 @@
         "com.unity.addressables": "1.21.21",
         "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10"
       },
-      "hash": "589eceb7ab1c29e7cb30982aba5c1425362bd531"
+      "hash": "7b0f2d9581482b53fa8afba97180e7abfde8b68e"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
