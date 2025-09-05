@@ -18,6 +18,7 @@ namespace TheBeginning.Services
         public override void Initialization()
         {
             RequestTracking();
+            GetInfo();
         }
 
         private void RequestTracking()
@@ -53,6 +54,33 @@ namespace TheBeginning.Services
         {
             await UniTask.WaitUntil(() => firebaseDependencyAvailable.Value);
             AppTracking.FirebaseAnalyticTrackATTResult(status);
+        }
+
+        void GetInfo()
+        {
+            string deviceId = SystemInfo.deviceUniqueIdentifier;
+            Debug.Log($"DeviceID: {deviceId}");
+            Application.RequestAdvertisingIdentifierAsync((string advertisingId, bool trackingEnable, string error) =>
+            {
+                if (!string.IsNullOrEmpty(advertisingId))
+                {
+                    Debug.Log($"AdvertisingId: {advertisingId}");
+                }
+                else
+                {
+                    Debug.Log("Failed to get AdvertisingId");
+                }
+
+                if (!trackingEnable)
+                {
+                    Debug.Log("User has limited ad tracking");
+                }
+
+                if (!string.IsNullOrEmpty(error))
+                {
+                    Debug.Log($"Error when get AdvertisingId: {error}");
+                }
+            });
         }
     }
 }
