@@ -49,6 +49,7 @@ public class RewardAdVariable : AdVariable
         }
         else
         {
+            completeCallback?.Invoke();
             showNotificationInGameEvent.Raise("Reward ads not ready");
         }
     }
