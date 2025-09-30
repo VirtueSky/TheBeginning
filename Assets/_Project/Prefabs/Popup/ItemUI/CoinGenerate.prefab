@@ -52,13 +52,18 @@ MonoBehaviour:
     type: 3}
   holder: {fileID: 2063518118511579042}
   numberCoin: 20
-  delay: 20
+  delayNear: 0.3
+  delayTarget: 0.5
   durationNear: 0.5
-  durationTarget: 0.5
+  durationTarget: 0.8
   easeNear: 12
-  easeTarget: 21
-  scale: 0.6
+  easeTarget: 6
+  scale: 0.5
   offsetNear: 1.5
+  arcHeight: 1.5
+  midBoost: 1.5
+  sideJitter: 1
+  rotateAlong: 0
   setFromCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
   addTargetToCoinGenerateEvent: {fileID: 11400000, guid: 5536e1a745f504c7eb6f4f7b40ac0329,
     type: 2}

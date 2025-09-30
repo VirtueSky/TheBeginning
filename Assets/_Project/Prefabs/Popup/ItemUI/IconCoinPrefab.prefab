@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ignoreTimeScale: 0
-  speed: 10
+  speed: 5
   rotateX: 0
   rotateY: 1
   rotateZ: 0
