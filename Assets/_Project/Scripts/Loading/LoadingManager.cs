@@ -1,6 +1,8 @@
 using Cysharp.Threading.Tasks;
 using PrimeTween;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Core;
@@ -20,6 +22,7 @@ namespace TheBeginning.SceneFlow
         [SerializeField] private BooleanVariable isFetchRemoteConfigCompleted;
         [SerializeField] private StringEvent showNotificationInGameEvent;
         private Rect rect = new Rect(0, 0, 1, 1);
+        private bool _isInit;
 
         private void Start()
         {
@@ -28,12 +31,22 @@ namespace TheBeginning.SceneFlow
                 .OnUpdate(progressBar,
                     (image, tween) =>
                     {
+                        if (progressBar.fillAmount >= 0.2f && !_isInit)
+                        {
+                            _isInit = true;
+                            Init();
+                        }
                         localeTextComponent.UpdateArgs($"{(int)(progressBar.fillAmount * 100)}");
                         rect.x -= Time.deltaTime * 0.1f;
                         rect.y -= Time.deltaTime * 0.1f;
                         rawImage.uvRect = rect;
                     })
                 .OnComplete(Done);
+        }
+
+        async void  Init()
+        {
+            await Addressables.LoadSceneAsync(Constant.SERVICE_SCENE,LoadSceneMode.Additive);
         }
 
         private async void Done()
@@ -44,7 +57,7 @@ namespace TheBeginning.SceneFlow
             }
 
             App.Delay(1.0f, () => { showNotificationInGameEvent.Raise("Welcome TheBeginning"); });
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
