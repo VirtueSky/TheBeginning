@@ -80,7 +80,7 @@
       "hash": "f0375daf7cfa8dee28dbf07d0c7d00737ed7975e"
     },
     "com.unity.2d.common": {
-      "version": "9.0.7",
+      "version": "9.1.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -110,7 +110,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.addressables": {
-      "version": "2.4.6",
+      "version": "2.7.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -120,7 +120,7 @@
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.imageconversion": "1.0.0",
         "com.unity.modules.unitywebrequest": "1.0.0",
-        "com.unity.scriptablebuildpipeline": "2.3.8",
+        "com.unity.scriptablebuildpipeline": "2.4.1",
         "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -152,7 +152,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
-      "version": "1.8.19",
+      "version": "1.8.24",
       "depth": 2,
       "source": "registry",
       "dependencies": {
@@ -162,7 +162,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "2.7.1",
+      "version": "2.9.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -203,7 +203,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.13.1",
+      "version": "1.14.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -263,8 +263,21 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.purchasing": {
+      "version": "5.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.services.core": "1.14.0",
+        "com.unity.modules.androidjni": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.scriptablebuildpipeline": {
-      "version": "2.3.8",
+      "version": "2.4.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -284,7 +297,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.authentication": {
-      "version": "3.4.0",
+      "version": "3.4.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -317,7 +330,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.sharp-zip-lib": {
-      "version": "1.3.9",
+      "version": "1.4.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -334,11 +347,11 @@
       }
     },
     "com.unity.test-framework.performance": {
-      "version": "3.0.3",
+      "version": "3.1.0",
       "depth": 2,
       "source": "registry",
       "dependencies": {
-        "com.unity.test-framework": "1.1.31",
+        "com.unity.test-framework": "1.1.33",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
@@ -373,7 +386,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#3.4.8",
+      "version": "https://github.com/VirtueSky/sunflower.git#3.4.9",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -383,7 +396,7 @@
         "com.unity.addressables": "1.21.21",
         "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10"
       },
-      "hash": "72f606872e56e0d13c116d5fa8ed2e70c84d1a50"
+      "hash": "4878b5f3b89bcdc6502e305487434d31f534b1a3"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
