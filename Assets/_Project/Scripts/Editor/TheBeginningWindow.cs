@@ -56,17 +56,30 @@ public class TheBeginningWindow : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
-    [MenuItem("The Beginning/Open Scene Service %F1", priority = 200)]
+    [MenuItem("The Beginning/Open Scene/ Launcher %F1", priority = 200)]
+    public static void OpenLauncherScene()
+    {
+        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.LAUNCHER_SCENE}.unity");
+        Debug.Log($"<color=Green>Change scene succeed</color>");
+    }
+    
+    [MenuItem("The Beginning/Open Scene/ Service %F2", priority = 201)]
     public static void OpenServiceScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.SERVICE_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
-    [MenuItem("The Beginning/Open Scene Game %F2", priority = 201)]
+    [MenuItem("The Beginning/Open Scene/ Game %F3", priority = 202)]
     public static void OpenGameScene()
     {
         EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.GAME_SCENE}.unity");
+        Debug.Log($"<color=Green>Change scene succeed</color>");
+    }
+    [MenuItem("The Beginning/Open Scene/ Entry %F4", priority = 203)]
+    public static void OpenEntryScene()
+    {
+        EditorSceneManager.OpenScene($"Assets/_Project/Scenes/{Constant.ENTRY_SCENE}.unity");
         Debug.Log($"<color=Green>Change scene succeed</color>");
     }
 
@@ -75,6 +88,10 @@ public class TheBeginningWindow : EditorWindow
         ToolbarExtender.LeftToolbarGUI.Add(() =>
         {
             GUILayout.FlexibleSpace();
+            if (GUILayout.Button("Launcher Scene"))
+            {
+                OpenLauncherScene();
+            }
             if (GUILayout.Button("Service Scene"))
             {
                 OpenServiceScene();

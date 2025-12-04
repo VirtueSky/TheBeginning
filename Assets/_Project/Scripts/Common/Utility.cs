@@ -11,9 +11,6 @@ namespace TheBeginning
 {
     public static class Utility
     {
-        public static Dictionary<string, AsyncOperationHandle<SceneInstance>> sceneHolder =
-            new Dictionary<string, AsyncOperationHandle<SceneInstance>>();
-
         public static readonly HttpClient Client = new HttpClient();
 
         public static async UniTask<string> TranslateAsync(string text, string targetLanguage,

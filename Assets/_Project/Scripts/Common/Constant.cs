@@ -14,6 +14,8 @@ public class Constant
     // Scene
     public const string GAME_SCENE = "Game";
     public const string SERVICE_SCENE = "Service";
+    public const string LAUNCHER_SCENE = "Launcher";
+    public const string ENTRY_SCENE = "Entry";
 
 
     // Game Data

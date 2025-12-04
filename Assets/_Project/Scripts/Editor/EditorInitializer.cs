@@ -6,8 +6,8 @@ using UnityEditor.SceneManagement;
 public static class EditorInitializer
 {
     private const string enableAutoSwitchKey = "EditorInitializer_Enable";
-    private const string menuPath = "The Beginning/Auto Switch Service Scene";
-    private const string serviceScenePath = "Assets/_Project/Scenes/Service.unity";
+    private const string menuPath = "The Beginning/Auto Switch Launcher Scene";
+    private const string launcherScenePath = "Assets/_Project/Scenes/Launcher.unity";
     private const string saveSceneKey = "SaveSceneKey";
 
     static EditorInitializer()
@@ -40,13 +40,13 @@ public static class EditorInitializer
         {
             case PlayModeStateChange.ExitingEditMode:
                 var activeScenePath = EditorSceneManager.GetActiveScene().path;
-                if (!activeScenePath.Equals(serviceScenePath))
+                if (!activeScenePath.Equals(launcherScenePath))
                 {
                     EditorPrefs.SetString(saveSceneKey, activeScenePath);
                     EditorApplication.isPlaying = false;
                     EditorApplication.delayCall += () =>
                     {
-                        EditorSceneManager.OpenScene(serviceScenePath);
+                        EditorSceneManager.OpenScene(launcherScenePath);
                         EditorApplication.isPlaying = true;
                     };
                 }

@@ -86,6 +86,7 @@ PlayerSettings:
   muteOtherAudioSources: 0
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
+  audioSpatialExperience: 0
   deferSystemGesturesMode: 0
   hideHomeButton: 0
   submitAnalytics: 1
@@ -274,6 +275,9 @@ PlayerSettings:
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
+  androidAppCategory: 3
+  useAndroidAppCategory: 1
+  androidAppCategoryOther: 
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
@@ -566,6 +570,7 @@ PlayerSettings:
     iPhone: 1
     tvOS: 1
   m_BuildTargetGroupLightmapEncodingQuality: []
+  m_BuildTargetGroupHDRCubemapEncodingQuality: []
   m_BuildTargetGroupLightmapSettings: []
   m_BuildTargetGroupLoadStoreDebugModeSettings: []
   m_BuildTargetNormalMapEncoding: []
@@ -839,7 +844,7 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: PRIME_TWEEN_DOTWEEN_ADAPTER;UNITASK_ADDRESSABLE_SUPPORT;VIRTUESKY_SKELETON;VIRTUESKY_NOTIFICATION;UDS_USE_ASYNC_METHODS;VIRTUESKY_UNITY_SERVICES
+    Android: PRIME_TWEEN_DOTWEEN_ADAPTER;UNITASK_ADDRESSABLE_SUPPORT;VIRTUESKY_SKELETON;VIRTUESKY_NOTIFICATION;UDS_USE_ASYNC_METHODS;VIRTUESKY_UNITY_SERVICES;PRIME_TWEEN_SAFETY_CHECKS
     CloudRendering: ENABLE_PLAYFABADMIN_API;ENABLE_PLAYFABSERVER_API;PANCAKE_MAX_ENABLE;PANCAKE_MULTIPLE_DEX;PANCAKE_ADS;PANCAKE_NOTIFICATION;PANCAKE_PLAYFAB
     EmbeddedLinux: ENABLE_PLAYFABADMIN_API;ENABLE_PLAYFABSERVER_API;PANCAKE_MAX_ENABLE;PANCAKE_MULTIPLE_DEX;PANCAKE_ADS;PANCAKE_NOTIFICATION;PANCAKE_PLAYFAB;PANCAKE_ADVERTISING
     GameCoreScarlett: ENABLE_PLAYFABADMIN_API;ENABLE_PLAYFABSERVER_API;PANCAKE_MAX_ENABLE;PANCAKE_MULTIPLE_DEX;PANCAKE_ADS;PANCAKE_NOTIFICATION;PANCAKE_PLAYFAB;PANCAKE_ADVERTISING
