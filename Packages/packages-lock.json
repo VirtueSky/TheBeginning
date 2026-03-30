@@ -58,6 +58,13 @@
       "dependencies": {},
       "hash": "2b1cf90f0375e10c9c0909cc91c5b92d707f2ce3"
     },
+    "com.kyrylokuzyk.primetween": {
+      "version": "1.3.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
     "com.marijnzwemmer.unity-toolbar-extender": {
       "version": "https://github.com/marijnz/unity-toolbar-extender.git",
       "depth": 0,
@@ -152,7 +159,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.burst": {
-      "version": "1.8.25",
+      "version": "1.8.24",
       "depth": 2,
       "source": "registry",
       "dependencies": {
@@ -337,7 +344,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
-      "version": "1.6.0",
+      "version": "1.5.1",
       "depth": 0,
       "source": "builtin",
       "dependencies": {
@@ -347,7 +354,7 @@
       }
     },
     "com.unity.test-framework.performance": {
-      "version": "3.2.0",
+      "version": "3.1.0",
       "depth": 2,
       "source": "registry",
       "dependencies": {
@@ -386,7 +393,7 @@
       }
     },
     "com.virtuesky.sunflower": {
-      "version": "https://github.com/VirtueSky/sunflower.git#3.5.0",
+      "version": "https://github.com/VirtueSky/sunflower.git#3.5.3",
       "depth": 0,
       "source": "git",
       "dependencies": {
@@ -396,7 +403,7 @@
         "com.unity.addressables": "1.21.21",
         "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask#2.5.10"
       },
-      "hash": "eb8d526adbab356cc2e481890e0a0fb5a74c27df"
+      "hash": "adb146e4ba3ab06267f819ff9d3b02bdca666772"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
