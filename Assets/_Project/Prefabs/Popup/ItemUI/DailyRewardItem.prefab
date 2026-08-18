@@ -824,6 +824,7 @@ MonoBehaviour:
   iconLock: {fileID: 6635031094650380721}
   iconItem: {fileID: 4765810111079921948}
   dailyRewardConfig: {fileID: 11400000, guid: 8595dbcfcc8e4d24b85c87242a5d3778, type: 2}
+  coinCurrency: {fileID: 11400000, guid: d51f77007672438fb559d41a3b76b730, type: 2}
 --- !u!1 &7977002042426809001
 GameObject:
   m_ObjectHideFlags: 0

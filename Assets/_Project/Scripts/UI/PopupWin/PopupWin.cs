@@ -1,6 +1,6 @@
 using System.Reflection;
+using TheBeginning.Currency;
 using Cysharp.Threading.Tasks;
-using PrimeTween;
 using TheBeginning.Config;
 using TheBeginning.Data;
 using TMPro;
@@ -9,6 +9,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
 using VirtueSky.Events;
+using VirtueSky.Tweening;
 using VirtueSky.Variables;
 
 namespace TheBeginning.UI
@@ -32,50 +33,16 @@ namespace TheBeginning.UI
         [SerializeField] private EventNoParam moveAllCoinDone;
 
         [HeaderLine(Constant.SO_Variable)] [SerializeField]
+        [FormerlySerializedAs("rewardVariable")]
         private RewardAdVariable rewardAdVariable;
+
+        [SerializeField] private CurrencyVariable coinCurrency;
 
         private float percent = 0;
         private bool waitMoveAllCoinDone;
 
         public int MoneyWin => gameConfig.WinLevelMoney;
 
-
-        public float Percent
-        {
-            get => percent;
-            set
-            {
-                value = Mathf.Clamp(value, 0, 100);
-                percent = value;
-                ProcessBar.DOFillAmount(percent / 100, .5f).OnUpdate(ProcessBar,
-                        (image, tween) => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100 + 0.1f) + "%"); })
-                    .OnComplete(() =>
-                    {
-                        if (percent >= 100)
-                        {
-                            ReceiveGift();
-                        }
-                    });
-            }
-        }
-
-        public void ClearProgress()
-        {
-            ProcessBar.DOFillAmount(0, 1f)
-                .OnUpdate(ProcessBar,
-                    (image, tween) => { TextPercentGift.text = ((int)(ProcessBar.fillAmount * 100)) + "%"; });
-        }
-
-        private void SetupProgressBar()
-        {
-            ProcessBar.fillAmount = (float)UserData.PercentWinGift / 100;
-            UserData.PercentWinGift += gameConfig.PercentWinGiftPerLevel;
-            Percent = (float)UserData.PercentWinGift;
-            if (UserData.PercentWinGift == 100)
-            {
-                UserData.PercentWinGift = 0;
-            }
-        }
 
         public void SetupMoneyWin(int bonusMoney)
         {
@@ -88,7 +55,6 @@ namespace TheBeginning.UI
             waitMoveAllCoinDone = false;
             moveAllCoinDone.AddListener(OnMoveAllCoinDone);
             Setup();
-            SetupProgressBar();
             Tween.Delay(2f, () => { BtnTapToContinue.SetActive(true); });
         }
 
@@ -117,7 +83,7 @@ namespace TheBeginning.UI
 
         public async void GetRewardAds()
         {
-            CoinSystem.AddCoin(MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus,
+            coinCurrency.Add(MoneyWin * BonusArrowHandler.CurrentAreaItem.MultiBonus,
                 BtnRewardAds.transform.position);
             BonusArrowHandler.MoveObject.StopMoving();
             BtnRewardAds.SetActive(false);
@@ -129,7 +95,7 @@ namespace TheBeginning.UI
 
         public async void OnClickContinue()
         {
-            CoinSystem.AddCoin(MoneyWin, BtnTapToContinue.transform.position);
+            coinCurrency.Add(MoneyWin, BtnTapToContinue.transform.position);
             BtnRewardAds.SetActive(false);
             BtnTapToContinue.SetActive(false);
             await UniTask.WaitUntil(() => waitMoveAllCoinDone);

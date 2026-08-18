@@ -45,34 +45,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 7076369547058991130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ceb034d373ad4c43a89725401e504c5, type: 3}
+  m_Script: {fileID: 11500000, guid: adb5ac8f41f3f41f495a08800bbd59f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 6793577256207356087, guid: c16f53179d9a79242b8f3649594b682b,
     type: 3}
+  coinCollectSound: {fileID: 11400000, guid: 725e2d43de9f05f438f1701a53390ca1, type: 2}
+  coinSpawnSound: {fileID: 0}
+  currency: {fileID: 11400000, guid: d51f77007672438fb559d41a3b76b730, type: 2}
+  addTargetEvent: {fileID: 11400000, guid: 5536e1a745f504c7eb6f4f7b40ac0329, type: 2}
+  removeTargetEvent: {fileID: 11400000, guid: 8008196536e554abbb7d1ab3f83aab56, type: 2}
+  moveOneCurrencyDoneEvent: {fileID: 11400000, guid: 941474e3dc9ef89499f1c226fb6952e1, type: 2}
+  moveAllCurrencyDoneEvent: {fileID: 11400000, guid: b82c7998cf398094dba18b8bf2d7b029, type: 2}
   holder: {fileID: 2063518118511579042}
-  numberCoin: 20
-  delayNear: 0.3
-  delayTarget: 0.5
   durationNear: 0.5
   durationTarget: 0.8
   easeNear: 12
   easeTarget: 6
   scale: 0.5
   offsetNear: 1.5
-  arcHeight: 1.5
-  midBoost: 1.5
-  sideJitter: 1
-  rotateAlong: 0
-  setFromCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
-  addTargetToCoinGenerateEvent: {fileID: 11400000, guid: 5536e1a745f504c7eb6f4f7b40ac0329,
-    type: 2}
-  removeTargetToCoinGenerateEvent: {fileID: 11400000, guid: 8008196536e554abbb7d1ab3f83aab56,
-    type: 2}
-  moveOneCoinDone: {fileID: 11400000, guid: 941474e3dc9ef89499f1c226fb6952e1, type: 2}
-  moveAllCoinDone: {fileID: 11400000, guid: b82c7998cf398094dba18b8bf2d7b029, type: 2}
-  decreaseCoinEvent: {fileID: 11400000, guid: 0b4384f237bdfa34cb719450451e4501, type: 2}
-  addCoinEvent: {fileID: 11400000, guid: cee9c22ce7323684fafca93ee6cc6759, type: 2}
-  minusCoinEvent: {fileID: 11400000, guid: e4f465a36dfffb64e86a8b0d62e96662, type: 2}
-  playSoundFx: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}
-  soundCoinMove: {fileID: 11400000, guid: 725e2d43de9f05f438f1701a53390ca1, type: 2}
+  spawnCount: 20
+  randomDelayMilliseconds: 100
+  playSfxEvent: {fileID: 11400000, guid: f8b47f732f214a74ea2758c176b166be, type: 2}

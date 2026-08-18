@@ -1,4 +1,5 @@
 using System;
+using TheBeginning.Currency;
 using TheBeginning.Config;
 using TheBeginning.Data;
 using TMPro;
@@ -26,6 +27,7 @@ namespace TheBeginning.UI
         public Image iconLock;
         public Image iconItem;
         [SerializeField] private DailyRewardConfig dailyRewardConfig;
+        [SerializeField] private CurrencyVariable coinCurrency;
 
         //[SerializeField] private EventNoParam claimRewardEvent;
         private int coinValue;
@@ -133,7 +135,7 @@ namespace TheBeginning.UI
             switch (dailyRewardData.dailyRewardType)
             {
                 case DailyRewardType.Coin:
-                    CoinSystem.AddCoin(coinValue * (isClaimX5 ? 5 : 1), gameObject.transform.position);
+                    coinCurrency.Add(coinValue * (isClaimX5 ? 5 : 1), transform.position);
                     break;
                 case DailyRewardType.Skin:
 

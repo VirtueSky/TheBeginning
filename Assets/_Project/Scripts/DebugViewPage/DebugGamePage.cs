@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Threading.Tasks;
+using TheBeginning.Currency;
 using TheBeginning.Config;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
@@ -17,12 +18,13 @@ namespace TheBeginning.DebugViewPage
         private Sprite iconToggle;
         private Sprite iconCoinDebug;
         private Sprite iconOutfitDebug;
+        private CurrencyVariable coinCurrency;
         private string targetCoin = "";
         protected override string Title => "Game Debug";
 
         public void Init(ItemConfig _itemConfig, BooleanVariable _isOffUi,
             BooleanVariable _isTesting, Sprite _iconInput, Sprite _iconOk, Sprite _iconToggle, Sprite _iconCoinDebug,
-            Sprite _iconOutfitDebug)
+            Sprite _iconOutfitDebug, CurrencyVariable _coinCurrency)
         {
             itemConfig = _itemConfig;
             isOffUIVariable = _isOffUi;
@@ -32,6 +34,7 @@ namespace TheBeginning.DebugViewPage
             iconToggle = _iconToggle;
             iconCoinDebug = _iconCoinDebug;
             iconOutfitDebug = _iconOutfitDebug;
+            coinCurrency = _coinCurrency;
         }
 
 
@@ -50,11 +53,11 @@ namespace TheBeginning.DebugViewPage
 #endif
         void OnInitialize()
         {
-            AddButton("Add 10000 Coin", icon: iconCoinDebug, clicked: () => CoinSystem.AddCoin(10000));
+            AddButton("Add 10000 Coin", icon: iconCoinDebug, clicked: () => coinCurrency.Add(10000));
             AddInputField("Input Coin:", valueChanged: s => targetCoin = s, icon: iconInput);
             AddButton("Enter Input Coin", clicked: () =>
                 {
-                    if (targetCoin != "") CoinSystem.SetCoin(int.Parse(targetCoin));
+                    if (targetCoin != "") coinCurrency.Set(int.Parse(targetCoin));
                 },
                 icon: iconOk);
             AddButton("Unlock All Skin", icon: iconOutfitDebug, clicked: () => itemConfig.UnlockAllSkins());

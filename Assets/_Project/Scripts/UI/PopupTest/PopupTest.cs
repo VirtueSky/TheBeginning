@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TheBeginning.Currency;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -16,6 +17,7 @@ namespace TheBeginning.UI
         [Header("Unit variables")] public AdUnitVariable banner;
         public AdUnitVariable inter;
         public AdUnitVariable reward;
+        [SerializeField] private CurrencyVariable coinCurrency;
 
         public void ShowBanner()
         {
@@ -43,7 +45,7 @@ namespace TheBeginning.UI
             // });
             reward.Show().OnCompleted(() =>
             {
-                CoinSystem.AddCoin(100);
+                coinCurrency.Add(100);
                 LogMessage("Reward Completed");
             }).OnSkipped(() => { LogMessage("Skip reward"); });
         }

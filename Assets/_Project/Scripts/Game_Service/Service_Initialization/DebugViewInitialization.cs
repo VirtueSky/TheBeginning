@@ -1,4 +1,5 @@
 using Consolation;
+using TheBeginning.Currency;
 using TheBeginning.Config;
 using TheBeginning.DebugViewPage;
 using UnityDebugSheet.Runtime.Core.Scripts;
@@ -38,6 +39,7 @@ namespace TheBeginning.Services
         [SerializeField] private Sprite iconConsoleLog;
         [SerializeField] private Sprite iconSlider;
         [HeaderLine("Tool")] [SerializeField] private ItemConfig itemConfig;
+        [SerializeField] private CurrencyVariable coinCurrency;
         [SerializeField] private BooleanVariable isOffUiVariable;
         [SerializeField] private BooleanVariable isTestingVariable;
         [HeaderLine("Ads"), SerializeField] private InterAdVariable interAdVariable;
@@ -73,7 +75,7 @@ namespace TheBeginning.Services
                 onLoad: debugView =>
                 {
                     debugView.page.Init(itemConfig, isOffUiVariable, isTestingVariable, iconInput, iconOke,
-                        iconToggle, iconCoinDebug, iconOutfitDebug);
+                        iconToggle, iconCoinDebug, iconOutfitDebug, coinCurrency);
                 });
 
             // add ads page

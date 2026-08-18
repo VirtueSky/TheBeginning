@@ -37,8 +37,6 @@ namespace TheBeginning.UI
 
         [SerializeField] private SoundData musicInGame;
 
-        private List<UIEffectComponent> UIEffects => GetComponentsInChildren<UIEffectComponent>().ToList();
-
 
         protected override void OnBeforeShow()
         {
@@ -88,15 +86,6 @@ namespace TheBeginning.UI
         public void OnClickWin()
         {
             winLevelEvent.Raise(1);
-        }
-
-        public void HideUI(Level level = null)
-        {
-            if (UIEffects.Count == 0) return;
-            foreach (UIEffectComponent item in UIEffects)
-            {
-                item.PlayAnim();
-            }
         }
     }
 }

@@ -122,20 +122,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7111552140030416314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487761dac61860e4593f873a9e94a26e, type: 3}
+  m_Script: {fileID: 11500000, guid: abd6fadf7433b4546b620b089cfc160a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrencyAmountText: {fileID: 8100701126856239942}
-  StepCount: 10
-  DelayTime: 0.02
-  iconCoin: {fileID: 4161812952250122941}
-  currentCoin: {fileID: 11400000, guid: 6a4bbc0399fafde4bb1c4007bbfb6d9f, type: 2}
-  moveOneCoinDone: {fileID: 11400000, guid: 941474e3dc9ef89499f1c226fb6952e1, type: 2}
-  moveAllCoinDone: {fileID: 11400000, guid: b82c7998cf398094dba18b8bf2d7b029, type: 2}
-  decreaseCoinEvent: {fileID: 11400000, guid: 0b4384f237bdfa34cb719450451e4501, type: 2}
-  addTargetToCoinGenerateEvent: {fileID: 11400000, guid: 5536e1a745f504c7eb6f4f7b40ac0329,
+  currency: {fileID: 11400000, guid: d51f77007672438fb559d41a3b76b730, type: 2}
+  currencyAmountText: {fileID: 8100701126856239942}
+  iconTarget: {fileID: 4161812952250122941}
+  addTargetEvent: {fileID: 11400000, guid: 5536e1a745f504c7eb6f4f7b40ac0329, type: 2}
+  removeTargetEvent: {fileID: 11400000, guid: 8008196536e554abbb7d1ab3f83aab56, type: 2}
+  moveOneCurrencyDoneEvent: {fileID: 11400000, guid: 941474e3dc9ef89499f1c226fb6952e1,
     type: 2}
-  removeTargetToCoinGenerateEvent: {fileID: 11400000, guid: 8008196536e554abbb7d1ab3f83aab56,
+  moveAllCurrencyDoneEvent: {fileID: 11400000, guid: b82c7998cf398094dba18b8bf2d7b029,
     type: 2}
 --- !u!1 &7525439484679414412
 GameObject:
@@ -241,20 +238,23 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -441,17 +441,17 @@ PrefabInstance:
     - target: {fileID: 6847570348202856597, guid: 13121c2ae78cf4c439133bcbd83d53dc,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6847570348202856597, guid: 13121c2ae78cf4c439133bcbd83d53dc,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6847570348202856597, guid: 13121c2ae78cf4c439133bcbd83d53dc,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6847570348202856597, guid: 13121c2ae78cf4c439133bcbd83d53dc,
         type: 3}

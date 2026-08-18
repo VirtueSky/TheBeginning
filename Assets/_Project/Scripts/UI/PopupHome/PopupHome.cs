@@ -1,11 +1,11 @@
 using System;
-using PrimeTween;
 using TheBeginning.Config;
 using TheBeginning.Data;
 using UnityEngine;
 using VirtueSky.Audio;
 using VirtueSky.Core;
 using VirtueSky.Events;
+using VirtueSky.Tweening;
 using VirtueSky.Variables;
 
 namespace TheBeginning.UI
@@ -20,8 +20,6 @@ namespace TheBeginning.UI
         [SerializeField] private GameConfig gameConfig;
         [SerializeField] private StringVariable versionUpdateVariable;
         [SerializeField] private BooleanVariable dontShowAgainPopupUpdate;
-
-        private Tween tween;
 
         private void Start()
         {
@@ -45,7 +43,6 @@ namespace TheBeginning.UI
         protected override void OnBeforeHide()
         {
             base.OnBeforeHide();
-            tween.Stop();
             claimDailyRewardEvent.RemoveListener(SetupNoticeDailyReward);
         }
 
@@ -88,7 +85,7 @@ namespace TheBeginning.UI
         {
             if (gameConfig.EnableShowPopupUpdate && !dontShowAgainPopupUpdate.Value)
             {
-                tween = Tween.Delay(0.5f, () =>
+                Tween.Delay(0.5f, () =>
                 {
                     if (!versionUpdateVariable.Value.Equals(Application.version))
                     {

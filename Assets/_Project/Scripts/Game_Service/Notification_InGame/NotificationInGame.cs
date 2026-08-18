@@ -1,9 +1,9 @@
-using PrimeTween;
 using TheBeginning.Config;
 using TMPro;
 using UnityEngine;
 using VirtueSky.Core;
 using VirtueSky.Events;
+using VirtueSky.Tweening;
 
 namespace TheBeginning.Services
 {
@@ -41,20 +41,20 @@ namespace TheBeginning.Services
             isShow = true;
             gameObject.SetActive(true);
             textNoti.text = _textNoti;
-            Tween.UIAnchoredPositionY(container, posYShow, timeMove, Ease.OutBack).OnComplete(() =>
+            Tween.Create(posYHide, posYShow, timeMove).WithEase(Ease.OutBack).WithOnComplete(() =>
             {
-                App.Delay(gameConfig.TimeDelayHideNotificationInGame, () => { Hide(); });
-            });
+                App.Delay(gameConfig.TimeDelayHideNotificationInGame, Hide);
+            }).BindToAnchoredPositionY(container);
         }
 
         public void Hide()
         {
             if (!isShow) return;
-            Tween.UIAnchoredPositionY(container, posYHide, timeMove, Ease.InBack).OnComplete(() =>
+            Tween.Create(posYShow, posYHide, timeMove).WithEase(Ease.InBack).WithOnComplete(() =>
             {
                 isShow = false;
                 gameObject.SetActive(false);
-            });
+            }).BindToAnchoredPositionY(container);
         }
     }
 }

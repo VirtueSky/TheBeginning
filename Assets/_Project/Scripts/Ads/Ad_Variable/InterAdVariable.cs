@@ -70,7 +70,7 @@ public class InterAdVariable : AdVariable
                     trackingFirebaseShowInterCompleted.TrackEvent();
                     ResetCounter();
                 });
-            }).OnDisplayed(displayCallback);
+            }).OnDisplayed(info => displayCallback?.Invoke());
         }
         else
         {

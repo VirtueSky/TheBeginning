@@ -807,6 +807,7 @@ MonoBehaviour:
   iconConsoleLog: {fileID: 21300000, guid: 6dc678910c85e1948ab02dd201636490, type: 3}
   iconSlider: {fileID: 21300000, guid: b7cb707fa031cc94b8cc2f119bdfad21, type: 3}
   itemConfig: {fileID: 11400000, guid: bf6201b4097e66c43983ff56f832ac35, type: 2}
+  coinCurrency: {fileID: 11400000, guid: d51f77007672438fb559d41a3b76b730, type: 2}
   isOffUiVariable: {fileID: 11400000, guid: 03cbff122fde4534d9072e647621b894, type: 2}
   isTestingVariable: {fileID: 11400000, guid: d7eb04288f3f94c0d8523b23c6adcb25, type: 2}
   interAdVariable: {fileID: 11400000, guid: 88f7c202cefac3c4f9e29ffb5a85f62a, type: 2}
@@ -4515,7 +4516,6 @@ GameObject:
   - component: {fileID: 1448091024}
   - component: {fileID: 1448091026}
   - component: {fileID: 1448091025}
-  - component: {fileID: 1448091027}
   m_Layer: 0
   m_Name: Service
   m_TagString: Untagged
@@ -4553,6 +4553,8 @@ MonoBehaviour:
   notificationVariables:
   - {fileID: 11400000, guid: 968e6ecf0f1dc274e8b317a88339503b, type: 2}
   autoSchedule: 1
+  scheduleOnQuit: 1
+  notificationOnQuitVariables: []
 --- !u!114 &1448091015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4706,9 +4708,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
+  initType: 0
   adSetting: {fileID: 11400000, guid: f438eac3a49d436468a0dd8cf10cf3ee, type: 2}
   changePreventDisplayAppOpenEvent: {fileID: 11400000, guid: 79bb6a658a49caf419b315ee96940768,
     type: 2}
+  initializeAdEvent: {fileID: 0}
+  isInitAdClientVariable: {fileID: 0}
+  showAdDebugerEvent: {fileID: 0}
 --- !u!114 &1448091024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4774,21 +4780,6 @@ MonoBehaviour:
     type: 2}
   userIdVariable: {fileID: 11400000, guid: 10c1da772bb482246a3402bf222d1281, type: 2}
   tryLoginEvent: {fileID: 11400000, guid: 03c209f5485ba49919641bc646cc2927, type: 2}
---- !u!114 &1448091027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1448091006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4393e11709e34f3eb7eca603258bc351, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generateCoinEvent: {fileID: 11400000, guid: ee52367561b1f4c4f865ac869bce7df8, type: 2}
-  addCoinEvent: {fileID: 11400000, guid: cee9c22ce7323684fafca93ee6cc6759, type: 2}
-  minusCoinEvent: {fileID: 11400000, guid: e4f465a36dfffb64e86a8b0d62e96662, type: 2}
 --- !u!1 &1499282606
 GameObject:
   m_ObjectHideFlags: 0
@@ -6650,6 +6641,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoinGenerate
       objectReference: {fileID: 0}
+    - target: {fileID: 8756995076324937866, guid: 9061c66a86c22914ab4f80086948599c,
+        type: 3}
+      propertyPath: coinSpawnSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 725e2d43de9f05f438f1701a53390ca1,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

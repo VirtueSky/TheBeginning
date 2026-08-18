@@ -43,8 +43,8 @@ public class RewardAdVariable : AdVariable
                         completeCallback?.Invoke();
                         trackingFirebaseShowRewardCompleted.TrackEvent(trackingRewardPosition);
                     });
-                }).OnDisplayed(displayCallback)
-                .OnClosed(() => DelayHandle(closeCallback))
+                }).OnDisplayed(info => displayCallback?.Invoke())
+                .OnClosed(info => DelayHandle(closeCallback))
                 .OnSkipped(() => DelayHandle(skipCallback));
         }
         else

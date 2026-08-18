@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using PrimeTween;
 using TMPro;
 using Unity.Services.Authentication;
 using Unity.Services.Leaderboards;
@@ -84,7 +83,6 @@ namespace TheBeginning.UI
         private LeaderboardData _weeklyData = new("weekly_data");
         private Dictionary<string, Dictionary<string, object>> _userLeaderboardData = new();
         private int _countInOnePage;
-        private Sequence[] _sequences;
         private ELeaderboardTab _currentTab = ELeaderboardTab.AllTime;
         private AsyncProcessHandle _handleAnimation;
         private bool _firstTimeEnterWeekly = true;
@@ -94,7 +92,6 @@ namespace TheBeginning.UI
         {
             base.OnBeforeShow();
             _countInOnePage = slots.Count;
-            _sequences = new Sequence[slots.Count];
             buttonNextPage.onClick.AddListener(OnButtonNextPagePressed);
             buttonPreviousPage.onClick.AddListener(OnButtonPreviousPagePressed);
             buttonAllTimeRank.onClick.AddListener(OnButtonAllTimeRankPressed);
@@ -336,10 +333,6 @@ namespace TheBeginning.UI
             }
 
             block.SetActive(true);
-            foreach (var sequence in _sequences)
-            {
-                sequence.Stop();
-            }
 
             var pageData = new List<LeaderboardEntry>();
             for (int i = 0; i < _countInOnePage; i++)
@@ -366,21 +359,6 @@ namespace TheBeginning.UI
                     pageData[i].PlayerId.Equals(AuthenticationService.Instance.PlayerId));
                 slots[i].gameObject.SetActive(true);
 
-                _sequences[i].Stop();
-                // todo play anim
-                _sequences[i] = Sequence.Create();
-                _sequences[i]
-                    .Chain(Tween.Scale(slots[i].transform,
-                        new Vector3(0.92f, 0.92f, 0.92f),
-                        new Vector3(1.04f, 1.06f, 1),
-                        0.2f,
-                        Ease.OutQuad));
-                _sequences[i]
-                    .Chain(Tween.Scale(slots[i].transform,
-                        new Vector3(1.04f, 1.06f, 1),
-                        Vector3.one,
-                        0.15f,
-                        Ease.InQuad));
                 yield return new WaitForSeconds(displayRankCurve.Evaluate(i / (float)pageData.Count));
             }
         }

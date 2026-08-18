@@ -1,5 +1,4 @@
 using System;
-using PrimeTween;
 using TheBeginning.LevelSystem;
 using TheBeginning.UI;
 using UnityEngine;
@@ -8,6 +7,7 @@ using VirtueSky.Events;
 using VirtueSky.Inspector;
 using VirtueSky.Misc;
 using VirtueSky.Tracking;
+using VirtueSky.Tweening;
 using VirtueSky.Variables;
 
 namespace TheBeginning.Game

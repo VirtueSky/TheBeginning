@@ -1,59 +1,59 @@
-using PrimeTween;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VirtueSky.Inspector;
+using VirtueSky.Tweening;
 using VirtueSky.Variables;
 using VirtueSky.Vibration;
 
 public class Switcher : MonoBehaviour
 {
-    [Header("Datas")] public SwitchState SwitchState = SwitchState.Idle;
-    public bool IsOn;
-    [Header("Components")] public SettingType SettingType;
-    public Sprite On;
-    public Sprite Off;
-    public Image Switch;
-    public Transform OffPos;
-    public Transform OnPos;
-    public TextMeshProUGUI SwitchText;
+    [Header("Datas")] public SwitchState switchState = SwitchState.Idle;
+    public bool isOn;
+    [Header("Components")] public SettingType settingType;
+    public Sprite on;
+    public Sprite off;
+    public Image switchBar;
+    public Transform offPos;
+    public Transform onPos;
+    public TextMeshProUGUI switchText;
 
     [Header("Config attribute")] [Range(0.1f, 3f)]
-    public float TimeSwitching = .5f;
+    public float timeSwitching = .5f;
 
-    [ShowIf(nameof(SettingType), SettingType.BackgroundMusic)] [SerializeField]
+    [ShowIf(nameof(settingType), SettingType.BackgroundMusic)] [SerializeField]
     private FloatVariable musicChangedVariable;
 
-    [ShowIf(nameof(SettingType), SettingType.SoundFx)] [SerializeField]
+    [ShowIf(nameof(settingType), SettingType.SoundFx)] [SerializeField]
     private FloatVariable soundFxChangeVariable;
 
 
     private void SetupData()
     {
-        switch (SettingType)
+        switch (settingType)
         {
             case SettingType.BackgroundMusic:
-                IsOn = MusicChanged;
+                isOn = MusicChanged;
                 break;
             case SettingType.SoundFx:
-                IsOn = SoundFxChanged;
+                isOn = SoundFxChanged;
                 break;
             case SettingType.Vibration:
-                IsOn = VibrateChanged;
+                isOn = VibrateChanged;
                 break;
         }
     }
 
     private void SetupUI()
     {
-        if (SwitchText) SwitchText.text = IsOn ? "On" : "Off";
-        if (IsOn)
+        if (switchText) switchText.text = isOn ? "On" : "Off";
+        if (isOn)
         {
-            Switch.sprite = On;
+            switchBar.sprite = on;
         }
         else
         {
-            Switch.sprite = Off;
+            switchBar.sprite = off;
         }
     }
 
@@ -66,40 +66,40 @@ public class Switcher : MonoBehaviour
     private void OnEnable()
     {
         Setup();
-        Switch.transform.position = IsOn ? OnPos.position : OffPos.position;
+        switchBar.transform.position = isOn ? onPos.position : offPos.position;
     }
 
     public void Switching()
     {
-        if (SwitchState == SwitchState.Moving) return;
-        SwitchState = SwitchState.Moving;
-        if (IsOn)
+        if (switchState == SwitchState.Moving) return;
+        switchState = SwitchState.Moving;
+        if (isOn)
         {
-            Switch.transform.DOMove(OffPos.position, TimeSwitching);
+            Tween.Create(onPos.position, offPos.position, timeSwitching).BindToPosition(switchBar.transform);
         }
         else
         {
-            Switch.transform.DOMove(OnPos.position, TimeSwitching);
+            Tween.Create(offPos.position, onPos.position, timeSwitching).BindToPosition(switchBar.transform);
         }
 
-        DOTween.Sequence().AppendInterval(TimeSwitching / 2f).SetEase(Ease.Linear).AppendCallback(
-            () =>
+        Tween.Delay(timeSwitching / 2, () =>
+        {
+            switch (settingType)
             {
-                switch (SettingType)
-                {
-                    case SettingType.BackgroundMusic:
-                        MusicChanged = !IsOn;
-                        break;
-                    case SettingType.SoundFx:
-                        SoundFxChanged = !IsOn;
-                        break;
-                    case SettingType.Vibration:
-                        VibrateChanged = !IsOn;
-                        break;
-                }
+                case SettingType.BackgroundMusic:
+                    MusicChanged = !isOn;
+                    break;
+                case SettingType.SoundFx:
+                    SoundFxChanged = !isOn;
+                    break;
+                case SettingType.Vibration:
+                    VibrateChanged = !isOn;
+                    break;
+            }
 
-                Setup();
-            }).OnComplete(() => { SwitchState = SwitchState.Idle; });
+            Setup();
+            switchState = SwitchState.Idle;
+        });
     }
 
     private bool MusicChanged
