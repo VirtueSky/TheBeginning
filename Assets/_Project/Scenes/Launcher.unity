@@ -164,6 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeSceneEvent: {fileID: 11400000, guid: 728967541f883204f8066926561c2768, type: 2}
+  sceneReadyEvent: {fileID: 11400000, guid: 42e7d3ee06334e40ab54b796a931d65a, type: 2}
+  sceneReadyTimeout: 5
 --- !u!224 &231990640121293171
 RectTransform:
   m_ObjectHideFlags: 0

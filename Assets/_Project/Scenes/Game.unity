@@ -662,6 +662,7 @@ MonoBehaviour:
   callBackLevelEvent: {fileID: 11400000, guid: 9cc98c82176f3fa4e9684e9f20c64999, type: 2}
   callWinLevelEvent: {fileID: 11400000, guid: 8bb823675099e1844a9226562cd403df, type: 2}
   callLoseLevelEvent: {fileID: 11400000, guid: 737e2b8f8e70c1445be0bbabb38d77b5, type: 2}
+  sceneReadyEvent: {fileID: 11400000, guid: 42e7d3ee06334e40ab54b796a931d65a, type: 2}
   indexLevelVariable: {fileID: 11400000, guid: 4b75fe61160713244bd8c8bcf4ebecc6, type: 2}
 --- !u!1 &2108397320861559063
 GameObject:

@@ -42,6 +42,7 @@ namespace TheBeginning.Game
         [SerializeField] private EventNoParam callBackLevelEvent;
         [SerializeField] private FloatEvent callWinLevelEvent;
         [SerializeField] private FloatEvent callLoseLevelEvent;
+        [SerializeField] private EventNoParam sceneReadyEvent;
 
 
         [HeaderLine(Constant.SO_Variable)] [SerializeField]
@@ -77,7 +78,12 @@ namespace TheBeginning.Game
 
         private void Start()
         {
-            ReturnHome();
+            gameState = GameState.Lobby;
+            // Let SceneLoader drop the loading screen only once the home popup covers the screen.
+            PopupManager.Show<PopupHome>(showPopupCompleted: () =>
+            {
+                if (sceneReadyEvent != null) sceneReadyEvent.Raise();
+            });
         }
 
         void ReturnHome()
