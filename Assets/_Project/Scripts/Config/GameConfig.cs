@@ -14,9 +14,7 @@ namespace TheBeginning.Config
         [SerializeField] private int startLoopLevel = 1;
 
         [Space, HeaderLine("Gameplay config")] [SerializeField]
-        private bool enableDebugView = true;
-
-        [SerializeField] private TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
+        private TargetFrameRate targetFrameRate = TargetFrameRate.Frame60;
         [SerializeField] private bool multiTouchEnabled;
         [SerializeField] private int winLevelMoney = 100;
         [SerializeField] private int percentWinGiftPerLevel = 10;
@@ -41,7 +39,6 @@ namespace TheBeginning.Config
 
         public int MaxLevel => maxLevel;
         public int StartLoopLevel => startLoopLevel;
-        public bool EnableDebugView => enableDebugView;
         public TargetFrameRate TargetFrameRate => targetFrameRate;
         public bool MultiTouchEnabled => multiTouchEnabled;
         public int WinLevelMoney => winLevelMoney;

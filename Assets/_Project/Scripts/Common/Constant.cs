@@ -9,6 +9,7 @@ public class Constant
     public const string DAILY_REWARD_DAY_INDEX = "DAILY_REWARD_DAY_INDEX";
     public const string TOTAL_CLAIM_DAILY_REWARD = "TOTAL_CLAIM_DAILY_REWARD";
     public const string IS_OFF_INTER_ADS = "IS_OFF_INTER_ADS";
+    public const string ENABLE_DEBUG_VIEW = "ENABLE_DEBUG_VIEW";
 
 
     // Scene

@@ -1,6 +1,7 @@
 using Consolation;
 using TheBeginning.Currency;
 using TheBeginning.Config;
+using TheBeginning.Data;
 using TheBeginning.DebugViewPage;
 using UnityDebugSheet.Runtime.Core.Scripts;
 using UnityEngine;
@@ -14,7 +15,6 @@ namespace TheBeginning.Services
     public class DebugViewInitialization : ServiceInitialization
     {
         [SerializeField] private DebugSheet debugViewSheet;
-        [SerializeField] private GameConfig gameConfig;
 
         [HeaderLine("ConsoleInGame"), SerializeField]
         private ConsoleInGame consoleInGamePrefab;
@@ -58,15 +58,30 @@ namespace TheBeginning.Services
         [SerializeField] private StringEvent showNotificationInGameEvent;
 
 
+        private bool isSetup;
+
         public override void Initialization()
         {
-            if (!gameConfig.EnableDebugView)
-            {
-                debugViewSheet.gameObject.SetActive(false);
-                return;
-            }
+            UserData.DebugViewChanged -= OnDebugViewChanged;
+            UserData.DebugViewChanged += OnDebugViewChanged;
+            OnDebugViewChanged(UserData.EnableDebugView);
+        }
 
-            debugViewSheet.gameObject.SetActive(true);
+        private void OnDestroy()
+        {
+            UserData.DebugViewChanged -= OnDebugViewChanged;
+        }
+
+        void OnDebugViewChanged(bool isEnable)
+        {
+            if (debugViewSheet == null) return;
+            debugViewSheet.gameObject.SetActive(isEnable);
+            if (isEnable && !isSetup) SetupDebugView();
+        }
+
+        void SetupDebugView()
+        {
+            isSetup = true;
             SetupConsoleInGame();
             var initialPage = debugViewSheet.GetOrCreateInitialPage("TheBeginning Debug");
             // add game page
